@@ -1,11 +1,11 @@
-import AddRecipesPage from 'pages/AddRecipesPage';
-import CategoriesPage from 'pages/CategoriesPage';
-import FavouritePage from 'pages/FavouritePage';
-import MainPage from 'pages/MainPage';
-import MyRecipesPage from 'pages/MyRecipesPage';
-import RecipePage from 'pages/RecipePage';
-import SearchPage from 'pages/SearchPage';
-import ShoppingListPage from 'pages/ShoppingListPage';
+import AddRecipesPage from 'pages/AddRecipesPage/AddRecipesPage';
+import CategoriesPage from 'pages/CategoriesPage/CategoriesPage';
+import FavouritePage from 'pages/FavouritePage/FavouritePage';
+import MainPage from 'pages/MainPage/MainPage';
+import MyRecipesPage from 'pages/MyRecipesPage/MyRecipesPage';
+import RecipePage from 'pages/RecipePage/RecipePage';
+import SearchPage from 'pages/SearchPage/SearchPage';
+import ShoppingListPage from 'pages/ShoppingListPage/ShoppingListPage';
 import { Route, Routes } from 'react-router-dom';
 
 import SharedLayout from './SharedLayout/SharedLayout';
