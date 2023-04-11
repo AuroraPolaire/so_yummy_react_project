@@ -1,10 +1,13 @@
 import React from 'react';
-// import PropTypes from 'prop-types'
+import { LogoLink, LogoImg } from './Logo.styled';
+import logo from 'images/icons/logo-mobile.png';
 
-const Logo = props => {
-  return <div>Logo</div>;
+const Logo = () => {
+  return (
+    <LogoLink aria-current="page" to="/main">
+      <LogoImg src={logo} />
+    </LogoLink>
+  );
 };
-
-// Logo.propTypes = {}
 
 export default Logo;
