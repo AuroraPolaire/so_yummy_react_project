@@ -10,11 +10,12 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { authReducer } from './auth/authSlice';
+import { recipesReducer } from './recipes/recipesSlice';
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    // recepies: recepiesReducer,
+    recipes: recipesReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
