@@ -15,9 +15,9 @@ const PreviewCategories = () => {
         <List>
           {item[1].map(item => {
             return (
-              <div key={item._id}>
+              <div className="card" key={item._id}>
                 <img src={item.preview} alt={item.title} />
-                <p>{item.title}</p>
+                <p className="title">{item.title}</p>
               </div>
             );
           })}
