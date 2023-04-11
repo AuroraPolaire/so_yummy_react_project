@@ -21,4 +21,8 @@ ${normalize}
 body {
   font-family: 'Poppins', sans-serif;
 }
+
+li {
+  list-style: none;
+}
 `;

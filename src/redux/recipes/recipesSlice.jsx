@@ -19,7 +19,6 @@ const recipesSlice = createSlice({
         state.error = false;
       })
       .addCase(fetchRecipesMainPage.fulfilled, (state, action) => {
-        console.log(action);
         state.recipesMainPage = action.payload;
         state.isLoading = false;
         state.error = false;
