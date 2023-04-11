@@ -1,12 +1,14 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import {
   NavBurger,
   NavContainer,
-  NavMenu,
-  NavMenuItem,
+  HeaderLinkWrap,
+  HeaderLink,
+  HeaderSection,
 } from './Navigation.styled';
 import SearchIcon from '@mui/icons-material/Search';
+// import Logo from 'components/Logo/Logo';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -20,7 +22,7 @@ const Navigation = () => {
   // };
 
   return (
-    <>
+    <HeaderSection>
       <NavContainer>
         <NavBurger onClick={handleBurgerClick}>
           <div />
@@ -28,36 +30,31 @@ const Navigation = () => {
           <div />
         </NavBurger>
 
-        <NavMenu style={{ display: isOpen ? 'flex' : 'none' }}>
-          <NavMenuItem>
-            <NavLink to="/categories/:categoryName">Categories</NavLink>
-          </NavMenuItem>
-
-          <NavMenuItem>
-            <NavLink to="/add">Add recipes</NavLink>
-          </NavMenuItem>
-
-          <NavMenuItem>
-            <NavLink to="/my">My recipes</NavLink>
-          </NavMenuItem>
-
-          <NavMenuItem>
-            <NavLink to="/favourite">Favourite</NavLink>
-          </NavMenuItem>
-
-          <NavMenuItem>
-            <NavLink to="/shopping-list">Shopping list</NavLink>
-          </NavMenuItem>
-
-          <NavMenuItem>
-            <NavLink to="/search">
+        <HeaderLinkWrap style={{ display: isOpen ? 'flex' : 'none' }}>
+          <li>
+            <HeaderLink to="/categories/:categoryName">Categories</HeaderLink>
+          </li>
+          <li>
+            <HeaderLink to="/add">Add recipes</HeaderLink>
+          </li>
+          <li>
+            <HeaderLink to="/my">My recipes</HeaderLink>
+          </li>
+          <li>
+            <HeaderLink to="/favourite">Favourite</HeaderLink>
+          </li>
+          <li>
+            <HeaderLink to="/shopping-list">Shopping list</HeaderLink>
+          </li>
+          <li>
+            <HeaderLink to="/search">
               {' '}
               <SearchIcon sx={{ fontSize: 24 }} />
-            </NavLink>
-          </NavMenuItem>
-        </NavMenu>
+            </HeaderLink>
+          </li>
+        </HeaderLinkWrap>
       </NavContainer>
-    </>
+    </HeaderSection>
   );
 };
 export default Navigation;
