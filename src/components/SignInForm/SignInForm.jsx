@@ -49,11 +49,12 @@ export const SignInForm = () => {
       initialValues={{ email: '', password: '' }}
       validationSchema={signInSchema}
       onSubmit={(values, { resetForm }) => {
+        console.log(values);
         dispatch(signIn(values))
           .unwrap()
           .then(data => navigate('/'))
           .catch(error => console.log(error));
-        resetForm({ name: '', number: '', password: '' });
+        resetForm({ email: '', password: '' });
       }}
     >
       {props => (
