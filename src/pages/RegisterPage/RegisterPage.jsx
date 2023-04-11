@@ -1,10 +1,12 @@
-import React from 'react';
-// import PropTypes from 'prop-types'
+import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
-const RegisterPage = props => {
-  return <div>RegisterPage</div>;
+const RegisterPage = () => {
+  return (
+    <div>
+      <h2>Registration</h2>
+      <RegisterForm />
+    </div>
+  );
 };
-
-// RegisterPage.propTypes = {}
 
 export default RegisterPage;
