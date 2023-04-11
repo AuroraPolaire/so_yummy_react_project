@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { store } from 'redux/store';
 
 axios.defaults.baseURL = 'https://so-yumi.p.goit.global/api';
 
