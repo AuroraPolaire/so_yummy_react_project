@@ -1,6 +1,6 @@
 import React from 'react';
 import { LogoLink, LogoImg } from './Logo.styled';
-import logo from 'images/icons/logo-mobile.png';
+import logo from 'images/icons/logo.png';
 
 const Logo = () => {
   return (
