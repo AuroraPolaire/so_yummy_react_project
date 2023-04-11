@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../images/icons/logo.png';
 
 import {
   FooterSection,
@@ -9,7 +8,7 @@ import {
   LogoCapWrap,
   LogoLink,
   LogoTitle,
-  LogoImg,
+  LogoIcon,
   AppCapabilitiesList,
   AppCapabilitiesItem,
   FooterLinkWrap,
@@ -43,7 +42,7 @@ const Footer = () => {
             <LogoCapLinkWrap>
               <LogoCapWrap>
                 <LogoLink to="/main">
-                  <LogoImg src={logo} alt='logo' width={32} />
+                  <LogoIcon> <use href="#icon-logo"></use> </LogoIcon>
                   <LogoTitle>So Yummy</LogoTitle>
                 </LogoLink>
 

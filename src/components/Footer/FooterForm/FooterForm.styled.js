@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
-import { ReactComponent as EmailIcon } from '../../../images/icons/email-icon-for-footer.svg';
-import { ReactComponent as ErrorLogo } from '../../../images/icons/Error-logo.svg';
-import { ReactComponent as SuccessLogo } from "../../../images/icons/Success-logo.svg";
+// import { ReactComponent as EmailIcon } from '../../../images/icons/email-icon-for-footer.svg';
+// import { ReactComponent as IconsSprite } from '../../../images/icons/Error-logo.svg';
+// import { ReactComponent as SuccessLogo } from "../../../images/icons/Success-logo.svg";
 
 // import { CiMail } from "react-icons/ci";
 
 //icons
-export const EmailIconStyled = styled(EmailIcon)`
+export const EmailIconStyled = styled.svg`
   position: absolute;
+  background-image: url('../../../images/icons/icons-sprite.svg');
   display: inline-block;
   width: 26px;
   height: 12px;
@@ -26,16 +27,18 @@ export const EmailIconStyled = styled(EmailIcon)`
 
 `
 
-export const ErrorLogoStyled = styled(ErrorLogo)`
+export const ErrorLogo = styled.svg`
     width: 20px;
+    background-image: url('../../../images/icons/icons-sprite.svg');
     transition: transform 0.5s ease;
   &:hover {
     transform: rotate(360deg);
   }
 `
 
-export const SuccessLogoStyled = styled(SuccessLogo)`
+export const SuccessLogoStyled = styled.svg`
   position: absolute;
+  background-image: url('../../../images/icons/icons-sprite.svg');
   right: 20px;
   top: 50%;
   transform: translateY(-50%);

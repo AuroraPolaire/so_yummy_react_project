@@ -12,7 +12,7 @@ import {
   FormFooterBtn,
   Error,
   InputWrapper,
-  ErrorLogoStyled,
+  ErrorLogo,
   SuccessLogoStyled,
   EmailIconStyled,
   ResetFormInput,
@@ -20,23 +20,23 @@ import {
 
 export const FooterForm = () => {
 
-const dispatch = useDispatch();
-const userEmail = useSelector(selectUserEmail);
-const theme = useSelector(selectorSwicherTheme);
+  const dispatch = useDispatch();
+  const userEmail = useSelector(selectUserEmail);
+  const theme = useSelector(selectorSwicherTheme);
 
-const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
-const validationSchema = yup.object().shape({
-  email: yup.string()
-    .matches(emailRegex, 'Invalid email address')
-    .required('Email is required'),
-});
+  const validationSchema = yup.object().shape({
+    email: yup.string()
+      .matches(emailRegex, 'Invalid email address')
+      .required('Email is required'),
+  });
 
   const formik = useFormik({
-  initialValues: {
-  email: userEmail || ''
-},
-  validationSchema,
+    initialValues: {
+      email: userEmail || ''
+    },
+    validationSchema,
     onSubmit: (values) => {
       dispatch(subscribeUser({ email: values.email }))
         .then((rejected) => {
@@ -45,13 +45,13 @@ const validationSchema = yup.object().shape({
             return notiflix.Notify.warning('It`s not yours Email');
           }
           if (rejected.payload === 'Request failed with status code 400') {
-             return notiflix.Notify.warning('Is allready Subscribe');
+            return notiflix.Notify.warning('Is allready Subscribe');
           }
           notiflix.Notify.success('Subscribed Successful');
-    }).catch((error) => {
-      console.log(error);
-      notiflix.Notify.failure('Error subscribing');
-    });
+        }).catch((error) => {
+          console.log(error);
+          notiflix.Notify.failure('Error subscribing');
+        });
     },
     validate: (values) => {
       const errors = {};
@@ -65,12 +65,11 @@ const validationSchema = yup.object().shape({
   });
 
   const onClickResetButton = () => {
-      formik.resetForm();
+    formik.resetForm();
   }
 
   return (
-    <FormFooter onSubmit={formik.handleSubmit}
-    >
+    <FormFooter onSubmit={formik.handleSubmit}>
       <InputWrapper>
         <FormFooterInput
           type="email"
@@ -84,15 +83,22 @@ const validationSchema = yup.object().shape({
           touched={formik.touched.email}
           required
           themeName={theme}
-
         />
-        <EmailIconStyled errorformik={formik.errors.email } />
+        <EmailIconStyled errorformik={formik.errors.email} />
         {!formik.isValid ? (
           <ResetFormInput
             type='button'
             onClick={onClickResetButton}
           >
-            <ErrorLogoStyled /></ResetFormInput>) : (<SuccessLogoStyled />)}
+            <ErrorLogo>
+              <use href="#icon-Error-logo"></use>
+            </ErrorLogo>
+          </ResetFormInput>
+        ) : (
+          <SuccessLogoStyled>
+            <use href="#icon-Success-logo"></use>
+          </SuccessLogoStyled>
+        )}
         {formik.errors.email ? (
           <Error>{formik.errors.email}</Error>
         ) : null}
@@ -101,8 +107,6 @@ const validationSchema = yup.object().shape({
 
       <FormFooterBtn type="submit" disabled={!formik.isValid}>Subscribe</FormFooterBtn>
 
-
     </FormFooter>
-
   );
 }

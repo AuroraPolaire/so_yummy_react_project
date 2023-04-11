@@ -80,10 +80,16 @@ export const LogoLink = styled(NavLink)`
   }
 `;
 
-export const LogoImg = styled.img`
-   @media screen and (min-width: 768px) {
-    width: 44px;
-    height: 44px;
+export const LogoIcon = styled.svg`
+  width: 20px;
+  background-image: url('../../../images/icons/icons-sprite.svg');
+  path {
+    fill: #8BAA36;
+    transition: fill 250ms linear;
+  }
+  :hover path,
+  :focus path {
+    fill: #FAFAFA;
   }
 `;
 

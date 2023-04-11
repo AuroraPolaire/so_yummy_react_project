@@ -1,10 +1,10 @@
 import {
   SocialLinks,
   SocialLink,
-  FacebookIconStyled,
-  YoutubeIconStyled,
-  TwitterIconStyled,
-  InstagramIconStyled
+  FacebookIcon,
+  YoutubeIcon,
+  TwitterIcon,
+  InstagramIcon
 
 } from "./FooterSocialLinks.styled";
 
@@ -13,21 +13,21 @@ const SocialLinksComponent = () => {
     <SocialLinks>
 
       <SocialLink to='https://www.facebook.com/' target='_blank'>
-        <FacebookIconStyled />
+        <FacebookIcon />
       </SocialLink>
 
 
       <SocialLink to='https://www.youtube.com/' target='_blank'>
-        <YoutubeIconStyled />
+        <YoutubeIcon />
       </SocialLink>
 
 
       <SocialLink to='https://twitter.com/' target='_blank'>
-        <TwitterIconStyled />
+        <TwitterIcon />
       </SocialLink>
 
       <SocialLink to='https://www.instagram.com/' target='_blank'>
-        <InstagramIconStyled />
+        <InstagramIcon />
       </SocialLink>
 
     </SocialLinks>
