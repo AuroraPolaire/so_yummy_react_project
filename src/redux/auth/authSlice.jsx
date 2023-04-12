@@ -7,7 +7,7 @@ import {
   logout,
   register,
   fetchCurrentUser,
-  refreshToken,
+  // refreshToken,
 } from './authOperations';
 
 const initialState = {

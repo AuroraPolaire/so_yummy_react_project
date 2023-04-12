@@ -15,7 +15,7 @@ import SignInPage from 'pages/SignInPage/SignInPage';
 import SharedLayout from './SharedLayout/SharedLayout';
 import { PrivateRoute } from './PrivateRoute';
 import { selectIsRefreshing } from '../redux/auth/authSelectors';
-import { fetchCurrentUser, refreshToken } from '../redux/auth/authOperations';
+import { fetchCurrentUser } from '../redux/auth/authOperations';
 import { useEffect } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
 
