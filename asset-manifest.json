@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.3829fb89.js",
+    "main.js": "/so_yummy_react_project/static/js/main.6a0cb71a.js",
     "static/media/spinach-desktop2x.webp": "/so_yummy_react_project/static/media/spinach-desktop2x.09873f096bcbffc5f1a7.webp",
     "static/media/footerSharedDB_Desktop@2x.webp": "/so_yummy_react_project/static/media/footerSharedDB_Desktop@2x.851cc36f664fb0aced43.webp",
     "static/media/spinach_tab2x.webp": "/so_yummy_react_project/static/media/spinach_tab2x.a3dd34ab8cf4dcc7e4fc.webp",
@@ -32,9 +32,9 @@
     "static/media/footerBG_mobile.webp": "/so_yummy_react_project/static/media/footerBG_mobile.e193c6212e48344ae5e2.webp",
     "static/media/spinach_blur_mob1x.webp": "/so_yummy_react_project/static/media/spinach_blur_mob1x.db17b960fab713eb1564.webp",
     "index.html": "/so_yummy_react_project/index.html",
-    "main.3829fb89.js.map": "/so_yummy_react_project/static/js/main.3829fb89.js.map"
+    "main.6a0cb71a.js.map": "/so_yummy_react_project/static/js/main.6a0cb71a.js.map"
   },
   "entrypoints": [
-    "static/js/main.3829fb89.js"
+    "static/js/main.6a0cb71a.js"
   ]
 }
