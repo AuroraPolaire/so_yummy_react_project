@@ -31,15 +31,16 @@ const authSlice = createSlice({
         state.token = null;
         state.isLoggedIn = false;
       })
-      .addCase(fetchCurrentUser.fulfilled, (state, action) => {
-        state.user = action.payload;
-
-        state.isLoggedIn = true;
-        state.isRefreshing = false;
-      })
-
       .addCase(fetchCurrentUser.pending, state => {
         state.isRefreshing = true;
+      })
+      .addCase(fetchCurrentUser.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.user.email = action.payload.email;
+        state.user.name = action.payload.name;
+        // state.user = action.payload;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
       })
 
       .addCase(fetchCurrentUser.rejected, state => {

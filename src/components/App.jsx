@@ -13,9 +13,9 @@ import ShoppingListPage from 'pages/ShoppingListPage/ShoppingListPage';
 import SignInPage from 'pages/SignInPage/SignInPage';
 
 import SharedLayout from './SharedLayout/SharedLayout';
-// import { PrivateRoute } from './PrivateRoute';
+import { PrivateRoute } from './PrivateRoute';
 import { selectIsRefreshing } from '../redux/auth/authSelectors';
-import { fetchCurrentUser } from 'redux/auth/authOperations';
+import { fetchCurrentUser } from '../redux/auth/authOperations';
 import { useEffect } from 'react';
 
 export const App = () => {
@@ -32,8 +32,8 @@ export const App = () => {
         <Routes>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<SignInPage />} />
-          <Route path="/" element={<SharedLayout />}>
-            {/* <Route
+          {/* <Route path="/" element={<SharedLayout />}> */}
+          <Route
             path="/"
             element={
               <PrivateRoute
@@ -41,8 +41,7 @@ export const App = () => {
                 component={<SharedLayout />}
               />
             }
-          > */}
-            {/* <PrivateRoute redirectTo="/login" component={<Contacts />} */}
+          >
             <Route index element={<MainPage />} />
             <Route
               path="/categories/:categoryName"
@@ -54,6 +53,7 @@ export const App = () => {
             <Route path="/recipe/:recipeId" element={<RecipePage />} />
             <Route path="/shopping-list" element={<ShoppingListPage />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="*" element={<p>Path not resolved</p>} />
           </Route>
         </Routes>
       )}
