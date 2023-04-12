@@ -79,6 +79,29 @@ export const fetchCurrentUser = createAsyncThunk(
     }
   }
 );
+
+//..... Refresh token .....//
+export const refreshToken = createAsyncThunk(
+  'auth/refreshToken',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
+
+    token.set(persistedToken);
+    try {
+      const { data } = await axios.get('/users/refresh');
+      console.log(data);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const subscribeUser = createAsyncThunk(
   'auth/subscribe',
   async (email, thunkAPI) => {
