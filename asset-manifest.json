@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.42d5f01c.js",
+    "main.js": "/so_yummy_react_project/static/js/main.3a97ced1.js",
     "static/media/footerSharedDB_Desktop@2x.webp": "/so_yummy_react_project/static/media/footerSharedDB_Desktop@2x.851cc36f664fb0aced43.webp",
     "static/media/footerSharedDB_Tablet@2x.webp": "/so_yummy_react_project/static/media/footerSharedDB_Tablet@2x.e0d4dbc507a623f405cc.webp",
     "static/media/footerBG_Desktop@2x.webp": "/so_yummy_react_project/static/media/footerBG_Desktop@2x.02f799649c1c099632aa.webp",
@@ -14,9 +14,9 @@
     "static/media/footerBG_Tablet.webp": "/so_yummy_react_project/static/media/footerBG_Tablet.35cece3a57b557c83047.webp",
     "static/media/footerBG_mobile.webp": "/so_yummy_react_project/static/media/footerBG_mobile.e193c6212e48344ae5e2.webp",
     "index.html": "/so_yummy_react_project/index.html",
-    "main.42d5f01c.js.map": "/so_yummy_react_project/static/js/main.42d5f01c.js.map"
+    "main.3a97ced1.js.map": "/so_yummy_react_project/static/js/main.3a97ced1.js.map"
   },
   "entrypoints": [
-    "static/js/main.42d5f01c.js"
+    "static/js/main.3a97ced1.js"
   ]
 }
