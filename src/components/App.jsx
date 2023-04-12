@@ -11,6 +11,8 @@ import RegisterPage from 'pages/RegisterPage/RegisterPage';
 import SearchPage from 'pages/SearchPage/SearchPage';
 import ShoppingListPage from 'pages/ShoppingListPage/ShoppingListPage';
 import SignInPage from 'pages/SignInPage/SignInPage';
+
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
 
 import SharedLayout from './SharedLayout/SharedLayout';
@@ -76,7 +78,7 @@ export const App = () => {
             {/* <Route path="/recipe/:recipeId" element={<PrivateRoute redirectTo="/" component={<RecipePage />} />} /> */}
             <Route path="/shopping-list" element={<ShoppingListPage />} />
             <Route path="/search" element={<SearchPage />} />
-            <Route path="*" element={<p>Path not resolved</p>} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       )}
