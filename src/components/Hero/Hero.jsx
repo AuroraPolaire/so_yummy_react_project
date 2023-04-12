@@ -1,5 +1,12 @@
 import React from 'react';
-import { Description, Dish, HeroBox, Spinach, Title } from './Hero.styled';
+import {
+  Description,
+  Dish,
+  HeroBox,
+  Spinach,
+  SpinachBlur,
+  Title,
+} from './Hero.styled';
 
 const Hero = () => {
   return (
@@ -14,7 +21,7 @@ const Hero = () => {
         </Description>
         <Dish />
         <Spinach />
-        <div></div>
+        <SpinachBlur />
       </HeroBox>
     </>
   );

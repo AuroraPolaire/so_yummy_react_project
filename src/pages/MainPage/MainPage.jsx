@@ -2,6 +2,7 @@ import ChooseYourBreakfast from 'components/ChooseYourBreakfast/ChooseYourBreakf
 import Hero from 'components/Hero/Hero';
 import PreviewCategories from 'components/PreviewCategories/PreviewCategories';
 import Search from 'components/Search/Search';
+import { Wrapper } from 'components/theme/GlobalContainer';
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -17,9 +18,11 @@ const MainPage = () => {
   return (
     <>
       <Hero />
-      <ChooseYourBreakfast />
-      <Search />
-      <PreviewCategories />
+      <Wrapper>
+        <ChooseYourBreakfast />
+        <Search />
+        <PreviewCategories />
+      </Wrapper>
     </>
   );
 };

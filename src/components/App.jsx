@@ -13,7 +13,7 @@ import ShoppingListPage from 'pages/ShoppingListPage/ShoppingListPage';
 import SignInPage from 'pages/SignInPage/SignInPage';
 
 import SharedLayout from './SharedLayout/SharedLayout';
-import { PrivateRoute } from './PrivateRoute';
+// import { PrivateRoute } from './PrivateRoute';
 import { selectIsRefreshing } from '../redux/auth/authSelectors';
 import { fetchCurrentUser } from 'redux/auth/authOperations';
 import { useEffect } from 'react';
@@ -33,7 +33,7 @@ export const App = () => {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<SignInPage />} />
           <Route path="/" element={<SharedLayout />}>
-          {/* <Route
+            {/* <Route
             path="/"
             element={
               <PrivateRoute

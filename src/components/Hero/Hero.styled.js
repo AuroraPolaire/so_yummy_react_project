@@ -14,6 +14,13 @@ import spinachTabletRetina from '../../images/hero/tablet/spinach_tab2x.webp';
 import spinachDesktop from '../../images/hero/desktop/spinach-desktop1x.webp';
 import spinachDesktopRetina from '../../images/hero/desktop/spinach-desktop2x.webp';
 
+import spinachBlurMobile from '../../images/hero/mobile/spinach_blur_mob1x.webp';
+import spinachBlurMobileRetina from '../../images/hero/mobile/spinach_blur_mob2x.webp';
+import spinachBlurTablet from '../../images/hero/tablet/spinach_blur_tab1x.webp';
+import spinachBlurTabletRetina from '../../images/hero/tablet/spinach_blur_tab2x.webp';
+import spinachBlurDesktop from '../../images/hero/desktop/spinach_blur_desktop1x.webp';
+import spinachBlurDesktopRetina from '../../images/hero/desktop/spinach_blur_desktop2x.webp';
+
 export const HeroBox = styled.div`
   position: relative;
   height: 800px;
@@ -114,9 +121,9 @@ export const Spinach = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    top: -10%;
-    right: 0;
-    transform: translate(32%);
+    top: -30%;
+    right: -10%;
+    transform: translate(30%);
     min-width: 676px;
     min-height: 944px;
     background-image: url(${spinachDesktop});
@@ -124,6 +131,52 @@ export const Spinach = styled.div`
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       background-image: url(${spinachDesktopRetina});
+    }
+  } ;
+`;
+
+export const SpinachBlur = styled.div`
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  min-width: 171px;
+  min-height: 184px;
+  background-image: url(${spinachBlurMobile});
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(${spinachBlurMobileRetina});
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 0;
+    left: 0;
+    transform: translate(5%);
+    min-width: 292;
+    min-height: 315;
+    background-image: url(${spinachBlurTablet});
+    @media screen and (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${spinachBlurTabletRetina});
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: -20%;
+    right: 0;
+    transform: translate(0);
+    min-width: 4386px;
+    min-height: 474px;
+    background-image: url(${spinachBlurDesktop});
+    @media screen and (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${spinachBlurDesktopRetina});
     }
   } ;
 `;
