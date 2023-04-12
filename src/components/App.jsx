@@ -44,7 +44,7 @@ export const App = () => {
         <Loader />
       ) : (
         <Routes>
-          <Route
+          {/* <Route
             path="/register"
             element={
               <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
@@ -66,15 +66,15 @@ export const App = () => {
             <Route
               path="/categories/:categoryName"
               element={<CategoriesPage />}
-            />
+            /> */}
             <Route path="/add" element={<AddRecipesPage />} />
-            <Route path="/my" element={<MyRecipesPage />} />
+            {/* <Route path="/my" element={<MyRecipesPage />} />
             <Route path="/favourite" element={<FavouritePage />} />
             <Route path="/recipe/:recipeId" element={<RecipePage />} />
             <Route path="/shopping-list" element={<ShoppingListPage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="*" element={<p>Path not resolved</p>} />
-          </Route>
+          </Route> */}
         </Routes>
       )}
     </>
