@@ -8,7 +8,6 @@ const PreviewCategories = () => {
   const list = Object.entries(randomRecipes);
 
   return list.flatMap(item => {
-    console.log(item[0]);
     return (
       <div key={item[0]}>
         <h2>{item[0]}</h2>

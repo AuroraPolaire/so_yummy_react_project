@@ -1,13 +1,17 @@
 import React from 'react';
-import { LogoLink } from './Logo.styled';
-import { LogoIcon } from '../Footer/Footer.styled';
-// import logo from 'images/icons/logo.png';
+// import { LogoLink } from './Logo.styled';
+// import { LogoIcon } from '../Footer/Footer.styled';
+import { Link } from 'react-router-dom';
+import { HeaderLogo } from './Logo.styled';
 
 const Logo = () => {
   return (
-    <LogoLink aria-current="page" to="/main">
-      <LogoIcon> <use href="#icon-logo"></use> </LogoIcon>
-    </LogoLink>
+    <Link aria-current="page" to="/main">
+      <HeaderLogo>
+        {/* {' '}
+        <use href="#icon-logo"></use>{' '} */}
+      </HeaderLogo>
+    </Link>
   );
 };
 

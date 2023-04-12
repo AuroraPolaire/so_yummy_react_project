@@ -14,6 +14,20 @@ import spinachTabletRetina from '../../images/hero/tablet/spinach_tab2x.webp';
 import spinachDesktop from '../../images/hero/desktop/spinach-desktop1x.webp';
 import spinachDesktopRetina from '../../images/hero/desktop/spinach-desktop2x.webp';
 
+import spinachBlurMobile from '../../images/hero/mobile/spinach_blur_mob1x.webp';
+import spinachBlurMobileRetina from '../../images/hero/mobile/spinach_blur_mob2x.webp';
+import spinachBlurTablet from '../../images/hero/tablet/spinach_blur_tab1x.webp';
+import spinachBlurTabletRetina from '../../images/hero/tablet/spinach_blur_tab2x.webp';
+import spinachBlurDesktop from '../../images/hero/desktop/spinach_blur_desktop1x.webp';
+import spinachBlurDesktopRetina from '../../images/hero/desktop/spinach_blur_desktop2x.webp';
+
+import grayBGMobile from '../../images/hero/mobile/bg_mob1x.webp';
+import grayBGMobileRetina from '../../images/hero/mobile/bg_mob2x.webp';
+import grayBGTablet from '../../images/hero/tablet/bg_gray_tab1x.webp';
+import grayBGTabletRetina from '../../images/hero/tablet/bg_gray_tab2x.webp';
+import grayBGDesktop from '../../images/hero/desktop/gray_bg_desktop1x.webp';
+import grayBGDesktopRetina from '../../images/hero/desktop/gray_bg_desktop2x.webp';
+
 export const HeroBox = styled.div`
   position: relative;
   height: 800px;
@@ -25,7 +39,7 @@ export const Title = styled.h1`
   font-weight: thin;
   text-align: center;
   color: var(--font-gray);
-  padding-top: 70px;
+  padding-top: 50px;
 
   .title-green {
     color: var(--accent-color-green);
@@ -40,7 +54,7 @@ export const Description = styled.p`
 export const Dish = styled.div`
   position: absolute;
   z-index: -1;
-  top: 45%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%);
   min-width: 320px;
@@ -57,7 +71,7 @@ export const Dish = styled.div`
 
   @media screen and (min-width: 768px) {
     top: 8%;
-    transform: translate(-30%);
+    transform: translate(3%);
     min-width: 378px;
     min-height: 351px;
     background-image: url(${dishTablet});
@@ -70,7 +84,7 @@ export const Dish = styled.div`
 
   @media screen and (min-width: 1440px) {
     top: 0;
-    transform: translate(10%);
+    transform: translate(-15%);
     min-width: 578px;
     min-height: 539px;
     background-image: url(${dishDesktop});
@@ -86,7 +100,7 @@ export const Spinach = styled.div`
   position: absolute;
   z-index: -2;
   top: 3%;
-  left: 3%;
+  left: 9%;
   min-width: 519px;
   min-height: 792px;
   background-image: url(${spinachMobile});
@@ -100,9 +114,9 @@ export const Spinach = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    top: -10%;
+    top: -15%;
     right: 0;
-    transform: translate(5%);
+    transform: translate(15%);
     min-width: 500px;
     min-height: 700px;
     background-image: url(${spinachTablet});
@@ -114,9 +128,9 @@ export const Spinach = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    top: -10%;
+    top: -30%;
     right: 0;
-    transform: translate(32%);
+    transform: translate(23%);
     min-width: 676px;
     min-height: 944px;
     background-image: url(${spinachDesktop});
@@ -124,6 +138,97 @@ export const Spinach = styled.div`
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       background-image: url(${spinachDesktopRetina});
+    }
+  } ;
+`;
+
+export const SpinachBlur = styled.div`
+  position: absolute;
+  z-index: -1;
+  top: -5%;
+  left: 0;
+  min-width: 171px;
+  min-height: 184px;
+  background-image: url(${spinachBlurMobile});
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(${spinachBlurMobileRetina});
+  }
+
+  @media screen and (min-width: 768px) {
+    top: -10%;
+    left: 0;
+    min-width: 292px;
+    min-height: 315px;
+    background-image: url(${spinachBlurTablet});
+    @media screen and (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${spinachBlurTabletRetina});
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: -10%;
+    right: 0;
+    transform: translate(0);
+    min-width: 4386px;
+    min-height: 474px;
+    background-image: url(${spinachBlurDesktop});
+    @media screen and (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${spinachBlurDesktopRetina});
+    }
+  } ;
+`;
+
+export const GrayBG = styled.div`
+  position: absolute;
+  z-index: -3;
+  top: 10%;
+  right: -60%;
+  min-width: 519px;
+  min-height: 792px;
+  background-image: url(${grayBGMobile});
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(${grayBGMobileRetina});
+  }
+
+  @media screen and (min-width: 768px) {
+    top: -13%;
+    left: 55%;
+    /* transform: translate(-40%); */
+    min-width: 753px;
+    min-height: 730px;
+    background-image: url(${grayBGTablet});
+    @media screen and (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${grayBGTabletRetina});
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: -40%;
+    /* right: 20%; */
+    transform: translate(-10%);
+    min-width: 941px;
+    min-height: 912px;
+    background-image: url(${grayBGDesktop});
+    @media screen and (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${grayBGDesktopRetina});
     }
   } ;
 `;

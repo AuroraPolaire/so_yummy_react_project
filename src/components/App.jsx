@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
 import AddRecipesPage from 'pages/AddRecipesPage/AddRecipesPage';
@@ -14,27 +14,45 @@ import SignInPage from 'pages/SignInPage/SignInPage';
 
 import SharedLayout from './SharedLayout/SharedLayout';
 import { PrivateRoute } from './PrivateRoute';
-import { selectIsRefreshing } from '../redux/auth/authSelectors';
+import { selectIsRefreshing, selectToken } from '../redux/auth/authSelectors';
+import { fetchCurrentUser, refreshToken } from '../redux/auth/authOperations';
+import { useEffect } from 'react';
+import { RestrictedRoute } from './RestrictedRoute';
 
 export const App = () => {
+  const dispatch = useDispatch();
+  const token = useSelector(selectToken);
   const isRefreshing = useSelector(selectIsRefreshing);
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser())
+      .unwrap()
+      .then(result => !result && dispatch(refreshToken()));
+    // .catch(error => dispatch(refreshToken()));
+  }, [dispatch, token]);
+
   return (
     <>
       {isRefreshing ? null : (
         <Routes>
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<SignInPage />} />
-          {/* <Route path="/" element={<SharedLayout />}> */}
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute redirectTo="/" component={<SignInPage />} />
+            }
+          />
           <Route
             path="/"
             element={
-              <PrivateRoute
-                redirectTo="/register"
-                component={<SharedLayout />}
-              />
+              <PrivateRoute redirectTo="/login" component={<SharedLayout />} />
             }
           >
-            {/* <PrivateRoute redirectTo="/login" component={<Contacts />} */}
             <Route index element={<MainPage />} />
             <Route
               path="/categories/:categoryName"
@@ -46,6 +64,7 @@ export const App = () => {
             <Route path="/recipe/:recipeId" element={<RecipePage />} />
             <Route path="/shopping-list" element={<ShoppingListPage />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="*" element={<p>Path not resolved</p>} />
           </Route>
         </Routes>
       )}

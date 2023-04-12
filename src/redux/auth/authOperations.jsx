@@ -18,6 +18,7 @@ export const register = createAsyncThunk(
     try {
       const { data } = await axios.post('/users/signup', credentials);
       // token.set();
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -29,9 +30,9 @@ export const signIn = createAsyncThunk(
   'auth/signIn',
   async (credentials, thunkAPI) => {
     try {
-      console.log(credentials);
       const { data } = await axios.post('/users/login', credentials);
       token.set(data.accesstoken);
+      console.log(data);
       return data;
     } catch (error) {
       alert('Wrong email or password! Please try again');
@@ -72,12 +73,37 @@ export const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
+      // console.log(data);
       return data;
     } catch (error) {
       // TODO: Добавить обработку ошибки error.message
     }
   }
 );
+
+//..... Refresh token .....//
+export const refreshToken = createAsyncThunk(
+  'auth/refreshToken',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.refreshToken;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
+
+    try {
+      const { data } = await axios.post('/users/refresh', {
+        refreshToken: persistedToken,
+      });
+      console.log(data);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const subscribeUser = createAsyncThunk(
   'auth/subscribe',
   async (email, thunkAPI) => {

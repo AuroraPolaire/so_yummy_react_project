@@ -25,9 +25,9 @@ const Navigation = () => {
     <HeaderSection>
       <NavContainer>
         <NavBurger onClick={handleBurgerClick}>
+          {/* <div />
           <div />
-          <div />
-          <div />
+          <div /> */}
         </NavBurger>
 
         <HeaderLinkWrap style={{ display: isOpen ? 'flex' : 'none' }}>
