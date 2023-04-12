@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
 import AddRecipesPage from 'pages/AddRecipesPage/AddRecipesPage';
@@ -15,17 +15,25 @@ import SignInPage from 'pages/SignInPage/SignInPage';
 import SharedLayout from './SharedLayout/SharedLayout';
 import { PrivateRoute } from './PrivateRoute';
 import { selectIsRefreshing } from '../redux/auth/authSelectors';
+import { fetchCurrentUser } from 'redux/auth/authOperations';
+import { useEffect } from 'react';
 
 export const App = () => {
+  const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <>
       {isRefreshing ? null : (
         <Routes>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<SignInPage />} />
-          {/* <Route path="/" element={<SharedLayout />}> */}
-          <Route
+          <Route path="/" element={<SharedLayout />}>
+          {/* <Route
             path="/"
             element={
               <PrivateRoute
@@ -33,7 +41,7 @@ export const App = () => {
                 component={<SharedLayout />}
               />
             }
-          >
+          > */}
             {/* <PrivateRoute redirectTo="/login" component={<Contacts />} */}
             <Route index element={<MainPage />} />
             <Route
