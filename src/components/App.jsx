@@ -18,6 +18,7 @@ import { selectIsRefreshing } from '../redux/auth/authSelectors';
 import { fetchCurrentUser, refreshToken } from '../redux/auth/authOperations';
 import { useEffect } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
+import Loader from './Loader/Loader';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,9 @@ export const App = () => {
 
   return (
     <>
-      {isRefreshing ? null : (
+      {isRefreshing ? (
+        <Loader />
+      ) : (
         <Routes>
           <Route
             path="/register"
