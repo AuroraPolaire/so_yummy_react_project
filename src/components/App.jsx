@@ -65,6 +65,7 @@ export const App = () => {
             <Route path="/my" element={<MyRecipesPage />} />
             <Route path="/favourite" element={<FavouritePage />} />
             <Route path="/recipe/:recipeId" element={<RecipePage />} />
+            {/* <Route path="/recipe/:recipeId" element={<PrivateRoute redirectTo="/" component={<RecipePage />} />} /> */}
             <Route path="/shopping-list" element={<ShoppingListPage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="*" element={<p>Path not resolved</p>} />
