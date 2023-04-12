@@ -32,7 +32,7 @@ export const signIn = createAsyncThunk(
     try {
       const { data } = await axios.post('/users/login', credentials);
       token.set(data.accesstoken);
-      console.log(data);
+      // console.log(data);
       return data;
     } catch (error) {
       alert('Wrong email or password! Please try again');
@@ -73,7 +73,11 @@ export const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
-      // console.log(data);
+      console.log('refresh user data', data);
+      // if (data.payload === undefined) {
+      // refreshToken();
+      // return;
+      // }
       return data;
     } catch (error) {
       // TODO: Добавить обработку ошибки error.message
@@ -96,7 +100,7 @@ export const refreshToken = createAsyncThunk(
       const { data } = await axios.post('/users/refresh', {
         refreshToken: persistedToken,
       });
-      console.log(data);
+      console.log('refresh token data', data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

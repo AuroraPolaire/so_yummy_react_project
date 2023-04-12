@@ -4,7 +4,7 @@ import { selectorSwicherTheme } from 'redux/auth/authSelectors';
 import { subscribeUser } from 'redux/auth/authOperations';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import notiflix from "notiflix";
+import notiflix from 'notiflix';
 
 import {
   FormFooter,
@@ -16,10 +16,9 @@ import {
   SuccessLogoStyled,
   EmailIconStyled,
   ResetFormInput,
-} from "./FooterForm.styled"
+} from './FooterForm.styled';
 
 export const FooterForm = () => {
-
   const dispatch = useDispatch();
   const userEmail = useSelector(selectUserEmail);
   const theme = useSelector(selectorSwicherTheme);
@@ -27,20 +26,20 @@ export const FooterForm = () => {
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
   const validationSchema = yup.object().shape({
-    email: yup.string()
+    email: yup
+      .string()
       .matches(emailRegex, 'Invalid email address')
       .required('Email is required'),
   });
 
   const formik = useFormik({
     initialValues: {
-      email: userEmail || ''
+      email: userEmail || '',
     },
     validationSchema,
-    onSubmit: (values) => {
+    onSubmit: values => {
       dispatch(subscribeUser({ email: values.email }))
-        .then((rejected) => {
-
+        .then(rejected => {
           if (rejected.payload === 'Request failed with status code 404') {
             return notiflix.Notify.warning('It`s not yours Email');
           }
@@ -48,12 +47,13 @@ export const FooterForm = () => {
             return notiflix.Notify.warning('Is allready Subscribe');
           }
           notiflix.Notify.success('Subscribed Successful');
-        }).catch((error) => {
+        })
+        .catch(error => {
           console.log(error);
           notiflix.Notify.failure('Error subscribing');
         });
     },
-    validate: (values) => {
+    validate: values => {
       const errors = {};
       if (!values.email) {
         errors.email = 'Required';
@@ -66,7 +66,7 @@ export const FooterForm = () => {
 
   const onClickResetButton = () => {
     formik.resetForm();
-  }
+  };
 
   return (
     <FormFooter onSubmit={formik.handleSubmit}>
@@ -75,7 +75,7 @@ export const FooterForm = () => {
           type="email"
           id="email"
           name="email"
-          placeholder='Enter your email address'
+          placeholder="Enter your email address"
           value={formik.values.email}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -86,10 +86,7 @@ export const FooterForm = () => {
         />
         <EmailIconStyled errorformik={formik.errors.email} />
         {!formik.isValid ? (
-          <ResetFormInput
-            type='button'
-            onClick={onClickResetButton}
-          >
+          <ResetFormInput type="button" onClick={onClickResetButton}>
             <ErrorLogo>
               <use href="#icon-Error-logo"></use>
             </ErrorLogo>
@@ -99,14 +96,12 @@ export const FooterForm = () => {
             <use href="#icon-Success-logo"></use>
           </SuccessLogoStyled>
         )}
-        {formik.errors.email ? (
-          <Error>{formik.errors.email}</Error>
-        ) : null}
-
+        {formik.errors.email ? <Error>{formik.errors.email}</Error> : null}
       </InputWrapper>
 
-      <FormFooterBtn type="submit" disabled={!formik.isValid}>Subscribe</FormFooterBtn>
-
+      <FormFooterBtn type="submit" disabled={!formik.isValid}>
+        Subscribe
+      </FormFooterBtn>
     </FormFooter>
   );
-}
+};
