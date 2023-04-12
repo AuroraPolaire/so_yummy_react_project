@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { register } from '../../redux/auth/authOperations';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
+import { Wrapper } from 'components/theme/GlobalContainer';
+
 
 // import { Navigate } from 'react-router';
 
@@ -57,6 +59,8 @@ export const RegisterForm = () => {
   // };
 
   return (
+    <Wrapper>
+
     <Formik
       initialValues={{ name: '', email: '', password: '' }}
       validationSchema={registerSchema}
@@ -99,6 +103,7 @@ export const RegisterForm = () => {
         </Form>
       )}
     </Formik>
+    </Wrapper>
   );
 };
 

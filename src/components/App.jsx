@@ -11,6 +11,7 @@ import RegisterPage from 'pages/RegisterPage/RegisterPage';
 import SearchPage from 'pages/SearchPage/SearchPage';
 import ShoppingListPage from 'pages/ShoppingListPage/ShoppingListPage';
 import SignInPage from 'pages/SignInPage/SignInPage';
+import WelcomePage from 'pages/WelcomePage/WelcomePage';
 
 import SharedLayout from './SharedLayout/SharedLayout';
 import { PrivateRoute } from './PrivateRoute';
@@ -35,6 +36,7 @@ export const App = () => {
     <>
       {isRefreshing ? null : (
         <Routes>
+            <Route path="/welcome" element={<WelcomePage />} />
           <Route
             path="/register"
             element={
