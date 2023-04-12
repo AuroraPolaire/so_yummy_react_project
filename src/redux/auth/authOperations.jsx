@@ -18,6 +18,7 @@ export const register = createAsyncThunk(
     try {
       const { data } = await axios.post('/users/signup', credentials);
       // token.set();
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -31,6 +32,7 @@ export const signIn = createAsyncThunk(
     try {
       const { data } = await axios.post('/users/login', credentials);
       token.set(data.accesstoken);
+      console.log(data);
       return data;
     } catch (error) {
       alert('Wrong email or password! Please try again');
@@ -80,31 +82,33 @@ export const fetchCurrentUser = createAsyncThunk(
 );
 
 //..... Refresh token .....//
-// export const refreshToken = createAsyncThunk(
-//   'auth/refreshToken',
-//   async (_, thunkAPI) => {
-//     const state = thunkAPI.getState();
-//     const persistedToken = state.auth.token;
-//     // console.log(persistedToken);
+export const refreshToken = createAsyncThunk(
+  'auth/refreshToken',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.refreshToken;
+    // console.log(persistedToken);
 
-//     if (persistedToken === null) {
-//       return thunkAPI.rejectWithValue();
-//     }
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
 
-//     token.set(persistedToken);
-//     const credentials = {};
-//     credentials['refreshToken'] = persistedToken;
-//     // console.log(JSON.stringify(credentials));
+    // token.set(persistedToken);
+    // const credentials = {};
+    // credentials['refreshToken'] = persistedToken;
+    // console.log(JSON.stringify(credentials));
 
-//     try {
-//       const result = await axios.get('/users/refresh', credentials);
-//       console.log(result);
-//       return result;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
+    try {
+      const { data } = await axios.post('/users/refresh', {
+        refreshToken: persistedToken,
+      });
+      console.log(data);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 export const subscribeUser = createAsyncThunk(
   'auth/subscribe',
