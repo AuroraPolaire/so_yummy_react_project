@@ -25,14 +25,26 @@ export const fetchRecipesMainPage = createAsyncThunk(
 );
 
 export const fetchRecipe = createAsyncThunk(
-    "recipe/fetchById",
-    
-  async ( id, thunkAPI) => {
+  'recipe/fetchById',
+
+  async (id, thunkAPI) => {
     try {
       const response = await axios.get(`/recipes/id/${id}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
+  }
+);
+
+export const fetchCategoryList = createAsyncThunk(
+  'recipes/category/list',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(`recipes/category/list`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
+  }
 );

@@ -1,4 +1,8 @@
-import { fetchRecipe, fetchRecipesMainPage } from './recipesOperations';
+import {
+  fetchRecipe,
+  fetchRecipesMainPage,
+  fetchCategoryList,
+} from './recipesOperations';
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -6,6 +10,7 @@ const initialState = {
   isLoading: false,
   error: false,
   currentRecipe: null,
+  categoryList: {},
 };
 
 //   ------------------Random 4 categories for main page -----------//
@@ -42,6 +47,20 @@ const recipesSlice = createSlice({
         state.isLoading = false;
         state.error = true;
       })
+      // ---- GET CATEGORY LIST ----
+      .addCase(fetchCategoryList.pending, state => {
+        state.isLoading = true;
+        state.error = false;
+      })
+      .addCase(fetchCategoryList.fulfilled, (state, action) => {
+        state.categoryList = action.payload;
+        state.isLoading = false;
+        state.error = false;
+      })
+      .addCase(fetchCategoryList.rejected, state => {
+        state.isLoading = false;
+        state.error = true;
+      });
   },
 });
 
