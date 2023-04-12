@@ -25,7 +25,3 @@ export const Wrapper = styled.div`
     padding: 28px 100px;
   }
 `;
-
-// export const GlobalContainer = Component => {
-//   return <Wrapper>{Component}</Wrapper>;
-// };
