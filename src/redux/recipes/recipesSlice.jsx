@@ -1,10 +1,11 @@
-import { fetchRecipesMainPage } from './recipesOperations';
+import { fetchRecipe, fetchRecipesMainPage } from './recipesOperations';
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   recipesMainPage: {},
   isLoading: false,
   error: false,
+  currentRecipe: null,
 };
 
 //   ------------------Random 4 categories for main page -----------//
@@ -26,7 +27,21 @@ const recipesSlice = createSlice({
       .addCase(fetchRecipesMainPage.rejected, state => {
         state.isLoading = false;
         state.error = true;
-      });
+      })
+      // ---- GET RECIPE BY ID FROM GENERAL RECIPES DATABASE ----
+      .addCase(fetchRecipe.pending, state => {
+        state.isLoading = true;
+        state.error = false;
+      })
+      .addCase(fetchRecipe.fulfilled, (state, action) => {
+        state.currentRecipe = action.payload;
+        state.isLoading = false;
+        state.error = false;
+      })
+      .addCase(fetchRecipe.rejected, state => {
+        state.isLoading = false;
+        state.error = true;
+      })
   },
 });
 

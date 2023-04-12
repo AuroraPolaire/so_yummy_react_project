@@ -23,3 +23,16 @@ export const fetchRecipesMainPage = createAsyncThunk(
     }
   }
 );
+
+export const fetchRecipe = createAsyncThunk(
+    "recipe/fetchById",
+    
+  async ( id, thunkAPI) => {
+    try {
+      const response = await axios.get(`/recipes/id/${id}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+    }
+);
