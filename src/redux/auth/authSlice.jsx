@@ -11,7 +11,7 @@ import {
 } from './authOperations';
 
 const initialState = {
-  user: { name: null, email: null },
+  user: { name: null, email: null, avatarURL: null },
   token: null,
   refreshToken: null,
   isLoggedIn: false,
@@ -24,19 +24,21 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(register.fulfilled, (state, action) => {
+        console.log(action);
         state.user = action.payload.user;
         state.token = action.payload.accessToken;
         state.refreshToken = action.payload.refreshToken;
         state.isLoggedIn = true;
       })
       .addCase(signIn.fulfilled, (state, action) => {
+        console.log(action);
         state.user = action.payload.user;
         state.token = action.payload.accessToken;
         state.refreshToken = action.payload.refreshToken;
         state.isLoggedIn = true;
       })
       .addCase(logout.fulfilled, state => {
-        state.user = { name: null, email: null };
+        state.user = { name: null, email: null, avatarURL: null };
         state.token = null;
         state.isLoggedIn = false;
       })
@@ -44,9 +46,7 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(fetchCurrentUser.fulfilled, (state, action) => {
-        console.log(action);
-        state.user.email = action.payload.email;
-        state.user.name = action.payload.name;
+        state.user = action.payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
