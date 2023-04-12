@@ -1,21 +1,25 @@
-import Logo from 'components/Logo/Logo';
-import Navigation from 'components/Navigation/Navigation';
-import ThemeToggler from 'components/ThemeToggler/ThemeToggler';
-import UserLogo from 'components/UserLogo/UserLogo';
-import React from 'react';
-// import PropTypes from 'prop-types'
+import styled from 'styled-components';
 
-const Header = props => {
-  return (
-    <div>
-      <Logo />
-      <Navigation />
-      <UserLogo />
-      <ThemeToggler />
-    </div>
-  );
-};
+export const HeaderNav = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 16px;
+  max-width: 343px;
+  margin-left: auto;
+  margin-right: auto;
+  @media (min-width: 768px) {
+    max-width: 704px;
+  }
+  @media (min-width: 1280px) {
+    padding: 18px 0;
+    max-width: 1240px;
+  }
+`;
 
-// Header.propTypes = {}
-
-export default Header;
+export const HeaderModal = styled.div`
+  padding: 18px 16px;
+  width: 100wv;
+  display: flex;
+  justify-content: space-around;
+`;

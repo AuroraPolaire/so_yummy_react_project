@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
 
 export const LogoImg = styled.img`
+  /* display: block; */
+  /* position: relative;
+  top: 45px;
+  z-index: 5; */
   width: 40px;
   height: 40px;
   @media (min-width: 768px) {

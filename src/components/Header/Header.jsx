@@ -3,16 +3,19 @@ import Navigation from 'components/Navigation/Navigation';
 import ThemeToggler from 'components/ThemeToggler/ThemeToggler';
 import UserLogo from 'components/UserLogo/UserLogo';
 import React from 'react';
+import { HeaderNav } from './Header.styled';
 // import PropTypes from 'prop-types'
 
-const Header = props => {
+const Header = () => {
   return (
-    <div>
-      <Logo />
-      <Navigation />
-      <UserLogo />
-      <ThemeToggler />
-    </div>
+    <>
+      <HeaderNav>
+        <Logo />
+        <Navigation />
+        <UserLogo />
+        <ThemeToggler />
+      </HeaderNav>
+    </>
   );
 };
 
