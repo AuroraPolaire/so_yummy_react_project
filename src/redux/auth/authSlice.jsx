@@ -41,7 +41,6 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(fetchCurrentUser.fulfilled, (state, action) => {
-        console.log(action);
         state.user.email = action.payload.email;
         state.user.name = action.payload.name;
         // state.user = action.payload;
@@ -50,19 +49,19 @@ const authSlice = createSlice({
       })
       .addCase(fetchCurrentUser.rejected, state => {
         state.isRefreshing = false;
-      })
-      .addCase(refreshToken.pending, state => {
-        // state.token = null;
-        state.isRefreshing = true;
-      })
-      .addCase(refreshToken.fulfilled, (state, action) => {
-        state.token = action.payload.accessToken;
-        state.isRefreshing = false;
-      })
-      .addCase(refreshToken.rejected, state => {
-        // state.token = null;
-        state.isRefreshing = false;
       });
+    // .addCase(refreshToken.pending, state => {
+    //   // state.token = null;
+    //   state.isRefreshing = true;
+    // })
+    // .addCase(refreshToken.fulfilled, (state, action) => {
+    //   state.token = action.payload.accessToken;
+    //   state.isRefreshing = false;
+    // })
+    // .addCase(refreshToken.rejected, state => {
+    //   // state.token = null;
+    //   state.isRefreshing = false;
+    // });
   },
 });
 

@@ -29,7 +29,6 @@ export const signIn = createAsyncThunk(
   'auth/signIn',
   async (credentials, thunkAPI) => {
     try {
-      console.log(credentials);
       const { data } = await axios.post('/users/login', credentials);
       token.set(data.accesstoken);
       return data;
@@ -72,7 +71,7 @@ export const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
-      console.log(data);
+      // console.log(data);
       return data;
     } catch (error) {
       // TODO: Добавить обработку ошибки error.message
@@ -81,26 +80,31 @@ export const fetchCurrentUser = createAsyncThunk(
 );
 
 //..... Refresh token .....//
-export const refreshToken = createAsyncThunk(
-  'auth/refreshToken',
-  async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+// export const refreshToken = createAsyncThunk(
+//   'auth/refreshToken',
+//   async (_, thunkAPI) => {
+//     const state = thunkAPI.getState();
+//     const persistedToken = state.auth.token;
+//     // console.log(persistedToken);
 
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue();
-    }
+//     if (persistedToken === null) {
+//       return thunkAPI.rejectWithValue();
+//     }
 
-    token.set(persistedToken);
-    try {
-      const { data } = await axios.get('/users/refresh');
-      console.log(data);
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+//     token.set(persistedToken);
+//     const credentials = {};
+//     credentials['refreshToken'] = persistedToken;
+//     // console.log(JSON.stringify(credentials));
+
+//     try {
+//       const result = await axios.get('/users/refresh', credentials);
+//       console.log(result);
+//       return result;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 export const subscribeUser = createAsyncThunk(
   'auth/subscribe',

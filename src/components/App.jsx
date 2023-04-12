@@ -24,9 +24,7 @@ export const App = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
-    dispatch(fetchCurrentUser())
-      .unwrap()
-      .catch(error => dispatch(refreshToken()));
+    dispatch(fetchCurrentUser());
   }, [dispatch]);
 
   return (
