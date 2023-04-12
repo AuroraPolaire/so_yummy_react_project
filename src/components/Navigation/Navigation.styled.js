@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import MenuIcon from '@mui/icons-material/Menu';
+// import MenuIcon from '@mui/icons-material/Menu';
 // import { NavLink as Link } from 'react-router-dom';
+import { ReactComponent as SvgBurger } from '../../images/icons/burger.svg';
+
 export const HeaderSection = styled.div`
   position: relative;
-  background-color: #ececec;
   padding-top: 18px;
   z-index: 3;
   padding-left: 16px;
@@ -52,7 +53,6 @@ export const HeaderLink = styled(NavLink)`
   cursor: pointer;
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: -0.02em;
   margin-left: auto;
   margin-right: auto;
   margin-top: 32px;
@@ -80,33 +80,31 @@ export const HeaderLink = styled(NavLink)`
 
   &:hover {
     color: #8baa36;
-    font-weight: 600;
   }
   &.active {
     color: #8baa36;
-    font-weight: 600;
     text-decoration: none;
   }
 `;
 
 export const NavBurger = styled.button`
   border: none;
-  background-color: transparent;
+  /* background-color: transparent; */
   width: 32px;
   height: 32px;
 `;
 
-export const NavBurgerIcon = styled(MenuIcon)`
+export const NavBurgerIcon = styled(SvgBurger)`
   width: 24px;
   height: 24px;
-  color: #22252a;
-
+  fill: none;
+  stroke: #22252a;
   @media (min-width: 1280px) {
     display: none;
   }
-  & div {
+  /* & div {
     width: 25px;
     height: 3px;
     border-radius: 2px;
-  }
+  } */
 `;

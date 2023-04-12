@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const HeaderNav = styled.header`
   display: flex;
   justify-content: space-between;
+
   align-items: center;
   padding: 18px 16px;
   max-width: 343px;
@@ -22,4 +23,14 @@ export const HeaderModal = styled.div`
   width: 100wv;
   display: flex;
   justify-content: space-around;
+`;
+
+export const HeaderContainer = styled.div`
+  padding: 0 16px;
+  @media (min-width: 768px) {
+    padding: 0 32px;
+  }
+  @media (min-width: 1280px) {
+    padding: 0 100px;
+  }
 `;
