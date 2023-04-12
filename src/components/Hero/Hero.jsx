@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Description,
   Dish,
+  GrayBG,
   HeroBox,
   Spinach,
   SpinachBlur,
@@ -22,6 +23,7 @@ const Hero = () => {
         <Dish />
         <Spinach />
         <SpinachBlur />
+        <GrayBG />
       </HeroBox>
     </>
   );

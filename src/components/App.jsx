@@ -14,20 +14,22 @@ import SignInPage from 'pages/SignInPage/SignInPage';
 
 import SharedLayout from './SharedLayout/SharedLayout';
 import { PrivateRoute } from './PrivateRoute';
-import { selectIsRefreshing } from '../redux/auth/authSelectors';
+import { selectIsRefreshing, selectToken } from '../redux/auth/authSelectors';
 import { fetchCurrentUser, refreshToken } from '../redux/auth/authOperations';
 import { useEffect } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
+  const token = useSelector(selectToken);
   const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(fetchCurrentUser())
       .unwrap()
-      .catch(error => dispatch(refreshToken()));
-  }, [dispatch]);
+      .then(result => !result && dispatch(refreshToken()));
+    // .catch(error => dispatch(refreshToken()));
+  }, [dispatch, token]);
 
   return (
     <>

@@ -21,6 +21,13 @@ import spinachBlurTabletRetina from '../../images/hero/tablet/spinach_blur_tab2x
 import spinachBlurDesktop from '../../images/hero/desktop/spinach_blur_desktop1x.webp';
 import spinachBlurDesktopRetina from '../../images/hero/desktop/spinach_blur_desktop2x.webp';
 
+import grayBGMobile from '../../images/hero/mobile/bg_mob1x.webp';
+import grayBGMobileRetina from '../../images/hero/mobile/bg_mob2x.webp';
+import grayBGTablet from '../../images/hero/tablet/bg_gray_tab1x.webp';
+import grayBGTabletRetina from '../../images/hero/tablet/bg_gray_tab2x.webp';
+import grayBGDesktop from '../../images/hero/desktop/gray_bg_desktop1x.webp';
+import grayBGDesktopRetina from '../../images/hero/desktop/gray_bg_desktop2x.webp';
+
 export const HeroBox = styled.div`
   position: relative;
   height: 800px;
@@ -32,7 +39,7 @@ export const Title = styled.h1`
   font-weight: thin;
   text-align: center;
   color: var(--font-gray);
-  padding-top: 70px;
+  padding-top: 50px;
 
   .title-green {
     color: var(--accent-color-green);
@@ -47,7 +54,7 @@ export const Description = styled.p`
 export const Dish = styled.div`
   position: absolute;
   z-index: -1;
-  top: 45%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%);
   min-width: 320px;
@@ -138,7 +145,7 @@ export const Spinach = styled.div`
 export const SpinachBlur = styled.div`
   position: absolute;
   z-index: -1;
-  top: 0;
+  top: -5%;
   left: 0;
   min-width: 171px;
   min-height: 184px;
@@ -177,6 +184,52 @@ export const SpinachBlur = styled.div`
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       background-image: url(${spinachBlurDesktopRetina});
+    }
+  } ;
+`;
+
+export const GrayBG = styled.div`
+  position: absolute;
+  z-index: -3;
+  top: 10%;
+  right: -60%;
+  min-width: 519px;
+  min-height: 792px;
+  background-image: url(${grayBGMobile});
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(${grayBGMobileRetina});
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 0;
+    left: 0;
+    transform: translate(5%);
+    min-width: 292;
+    min-height: 315;
+    background-image: url(${grayBGTablet});
+    @media screen and (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${grayBGTabletRetina});
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: -20%;
+    right: 0;
+    transform: translate(0);
+    min-width: 4386px;
+    min-height: 474px;
+    background-image: url(${grayBGDesktop});
+    @media screen and (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${grayBGDesktopRetina});
     }
   } ;
 `;

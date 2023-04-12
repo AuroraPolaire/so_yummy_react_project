@@ -87,16 +87,10 @@ export const refreshToken = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.refreshToken;
-    // console.log(persistedToken);
 
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
     }
-
-    // token.set(persistedToken);
-    // const credentials = {};
-    // credentials['refreshToken'] = persistedToken;
-    // console.log(JSON.stringify(credentials));
 
     try {
       const { data } = await axios.post('/users/refresh', {
