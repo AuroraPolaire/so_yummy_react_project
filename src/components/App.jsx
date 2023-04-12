@@ -14,10 +14,7 @@ import SignInPage from 'pages/SignInPage/SignInPage';
 
 import SharedLayout from './SharedLayout/SharedLayout';
 import { PrivateRoute } from './PrivateRoute';
-import {
-  selectIsLoggedIn,
-  selectIsRefreshing,
-} from '../redux/auth/authSelectors';
+import { selectIsRefreshing } from '../redux/auth/authSelectors';
 import { fetchCurrentUser } from '../redux/auth/authOperations';
 import { useEffect } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
@@ -29,13 +26,10 @@ export const App = () => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-
   return (
     <>
-      {isRefreshing && !isLoggedIn ? null : (
+      {isRefreshing ? null : (
         <Routes>
-          {/* <Route path="/" element={<SharedLayout />}> */}
           <Route
             path="/register"
             element={
@@ -51,10 +45,7 @@ export const App = () => {
           <Route
             path="/"
             element={
-              <PrivateRoute
-                redirectTo="/register"
-                component={<SharedLayout />}
-              />
+              <PrivateRoute redirectTo="/login" component={<SharedLayout />} />
             }
           >
             <Route index element={<MainPage />} />
