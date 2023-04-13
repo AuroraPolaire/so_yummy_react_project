@@ -48,3 +48,20 @@ export const fetchCategoryList = createAsyncThunk(
     }
   }
 );
+
+export const fetchRecipesByCategory = createAsyncThunk(
+  'recipes/category/categoryName',
+  async (
+    { categoryName = 'Beef', page = 1, limit = 8, sort = 'popular' },
+    thunkAPI
+  ) => {
+    try {
+      const { data } = await axios.get(
+        `/recipes/category/${categoryName}?page=${page}&limit=${limit}&sort=${sort}`
+      );
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

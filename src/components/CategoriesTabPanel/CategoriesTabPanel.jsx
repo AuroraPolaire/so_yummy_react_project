@@ -6,17 +6,32 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 
 import { useSelector } from 'react-redux';
-import { selectCategoryList } from 'redux/recipes/recipesSelectors';
-
-// import PropTypes from 'prop-types'
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import {
+  selectCategoryList,
+  selectRecipesByCategoryList,
+} from 'redux/recipes/recipesSelectors';
 
 const CategoriesTabPanel = () => {
-  const [value, setValue] = React.useState('1');
-  const categoryList = useSelector(selectCategoryList);
-  const list = Object.entries(categoryList);
+  const [value, setValue] = React.useState('Beef');
+  const categoryList = Object.entries(useSelector(selectCategoryList));
+  const recipesByCategoryList = Object.entries(
+    useSelector(selectRecipesByCategoryList)
+  );
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const query = location.pathname.split('/')[2];
+    const formattedQuery = query.charAt(0).toUpperCase() + query.slice(1);
+    setValue(formattedQuery);
+  }, [location]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    navigate(`/categories/${newValue}`);
   };
   return (
     <>
@@ -28,30 +43,42 @@ const CategoriesTabPanel = () => {
                 onChange={handleChange}
                 aria-label="lab API tabs example"
               >
-                <Tab label="Item One" value="1" />
-                <Tab label="Item Two" value="2" />
-                <Tab label="Item Three" value="3" />
-                <Tab label="Item One" value="4" />
-                <Tab label="Item Two" value="5" />
-                <Tab label="Item Three" value="6" />
+                {categoryList.flatMap(item => {
+                  return (
+                    <Tab
+                      label={item[1].title}
+                      value={item[1].title}
+                      key={item[1].title}
+                    />
+                  );
+                })}
               </TabList>
             </Box>
-            <TabPanel value="1">
-              Item One
-              {/* {list.map(item => item)} */}
+            <TabPanel value={value}>
+              {recipesByCategoryList.flatMap((item, key) => {
+                return (
+                  <div key={item[0]}>
+                    <div>
+                      {key === 0
+                        ? item[1].map(item => {
+                            return (
+                              <div className="card" key={item._id}>
+                                <img src={item.preview} alt={item.title} />
+                                <p className="title">{item.title}</p>
+                              </div>
+                            );
+                          })
+                        : null}
+                    </div>
+                  </div>
+                );
+              })}
             </TabPanel>
-            <TabPanel value="2">Item Two</TabPanel>
-            <TabPanel value="3">Item Three</TabPanel>
-            <TabPanel value="4">Item One</TabPanel>
-            <TabPanel value="5">Item Two</TabPanel>
-            <TabPanel value="6">Item Three</TabPanel>
           </TabContext>
         </Box>
       </div>
     </>
   );
 };
-
-// CategoriesPage.propTypes = {}
 
 export default CategoriesTabPanel;
