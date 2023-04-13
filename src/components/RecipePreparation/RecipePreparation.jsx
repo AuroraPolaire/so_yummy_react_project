@@ -1,5 +1,5 @@
-import React from 'react'
-import { InstructionsStyled, RecipePreparationStyled } from './RecipePreparation.styled'
+import React from 'react';
+import { InstructionsStyled, RecipePreparationStyled } from './RecipePreparation.styled';
 
 export default function RecipePreparation({instructions, previewImg, alt}) {
   return (
