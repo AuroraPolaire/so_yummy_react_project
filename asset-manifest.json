@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.5ecb3599.js",
+    "main.js": "/so_yummy_react_project/static/js/main.7213bc03.js",
     "static/media/spinach-desktop2x.webp": "/so_yummy_react_project/static/media/spinach-desktop2x.09873f096bcbffc5f1a7.webp",
     "static/media/footerSharedDB_Desktop@2x.webp": "/so_yummy_react_project/static/media/footerSharedDB_Desktop@2x.851cc36f664fb0aced43.webp",
     "static/media/tablet-modal-bg@2x.webp": "/so_yummy_react_project/static/media/tablet-modal-bg@2x.89d994a99a75b223b2fd.webp",
@@ -48,9 +48,9 @@
     "static/media/search.svg": "/so_yummy_react_project/static/media/search.7bd6033959ab7b144f43818cda85abae.svg",
     "static/media/exit.svg": "/so_yummy_react_project/static/media/exit.f98b5ed20ebf59dc309cf6b4a1a21ed6.svg",
     "static/media/burger.svg": "/so_yummy_react_project/static/media/burger.32b3cd4340613c9951a83bc4dd74e4cd.svg",
-    "main.5ecb3599.js.map": "/so_yummy_react_project/static/js/main.5ecb3599.js.map"
+    "main.7213bc03.js.map": "/so_yummy_react_project/static/js/main.7213bc03.js.map"
   },
   "entrypoints": [
-    "static/js/main.5ecb3599.js"
+    "static/js/main.7213bc03.js"
   ]
 }
