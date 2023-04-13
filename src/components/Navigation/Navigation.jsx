@@ -14,7 +14,7 @@ const Navigation = ({ onBurgerClose }) => {
     <nav>
       <HeaderNavLinksWrapper>
         <li>
-          <HeaderLink to="/categories/:categoryName" onClick={onBurgerClose}>
+          <HeaderLink to={`/categories/${'beef'}`} onClick={onBurgerClose}>
             Categories
           </HeaderLink>
         </li>
