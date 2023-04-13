@@ -11,9 +11,9 @@ const PreviewCategories = () => {
 
   let mobileMedia = window.matchMedia('(max-width: 376px)');
   let tabletMedia = window.matchMedia(
-    '(min-width: 377px) and (max-width: 769px)'
+    '(min-width: 377px) and (max-width: 1239px)'
   );
-  let desktopMedia = window.matchMedia('(min-width: 770px)');
+  let desktopMedia = window.matchMedia('(min-width: 1240px)');
 
   const filteredRecipesList = recipe => {
     if (!recipe) return;
