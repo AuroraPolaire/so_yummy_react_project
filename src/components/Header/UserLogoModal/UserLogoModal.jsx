@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
 
-const UserLogo = props => {
+const UserLogoModal = props => {
   return <div>UserLogoModal</div>;
 };
 
