@@ -60,8 +60,8 @@ export const MobileContainer = styled.div`
 
 export const HeaderLogoWrapper = styled.div`
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 18px;
+  left: 16px;
   @media screen and (min-width: 768px) {
     top: 18px;
     left: 32px;
@@ -71,8 +71,10 @@ export const HeaderLogoWrapper = styled.div`
 export const NavBurgerClose = styled.button`
   position: absolute;
   z-index: 10;
-  top: 15px;
-  right: 15px;
+  top: 22px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
   border: none;
   background-color: transparent;
 
@@ -83,9 +85,16 @@ export const NavBurgerClose = styled.button`
 `;
 
 export const NavBurgerCloseIcon = styled(SvgExit)`
+  cursor: pointer;
   stroke: #22252a;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    stroke: #8baa36;
+  }
 `;
 export const ThemeTogglerWrap = styled.div`
   position: absolute;
@@ -95,18 +104,4 @@ export const ThemeTogglerWrap = styled.div`
     bottom: 32px;
     left: 32px;
   }
-`;
-
-export const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 100;
-`;
-
-export const StyledModal = styled.div`
-  width: fit-content;
-  height: fit-content;
 `;

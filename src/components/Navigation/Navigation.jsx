@@ -9,7 +9,7 @@ import {
 } from './Navigation.styled';
 
 const Navigation = ({ onBurgerClose }) => {
-  const isMobileDevice = useMediaQuery('(max-width: 1199px)');
+  const isMobileDevice = useMediaQuery('(max-width: 1279px)');
   return (
     <nav>
       <HeaderNavLinksWrapper>
