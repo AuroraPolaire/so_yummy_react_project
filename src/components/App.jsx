@@ -44,7 +44,12 @@ export const App = () => {
     <>
       {isRefreshing ? null : (
         <Routes>
-            <Route path="/welcome" element={<WelcomePage />} />
+          <Route
+            path="/welcome"
+            element={
+              <RestrictedRoute redirectTo="/" component={<WelcomePage />} />
+            }
+          />
           <Route
             path="/register"
             element={
@@ -60,7 +65,10 @@ export const App = () => {
           <Route
             path="/"
             element={
-              <PrivateRoute redirectTo="/login" component={<SharedLayout />} />
+              <PrivateRoute
+                redirectTo="/welcome"
+                component={<SharedLayout />}
+              />
             }
           >
             <Route index element={<MainPage />} />
