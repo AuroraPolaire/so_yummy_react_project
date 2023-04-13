@@ -30,24 +30,26 @@ const Header = () => {
   };
 
   return (
-    <Wrapper>
-      <HeaderSection>
-        <Logo />
-        {!isMobileDevice && <Navigation />}
-        <UserWrapper>
-          <UserLogo />
-          <NavBurger onClick={onBurgerOpen}>
-            <NavBurgerIcon />
-          </NavBurger>
-          {!isMobileDevice && <ThemeToggler />}
-        </UserWrapper>
-        {isMobileDevice && BurgerMenu && (
-          <Modal onClose={onBurgerClose}>
-            <MobileMenu isShown={BurgerMenu} onBurgerClose={onBurgerClose} />
-          </Modal>
-        )}
-      </HeaderSection>
-    </Wrapper>
+    <header style={{ position: 'absolute', width: '100%' }}>
+      <Wrapper>
+        <HeaderSection>
+          <Logo />
+          {!isMobileDevice && <Navigation />}
+          <UserWrapper>
+            <UserLogo />
+            <NavBurger onClick={onBurgerOpen}>
+              <NavBurgerIcon />
+            </NavBurger>
+            {!isMobileDevice && <ThemeToggler />}
+          </UserWrapper>
+          {isMobileDevice && BurgerMenu && (
+            <Modal onClose={onBurgerClose}>
+              <MobileMenu isShown={BurgerMenu} onBurgerClose={onBurgerClose} />
+            </Modal>
+          )}
+        </HeaderSection>
+      </Wrapper>
+    </header>
   );
 };
 

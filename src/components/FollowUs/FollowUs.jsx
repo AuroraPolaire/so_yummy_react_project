@@ -1,10 +1,37 @@
-import React from 'react';
-// import PropTypes from 'prop-types'
+import {
+  SocialLinks,
+  SocialLink,
+  FacebookIcon,
+  YoutubeIcon,
+  TwitterIcon,
+  InstagramIcon
 
-const FollowUs = props => {
-  return <div>FollowUs</div>;
-};
+} from "./FollowUs.styled";
 
-// FollowUs.propTypes = {}
+export const FollowUs = () => {
+  return (
+    <SocialLinks>
 
-export default FollowUs;
+      <SocialLink to='https://www.facebook.com/' target='_blank'>
+        <FacebookIcon />
+      </SocialLink>
+
+
+      <SocialLink to='https://www.youtube.com/' target='_blank'>
+        <YoutubeIcon />
+      </SocialLink>
+
+
+      <SocialLink to='https://twitter.com/' target='_blank'>
+        <TwitterIcon />
+      </SocialLink>
+
+      <SocialLink to='https://www.instagram.com/' target='_blank'>
+        <InstagramIcon />
+      </SocialLink>
+
+    </SocialLinks>
+  );
+
+}
+

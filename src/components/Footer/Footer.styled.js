@@ -19,14 +19,14 @@ export const FooterSection = styled.div`
   padding-bottom: 28px;
   z-index: 3;
 
-
-   @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     padding-top: 50px;
     padding-bottom: 24px;
     padding-left: 32px;
     padding-right: 32px;
   }
-   @media screen and (min-width: 1440px) {
+
+  @media screen and (min-width: 1440px) {
     min-height: auto;
     padding-top: 64px;
     padding-bottom: 50px;
@@ -38,23 +38,25 @@ export const FooterSection = styled.div`
 export const Container = styled.div`
   color: #FAFAFA;
 
-   @media screen and (min-width: 375px) {
+  @media screen and (min-width: 375px) {
     display: block;
     margin: 0 auto;
     width: 375px;
   }
 
-   @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px){
     width: 704px;
   }
+
   @media screen and (min-width: 1440px) {
     width: 1240px;
   }
 `;
+
 export const LogoCapLinkWrap = styled.div`
   display: block;
 
-   @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     display: flex;
     justify-content: start;
   }
@@ -62,6 +64,7 @@ export const LogoCapLinkWrap = styled.div`
 
 export const LogoCapLinkFormWrap = styled.div`
   display: block;
+
   @media screen and (min-width: 1440px) {
     display: flex;
     justify-content: space-between;
@@ -71,11 +74,13 @@ export const LogoCapLinkFormWrap = styled.div`
 export const LogoCapWrap = styled.div`
   display: block;
 `;
+
 export const LogoLink = styled(NavLink)`
   display: flex;
   justify-content: center;
   align-items: center;
-   @media screen and (min-width: 768px) {
+
+  @media screen and (min-width: 768px) {
     justify-content: start;
   }
 `;
@@ -87,6 +92,7 @@ export const LogoIcon = styled.svg`
     fill: #8BAA36;
     transition: fill 250ms linear;
   }
+
   :hover path,
   :focus path {
     fill: #FAFAFA;
@@ -99,35 +105,35 @@ export const LogoTitle = styled.p`
   font-size: 18px;
   font-weight: 600;
 
-   @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     font-size: 28px;
     margin-left: 12px;
   }
 `;
+
 export const AppCapabilitiesList = styled.ul`
-  display: none;
-   @media screen and (min-width: 768px) {
-    display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media screen and (min-width: 768px) {
     margin-top: 24px;
   }
-   @media screen and (min-width: 768px) {
+
+  @media screen and (min-width: 1440px) {
     width: 418px;
   }
 `;
+
 export const AppCapabilitiesItem = styled.li`
   list-style-type: disc;
   margin-left: 32px;
   font-size: 14px;
   letter-spacing: -0.02em;
   line-height: 1.33;
-  &:not(:first-child) {
-    margin-top: 10px;
-  }
+
   @media screen and (min-width: 1440px) {
     font-size: 18px;
-    &:not(:first-child) {
-      margin-top: 14px;
-    }
   }
 `;
 
@@ -140,6 +146,7 @@ export const FooterLinkWrap = styled.ul`
     margin-left: 173px;
   }
   @media screen and (min-width: 1440px) {
+    margin-top: 64px;
     margin-left: 0;
   }
 `;
@@ -164,44 +171,9 @@ export const FooterLink = styled(NavLink)`
   }
   @media screen and (min-width: 1440px) {
     margin-left: 159px;
+    margin-top: 24px;
   }
 `;
-
-export const SubscFomrWrap = styled.div`
-  @media screen and (min-width: 1440px) {
-    width: 340px;
-  }
-`;
-
-export const SubscribeWrap = styled.div`
-  display: none;
-  @media screen and (min-width: 1440px) {
-    display: block;
-    h4 {
-      font-size: 18px;
-      font-weight: 700;
-    }
-    p {
-      margin-top: 14px;
-      font-size: 14px;
-      line-height: 1.29;
-    }
-  }
-`;
-
-
-export const SocialWrap = styled.div`
-   margin-top: 44px;
-   @media screen and (min-width: 768px) {
-    margin-top: 38px;
-  }
-  @media screen and (min-width: 1440px){
-    margin-top: 41px;
-  }
-`
-
-
-export const SubFooterBgContainer = styled.div``;
 export const SubFooter = styled.div`
   padding-top: 28px;
   padding-bottom: 28px;
