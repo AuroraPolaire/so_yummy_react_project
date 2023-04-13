@@ -1,20 +1,53 @@
+import React, { useState } from 'react';
+import { useMediaQuery } from '@mui/material';
+
+import { Wrapper } from 'components/theme/GlobalContainer';
+import {
+  HeaderSection,
+  UserWrapper,
+  NavBurger,
+  NavBurgerIcon,
+} from './Header.styled';
+
 import Logo from 'components/Logo/Logo';
 import Navigation from 'components/Navigation/Navigation';
+import UserLogo from 'components/Header/UserLogo/UserLogo';
+
 import ThemeToggler from 'components/ThemeToggler/ThemeToggler';
-import UserLogo from 'components/UserLogo/UserLogo';
-import React from 'react';
-import { HeaderContainer, HeaderNav } from './Header.styled';
+import MobileMenu from './BurgerMenu/BurgerMenu';
+import Modal from './Modal/Modal';
 
 const Header = () => {
+  const [BurgerMenu, setBurgerMenu] = useState(false);
+  const isMobileDevice = useMediaQuery('(max-width: 1279px)');
+
+  const onBurgerOpen = () => {
+    setBurgerMenu(true);
+  };
+
+  const onBurgerClose = () => {
+    setBurgerMenu(false);
+  };
+
   return (
-    <HeaderContainer>
-      <HeaderNav>
+    <Wrapper>
+      <HeaderSection>
         <Logo />
-        <Navigation />
-        <UserLogo />
-        <ThemeToggler />
-      </HeaderNav>
-    </HeaderContainer>
+        {!isMobileDevice && <Navigation />}
+        <UserWrapper>
+          <UserLogo />
+          <NavBurger onClick={onBurgerOpen}>
+            <NavBurgerIcon />
+          </NavBurger>
+          {!isMobileDevice && <ThemeToggler />}
+        </UserWrapper>
+        {isMobileDevice && BurgerMenu && (
+          <Modal onClose={onBurgerClose}>
+            <MobileMenu isShown={BurgerMenu} onBurgerClose={onBurgerClose} />
+          </Modal>
+        )}
+      </HeaderSection>
+    </Wrapper>
   );
 };
 

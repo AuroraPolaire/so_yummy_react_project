@@ -38,10 +38,10 @@ export const HeroBox = styled.div`
   }
 `;
 
-export const PositioningBox = styled.div`
-  position: relative;
-  width: 100%;
-`;
+// export const PositioningBox = styled.div`
+//   position: relative;
+//   width: 100%;
+// `;
 
 export const Title = styled.h1`
   font-size: 60px;
@@ -234,8 +234,9 @@ export const GrayBG = styled.div`
   z-index: -3;
   top: 0;
   right: 0;
-  min-width: 519px;
-  min-height: 792px;
+  /* left: 0; */
+  width: 506px;
+  height: 542px;
   background-image: url(${grayBGMobile});
   background-repeat: no-repeat;
   background-size: contain;
@@ -261,11 +262,12 @@ export const GrayBG = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    top: 0;
+    top: -20%;
     right: 0;
-    /* transform: translate(-10%); */
-    min-width: 941px;
-    min-height: 912px;
+    /* right: 0; */
+    /* transform: translate(50%); */
+    width: 941px;
+    height: 912px;
     background-image: url(${grayBGDesktop});
     @media screen and (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),

@@ -73,7 +73,7 @@ export const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
-      console.log('refresh user data', data);
+      // console.log('refresh user data', data);
       // if (data.payload === undefined) {
       // refreshToken();
       // return;
@@ -100,7 +100,7 @@ export const refreshToken = createAsyncThunk(
       const { data } = await axios.post('/users/refresh', {
         refreshToken: persistedToken,
       });
-      console.log('refresh token data', data);
+      // console.log('refresh token data', data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
