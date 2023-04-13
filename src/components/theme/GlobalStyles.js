@@ -18,6 +18,11 @@ ${normalize}
   --correct: #3cbc81;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
 body {
   font-family: 'Poppins', sans-serif;
 }
@@ -50,6 +55,10 @@ img {
 
 html {
   scroll-behavior: smooth;
+}
+
+div {
+  box-sizing: border-box;
 }
 
 `;

@@ -2,30 +2,17 @@ import styled from 'styled-components';
 
 export const List = styled.ul`
   display: flex;
+  flex-direction: column;
   gap: 14px;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   padding-bottom: 50px;
 
-  & .card {
-    width: 300px;
-    height: 323px;
-    position: relative;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 32px;
   }
 
-  & img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  & .title {
-    position: absolute;
-
-    bottom: 10px;
-    left: 0px;
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 16px;
-    text-align: left;
+  @media screen and (min-width: 1440px) {
+    gap: 14px;
   }
 `;

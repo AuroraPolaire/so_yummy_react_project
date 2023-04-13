@@ -21,33 +21,78 @@ import spinachBlurTabletRetina from '../../images/hero/tablet/spinach_blur_tab2x
 import spinachBlurDesktop from '../../images/hero/desktop/spinach_blur_desktop1x.webp';
 import spinachBlurDesktopRetina from '../../images/hero/desktop/spinach_blur_desktop2x.webp';
 
+import grayBGMobile from '../../images/hero/mobile/bg_mob1x.webp';
+import grayBGMobileRetina from '../../images/hero/mobile/bg_mob2x.webp';
+import grayBGTablet from '../../images/hero/tablet/bg_gray_tab1x.webp';
+import grayBGTabletRetina from '../../images/hero/tablet/bg_gray_tab2x.webp';
+import grayBGDesktop from '../../images/hero/desktop/gray_bg_desktop1x.webp';
+import grayBGDesktopRetina from '../../images/hero/desktop/gray_bg_desktop2x.webp';
+
 export const HeroBox = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    justify-content: left;
+    align-items: left;
+  }
+`;
+
+export const PositioningBox = styled.div`
   position: relative;
-  height: 800px;
+  width: 100%;
 `;
 
 export const Title = styled.h1`
   font-size: 60px;
   letter-spacing: -0.005em;
-  font-weight: thin;
+  font-weight: 400;
   text-align: center;
   color: var(--font-gray);
-  padding-top: 70px;
+  padding-top: 30px;
 
   .title-green {
     color: var(--accent-color-green);
+  }
+
+  @media screen and (min-width: 768px) {
+    text-align: left;
+    padding-top: 90px;
+    font-size: 72px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding-top: 120px;
+    padding-left: 100px;
+    font-size: 100px;
   }
 `;
 
 export const Description = styled.p`
   text-align: center;
-  padding: 14px 50px; ;
+  padding: 14px 50px;
+  padding-bottom: 360px;
+  line-height: 1.3;
+  font-weight: 400px;
+  font-size: 14px;
+
+  @media screen and (min-width: 768px) {
+    width: 362px;
+    text-align: left;
+    padding-left: 0;
+    padding-bottom: 30px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 465px;
+    font-size: 18px;
+    padding-left: 107px;
+  }
 `;
 
 export const Dish = styled.div`
   position: absolute;
   z-index: -1;
-  top: 45%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%);
   min-width: 320px;
@@ -64,7 +109,7 @@ export const Dish = styled.div`
 
   @media screen and (min-width: 768px) {
     top: 8%;
-    transform: translate(-30%);
+    transform: translate(3%);
     min-width: 378px;
     min-height: 351px;
     background-image: url(${dishTablet});
@@ -77,7 +122,7 @@ export const Dish = styled.div`
 
   @media screen and (min-width: 1440px) {
     top: 0;
-    transform: translate(10%);
+    transform: translate(-10%);
     min-width: 578px;
     min-height: 539px;
     background-image: url(${dishDesktop});
@@ -92,14 +137,18 @@ export const Dish = styled.div`
 export const Spinach = styled.div`
   position: absolute;
   z-index: -2;
-  top: 3%;
-  left: 3%;
+  top: 0;
+  right: 0;
   min-width: 519px;
   min-height: 792px;
   background-image: url(${spinachMobile});
   background-repeat: no-repeat;
   background-size: contain;
 
+  @media screen and (min-width: 375px) {
+    top: 0;
+    right: 0;
+  }
   @media screen and (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
@@ -107,9 +156,9 @@ export const Spinach = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    top: -10%;
+    top: 0;
     right: 0;
-    transform: translate(5%);
+    /* right: inherit; */
     min-width: 500px;
     min-height: 700px;
     background-image: url(${spinachTablet});
@@ -121,9 +170,9 @@ export const Spinach = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    top: -30%;
-    right: -10%;
-    transform: translate(30%);
+    top: 0;
+    right: 0;
+    /* transform: translate(23%); */
     min-width: 676px;
     min-height: 944px;
     background-image: url(${spinachDesktop});
@@ -138,7 +187,7 @@ export const Spinach = styled.div`
 export const SpinachBlur = styled.div`
   position: absolute;
   z-index: -1;
-  top: 0;
+  top: -5%;
   left: 0;
   min-width: 171px;
   min-height: 184px;
@@ -153,11 +202,10 @@ export const SpinachBlur = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    top: 0;
+    top: -10%;
     left: 0;
-    transform: translate(5%);
-    min-width: 292;
-    min-height: 315;
+    min-width: 292px;
+    min-height: 315px;
     background-image: url(${spinachBlurTablet});
     @media screen and (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -167,7 +215,7 @@ export const SpinachBlur = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    top: -20%;
+    top: -10%;
     right: 0;
     transform: translate(0);
     min-width: 4386px;
@@ -177,6 +225,52 @@ export const SpinachBlur = styled.div`
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       background-image: url(${spinachBlurDesktopRetina});
+    }
+  } ;
+`;
+
+export const GrayBG = styled.div`
+  position: absolute;
+  z-index: -3;
+  top: 0;
+  right: 0;
+  min-width: 519px;
+  min-height: 792px;
+  background-image: url(${grayBGMobile});
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(${grayBGMobileRetina});
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 0;
+    right: 0;
+    /* transform: translate(-40%); */
+    min-width: 753px;
+    min-height: 730px;
+    background-image: url(${grayBGTablet});
+    @media screen and (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${grayBGTabletRetina});
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 0;
+    right: 0;
+    /* transform: translate(-10%); */
+    min-width: 941px;
+    min-height: 912px;
+    background-image: url(${grayBGDesktop});
+    @media screen and (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${grayBGDesktopRetina});
     }
   } ;
 `;

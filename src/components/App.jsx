@@ -12,25 +12,44 @@ import SearchPage from 'pages/SearchPage/SearchPage';
 import ShoppingListPage from 'pages/ShoppingListPage/ShoppingListPage';
 import SignInPage from 'pages/SignInPage/SignInPage';
 
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
+import WelcomePage from 'pages/WelcomePage/WelcomePage';
+
 import SharedLayout from './SharedLayout/SharedLayout';
 import { PrivateRoute } from './PrivateRoute';
 import { selectIsRefreshing } from '../redux/auth/authSelectors';
-import { fetchCurrentUser } from '../redux/auth/authOperations';
+import { fetchCurrentUser, refreshToken } from '../redux/auth/authOperations';
 import { useEffect } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
+  // const token = useSelector(selectToken);
   const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
-    dispatch(fetchCurrentUser());
+    dispatch(fetchCurrentUser())
+      .unwrap()
+      .then(
+        result =>
+          !result &&
+          dispatch(refreshToken())
+            .unwrap()
+            .then(result => dispatch(fetchCurrentUser()))
+      );
+    // .catch(error => dispatch(refreshToken()));
   }, [dispatch]);
 
   return (
     <>
       {isRefreshing ? null : (
         <Routes>
+          <Route
+            path="/welcome"
+            element={
+              <RestrictedRoute redirectTo="/" component={<WelcomePage />} />
+            }
+          />
           <Route
             path="/register"
             element={
@@ -46,21 +65,31 @@ export const App = () => {
           <Route
             path="/"
             element={
-              <PrivateRoute redirectTo="/login" component={<SharedLayout />} />
+              <PrivateRoute
+                redirectTo="/welcome"
+                component={<SharedLayout />}
+              />
             }
           >
             <Route index element={<MainPage />} />
+            <Route path="/main" element={<MainPage />} />
             <Route
-              path="/categories/:categoryName"
+              path="categories/:categoryName"
               element={<CategoriesPage />}
             />
-            <Route path="/add" element={<AddRecipesPage />} />
-            <Route path="/my" element={<MyRecipesPage />} />
-            <Route path="/favourite" element={<FavouritePage />} />
-            <Route path="/recipe/:recipeId" element={<RecipePage />} />
-            <Route path="/shopping-list" element={<ShoppingListPage />} />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="*" element={<p>Path not resolved</p>} />
+            <Route path="add" element={<AddRecipesPage />} />
+            <Route path="my" element={<MyRecipesPage />} />
+            <Route path="favourite" element={<FavouritePage />} />
+            {/* <Route path="recipe/:recipeId" element={<RecipePage />} /> */}
+            <Route
+              path="recipe/:recipeId"
+              element={
+                <PrivateRoute redirectTo="/" component={<RecipePage />} />
+              }
+            />
+            <Route path="shopping-list" element={<ShoppingListPage />} />
+            <Route path="search" element={<SearchPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       )}
