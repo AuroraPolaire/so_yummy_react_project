@@ -4,8 +4,8 @@ export const StyledBox = styled.div`
   box-sizing: border-box;
   width: 225px;
   height: 92px;
-  top: 49%;
-  left: 30%;
+  top: 73%;
+  right: 27px;
   padding: 8px;
   border-radius: 8px;
   background-color: var(--font-white);
@@ -15,15 +15,15 @@ export const StyledBox = styled.div`
     padding: 12px;
     width: 260px;
     height: 100px;
-    top: 35%;
-    left: 60%;
+    top: 372px;
+    right: 5%;
   }
   @media screen and (min-width: 1440px) {
     padding: 16px;
     width: 298px;
     height: 114px;
-    top: 40%;
-    left: 70%;
+    top: 462px;
+    right: 8%;
   }
   & p {
     font-size: 12px;
