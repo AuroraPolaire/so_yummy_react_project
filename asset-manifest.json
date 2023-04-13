@@ -1,21 +1,18 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.01d1cb11.js",
+    "main.js": "/so_yummy_react_project/static/js/main.9bfae4d5.js",
     "static/media/spinach-desktop2x.webp": "/so_yummy_react_project/static/media/spinach-desktop2x.09873f096bcbffc5f1a7.webp",
     "static/media/footerSharedDB_Desktop@2x.webp": "/so_yummy_react_project/static/media/footerSharedDB_Desktop@2x.851cc36f664fb0aced43.webp",
-    "static/media/tablet-modal-bg@2x.webp": "/so_yummy_react_project/static/media/tablet-modal-bg@2x.89d994a99a75b223b2fd.webp",
     "static/media/spinach_tab2x.webp": "/so_yummy_react_project/static/media/spinach_tab2x.a3dd34ab8cf4dcc7e4fc.webp",
     "static/media/footerSharedDB_Tablet@2x.webp": "/so_yummy_react_project/static/media/footerSharedDB_Tablet@2x.e0d4dbc507a623f405cc.webp",
     "static/media/spinach_mob2x.webp": "/so_yummy_react_project/static/media/spinach_mob2x.3ca64e4de6ed318303b1.webp",
     "static/media/dish_desktop2x.webp": "/so_yummy_react_project/static/media/dish_desktop2x.3b6a9894c27bdf18769c.webp",
     "static/media/spinach-desktop1x.webp": "/so_yummy_react_project/static/media/spinach-desktop1x.5be104d6d2ab09be22bf.webp",
-    "static/media/mobile-modal-bg@2x.webp": "/so_yummy_react_project/static/media/mobile-modal-bg@2x.6d1ac875acf55fb3f8da.webp",
     "static/media/footerBG_Desktop@2x.webp": "/so_yummy_react_project/static/media/footerBG_Desktop@2x.02f799649c1c099632aa.webp",
     "static/media/footerSharedDB_Desktop.webp": "/so_yummy_react_project/static/media/footerSharedDB_Desktop.4f95cdef49fd41ad1109.webp",
     "static/media/dish_tab2x.webp": "/so_yummy_react_project/static/media/dish_tab2x.099822538c7251520617.webp",
     "static/media/footerSharedDB_Mobile@2x.webp": "/so_yummy_react_project/static/media/footerSharedDB_Mobile@2x.71a9feddf4f8d3fecd81.webp",
     "static/media/dish_mob2x.webp": "/so_yummy_react_project/static/media/dish_mob2x.14002bd22449769c6ade.webp",
-    "static/media/tablet-modal-bg.webp": "/so_yummy_react_project/static/media/tablet-modal-bg.afc4e77f5c64b4efd5d3.webp",
     "static/media/spinach_blur_desktop2x.webp": "/so_yummy_react_project/static/media/spinach_blur_desktop2x.d47f89f442eeaed1cc60.webp",
     "static/media/spinach_tab1x.webp": "/so_yummy_react_project/static/media/spinach_tab1x.0c90da674deb4d0f81d7.webp",
     "static/media/dish_desktop1x.webp": "/so_yummy_react_project/static/media/dish_desktop1x.d1f05935439de382227a.webp",
@@ -24,7 +21,6 @@
     "static/media/footerSharedDB_Tablet.webp": "/so_yummy_react_project/static/media/footerSharedDB_Tablet.abe34756b55880407d0b.webp",
     "static/media/page-not-found.svg": "/so_yummy_react_project/static/media/page-not-found.e7600a8f734bd26f161b7e956f4aff68.svg",
     "static/media/dish_tab1x.webp": "/so_yummy_react_project/static/media/dish_tab1x.1df7ca679548cf4b6b2e.webp",
-    "static/media/mobile-modal-bg.webp": "/so_yummy_react_project/static/media/mobile-modal-bg.d74ef67b0d0f5e6a2465.webp",
     "static/media/spinach_blur_tab2x.webp": "/so_yummy_react_project/static/media/spinach_blur_tab2x.30af98e0e66205450b58.webp",
     "static/media/footerBG_Desktop.webp": "/so_yummy_react_project/static/media/footerBG_Desktop.24e198c6d3d05c77b04b.webp",
     "static/media/dish_mob1x.webp": "/so_yummy_react_project/static/media/dish_mob1x.ac23d76725728f94ba0d.webp",
@@ -45,12 +41,10 @@
     "static/media/bg_gray_tab1x.webp": "/so_yummy_react_project/static/media/bg_gray_tab1x.4c5e4db79c6a56e34957.webp",
     "index.html": "/so_yummy_react_project/index.html",
     "static/media/logo-header.svg": "/so_yummy_react_project/static/media/logo-header.655af48f298b554c9f7b62471ca4dffd.svg",
-    "static/media/search.svg": "/so_yummy_react_project/static/media/search.7bd6033959ab7b144f43818cda85abae.svg",
-    "static/media/exit.svg": "/so_yummy_react_project/static/media/exit.f98b5ed20ebf59dc309cf6b4a1a21ed6.svg",
-    "static/media/burger.svg": "/so_yummy_react_project/static/media/burger.32b3cd4340613c9951a83bc4dd74e4cd.svg",
-    "main.01d1cb11.js.map": "/so_yummy_react_project/static/js/main.01d1cb11.js.map"
+    "static/media/burger.svg": "/so_yummy_react_project/static/media/burger.958992cf24df06c65672225b3f39b70c.svg",
+    "main.9bfae4d5.js.map": "/so_yummy_react_project/static/js/main.9bfae4d5.js.map"
   },
   "entrypoints": [
-    "static/js/main.01d1cb11.js"
+    "static/js/main.9bfae4d5.js"
   ]
 }
