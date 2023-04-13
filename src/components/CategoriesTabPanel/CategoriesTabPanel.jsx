@@ -13,6 +13,8 @@ import {
   selectCategoryList,
   selectRecipesByCategoryList,
 } from 'redux/recipes/recipesSelectors';
+import RecipeCard from 'components/RecipeCard/RecipeCard';
+import { List } from './CategoriesTabPanel.styled';
 
 const CategoriesTabPanel = () => {
   const [value, setValue] = React.useState('Beef');
@@ -54,22 +56,15 @@ const CategoriesTabPanel = () => {
                 })}
               </TabList>
             </Box>
-            <TabPanel value={value}>
+            <TabPanel value={value} sx={{ padding: '0', typography: 'body1' }}>
               {recipesByCategoryList.flatMap((item, key) => {
                 return (
                   <div key={item[0]}>
-                    <div>
-                      {key === 0
-                        ? item[1].map(item => {
-                            return (
-                              <div className="card" key={item._id}>
-                                <img src={item.preview} alt={item.title} />
-                                <p className="title">{item.title}</p>
-                              </div>
-                            );
-                          })
-                        : null}
-                    </div>
+                    {key === 0 ? (
+                      <List>
+                        <RecipeCard recipe={item[1]}></RecipeCard>
+                      </List>
+                    ) : null}
                   </div>
                 );
               })}

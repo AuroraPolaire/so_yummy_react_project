@@ -5,6 +5,8 @@ export const Title = styled.h2`
     switch (props.type) {
       case 'mainPage':
         return `28px`;
+      case 'categoryPage':
+        return `60px`;
       default:
         return;
     }
@@ -24,6 +26,8 @@ export const Title = styled.h2`
       switch (props.type) {
         case 'mainPage':
           return `40px`;
+        case 'categoryPage':
+          return `60px`;
         default:
           return;
       }
@@ -35,6 +39,8 @@ export const Title = styled.h2`
       switch (props.type) {
         case 'mainPage':
           return `50px`;
+        case 'categoryPage':
+          return `110px`;
         default:
           return;
       }

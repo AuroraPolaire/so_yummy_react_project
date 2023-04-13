@@ -35,7 +35,7 @@ const PreviewCategories = () => {
   return list.flatMap(item => {
     return (
       <div key={item[0]}>
-        <PageTitle type="mainPage">{item[0]}</PageTitle>
+        <PageTitle type="categoryPage">{item[0]}</PageTitle>
         <List>
           <RecipeCard recipe={filteredRecipesList(item[1])} />
         </List>

@@ -28,7 +28,7 @@ const CategoriesPage = () => {
   return (
     <>
       <Wrapper>
-        <PageTitle>Categories</PageTitle>
+        <PageTitle type="mainPage">Categories</PageTitle>
         <CategoriesTabPanel state={{ from: location }}></CategoriesTabPanel>
       </Wrapper>
     </>
