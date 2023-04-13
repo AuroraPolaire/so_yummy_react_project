@@ -3,7 +3,11 @@ import RecipeCard from 'components/RecipeCard/RecipeCard';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectRecipesMainPage } from 'redux/recipes/recipesSelectors';
-import { List, RecipeBlock } from './PreviewCategories.styled';
+import {
+  ButtonContainer,
+  List,
+  SeeAllButton,
+} from './PreviewCategories.styled';
 
 const PreviewCategories = () => {
   const randomRecipes = useSelector(selectRecipesMainPage);
@@ -32,12 +36,12 @@ const PreviewCategories = () => {
     return (
       <div key={item[0]}>
         <PageTitle type="mainPage">{item[0]}</PageTitle>
-        <RecipeBlock>
-          <List>
-            <RecipeCard recipe={filteredRecipesList(item[1])} />
-          </List>
-        </RecipeBlock>
-        <button type="button">See all</button>
+        <List>
+          <RecipeCard recipe={filteredRecipesList(item[1])} />
+        </List>
+        <ButtonContainer>
+          <SeeAllButton type="button">See all</SeeAllButton>
+        </ButtonContainer>
       </div>
     );
   });
