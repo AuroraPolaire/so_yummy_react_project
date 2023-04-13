@@ -42,7 +42,7 @@ export const NavBurgerIcon = styled(SvgBurger)`
   width: 24px;
   height: 24px;
   fill: none;
-  stroke: #22252a;
+  stroke: var(--font-gray);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   @media (min-width: 1280px) {
     display: none;
@@ -50,6 +50,6 @@ export const NavBurgerIcon = styled(SvgBurger)`
 
   &:hover,
   &:focus {
-    stroke: #8baa36;
+    stroke: var(--accent-color-green);
   }
 `;

@@ -12,6 +12,8 @@ ${normalize}
   --font-darkblue-heading: #001833;
   --font-darkblue-p: #3e4462;
   --font-categories: #bdbdbd;
+	--light-green: #ebf3d4;
+	--header-grey: #23262a;
 
   --warning: #f6c23e;
   --error: #e74a3b;

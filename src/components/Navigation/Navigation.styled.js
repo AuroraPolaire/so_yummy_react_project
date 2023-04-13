@@ -32,19 +32,19 @@ export const HeaderLink = styled(NavLink)`
   font-weight: 500;
   font-size: 18px;
   line-height: 1;
-  color: #23262a;
+  color: var(--header-grey);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    color: #8baa36;
+    color: var(--accent-color-green);
 
     & svg {
-      stroke: #8baa36;
+      stroke: var(--accent-color-green);
     }
   }
   &.active {
-    color: #8baa36;
+    color: var(--accent-color-green);
   }
 
   @media screen and (min-width: 768px) {
@@ -69,7 +69,7 @@ export const SearchIcon = styled(SvgSearchIcon)`
   width: 20px;
   height: 20px;
   fill: none;
-  stroke: #22252a;
+  stroke: var(--font-gray);
   transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: 768px) {
