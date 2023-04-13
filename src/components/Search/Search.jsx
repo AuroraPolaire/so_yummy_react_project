@@ -1,7 +1,36 @@
 import React from 'react';
+import { Formik, Form } from 'formik';
+import { SearchBox, StyledInput } from './Search.styled';
 
 const Search = () => {
-  return <div>Search</div>;
+  return (
+    <Formik
+      initialValues={{ searchQuery: '' }}
+      // validationSchema={}
+      onSubmit={values => {
+        // dispatch(register(values))
+        //   .unwrap()
+        //   .then(data => navigate('/contacts'))
+        //   .catch(error => navigate('/'));
+      }}
+    >
+      {({ isSubmitting, errors }) => (
+        <SearchBox>
+          <Form>
+            <StyledInput
+              type="text"
+              name="category"
+              placeholder="Enter the text"
+            ></StyledInput>
+            {errors.name}
+            <button type="searchQuery" mr={3} disabled={isSubmitting}>
+              Search
+            </button>
+          </Form>
+        </SearchBox>
+      )}
+    </Formik>
+  );
 };
 
 export default Search;

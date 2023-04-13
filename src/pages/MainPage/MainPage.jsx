@@ -19,8 +19,8 @@ const MainPage = () => {
     <>
       <Hero />
       <Wrapper>
-        <ChooseYourBreakfast />
-        <Search />
+        {/* <ChooseYourBreakfast /> */}
+        {/* <Search /> */}
         <PreviewCategories />
       </Wrapper>
     </>
