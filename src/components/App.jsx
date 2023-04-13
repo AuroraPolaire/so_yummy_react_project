@@ -43,97 +43,6 @@ export const App = () => {
   return (
     <>
       {isRefreshing ? null : (
-        // <Routes>
-        //   <Route path="/" element={<SharedLayout />}>
-        //     <Route
-        //       path="/"
-        //       index
-        //       element={
-        //         <RestrictedRoute
-        //           component={<WelcomePage />}
-        //           redirectTo="/main"
-        //         />
-        //       }
-        //     />
-        //     <Route
-        //       path="/main"
-        //       element={
-        //         <PrivateRoute component={<MainPage />} redirectTo="/" />
-        //       }
-        //     />
-        //     <Route
-        //       path="/register"
-        //       element={
-        //         <RestrictedRoute
-        //           component={<RegisterPage />}
-        //           redirectTo="/main"
-        //           replace={true}
-        //         />
-        //       }
-        //     />
-        //     <Route
-        //       path="/signin"
-        //       element={
-        //         <RestrictedRoute
-        //           component={<SignInPage />}
-        //           redirectTo="/main"
-        //           replace={true}
-        //         />
-        //       }
-        //     />
-        //     <Route
-        //       path="/categories"
-        //       element={
-        //         <PrivateRoute component={<CategoriesPage />} redirectTo="/" />
-        //       }
-        //     >
-        //       {/* TODO: CHECK PRIVACY */}
-        //       <Route path=":categoryName" element={<CategoriesPage />} />
-        //     </Route>
-        //     <Route
-        //       path="/add"
-        //       element={
-        //         <PrivateRoute component={<AddRecipesPage />} redirectTo="/" />
-        //       }
-        //     />
-        //     <Route
-        //       path="/favorite"
-        //       element={
-        //         <PrivateRoute component={<FavouritePage />} redirectTo="/" />
-        //       }
-        //     />
-        //     <Route
-        //       path="/recipe/:recipeId"
-        //       element={
-        //         <PrivateRoute component={<RecipePage />} redirectTo="/" />
-        //       }
-        //     />
-        //     <Route
-        //       path="/my"
-        //       element={
-        //         <PrivateRoute component={<MyRecipesPage />} redirectTo="/" />
-        //       }
-        //     />
-        //     <Route
-        //       path="/shopping-list"
-        //       element={
-        //         <PrivateRoute
-        //           component={<ShoppingListPage />}
-        //           redirectTo="/"
-        //         />
-        //       }
-        //     />
-        //     <Route
-        //       path="/search"
-        //       element={
-        //         <PrivateRoute component={<SearchPage />} redirectTo="/" />
-        //       }
-        //     />
-        //     <Route path="*" element={<NotFoundPage />} />
-        //   </Route>
-        // </Routes>
-        // )
-
         <Routes>
           <Route
             path="/welcome"
@@ -171,8 +80,13 @@ export const App = () => {
             <Route path="add" element={<AddRecipesPage />} />
             <Route path="my" element={<MyRecipesPage />} />
             <Route path="favourite" element={<FavouritePage />} />
-            <Route path="recipe/:recipeId" element={<RecipePage />} />
-            {/* <Route path="/recipe/:recipeId" element={<PrivateRoute redirectTo="/" component={<RecipePage />} />} /> */}
+            {/* <Route path="recipe/:recipeId" element={<RecipePage />} /> */}
+            <Route
+              path="recipe/:recipeId"
+              element={
+                <PrivateRoute redirectTo="/" component={<RecipePage />} />
+              }
+            />
             <Route path="shopping-list" element={<ShoppingListPage />} />
             <Route path="search" element={<SearchPage />} />
             <Route path="*" element={<NotFoundPage />} />
