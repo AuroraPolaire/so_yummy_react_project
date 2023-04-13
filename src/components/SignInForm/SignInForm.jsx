@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { signIn } from '../../redux/auth/authOperations';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
+import { Wrapper } from 'components/theme/GlobalContainer';
 
 const signInSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email address').required('Required'),
@@ -43,6 +44,7 @@ export const SignInForm = () => {
   // };
 
   return (
+    <Wrapper>
     <Formik
       initialValues={{ email: '', password: '' }}
       validationSchema={signInSchema}
@@ -78,6 +80,7 @@ export const SignInForm = () => {
         </Form>
       )}
     </Formik>
+    </Wrapper>
   );
 };
 

@@ -1,3 +1,4 @@
+import PageTitle from 'components/PageTitle/PageTitle';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectRecipesMainPage } from 'redux/recipes/recipesSelectors';
@@ -10,7 +11,7 @@ const PreviewCategories = () => {
   return list.flatMap(item => {
     return (
       <div key={item[0]}>
-        <h2>{item[0]}</h2>
+        <PageTitle type="mainPage">{item[0]}</PageTitle>
         <List>
           {item[1].map(item => {
             return (
