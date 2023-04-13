@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.6808b888.js",
+    "main.js": "/so_yummy_react_project/static/js/main.319d63b7.js",
     "static/media/dish_desktop2x.webp": "/so_yummy_react_project/static/media/dish_desktop2x.3b07418e7e4470b259ed.webp",
     "static/media/dish_tab2x.webp": "/so_yummy_react_project/static/media/dish_tab2x.5f4ce5c0d2b314b1192d.webp",
     "static/media/dish_mob2x.webp": "/so_yummy_react_project/static/media/dish_mob2x.219c0f8d71d05919787b.webp",
@@ -36,9 +36,9 @@
     "static/media/search.svg": "/so_yummy_react_project/static/media/search.7bd6033959ab7b144f43818cda85abae.svg",
     "static/media/exit.svg": "/so_yummy_react_project/static/media/exit.e5ec20d5f2f4f822241baf13fab5a8be.svg",
     "static/media/burger.svg": "/so_yummy_react_project/static/media/burger.32b3cd4340613c9951a83bc4dd74e4cd.svg",
-    "main.6808b888.js.map": "/so_yummy_react_project/static/js/main.6808b888.js.map"
+    "main.319d63b7.js.map": "/so_yummy_react_project/static/js/main.319d63b7.js.map"
   },
   "entrypoints": [
-    "static/js/main.6808b888.js"
+    "static/js/main.319d63b7.js"
   ]
 }
