@@ -14,14 +14,18 @@ import {
   FooterLink,
   SubFooter,
   SubFooterText,
+
 } from "./Footer.styled";
 // import { SubscribeForm } from '../SubscribeForm/SubscribeForm';
 import { FollowUs } from '../FollowUs/FollowUs';
+
 import FooterSharedBg from './FooterSharedBg';
 
 const Footer = () => {
   return (
+
     <>
+
       <FooterSharedBg />
       <FooterSection>
         <Container>
@@ -29,10 +33,13 @@ const Footer = () => {
             <LogoCapLinkWrap>
               <LogoCapWrap>
                 <LogoLink to="/main">
-                  <LogoIcon> <use href="#icon-logo"></use> </LogoIcon>
+                  <LogoIcon>
+                    {' '}
+                    <use href="#icon-logo"></use>{' '}
+                  </LogoIcon>
                   <LogoTitle>So Yummy</LogoTitle>
                 </LogoLink>
-              </LogoCapWrap>
+          </LogoCapWrap>
               <AppCapabilitiesList>
                     <AppCapabilitiesItem>
                       Database of recipes that can be replenished
@@ -67,9 +74,12 @@ const Footer = () => {
             </SubFooterText>
           </Container>
         </SubFooter>
+
       </FooterSection>
     </>
   );
 };
+
+
 
 export default Footer;
