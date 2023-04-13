@@ -10,7 +10,7 @@ const initialState = {
   isLoading: false,
   error: false,
   currentRecipe: null,
-  categoryList: {},
+  categoryList: [],
 };
 
 //   ------------------Random 4 categories for main page -----------//

@@ -13,22 +13,25 @@ export default function AddRecipeForm() {
             .required('Required'),
        time: Yup.string()
          .required('Required'),
-     })
+    })
   
     return (
       <Formik
        initialValues={{
         title: '',
-        about: '',
+        description: '',
+        instructions: '',
+        ingredients: [],
         category: '',
         time: '',
+        fullImage: '',
         }}
        validationSchema={validationSchema}
-       onSubmit={(values, { setSubmitting }) => {
-         setTimeout(() => {
-           alert(JSON.stringify(values, null, 2));
-           setSubmitting(false);
-         }, 400);
+        onSubmit={(values, { setSubmitting }) => {
+        //  setTimeout(() => {
+        //    alert(JSON.stringify(values, null, 2));
+        //    setSubmitting(false);
+        //  }, 400);
        }}
         >
         {formik => (
