@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.7213bc03.js",
+    "main.js": "/so_yummy_react_project/static/js/main.d76ec30f.js",
     "static/media/spinach-desktop2x.webp": "/so_yummy_react_project/static/media/spinach-desktop2x.09873f096bcbffc5f1a7.webp",
     "static/media/footerSharedDB_Desktop@2x.webp": "/so_yummy_react_project/static/media/footerSharedDB_Desktop@2x.851cc36f664fb0aced43.webp",
     "static/media/tablet-modal-bg@2x.webp": "/so_yummy_react_project/static/media/tablet-modal-bg@2x.89d994a99a75b223b2fd.webp",
@@ -46,11 +46,11 @@
     "index.html": "/so_yummy_react_project/index.html",
     "static/media/logo-header.svg": "/so_yummy_react_project/static/media/logo-header.655af48f298b554c9f7b62471ca4dffd.svg",
     "static/media/search.svg": "/so_yummy_react_project/static/media/search.7bd6033959ab7b144f43818cda85abae.svg",
-    "static/media/exit.svg": "/so_yummy_react_project/static/media/exit.f98b5ed20ebf59dc309cf6b4a1a21ed6.svg",
+    "static/media/exit.svg": "/so_yummy_react_project/static/media/exit.e5ec20d5f2f4f822241baf13fab5a8be.svg",
     "static/media/burger.svg": "/so_yummy_react_project/static/media/burger.32b3cd4340613c9951a83bc4dd74e4cd.svg",
-    "main.7213bc03.js.map": "/so_yummy_react_project/static/js/main.7213bc03.js.map"
+    "main.d76ec30f.js.map": "/so_yummy_react_project/static/js/main.d76ec30f.js.map"
   },
   "entrypoints": [
-    "static/js/main.7213bc03.js"
+    "static/js/main.d76ec30f.js"
   ]
 }
