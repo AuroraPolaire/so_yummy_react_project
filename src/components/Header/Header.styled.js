@@ -1,15 +1,14 @@
 import styled from 'styled-components';
+import { ReactComponent as SvgBurger } from '../../images/icons/burger.svg';
 
-export const HeaderNav = styled.header`
+export const HeaderSection = styled.header`
   display: flex;
   justify-content: space-between;
-
   align-items: center;
-  padding: 18px 16px;
-  max-width: 343px;
-  margin-left: auto;
-  margin-right: auto;
+  height: auto;
+  padding-top: 18px;
   @media (min-width: 768px) {
+    padding-top: 19px;
     max-width: 704px;
   }
   @media (min-width: 1280px) {
@@ -18,19 +17,39 @@ export const HeaderNav = styled.header`
   }
 `;
 
-export const HeaderModal = styled.div`
-  padding: 18px 16px;
-  width: 100wv;
+export const UserWrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  gap: 24px;
+  @media screen and (min-width: 768px) {
+    gap: 50px;
+  }
 `;
 
-export const HeaderContainer = styled.div`
-  padding: 0 16px;
-  @media (min-width: 768px) {
-    padding: 0 32px;
-  }
+export const NavBurger = styled.button`
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+
   @media (min-width: 1280px) {
-    padding: 0 100px;
+    display: none;
+  }
+`;
+
+export const NavBurgerIcon = styled(SvgBurger)`
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #22252a;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @media (min-width: 1280px) {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    stroke: #8baa36;
   }
 `;
