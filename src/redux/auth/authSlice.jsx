@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-
+import { subscribeUser } from './authOperations';
 import {
   signIn,
   logout,
@@ -16,6 +16,8 @@ const initialState = {
   refreshToken: null,
   isLoggedIn: false,
   isRefreshing: false,
+  isSubscribed: false, 
+  isSubscribeError: false, 
 };
 
 const authSlice = createSlice({
@@ -64,7 +66,19 @@ const authSlice = createSlice({
       })
       .addCase(refreshToken.rejected, state => {
         state.isRefreshing = false;
-      });
+      })
+      .addCase(subscribeUser.fulfilled, (state) => {
+        state.isError = null;
+        state.isLoading = false;
+        state.isSubscribed = true;
+      })
+      .addCase(subscribeUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(subscribeUser.rejected, (state, action) => {
+        state.isError = action.payload;
+        state.isLoading = false;
+      })
   },
 });
 

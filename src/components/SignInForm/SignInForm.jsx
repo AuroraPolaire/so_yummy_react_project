@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { signIn } from '../../redux/auth/authOperations';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
@@ -20,7 +19,6 @@ const signInSchema = Yup.object().shape({
 
 export const SignInForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
@@ -54,7 +52,7 @@ export const SignInForm = () => {
         console.log(values);
         dispatch(signIn(values))
           .unwrap()
-          .then(data => navigate('/'))
+          .then(data => {})
           .catch(error => console.log(error));
         resetForm({ email: '', password: '' });
       }}
