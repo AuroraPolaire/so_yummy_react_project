@@ -12,8 +12,13 @@ import {
   SpinachBlur,
   Title,
 } from './Hero.styled';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    navigate(`/recipe/640cd5ac2d9fecf12e8898a6`);
+  };
   return (
     <>
       <PositioningBox>
@@ -28,6 +33,7 @@ const Hero = () => {
               future.
             </Description>
             <Search />
+            <button onClick={handleSubmit}>Recipe</button>
           </HeroBox>
         </Wrapper>
 
