@@ -4,11 +4,11 @@ import { RecipeCardBox } from './RecipeCard.styled';
 
 const RecipeCard = ({ recipe }) => {
   function truncateTitle(str) {
-    if (str.length > 28) {
-      return str.slice(0, 28) + '...';
-    } else {
-      return str;
-    }
+    const shortTitle = str.split(' ');
+    console.log(shortTitle);
+    return shortTitle.length < 4
+      ? shortTitle.join(' ')
+      : shortTitle.slice(0, 2).join(' ');
   }
   console.log(recipe);
   return recipe.map(item => {

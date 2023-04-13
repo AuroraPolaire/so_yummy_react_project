@@ -3,15 +3,15 @@ import RecipeCard from 'components/RecipeCard/RecipeCard';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectRecipesMainPage } from 'redux/recipes/recipesSelectors';
-import { List } from './PreviewCategories.styled';
+import { List, RecipeBlock } from './PreviewCategories.styled';
 
 const PreviewCategories = () => {
   const randomRecipes = useSelector(selectRecipesMainPage);
   const list = Object.entries(randomRecipes);
 
-  let mobileMedia = window.matchMedia('(max-width: 376px)');
+  let mobileMedia = window.matchMedia('(max-width: 767px)');
   let tabletMedia = window.matchMedia(
-    '(min-width: 377px) and (max-width: 1239px)'
+    '(min-width: 768px) and (max-width: 1240px)'
   );
   let desktopMedia = window.matchMedia('(min-width: 1240px)');
 
@@ -32,9 +32,11 @@ const PreviewCategories = () => {
     return (
       <div key={item[0]}>
         <PageTitle type="mainPage">{item[0]}</PageTitle>
-        <List>
-          <RecipeCard recipe={filteredRecipesList(item[1])} />
-        </List>
+        <RecipeBlock>
+          <List>
+            <RecipeCard recipe={filteredRecipesList(item[1])} />
+          </List>
+        </RecipeBlock>
         <button type="button">See all</button>
       </div>
     );
