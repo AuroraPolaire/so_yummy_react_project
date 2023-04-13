@@ -1,8 +1,9 @@
+import { Section } from 'components/theme/GlobalContainer';
 import React from 'react';
 // import PropTypes from 'prop-types'
 
 const MyRecipesPage = props => {
-  return <div>MyRecipesPage</div>;
+  return <Section></Section>;
 };
 
 // MyRecipesPage.propTypes = {}
