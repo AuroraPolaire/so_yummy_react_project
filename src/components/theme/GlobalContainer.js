@@ -3,8 +3,6 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   padding: 20px 16px 28px 16px;
 
-  // 375px//
-
   @media screen and (min-width: 375px) {
     width: 375px;
     margin-left: auto;
