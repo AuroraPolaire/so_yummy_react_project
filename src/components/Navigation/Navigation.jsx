@@ -1,60 +1,54 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
+import { useMediaQuery } from '@mui/material';
+
 import {
-  NavBurger,
-  NavContainer,
-  HeaderLinkWrap,
   HeaderLink,
-  HeaderSection,
+  SearchIcon,
+  HeaderSearchLinkWrapper,
+  HeaderNavLinksWrapper,
 } from './Navigation.styled';
-import SearchIcon from '@mui/icons-material/Search';
-// import Logo from 'components/Logo/Logo';
 
-const Navigation = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  const handleBurgerClick = () => {
-    setIsOpen(!isOpen);
-  };
-
-  // const handleLinkClick = () => {
-  //   setIsOpen(false);
-  // };
-
+const Navigation = ({ onBurgerClose }) => {
+  const isMobileDevice = useMediaQuery('(max-width: 1199px)');
   return (
-    <HeaderSection>
-      <NavContainer>
-        <NavBurger onClick={handleBurgerClick}>
-          {/* <div />
-          <div />
-          <div /> */}
-        </NavBurger>
-
-        <HeaderLinkWrap style={{ display: isOpen ? 'flex' : 'none' }}>
-          <li>
-            <HeaderLink to="/categories/:categoryName">Categories</HeaderLink>
-          </li>
-          <li>
-            <HeaderLink to="/add">Add recipes</HeaderLink>
-          </li>
-          <li>
-            <HeaderLink to="/my">My recipes</HeaderLink>
-          </li>
-          <li>
-            <HeaderLink to="/favourite">Favourite</HeaderLink>
-          </li>
-          <li>
-            <HeaderLink to="/shopping-list">Shopping list</HeaderLink>
-          </li>
-          <li>
-            <HeaderLink to="/search">
-              {' '}
-              <SearchIcon sx={{ fontSize: 24 }} />
-            </HeaderLink>
-          </li>
-        </HeaderLinkWrap>
-      </NavContainer>
-    </HeaderSection>
+    <nav>
+      <HeaderNavLinksWrapper>
+        <li>
+          <HeaderLink to="/categories/:categoryName" onClick={onBurgerClose}>
+            Categories
+          </HeaderLink>
+        </li>
+        <li>
+          <HeaderLink to="/add" onClick={onBurgerClose}>
+            Add recipes
+          </HeaderLink>
+        </li>
+        <li>
+          <HeaderLink to="/my" onClick={onBurgerClose}>
+            My recipes
+          </HeaderLink>
+        </li>
+        <li>
+          <HeaderLink to="/favourite" onClick={onBurgerClose}>
+            Favourite
+          </HeaderLink>
+        </li>
+        <li>
+          <HeaderLink to="/shopping-list" onClick={onBurgerClose}>
+            Shopping list
+          </HeaderLink>
+        </li>
+        <li>
+          <HeaderLink to="/search" onClick={onBurgerClose}>
+            {' '}
+            <HeaderSearchLinkWrapper>
+              <SearchIcon />
+              {isMobileDevice && 'Search'}
+            </HeaderSearchLinkWrapper>
+          </HeaderLink>
+        </li>
+      </HeaderNavLinksWrapper>
+    </nav>
   );
 };
 export default Navigation;
