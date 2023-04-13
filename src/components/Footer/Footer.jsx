@@ -58,7 +58,7 @@ const Footer = () => {
                 <li><FooterLink to='/search'>Ingredients</FooterLink></li>
                 <li><FooterLink to='/add'>Add recipes</FooterLink></li>
                 <li><FooterLink to='/my'>My recipes</FooterLink></li>
-                <li><FooterLink to='/favorite'>Favorite</FooterLink></li>
+                <li><FooterLink to='/favourite'>Favourite</FooterLink></li>
                 <li><FooterLink to='/shopping-list'>Shopping list</FooterLink></li>
               </FooterLinkWrap>
             </LogoCapLinkWrap>
