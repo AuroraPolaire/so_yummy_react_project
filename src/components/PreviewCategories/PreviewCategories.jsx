@@ -34,14 +34,6 @@ const PreviewCategories = () => {
         <PageTitle type="mainPage">{item[0]}</PageTitle>
         <List>
           <RecipeCard recipe={filteredRecipesList(item[1])} />
-          {/* {item[1].map(item => {
-            return (
-              <div className="card" key={item._id}>
-                <img src={item.preview} alt={item.title} />
-                <p className="title">{item.title}</p>
-              </div>
-            );
-          })} */}
         </List>
         <button type="button">See all</button>
       </div>
