@@ -1,9 +1,27 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
 import PropTypes from 'prop-types';
 import DefaultThumb from 'images/icons/page-not-found.svg';
-import { Measure, RecipeInngredientsHead, RecipeInngredientsItem, RecipeInngredientsListStyled } from './RecipeInngredientsList.styled';
+import {
+  Measure,
+  RecipeInngredientsHead,
+  RecipeInngredientsItem,
+  RecipeInngredientsListStyled,
+} from './RecipeInngredientsList.styled';
+import { addProductToShoppingList } from 'redux/shoppingList/shoppingListOperations';
 
-export default function RecipeInngredientsList({ingredients}) {
+export default function RecipeInngredientsList({ ingredients }) {
+  const dispatch = useDispatch();
+  // const handleChecked = () => dispatch(toggleCompleted(task));
+  const handleOnChange = (productId, measure) => {
+    console.log(productId);
+    console.log(measure);
+    // const product = { productId, measure };
+    // console.log(product);
+    dispatch(addProductToShoppingList({ productId, measure }));
+  };
+
   return (
     <div>
       <RecipeInngredientsHead>
@@ -18,14 +36,21 @@ export default function RecipeInngredientsList({ingredients}) {
             <p>{title}</p>
             {/* <p>{desc}</p> */}
             <Measure>{measure}</Measure>
-            <input type="checkbox" name="shoppingList" />
+            <input
+              type="checkbox"
+              name="shoppingList"
+              // checked={handleChecked}
+              onChange={() => {
+                handleOnChange(_id, measure);
+              }}
+            />
           </RecipeInngredientsItem>
         ))}
       </RecipeInngredientsListStyled>
     </div>
-  )
+  );
 }
 
 RecipeInngredientsList.propTypes = {
-    ingredients: PropTypes.array.isRequired,
-}
+  ingredients: PropTypes.array.isRequired,
+};
