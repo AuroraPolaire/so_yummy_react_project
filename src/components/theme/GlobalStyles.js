@@ -12,11 +12,18 @@ ${normalize}
   --font-darkblue-heading: #001833;
   --font-darkblue-p: #3e4462;
   --font-categories: #bdbdbd;
+	--light-green: #ebf3d4;
+	--header-grey: #23262a;
 
   --warning: #f6c23e;
   --error: #e74a3b;
   --correct: #3cbc81;
 }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -50,6 +57,10 @@ img {
 
 html {
   scroll-behavior: smooth;
+}
+
+div {
+  box-sizing: border-box;
 }
 
 `;

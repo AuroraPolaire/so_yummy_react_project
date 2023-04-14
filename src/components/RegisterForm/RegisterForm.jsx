@@ -1,9 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { register } from '../../redux/auth/authOperations';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
+import { Wrapper } from 'components/theme/GlobalContainer';
+
 
 // import { Navigate } from 'react-router';
 
@@ -29,7 +30,7 @@ const registerSchema = Yup.object().shape({
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   // const [name, setName] = useState('');
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
@@ -57,13 +58,15 @@ export const RegisterForm = () => {
   // };
 
   return (
+    <Wrapper>
+
     <Formik
       initialValues={{ name: '', email: '', password: '' }}
       validationSchema={registerSchema}
       onSubmit={(values, { resetForm }) => {
         dispatch(register(values))
           .unwrap()
-          .then(data => navigate('/'))
+          .then(data => {})
           .catch(error => console.log(error));
         resetForm({ name: '', number: '', password: '' });
       }}
@@ -99,6 +102,7 @@ export const RegisterForm = () => {
         </Form>
       )}
     </Formik>
+    </Wrapper>
   );
 };
 

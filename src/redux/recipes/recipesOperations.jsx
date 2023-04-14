@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://so-yumi.p.goit.global/api';
+// axios.defaults.baseURL = 'https://so-yumi.p.goit.global/api';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -42,7 +42,25 @@ export const fetchCategoryList = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(`recipes/category/list`);
+      console.log(response);
       return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchRecipesByCategory = createAsyncThunk(
+  'recipes/category/categoryName',
+  async (
+    { categoryName = 'Beef', page = 1, limit = 8, sort = 'popular' },
+    thunkAPI
+  ) => {
+    try {
+      const { data } = await axios.get(
+        `/recipes/category/${categoryName}?page=${page}&limit=${limit}&sort=${sort}`
+      );
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

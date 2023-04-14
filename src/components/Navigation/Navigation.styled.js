@@ -1,110 +1,79 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-// import MenuIcon from '@mui/icons-material/Menu';
-// import { NavLink as Link } from 'react-router-dom';
-import { ReactComponent as SvgBurger } from '../../images/icons/burger.svg';
+import { ReactComponent as SvgSearchIcon } from '../../images/icons/search.svg';
 
-export const HeaderSection = styled.div`
-  position: relative;
-  padding-top: 18px;
-  z-index: 3;
-  padding-left: 16px;
-  padding-right: 16px;
-
-  @media screen and (min-width: 768px) {
-    padding-top: 19px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  @media screen and (min-width: 1440px) {
-    min-height: auto;
-    padding-top: 18px;
-    padding-left: 100px;
-    padding-right: 100px;
-  }
-`;
-
-export const NavContainer = styled.div`
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  @media (min-width: 1280px) {
-    flex-direction: row;
-    margin-right: 179px;
-    justify-content: space-around;
-  }
-`;
-
-export const HeaderLinkWrap = styled.ul`
+export const HeaderNavLinksWrapper = styled.ul`
   display: flex;
   flex-direction: column;
-  @media (min-width: 1280px) {
+  align-items: center;
+  justify-content: center;
+  padding-top: 182px;
+  gap: 32px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 186px;
+    gap: 40px;
+  }
+
+  @media screen and (min-width: 1440px) {
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 44px;
+    gap: 30px;
   }
 `;
 
 export const HeaderLink = styled(NavLink)`
-  display: flex;
-  align-items: center;
+  display: block;
   text-decoration: none;
-  flex-direction: column;
-  color: #23262a;
-  cursor: pointer;
-  font-size: 18px;
   font-weight: 500;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 32px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    font-weight 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 18px;
+  line-height: 1;
+  color: var(--header-grey);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover,
   &:focus {
-    color: #8baa36;
-  }
-  .active {
-    color: #8baa36;
-  }
+    color: var(--accent-color-green);
 
-  @media (min-width: 768px) {
-    font-size: 24px;
-    margin-top: 40px;
-  }
-
-  @media (min-width: 1280px) {
-    margin-top: 0;
-    margin-left: 30px;
-    font-size: 14px;
-    justify-content: center;
-  }
-
-  &:hover {
-    color: #8baa36;
+    & svg {
+      stroke: var(--accent-color-green);
+    }
   }
   &.active {
-    color: #8baa36;
-    text-decoration: none;
+    color: var(--accent-color-green);
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 1px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 14px;
+    line-height: 22px;
   }
 `;
 
-export const NavBurger = styled.button`
-  border: none;
-  /* background-color: transparent; */
-  width: 32px;
-  height: 32px;
+export const HeaderSearchLinkWrapper = styled.div`
+  display: flex;
+  align-items: 'center';
+  gap: 8px;
 `;
 
-export const NavBurgerIcon = styled(SvgBurger)`
-  width: 24px;
-  height: 24px;
+export const SearchIcon = styled(SvgSearchIcon)`
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
   fill: none;
-  stroke: #22252a;
-  @media (min-width: 1280px) {
-    display: none;
+  stroke: var(--font-gray);
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
   }
-  /* & div {
-    width: 25px;
-    height: 3px;
-    border-radius: 2px;
-  } */
 `;

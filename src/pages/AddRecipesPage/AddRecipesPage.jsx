@@ -9,6 +9,7 @@ const AddRecipesPage = () => {
     <PageTitle>Add Recipe</PageTitle>
     <AddRecipeForm />
   </div>;
+
 };
 
 // AddRecipesPage.propTypes = {}
