@@ -58,7 +58,9 @@ export const Title = styled.h2`
     }};
   }
 
-  :hover {
+  :hover,
+  :active,
+  :focus {
     cursor: pointer;
     color: var(--accent-color-green);
   }

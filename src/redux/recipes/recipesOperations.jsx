@@ -66,3 +66,14 @@ export const fetchRecipesByCategory = createAsyncThunk(
     }
   }
 );
+
+// export const fetchRecipeByQuery = createAsyncThunk(
+//   'recipes/search/query',
+//   async (query, thunkAPI) => {
+//     try {
+//       const { data } = await axios.get();
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );

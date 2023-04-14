@@ -53,6 +53,11 @@ export const StyledBox = styled.div`
     line-height: 1.2;
     color: var(--font-darkblue-p);
 
+    :hover,
+    :active,
+    :focus {
+      color: var(--accent-color-green);
+    }
     @media screen and (min-width: 768px) {
       padding-top: 7px;
     }
