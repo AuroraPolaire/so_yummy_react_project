@@ -1,14 +1,17 @@
 import AddRecipeForm from 'components/AddRecipeForm/AddRecipeForm';
 import PageTitle from 'components/PageTitle/PageTitle';
+import { Section, Wrapper } from 'components/theme/GlobalContainer';
 import React from 'react';
 // import PropTypes from 'prop-types'
 
 const AddRecipesPage = () => {
   
-  return <div>
-    <PageTitle>Add Recipe</PageTitle>
+  return <Section>
+    <Wrapper>
+    <PageTitle type='addRecipe'>Add Recipe</PageTitle>
     <AddRecipeForm />
-  </div>;
+    </Wrapper>
+  </Section>;
 
 };
 
