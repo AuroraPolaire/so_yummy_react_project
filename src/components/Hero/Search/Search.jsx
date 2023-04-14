@@ -1,56 +1,55 @@
 import React from 'react';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
-import { NavLink, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { SearchBox, StyledInput } from './Search.styled';
 
 const Search = () => {
-  // const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams('');
-  const searchQuery = searchParams.get('query') ?? '';
+  const navigate = useNavigate();
+  // const [searchParams, setSearchParams] = useSearchParams('');
+  // const searchQuery = searchParams.get('query') ?? '';
+  // console.log(searchQuery);
 
-  const updateQueryString = query => {
-    const nextParams = query !== '' ? { query } : {};
-    setSearchParams(nextParams);
-  };
+  // useEffect(() => {
+  //   const currentParams = Object.fromEntries([...searchParams]);
+  //   console.log(currentParams.query); // get new values onchange
+  // }, [searchParams]);
 
-  const searchSchema = Yup.object().shape({
+  // const updateQueryString = query => {
+  //   const nextParams = query !== '' ? { query } : {};
+  //   setSearchParams(nextParams);
+  // };
+
+  const validationSchema = Yup.object().shape({
     searchQuery: Yup.string()
-      .min(3, 'Too Short!')
-      .max(40, 'Must be 40 characters or less')
-      .required('Required')
-      .matches(
-        /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
-        'Name may contain only letters, apostrophe, dash and spaces.'
-      ),
+      .min(2, 'Too Short!')
+      .max(50, 'Too Long!')
+      .required('Required'),
   });
 
   return (
     <Formik
       initialValues={{ searchQuery: '' }}
-      validationSchema={searchSchema}
-      // onSubmit={values => {
-      //   navigate(`/categories/${searchQuery}`);
-      // }}
+      validationSchema={validationSchema}
+      onSubmit={values => {
+        console.log(values);
+        navigate({
+          pathname: '/search',
+          search: `?query=${values.searchQuery}`,
+        });
+      }}
     >
-      {props => (
+      {({ errors }) => (
         <SearchBox>
-          {/* <FormObserver /> */}
           <div width="500px">
             <StyledInput
               type="text"
               name="searchQuery"
               placeholder="Enter the text"
-              onChange={e => {
-                updateQueryString(e.target.value);
-              }}
-              // value={updateQueryString(props.values.searchQuery)}
-              value={searchQuery}
             />
-            <NavLink to={`/search/${searchQuery}`}>
-              <button type="submit">Search</button>
-            </NavLink>
+            {errors.searchQuery ? <div>{errors.searchQuery}</div> : null}
+            <button type="submit">Search</button>
           </div>
         </SearchBox>
       )}

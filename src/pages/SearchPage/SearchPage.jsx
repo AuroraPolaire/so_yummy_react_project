@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import MainTitle from 'components/MainTitle/MainTitle';
 import SearchBar from 'components/SearchBar/SearchBar';
 import SearchedRecipesList from 'components/SearchedRecepiesList/SearchedRecepiesList';
-import { searchRecipes, searchIngredient } from 'redux/auth/searchOperations';
+import { searchRecipes, searchIngredient } from 'redux/search/searchOperations';
 import { selectSearchType, selectTotalResults } from 'redux/auth/authSelectors';
 
 const SearchPage = () => {
@@ -14,6 +14,7 @@ const SearchPage = () => {
 
   const dispatch = useDispatch();
   const query = searchParams.get('query');
+  console.log(query);
 
   const page = searchParams.get('page') ? Number(searchParams.get('page')) : 1;
 

@@ -10,7 +10,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { authReducer } from './auth/authSlice';
-import { searchReducer } from 'redux/auth/searchSlice';
+import { searchReducer } from 'redux/search/searchSlice';
 import { recipesReducer } from './recipes/recipesSlice';
 
 export const store = configureStore({

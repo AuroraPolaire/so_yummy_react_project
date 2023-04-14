@@ -7,7 +7,7 @@ import {
   SelectorOption,
 } from './SearchTypeSelector.styled';
 
-import { changeSearchType } from 'redux/auth/searchSlice';
+import { changeSearchType } from 'redux/search/searchSlice';
 
 import { selectSearchType } from 'redux/auth/authSelectors';
 import { useEffect } from 'react';
