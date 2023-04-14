@@ -1,6 +1,6 @@
 import PageTitle from 'components/PageTitle/PageTitle';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectRecipesMainPage } from 'redux/recipes/recipesSelectors';
 import {
@@ -13,23 +13,31 @@ const PreviewCategories = () => {
   const randomRecipes = useSelector(selectRecipesMainPage);
   const list = Object.entries(randomRecipes);
 
-  let mobileMedia = window.matchMedia('(max-width: 767px)');
-  let tabletMedia = window.matchMedia(
-    '(min-width: 768px) and (max-width: 1240px)'
-  );
-  let desktopMedia = window.matchMedia('(min-width: 1240px)');
+  const [size, setSize] = useState([0, 0]);
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth]);
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
 
   const filteredRecipesList = recipe => {
     if (!recipe) return;
-    if (mobileMedia.matches) {
+
+    if (Number(size) < 767) {
       const mobileList = recipe.slice(0, 1);
       return mobileList;
-    } else if (tabletMedia.matches) {
+    }
+
+    if (Number(size) >= 767 && Number(size) < 1440) {
       const tabletList = recipe.slice(0, 2);
       return tabletList;
-    } else if (desktopMedia.matches) {
-      return recipe;
     }
+
+    return recipe;
   };
 
   return list.flatMap(item => {
