@@ -1,17 +1,22 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.29562314.js",
+    "main.js": "/so_yummy_react_project/static/js/main.60d7bd83.js",
     "static/media/dish_desktop2x.webp": "/so_yummy_react_project/static/media/dish_desktop2x.3b07418e7e4470b259ed.webp",
+    "static/media/welcome-bg-desktop@2x.jpg": "/so_yummy_react_project/static/media/welcome-bg-desktop@2x.9d1a3da06360bc17a4a4.jpg",
+    "static/media/welcome-home-bg-tablet@2x.jpg": "/so_yummy_react_project/static/media/welcome-home-bg-tablet@2x.49426f882a14272d35d3.jpg",
     "static/media/dish_tab2x.webp": "/so_yummy_react_project/static/media/dish_tab2x.5f4ce5c0d2b314b1192d.webp",
     "static/media/dish_mob2x.webp": "/so_yummy_react_project/static/media/dish_mob2x.219c0f8d71d05919787b.webp",
     "static/media/footerSharedDB_Desktop@2x.webp": "/so_yummy_react_project/static/media/footerSharedDB_Desktop@2x.851cc36f664fb0aced43.webp",
     "static/media/dish_desktop1x.webp": "/so_yummy_react_project/static/media/dish_desktop1x.764ad9db4f41f406c5f7.webp",
     "static/media/tablet-modal-bg@2x.webp": "/so_yummy_react_project/static/media/tablet-modal-bg@2x.89d994a99a75b223b2fd.webp",
     "static/media/footerSharedDB_Tablet@2x.webp": "/so_yummy_react_project/static/media/footerSharedDB_Tablet@2x.e0d4dbc507a623f405cc.webp",
+    "static/media/welcome-home-bg-mobile@2x.jpg": "/so_yummy_react_project/static/media/welcome-home-bg-mobile@2x.a80a6f5cf4832962c372.jpg",
+    "static/media/welcome-bg-desktop@1x.jpg": "/so_yummy_react_project/static/media/welcome-bg-desktop@1x.59c7691679ff00d6f20f.jpg",
     "static/media/dish_tab1x.webp": "/so_yummy_react_project/static/media/dish_tab1x.1a2572914054017bdc4f.webp",
     "static/media/mobile-modal-bg@2x.webp": "/so_yummy_react_project/static/media/mobile-modal-bg@2x.6d1ac875acf55fb3f8da.webp",
     "static/media/dish_mob1x.webp": "/so_yummy_react_project/static/media/dish_mob1x.0c0eb0eee86701cffc2f.webp",
     "static/media/footerBG_Desktop@2x.webp": "/so_yummy_react_project/static/media/footerBG_Desktop@2x.02f799649c1c099632aa.webp",
+    "static/media/welcome-home-bg-tablet@1x.jpg": "/so_yummy_react_project/static/media/welcome-home-bg-tablet@1x.cb607fcdf8e4f0a5085c.jpg",
     "static/media/footerSharedDB_Desktop.webp": "/so_yummy_react_project/static/media/footerSharedDB_Desktop.4f95cdef49fd41ad1109.webp",
     "static/media/footerSharedDB_Mobile@2x.webp": "/so_yummy_react_project/static/media/footerSharedDB_Mobile@2x.71a9feddf4f8d3fecd81.webp",
     "static/media/recipe-not-found-tablet-desktop-2x.webp": "/so_yummy_react_project/static/media/recipe-not-found-tablet-desktop-2x.8b9caeba8e4191559a79.webp",
@@ -20,6 +25,7 @@
     "static/media/footerBG_Tablet@2x.webp": "/so_yummy_react_project/static/media/footerBG_Tablet@2x.d6c00a70924f0ce22d47.webp",
     "static/media/footerSharedDB_Tablet.webp": "/so_yummy_react_project/static/media/footerSharedDB_Tablet.abe34756b55880407d0b.webp",
     "static/media/page-not-found.svg": "/so_yummy_react_project/static/media/page-not-found.e7600a8f734bd26f161b7e956f4aff68.svg",
+    "static/media/welcome-home-bg-mobile@1x.jpg": "/so_yummy_react_project/static/media/welcome-home-bg-mobile@1x.4d54a7a64b7caf05f095.jpg",
     "static/media/recipe-not-found-mobile-2x.webp": "/so_yummy_react_project/static/media/recipe-not-found-mobile-2x.ec47bc4a305e5d8d6fc4.webp",
     "static/media/mobile-modal-bg.webp": "/so_yummy_react_project/static/media/mobile-modal-bg.d74ef67b0d0f5e6a2465.webp",
     "static/media/spinach_blur_tab2x.webp": "/so_yummy_react_project/static/media/spinach_blur_tab2x.30af98e0e66205450b58.webp",
@@ -41,9 +47,9 @@
     "static/media/exit.svg": "/so_yummy_react_project/static/media/exit.e5ec20d5f2f4f822241baf13fab5a8be.svg",
     "static/media/burger.svg": "/so_yummy_react_project/static/media/burger.32b3cd4340613c9951a83bc4dd74e4cd.svg",
     "static/media/arrow-down.svg": "/so_yummy_react_project/static/media/arrow-down.4c0759d592b9bf854db97289ce89a574.svg",
-    "main.29562314.js.map": "/so_yummy_react_project/static/js/main.29562314.js.map"
+    "main.60d7bd83.js.map": "/so_yummy_react_project/static/js/main.60d7bd83.js.map"
   },
   "entrypoints": [
-    "static/js/main.29562314.js"
+    "static/js/main.60d7bd83.js"
   ]
 }
