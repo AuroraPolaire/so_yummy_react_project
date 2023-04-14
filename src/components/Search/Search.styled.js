@@ -1,20 +1,39 @@
 import styled from 'styled-components';
 
-export const SearchBox = styled.div`
+export const SearchBox = styled.form`
   padding-bottom: 80px;
   display: flex;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
 
+  & div {
+    display: flex;
+    width: 295px;
+    @media screen and (min-width: 768px) {
+      width: 365px;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 500px;
+    }
+  }
+
   & button {
-    height: 49px;
     margin-left: -50px;
-    padding: 16px 32px;
+    padding: 15px 31px;
     border-radius: 24px 44px;
-    border: 1px solid var(--font-gray);
+    border: 0;
     color: var(--font-white);
     background-color: var(--font-gray);
     font-size: 14px;
+
+    @media screen and (min-width: 768px) {
+      padding: 18px 52px;
+      font-size: 16px;
+    }
+    @media screen and (min-width: 1440px) {
+      padding: 23px 52px;
+    }
   }
 
   @media screen and (min-width: 768px) {
@@ -23,6 +42,7 @@ export const SearchBox = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
+    justify-content: left;
   }
 `;
 
@@ -32,7 +52,17 @@ export const StyledInput = styled.input`
   border: 1px solid #f0f0f0;
   background-color: #ffffff;
   color: var(--font-gray);
-  height: 48px;
+  height: 52px;
+
+  @media screen and (min-width: 768px) {
+    height: 59px;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 70px;
+    width: 100%;
+  }
 
   ::placeholder {
     padding-left: 32px;

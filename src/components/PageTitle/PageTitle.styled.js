@@ -5,8 +5,13 @@ export const Title = styled.h2`
     switch (props.type) {
       case 'mainPage':
         return `28px`;
+
+      case 'recipePage':
+        return '18px';
+
       case 'categoryPage':
         return `60px`;
+
       default:
         return;
     }
@@ -26,8 +31,13 @@ export const Title = styled.h2`
       switch (props.type) {
         case 'mainPage':
           return `40px`;
+
+        case 'recipePage':
+        return '24px';
+
         case 'categoryPage':
           return `60px`;
+
         default:
           return;
       }

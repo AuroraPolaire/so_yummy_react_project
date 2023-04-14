@@ -1,8 +1,9 @@
+import { Section } from 'components/theme/GlobalContainer';
 import React from 'react';
 // import PropTypes from 'prop-types'
 
 const FavouritePage = props => {
-  return <div>FavouritePage</div>;
+  return <Section></Section>;
 };
 
 // FavouritePage.propTypes = {}

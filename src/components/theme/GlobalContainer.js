@@ -23,3 +23,15 @@ export const Wrapper = styled.div`
     padding: 28px 100px;
   }
 `;
+
+export const Section = styled.section`
+  padding-top: 114px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 136px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding-top: 164px;
+  }
+`;

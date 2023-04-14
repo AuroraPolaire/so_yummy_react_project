@@ -1,3 +1,4 @@
+
 import { useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,6 +21,7 @@ const SearchPage = () => {
   const query = searchParams.get('query');
 
   const page = searchParams.get('page') ? Number(searchParams.get('page')) : 1;
+
 
   useEffect(() => {
     if (!query) {

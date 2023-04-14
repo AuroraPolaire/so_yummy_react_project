@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { Formik, Form } from 'formik';
 import { useNavigate } from 'react-router-dom'; 
+
 import { SearchBox, StyledInput } from './Search.styled';
 
 const Search = () => {
@@ -20,7 +22,7 @@ const Search = () => {
     >
       {({ isSubmitting, errors }) => (
         <SearchBox>
-          <Form>
+          <div width="500px">
             <StyledInput
               type="text"
               name="category"
@@ -30,7 +32,7 @@ const Search = () => {
             <button type="searchQuery" mr={3} disabled={isSubmitting}>
               Search
             </button>
-          </Form>
+          </div>
         </SearchBox>
       )}
     </Formik>

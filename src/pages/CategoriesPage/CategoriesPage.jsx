@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { Wrapper } from 'components/theme/GlobalContainer';
+import { Section, Wrapper } from 'components/theme/GlobalContainer';
 import CategoriesTabPanel from 'components/CategoriesTabPanel/CategoriesTabPanel';
 import PageTitle from 'components/PageTitle/PageTitle';
 import {
@@ -27,10 +27,12 @@ const CategoriesPage = () => {
   }, [dispatch, location]);
   return (
     <>
-      <Wrapper>
-        <PageTitle type="mainPage">Categories</PageTitle>
-        <CategoriesTabPanel state={{ from: location }}></CategoriesTabPanel>
-      </Wrapper>
+      <Section>
+        <Wrapper>
+          <PageTitle type="mainPage">Categories</PageTitle>
+          <CategoriesTabPanel state={{ from: location }}></CategoriesTabPanel>
+        </Wrapper>
+      </Section>
     </>
   );
 };

@@ -18,31 +18,21 @@ const slideDown = keyframes`
   }
 `;
 
-const slideUp = keyframes`
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-`;
-
 export const MobileContainer = styled.div`
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: #ebf3d4;
+  background-color: var(--light-green);
   background-image: url(${BurgerBgMobile});
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: contain;
   z-index: 10000;
-  animation: ${p => (p.isShown ? slideDown : slideUp)} 500ms ease-in-out
+  animation: ${p => (p.isShown ? slideDown : slideDown)} 500ms ease-in-out
     ${p => (p.isShown ? '0ms' : '250ms')} forwards;
+
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
@@ -86,14 +76,14 @@ export const NavBurgerClose = styled.button`
 
 export const NavBurgerCloseIcon = styled(SvgExit)`
   cursor: pointer;
-  stroke: #22252a;
+  stroke: var(--font-gray);
   width: 24px;
   height: 24px;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    stroke: #8baa36;
+    stroke: var(--accent-color-green);
   }
 `;
 export const ThemeTogglerWrap = styled.div`

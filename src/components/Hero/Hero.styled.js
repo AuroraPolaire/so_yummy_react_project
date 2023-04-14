@@ -24,18 +24,13 @@ export const HeroBox = styled.div`
   }
 `;
 
-export const PositioningBox = styled.div`
-  position: relative;
-  width: 100%;
-`;
-
 export const Title = styled.h1`
+  display: inline;
   font-size: 60px;
   letter-spacing: -0.005em;
   font-weight: 400;
   text-align: center;
   color: var(--font-gray);
-  padding-top: 30px;
 
   .title-green {
     color: var(--accent-color-green);
@@ -43,41 +38,41 @@ export const Title = styled.h1`
 
   @media screen and (min-width: 768px) {
     text-align: left;
-    padding-top: 90px;
+    padding-top: 42px;
     font-size: 72px;
   }
   @media screen and (min-width: 1440px) {
-    padding-top: 120px;
-    padding-left: 100px;
+    padding-top: 34px;
     font-size: 100px;
   }
 `;
 
 export const Description = styled.p`
   text-align: center;
-  padding: 14px 50px;
-  padding-bottom: 360px;
+  padding: 14px 50px 364px;
   line-height: 1.3;
   font-weight: 400px;
   font-size: 14px;
+  letter-spacing: -0.5px;
 
   @media screen and (min-width: 768px) {
-    width: 362px;
+    max-width: 362px;
     text-align: left;
     padding-left: 0;
-    padding-bottom: 30px;
+    padding-bottom: 32px;
+    letter-spacing: -0.5px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 465px;
+    min-width: 465px;
     font-size: 18px;
-    padding-left: 107px;
+    padding-bottom: 50px;
   }
 `;
 
-export const Dish = styled.section`
+export const BackgroundContainer = styled.section`
   width: 100%;
-  height: 770px;
+  height: 780px;
   background-image: url(${spinachBlurMobile}), url(${dishMobile});
   background-size: 55px auto, 375px auto;
   background-position: 0px 20px, 100% 58px;
@@ -91,7 +86,7 @@ export const Dish = styled.section`
   @media (min-width: 768px) {
     background-image: url(${spinachBlurTablet}), url(${dishTablet});
     text-align: start;
-    background-size: 55px auto, 580px auto;
+    background-size: 65px auto, 580px auto;
     background-position: 0px 0px, top right;
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
