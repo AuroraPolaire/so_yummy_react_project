@@ -1,5 +1,5 @@
-import ChooseYourBreakfast from 'components/ChooseYourBreakfast/ChooseYourBreakfast';
-import Search from 'components/Search/Search';
+import ChooseYourBreakfast from 'components/Hero/ChooseYourBreakfast/ChooseYourBreakfast';
+import Search from 'components/Hero/Search/Search';
 import { Section, Wrapper } from 'components/theme/GlobalContainer';
 import React from 'react';
 import {

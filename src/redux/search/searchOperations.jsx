@@ -7,7 +7,7 @@ export const searchRecipes = createAsyncThunk(
   async ({ query, page }, thunkAPI) => {
     try {
       const response = await axios.get(
-        `/recipes/search?title=${query}&page=${page}&limit=12`
+        `/recipes/title/${query}?page=${page}&limit=12`
       );
 
       return response.data;
@@ -22,7 +22,7 @@ export const searchIngredient = createAsyncThunk(
   async ({ query, page }, thunkAPI) => {
     try {
       const response = await axios.get(
-        `/recipes/search?ingredient=${query}&page=${page}&limit=12`
+        `/recipes/ingredient/${query}?page=${page}&limit=12`
       );
 
       return response.data;

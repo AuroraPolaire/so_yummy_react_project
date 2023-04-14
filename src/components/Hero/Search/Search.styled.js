@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Field, Form } from 'formik';
 
-export const SearchBox = styled.form`
+export const SearchBox = styled(Form)`
   padding-bottom: 80px;
   display: flex;
   flex-wrap: nowrap;
@@ -26,6 +27,14 @@ export const SearchBox = styled.form`
     color: var(--font-white);
     background-color: var(--font-gray);
     font-size: 14px;
+    transition: background-color var(--transition-dur-and-func);
+
+    :hover,
+    :active,
+    :focus {
+      cursor: pointer;
+      background-color: var(--accent-color-green);
+    }
 
     @media screen and (min-width: 768px) {
       padding: 18px 52px;
@@ -46,7 +55,7 @@ export const SearchBox = styled.form`
   }
 `;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled(Field)`
   padding-left: 32px;
   border-radius: 24px 44px;
   border: 1px solid #f0f0f0;

@@ -14,7 +14,6 @@ const initialState = {
 
   categoryList: [],
   recipesByCategoryList: {},
-
 };
 
 //   ------------------Random 4 categories for main page -----------//
@@ -71,6 +70,7 @@ const recipesSlice = createSlice({
         state.error = false;
       })
       .addCase(fetchRecipesByCategory.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.recipesByCategoryList = action.payload;
         state.isLoading = false;
         state.error = false;

@@ -1,5 +1,6 @@
 import React from 'react';
-import SVG from '../../images/icons/sprite.svg';
+import { NavLink } from 'react-router-dom';
+import SVG from '../../../images/icons/sprite.svg';
 import { StyledBox } from './ChooseYourBreakfast.styled';
 
 const ChooseYourBreakfast = () => {
@@ -10,7 +11,9 @@ const ChooseYourBreakfast = () => {
         ingredients in one satisfying meal
       </p>
       <div>
-        <span>See recipes</span>
+        <NavLink to="/categories/breakfast">
+          <span>See recipes</span>
+        </NavLink>
         <svg>
           <use href={`${SVG}#icon-arrow-right`}></use>
         </svg>

@@ -8,11 +8,11 @@ export const HeaderSection = styled.header`
   height: auto;
   padding-top: 18px;
   @media (min-width: 768px) {
-    padding-top: 19px;
+    padding-top: 18px;
     max-width: 704px;
   }
-  @media (min-width: 1280px) {
-    padding: 18px 0;
+  @media (min-width: 1440px) {
+    padding-top: 14px;
     max-width: 1240px;
   }
 `;

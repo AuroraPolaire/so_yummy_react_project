@@ -7,9 +7,12 @@ import {
   HeaderSearchLinkWrapper,
   HeaderNavLinksWrapper,
 } from './Navigation.styled';
+import { useDispatch } from 'react-redux';
+import { logout } from 'redux/auth/authOperations';
 
 const Navigation = ({ onBurgerClose }) => {
   const isMobileDevice = useMediaQuery('(max-width: 1279px)');
+  const dispatch = useDispatch();
   return (
     <nav>
       <HeaderNavLinksWrapper>
@@ -47,6 +50,13 @@ const Navigation = ({ onBurgerClose }) => {
             </HeaderSearchLinkWrapper>
           </HeaderLink>
         </li>
+        <button
+          onClick={() => {
+            dispatch(logout());
+          }}
+        >
+          Log out
+        </button>
       </HeaderNavLinksWrapper>
     </nav>
   );

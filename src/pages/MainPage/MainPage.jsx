@@ -19,6 +19,7 @@ const MainPage = () => {
   return (
     <>
       <Hero />
+
       <Wrapper>
         <PreviewCategories />
       </Wrapper>

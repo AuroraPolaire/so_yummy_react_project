@@ -18,6 +18,8 @@ ${normalize}
   --warning: #f6c23e;
   --error: #e74a3b;
   --correct: #3cbc81;
+
+  --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 *, *::before, *::after {
