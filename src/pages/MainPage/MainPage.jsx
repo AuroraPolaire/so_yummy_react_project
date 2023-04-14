@@ -1,4 +1,5 @@
 // import ChooseYurBreakfast from 'components/ChooseYourBreakfast/ChooseYourBreakfast';
+import { Button, ButtonContainer } from './MainPage.styled';
 import Hero from 'components/Hero/Hero';
 import PreviewCategories from 'components/PreviewCategories/PreviewCategories';
 // import Search from 'components/Search/Search';
@@ -19,9 +20,11 @@ const MainPage = () => {
   return (
     <>
       <Hero />
-
       <Wrapper>
         <PreviewCategories />
+        <ButtonContainer>
+          <Button>Other Categories</Button>
+        </ButtonContainer>
       </Wrapper>
     </>
   );
