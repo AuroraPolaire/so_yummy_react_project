@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.319d63b7.js",
+    "main.js": "/so_yummy_react_project/static/js/main.1d0d64b7.js",
     "static/media/dish_desktop2x.webp": "/so_yummy_react_project/static/media/dish_desktop2x.3b07418e7e4470b259ed.webp",
     "static/media/dish_tab2x.webp": "/so_yummy_react_project/static/media/dish_tab2x.5f4ce5c0d2b314b1192d.webp",
     "static/media/dish_mob2x.webp": "/so_yummy_react_project/static/media/dish_mob2x.219c0f8d71d05919787b.webp",
@@ -14,20 +14,24 @@
     "static/media/footerBG_Desktop@2x.webp": "/so_yummy_react_project/static/media/footerBG_Desktop@2x.02f799649c1c099632aa.webp",
     "static/media/footerSharedDB_Desktop.webp": "/so_yummy_react_project/static/media/footerSharedDB_Desktop.4f95cdef49fd41ad1109.webp",
     "static/media/footerSharedDB_Mobile@2x.webp": "/so_yummy_react_project/static/media/footerSharedDB_Mobile@2x.71a9feddf4f8d3fecd81.webp",
+    "static/media/recipe-not-found-tablet-desktop-2x.webp": "/so_yummy_react_project/static/media/recipe-not-found-tablet-desktop-2x.8b9caeba8e4191559a79.webp",
     "static/media/tablet-modal-bg.webp": "/so_yummy_react_project/static/media/tablet-modal-bg.afc4e77f5c64b4efd5d3.webp",
     "static/media/spinach_blur_desktop2x.webp": "/so_yummy_react_project/static/media/spinach_blur_desktop2x.d47f89f442eeaed1cc60.webp",
     "static/media/footerBG_Tablet@2x.webp": "/so_yummy_react_project/static/media/footerBG_Tablet@2x.d6c00a70924f0ce22d47.webp",
     "static/media/footerSharedDB_Tablet.webp": "/so_yummy_react_project/static/media/footerSharedDB_Tablet.abe34756b55880407d0b.webp",
     "static/media/page-not-found.svg": "/so_yummy_react_project/static/media/page-not-found.e7600a8f734bd26f161b7e956f4aff68.svg",
+    "static/media/recipe-not-found-mobile-2x.webp": "/so_yummy_react_project/static/media/recipe-not-found-mobile-2x.ec47bc4a305e5d8d6fc4.webp",
     "static/media/mobile-modal-bg.webp": "/so_yummy_react_project/static/media/mobile-modal-bg.d74ef67b0d0f5e6a2465.webp",
     "static/media/spinach_blur_tab2x.webp": "/so_yummy_react_project/static/media/spinach_blur_tab2x.30af98e0e66205450b58.webp",
     "static/media/footerBG_Desktop.webp": "/so_yummy_react_project/static/media/footerBG_Desktop.24e198c6d3d05c77b04b.webp",
+    "static/media/recipe-not-found-tablet-desktop.webp": "/so_yummy_react_project/static/media/recipe-not-found-tablet-desktop.418745b6eb34acd4e051.webp",
     "static/media/footerSharedDB_Mobile.webp": "/so_yummy_react_project/static/media/footerSharedDB_Mobile.05f2039f86205be7ffd4.webp",
     "static/media/spinach_blur_desktop1x.webp": "/so_yummy_react_project/static/media/spinach_blur_desktop1x.70fa50a5887b0d46a01b.webp",
     "static/media/footerBG_mobile@2x.webp": "/so_yummy_react_project/static/media/footerBG_mobile@2x.1ac0affd2e63241c6bf2.webp",
     "static/media/footerBG_Tablet.webp": "/so_yummy_react_project/static/media/footerBG_Tablet.35cece3a57b557c83047.webp",
     "static/media/spinach_blur_mob2x.webp": "/so_yummy_react_project/static/media/spinach_blur_mob2x.b0d8695aa841d77345ee.webp",
     "static/media/sprite.svg": "/so_yummy_react_project/static/media/sprite.4b2a91aaff5dd0af62544390f4869c78.svg",
+    "static/media/recipe-not-found-mobile.webp": "/so_yummy_react_project/static/media/recipe-not-found-mobile.253c6bb51ebd0efff076.webp",
     "static/media/spinach_blur_tab1x.webp": "/so_yummy_react_project/static/media/spinach_blur_tab1x.233e373323b09c918757.webp",
     "static/media/footerBG_mobile.webp": "/so_yummy_react_project/static/media/footerBG_mobile.e193c6212e48344ae5e2.webp",
     "static/media/spinach_blur_mob1x.webp": "/so_yummy_react_project/static/media/spinach_blur_mob1x.db17b960fab713eb1564.webp",
@@ -36,9 +40,10 @@
     "static/media/search.svg": "/so_yummy_react_project/static/media/search.7bd6033959ab7b144f43818cda85abae.svg",
     "static/media/exit.svg": "/so_yummy_react_project/static/media/exit.e5ec20d5f2f4f822241baf13fab5a8be.svg",
     "static/media/burger.svg": "/so_yummy_react_project/static/media/burger.32b3cd4340613c9951a83bc4dd74e4cd.svg",
-    "main.319d63b7.js.map": "/so_yummy_react_project/static/js/main.319d63b7.js.map"
+    "static/media/arrow-down.svg": "/so_yummy_react_project/static/media/arrow-down.4c0759d592b9bf854db97289ce89a574.svg",
+    "main.1d0d64b7.js.map": "/so_yummy_react_project/static/js/main.1d0d64b7.js.map"
   },
   "entrypoints": [
-    "static/js/main.319d63b7.js"
+    "static/js/main.1d0d64b7.js"
   ]
 }
