@@ -11,8 +11,10 @@ const initialState = {
   isLoading: false,
   error: false,
   currentRecipe: null,
-  categoryList: {},
+
+  categoryList: [],
   recipesByCategoryList: {},
+
 };
 
 //   ------------------Random 4 categories for main page -----------//
