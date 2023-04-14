@@ -26,6 +26,12 @@ export const SearchBox = styled.form`
     color: var(--font-white);
     background-color: var(--font-gray);
     font-size: 14px;
+    transition: background-color var(--transition-dur-and-func);
+
+    :hover {
+      cursor: pointer;
+      background-color: var(--accent-color-green);
+    }
 
     @media screen and (min-width: 768px) {
       padding: 18px 52px;

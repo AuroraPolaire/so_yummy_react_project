@@ -23,6 +23,7 @@ export const Title = styled.h2`
   letter-spacing: -2%;
   color: var(--font-darkblue-heading);
   text-transform: capitalize;
+  transition: color var(--transition-dur-and-func);
   @media screen and (min-width: 768px) {
     font-size: 28px;
     line-height: 1;
@@ -33,7 +34,7 @@ export const Title = styled.h2`
           return `40px`;
 
         case 'recipePage':
-        return '24px';
+          return '24px';
 
         case 'categoryPage':
           return `60px`;
@@ -55,5 +56,10 @@ export const Title = styled.h2`
           return;
       }
     }};
+  }
+
+  :hover {
+    cursor: pointer;
+    color: var(--accent-color-green);
   }
 `;
