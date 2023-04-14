@@ -1,8 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 
-import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton, Tooltip } from '@mui/material';
 
 import DefaultThumb from 'images/icons/page-not-found.svg';
@@ -19,10 +17,6 @@ export default function IngredientsShoppingList() {
   const dispatch = useDispatch();
   const products = useSelector(selectShoppingList);
 
-  //   useEffect(() => {
-  //     console.log(products);
-  //   }, [products]);
-
   return (
     <div>
       <IngredientsShoppingListHead>
@@ -31,8 +25,6 @@ export default function IngredientsShoppingList() {
         <p>Remove</p>
       </IngredientsShoppingListHead>
       <IngredientsShoppingListStyled>
-        {/* {products.map(({ measure, title, _id, thumb, desc }) => (
-          <IngredientsShoppingListItem key={_id}> */}
         {products.map(({ productId, title, thumb, measure }) => (
           <IngredientsShoppingListItem key={productId}>
             <img src={thumb ?? DefaultThumb} alt={title} />
@@ -59,7 +51,3 @@ export default function IngredientsShoppingList() {
     </div>
   );
 }
-
-// IngredientsShoppingList.propTypes = {
-//   ingredients: PropTypes.array.isRequired,
-// };

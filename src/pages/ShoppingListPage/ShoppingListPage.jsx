@@ -5,9 +5,8 @@ import MainTitle from 'components/MainTitle/MainTitle';
 import { Section, Wrapper } from 'components/theme/GlobalContainer';
 import { fetchShoppingList } from 'redux/shoppingList/shoppingListOperations';
 import IngredientsShoppingList from 'components/IngredientsShoppingList/IngredientsShoppingList';
-// import PropTypes from 'prop-types'
 
-const ShoppingListPage = props => {
+const ShoppingListPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,7 +23,5 @@ const ShoppingListPage = props => {
     </Section>
   );
 };
-
-// ShoppingListPage.propTypes = {}
 
 export default ShoppingListPage;
