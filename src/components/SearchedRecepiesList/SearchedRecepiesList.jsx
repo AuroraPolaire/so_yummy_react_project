@@ -11,9 +11,11 @@ import {
 } from './SearchedRecepiesList.styled';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 import { List } from 'components/CategoriesTabPanel/CategoriesTabPanel.styled';
+import { Wrapper } from 'components/theme/GlobalContainer';
 
 const SearchedRecipiesList = () => {
   const recipes = useSelector(selectResults);
+  console.log(recipes);
   const { isLoading, isResolved } = useSelector(selectStatus);
 
   return (
@@ -23,9 +25,11 @@ const SearchedRecipiesList = () => {
           <Loader />
         </LoaderWrapper>
       ) : (
-        <List>
-          <RecipeCard recipe={recipes} />
-        </List>
+        <Wrapper>
+          <List>
+            <RecipeCard recipe={recipes} />
+          </List>
+        </Wrapper>
         // <RecipesList>
         //   {recipes.map(({ _id, title, preview }) => {
         //     return (
