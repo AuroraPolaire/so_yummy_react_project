@@ -4,11 +4,13 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-
+import { ThemeProvider } from '@mui/material/styles';
+import ThemeProviderTheme from 'components/ThemeProviderTheme/ThemeProviderTheme';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useState } from 'react';
 import {
   selectCategoryList,
   selectRecipesByCategoryList,
@@ -17,7 +19,7 @@ import RecipeCard from 'components/RecipeCard/RecipeCard';
 import { List } from './CategoriesTabPanel.styled';
 
 const CategoriesTabPanel = () => {
-  const [value, setValue] = React.useState('Beef');
+  const [value, setValue] = useState('Beef');
   const categoryList = Object.entries(useSelector(selectCategoryList));
   const recipesByCategoryList = Object.entries(
     useSelector(selectRecipesByCategoryList)
@@ -25,26 +27,31 @@ const CategoriesTabPanel = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const [isSkeleton, setIsSkeleton] = useState(true);
+
   useEffect(() => {
     const query = location.pathname.split('/')[2];
     const formattedQuery = query.charAt(0).toUpperCase() + query.slice(1);
     setValue(formattedQuery);
+
+    const timer = setTimeout(() => setIsSkeleton(false), 1000);
+    return () => clearTimeout(timer);
   }, [location]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
     navigate(`/categories/${newValue}`);
+    setIsSkeleton(true);
+    const timer = setTimeout(() => setIsSkeleton(false), 2000);
+    return () => clearTimeout(timer);
   };
   return (
     <>
-      <div>
+      <ThemeProvider theme={ThemeProviderTheme}>
         <Box sx={{ width: '100%', typography: 'body1' }}>
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-              <TabList
-                onChange={handleChange}
-                aria-label="lab API tabs example"
-              >
+              <TabList onChange={handleChange}>
                 {categoryList.flatMap(item => {
                   return (
                     <Tab
@@ -61,9 +68,14 @@ const CategoriesTabPanel = () => {
                 return (
                   <div key={item[0]}>
                     {key === 0 ? (
-                      <List>
-                        <RecipeCard recipe={item[1]}></RecipeCard>
-                      </List>
+                      <>
+                        <List>
+                          <RecipeCard
+                            recipe={item[1]}
+                            isSkeleton={isSkeleton}
+                          ></RecipeCard>
+                        </List>
+                      </>
                     ) : null}
                   </div>
                 );
@@ -71,7 +83,7 @@ const CategoriesTabPanel = () => {
             </TabPanel>
           </TabContext>
         </Box>
-      </div>
+      </ThemeProvider>
     </>
   );
 };
