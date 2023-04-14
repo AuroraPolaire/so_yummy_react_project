@@ -155,7 +155,7 @@ export const StyledLink = styled(NavLink)`
   height: 45px; */
   border-radius: 24px 44px;
   background-color: black;
-  background-color: #8BAA36;
+  background-color: #8baa36;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;

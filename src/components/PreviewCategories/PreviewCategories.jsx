@@ -2,6 +2,7 @@ import PageTitle from 'components/PageTitle/PageTitle';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 import React, { useLayoutEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { selectRecipesMainPage } from 'redux/recipes/recipesSelectors';
 import {
   ButtonContainer,
@@ -14,6 +15,7 @@ const PreviewCategories = () => {
   const list = Object.entries(randomRecipes);
 
   const [size, setSize] = useState([0, 0]);
+  const navigate = useNavigate();
 
   useLayoutEffect(() => {
     function updateSize() {
@@ -48,7 +50,14 @@ const PreviewCategories = () => {
           <RecipeCard recipe={filteredRecipesList(item[1])} />
         </List>
         <ButtonContainer>
-          <SeeAllButton type="button">See all</SeeAllButton>
+          <SeeAllButton
+            type="button"
+            onClick={() => {
+              navigate(`/categories/${item[0]}`);
+            }}
+          >
+            See all
+          </SeeAllButton>
         </ButtonContainer>
       </div>
     );
