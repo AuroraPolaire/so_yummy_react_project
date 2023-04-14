@@ -10,11 +10,13 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { authReducer } from './auth/authSlice';
+import { searchReducer } from 'redux/auth/searchSlice';
 import { recipesReducer } from './recipes/recipesSlice';
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    search: searchReducer,
     recipes: recipesReducer,
   },
   middleware: getDefaultMiddleware =>

@@ -1,8 +1,13 @@
 import React from 'react';
-import { Formik } from 'formik';
+
+import { Formik, Form } from 'formik';
+import { useNavigate } from 'react-router-dom'; 
+
 import { SearchBox, StyledInput } from './Search.styled';
 
 const Search = () => {
+  const navigate = useNavigate(); 
+
   return (
     <Formik
       initialValues={{ searchQuery: '' }}
@@ -12,6 +17,7 @@ const Search = () => {
         //   .unwrap()
         //   .then(data => navigate('/contacts'))
         //   .catch(error => navigate('/'));
+        navigate('/search'); // Переход на страницу SearchPage
       }}
     >
       {({ isSubmitting, errors }) => (
