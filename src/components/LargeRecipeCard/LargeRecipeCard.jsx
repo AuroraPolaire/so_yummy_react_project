@@ -7,21 +7,23 @@ import Time from 'components/Time/Time';
 const LargeRecipeCard = ({ recipe, type }) => {
   return recipe.map(item => {
     return (
-      <RecipeCardBox>
+      <RecipeCardBox key={item._id}>
         <img src={item.preview} alt={item.title} />
 
-        <div>
+        <div className="description-conainer">
           <h3>{item.title}</h3>
           <p className="description">{item.description}</p>
-          <Time minutes={Number(item.time)}></Time>
-          <StyledLink
-            type={type}
-            key={item._id}
-            to={`/recipe/${item._id}`}
-            className="link"
-          >
-            See recipe
-          </StyledLink>
+          <div className="btn-conainer">
+            <Time minutes={Number(item.time)}></Time>
+            <StyledLink
+              type={type}
+              key={item._id}
+              to={`/recipe/${item._id}`}
+              className="link"
+            >
+              See recipe
+            </StyledLink>
+          </div>
         </div>
       </RecipeCardBox>
     );

@@ -19,7 +19,7 @@ const FavouritePage = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchRecipesByCategory({}));
+    dispatch(fetchRecipesByCategory({ limit: 4 }));
     dispatch(fetchFavoritRecipes({}));
   }, [dispatch]);
   return (

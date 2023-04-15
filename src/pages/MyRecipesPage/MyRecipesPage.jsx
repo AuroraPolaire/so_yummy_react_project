@@ -20,7 +20,7 @@ const MyRecipesPage = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchRecipesByCategory({}));
+    dispatch(fetchRecipesByCategory({ limit: 4 }));
     dispatch(fetchMyRecipes({}));
   }, [dispatch]);
   return (

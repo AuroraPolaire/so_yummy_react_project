@@ -7,25 +7,44 @@ export const RecipeCardBox = styled.div`
   padding: 40px;
   background-color: #ffffff;
 
+  & .description-conainer {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  & .btn-conainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+
   & img {
     display: block;
     width: 318px;
     border-radius: 8px;
+    margin: 0;
   }
 
-  & .title {
-    min-width: 307px;
-    padding: 16px 0 16px 16px;
-    position: absolute;
-    bottom: 26px;
-    left: 50%;
-    transform: translate(-50%);
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 16px;
-    text-align: left;
-    line-height: 1.25;
-    color: var(--font-darkblue-p);
+  & .description {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.33;
+    letter-spacing: -0.02em;
+    padding-right: 120px;
+
+    color: #23262a;
+  }
+  & h3 {
+    color: #3e4462;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: -0.24px;
 
     @media screen and (min-width: 768px) {
       min-width: 300px;
