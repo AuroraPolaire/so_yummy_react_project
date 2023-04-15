@@ -1,7 +1,7 @@
 import RecipeInngredientsList from 'components/RecipeInngredientsList/RecipeInngredientsList';
 import RecipePageHero from 'components/RecipePageHero/RecipePageHero';
 import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
-import { Section, Wrapper } from 'components/theme/GlobalContainer';
+import { Wrapper } from 'components/theme/GlobalContainer';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -33,14 +33,14 @@ const RecipePage = props => {
     } = currentRecipe;
 
     return (
-      <Section>
+      <>
+        <RecipePageHero
+          title={title}
+          description={description}
+          time={time}
+          favorite={favorite}
+        />
         <Wrapper>
-          <RecipePageHero
-            title={title}
-            description={description}
-            time={time}
-            favorite={favorite}
-          />
           <RecipeInngredientsList ingredients={ingredients} />
           {instructions && (
             <RecipePreparation
@@ -50,7 +50,7 @@ const RecipePage = props => {
             />
           )}
         </Wrapper>
-      </Section>
+      </>
     );
   }
 };

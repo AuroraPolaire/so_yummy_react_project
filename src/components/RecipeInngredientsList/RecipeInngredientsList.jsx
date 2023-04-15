@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import DefaultThumb from 'images/icons/page-not-found.svg';
 import {
   Measure,
+  RecipeIngredientsContainer,
   RecipeInngredientsHead,
   RecipeInngredientsItem,
   RecipeInngredientsListStyled,
@@ -23,7 +24,7 @@ export default function RecipeInngredientsList({ ingredients }) {
   };
 
   return (
-    <div>
+    <RecipeIngredientsContainer>
       <RecipeInngredientsHead>
         <p>Ingredients</p>
         <p>Number</p>
@@ -47,7 +48,7 @@ export default function RecipeInngredientsList({ ingredients }) {
           </RecipeInngredientsItem>
         ))}
       </RecipeInngredientsListStyled>
-    </div>
+    </RecipeIngredientsContainer>
   );
 }
 

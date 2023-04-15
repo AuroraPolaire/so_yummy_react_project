@@ -1,5 +1,22 @@
 import styled from 'styled-components';
 
+import recipeHero from '../../images/recipe_hero/recipe_hero_bg1x.webp';
+import recipeHeroRetina from '../../images/recipe_hero/recipe_hero_bg2x.webp';
+
+export const RecipeBackground = styled.div`
+  width: 100%;
+  background-image: url(${recipeHero});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 0%;
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(${recipeHeroRetina});
+  }
+`;
+
 export const RecipeHeroBox = styled.div`
   display: flex;
   flex-direction: column;
