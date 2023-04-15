@@ -21,12 +21,13 @@ export const Title = styled.h2`
   }
 `;
 export const Green1 = styled.div`
+  z-index: -2;
   position: absolute;
   width: 8px;
   height: 8px;
   left: 104px;
   top: 14px;
-  background: #8BAA36;
+  background: #8baa36;
   border-radius: 3px;
   transform: rotate(-25deg);
 
@@ -44,12 +45,13 @@ export const Green1 = styled.div`
 `;
 
 export const Green2 = styled.div`
+  z-index: -2;
   position: absolute;
   width: 8px;
   height: 8px;
   left: 333px;
   top: 46px;
-  background: #8BAA36;
+  background: #8baa36;
   border-radius: 3px;
   transform: rotate(-25deg);
 
@@ -66,12 +68,13 @@ export const Green2 = styled.div`
   }
 `;
 export const Black1 = styled.div`
+  z-index: -2;
   position: absolute;
   width: 6px;
   height: 6px;
   left: 231px;
   top: 79px;
-  background: #22252A;
+  background: #22252a;
   border-radius: 3px;
   transform: rotate(-25deg);
 

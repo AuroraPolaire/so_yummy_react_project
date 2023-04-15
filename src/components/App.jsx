@@ -31,11 +31,9 @@ export const App = () => {
     dispatch(fetchCurrentUser())
       .unwrap()
       .then(
-        result =>
-          !result &&
-          dispatch(refreshToken())
-            .unwrap()
-            .then(result => dispatch(fetchCurrentUser()))
+        result => !result && dispatch(refreshToken())
+        // .unwrap()
+        // .then(result => dispatch(fetchCurrentUser()))
       );
     // .catch(error => dispatch(refreshToken()));
   }, [dispatch]);
