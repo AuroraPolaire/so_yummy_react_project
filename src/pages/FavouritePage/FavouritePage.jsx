@@ -27,7 +27,7 @@ const FavouritePage = () => {
       <Wrapper>
         <PageTitle type="mainPage">Favorites</PageTitle>
         <PreviewRecipesList
-          type="favorit"
+          type="favorite"
           recipesList={favoritRecipesList}
         ></PreviewRecipesList>
       </Wrapper>

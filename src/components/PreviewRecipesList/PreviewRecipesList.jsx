@@ -14,7 +14,10 @@ const PreviewRecipesList = ({ type, recipesList }) => {
             {key === 0 ? (
               <>
                 <List>
-                  <LargeRecipeCard recipe={item[1]}></LargeRecipeCard>
+                  <LargeRecipeCard
+                    recipe={item[1]}
+                    type={type}
+                  ></LargeRecipeCard>
                 </List>
               </>
             ) : null}

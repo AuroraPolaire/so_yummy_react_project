@@ -41,7 +41,7 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div>
       {isRefreshing ? null : (
         <Routes>
           <Route
@@ -96,6 +96,6 @@ export const App = () => {
           </Route>
         </Routes>
       )}
-    </>
+    </div>
   );
 };

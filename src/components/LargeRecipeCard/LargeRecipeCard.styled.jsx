@@ -1,13 +1,16 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const RecipeCardBox = styled.div`
-  position: relative;
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  background-color: #ffffff;
 
   & img {
-    width: 100%;
-    height: 100%;
+    display: block;
+    width: 318px;
     border-radius: 8px;
-    object-fit: cover;
   }
 
   & .title {
@@ -32,4 +35,27 @@ export const RecipeCardBox = styled.div`
       min-width: 268px;
     }
   }
+`;
+export const StyledLink = styled(NavLink)`
+  background-color: ${props => {
+    switch (props.type) {
+      case 'favorite':
+        return `#22252A`;
+
+      case 'my':
+        return '#8BAA36';
+
+      default:
+        return;
+    }
+  }};
+  display: inline-block;
+  color: #fafafa;
+  border-radius: 24px 44px;
+  text-decoration: none;
+  padding: 14px 38px;
+
+  /* &.active {
+    color: orange;
+  } */
 `;
