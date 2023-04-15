@@ -6,7 +6,6 @@ import {
   SearchIcon,
   HeaderSearchLinkWrapper,
   HeaderNavLinksWrapper,
-  LogoutBtn,
 } from './Navigation.styled';
 // import { useDispatch } from 'react-redux';
 // import { logout } from 'redux/auth/authOperations';

@@ -38,8 +38,8 @@ export const App = () => {
         .then(result => {
           console.log(result);
           !result && dispatch(refreshToken());
-        })
-        .catch(error => dispatch(refreshToken()));
+        });
+    // .catch(error => dispatch(refreshToken()));
   }, [dispatch, isLoggedIn]);
 
   return (
