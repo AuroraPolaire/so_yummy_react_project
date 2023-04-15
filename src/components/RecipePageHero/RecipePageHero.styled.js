@@ -8,13 +8,17 @@ export const RecipeBackground = styled.div`
   background-image: url(${recipeHero});
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 0%;
+  background-position: top;
 
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     background-image: url(${recipeHeroRetina});
   }
+
+  @media screen and (min-width: 768px) {
+    /* background-position: top; */
+  } ;
 `;
 
 export const RecipeHeroBox = styled.div`
@@ -38,7 +42,7 @@ export const RecipeHeroBox = styled.div`
   }
 
   & p {
-    /* width: 300px; */
+    max-width: 299px;
     text-align: center;
     font-size: 12px;
     font-weight: 400;
@@ -46,9 +50,12 @@ export const RecipeHeroBox = styled.div`
     letter-spacing: -0.02em;
     color: var(--font-gray);
     padding-bottom: 24px;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 767px) {
+      max-width: 506px;
     }
     @media screen and (min-width: 1440px) {
+      max-width: 656px;
+      padding-bottom: 30px;
     }
   }
 
@@ -60,6 +67,18 @@ export const RecipeHeroBox = styled.div`
     border-radius: 24px 44px;
     border: 1px solid var(--accent-color-green);
     background-color: transparent;
+
+    :hover,
+    :focus {
+      color: var(--font-white);
+      cursor: pointer;
+      background-color: var(--accent-color-green);
+    }
+
+    @media screen and (min-width: 768px) {
+      padding: 18px 44px;
+      font-size: 16px;
+    }
   }
 
   & div {
@@ -67,11 +86,16 @@ export const RecipeHeroBox = styled.div`
     align-items: baseline;
     justify-content: center;
     padding-top: 42px;
-    padding-bottom: 90px;
+
+    @media screen and (min-width: 768px) {
+      padding-top: 48px;
+      padding-bottom: 32px;
+    }
   }
 
   & div > p {
     display: inline-block;
+    padding-bottom: 0;
   }
 
   & div > svg {

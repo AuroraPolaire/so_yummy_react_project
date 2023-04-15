@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const RecipeIngredientsContainer = styled.div`
-  padding-top: 32px;
+  padding-top: 50px;
 `;
 
 export const RecipeInngredientsHead = styled.div`

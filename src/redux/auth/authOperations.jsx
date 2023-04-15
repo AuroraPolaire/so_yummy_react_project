@@ -73,11 +73,6 @@ export const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
-      // console.log('refresh user data', data);
-      // if (data.payload === undefined) {
-      // refreshToken();
-      // return;
-      // }
       return data;
     } catch (error) {
       // TODO: Добавить обработку ошибки error.message

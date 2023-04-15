@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { fetchRecipesMainPage } from 'redux/recipes/recipesOperations';
+import { Link } from 'react-router-dom';
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,9 @@ const MainPage = () => {
       <Wrapper>
         <PreviewCategories />
         <ButtonContainer>
-          <Button>Other Categories</Button>
+          <Link to="/categories">
+            <Button>Other Categories</Button>
+          </Link>
         </ButtonContainer>
       </Wrapper>
     </>
