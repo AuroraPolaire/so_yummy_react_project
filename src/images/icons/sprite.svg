@@ -38,15 +38,15 @@
 <symbol id="icon-burger" viewBox="0 0 32 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.5" d="M4 16h24M4 8h24M4 24h16"></path>
 </symbol>
-<!-- <symbol id="icon-arrow-right" viewBox="0 0 32 32">
-<path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.1895" d="M5.474 16h16.842M16 7.158l8.842 8.842-8.842 8.842"></path>
-</symbol> -->
 <symbol id="icon-arrow-right" viewBox="0 0 40 32">
 <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4" d="M4 16h32M36 16l-12-12M36 16l-12 12"></path>
 </symbol>
 <symbol id="icon-add-photo" viewBox="0 0 32 32">
 <path fill="#8baa36" style="fill: var(--color1, #8baa36)" d="M32 16c0 8.837-7.163 16-16 16s-16-7.163-16-16c0-8.837 7.163-16 16-16s16 7.163 16 16z"></path>
 <path fill="none" stroke="#fafafa" style="stroke: var(--color2, #fafafa)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M16 9v14M9 16h14"></path>
+</symbol>
+<symbol id="icon-clock" viewBox="0 0 32 32">
+<path d="M20.586 23.414l-6.586-6.586v-8.828h4v7.172l5.414 5.414zM16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 28c-6.627 0-12-5.373-12-12s5.373-12 12-12c6.627 0 12 5.373 12 12s-5.373 12-12 12z"></path>
 </symbol>
 </defs>
 </svg>

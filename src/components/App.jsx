@@ -74,15 +74,15 @@ export const App = () => {
             <Route index element={<MainPage />} />
             <Route path="/main" element={<MainPage />} />
             <Route
-              path="categories/:categoryName"
+              path="/categories/:categoryName"
               element={<CategoriesPage />}
             />
-            <Route path="add" element={<AddRecipesPage />} />
-            <Route path="my" element={<MyRecipesPage />} />
-            <Route path="favourite" element={<FavouritePage />} />
+            <Route path="/add" element={<AddRecipesPage />} />
+            <Route path="/my" element={<MyRecipesPage />} />
+            <Route path="/favourite" element={<FavouritePage />} />
             {/* <Route path="recipe/:recipeId" element={<RecipePage />} /> */}
             <Route
-              path="recipe/:recipeId"
+              path="/recipe/:recipeId"
               element={
                 <PrivateRoute
                   redirectTo="/welcome"
@@ -90,8 +90,8 @@ export const App = () => {
                 />
               }
             />
-            <Route path="shopping-list" element={<ShoppingListPage />} />
-            <Route path="search" element={<SearchPage />} />
+            <Route path="/shopping-list" element={<ShoppingListPage />} />
+            <Route path="/search" element={<SearchPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
