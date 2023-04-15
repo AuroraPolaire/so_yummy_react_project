@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.9cb88017.js",
+    "main.js": "/so_yummy_react_project/static/js/main.5eed20b2.js",
     "static/media/dish_desktop2x.webp": "/so_yummy_react_project/static/media/dish_desktop2x.3b07418e7e4470b259ed.webp",
     "static/media/welcome-bg-desktop@2x.jpg": "/so_yummy_react_project/static/media/welcome-bg-desktop@2x.9d1a3da06360bc17a4a4.jpg",
     "static/media/welcome-home-bg-tablet@2x.jpg": "/so_yummy_react_project/static/media/welcome-home-bg-tablet@2x.49426f882a14272d35d3.jpg",
@@ -36,7 +36,7 @@
     "static/media/footerBG_mobile@2x.webp": "/so_yummy_react_project/static/media/footerBG_mobile@2x.1ac0affd2e63241c6bf2.webp",
     "static/media/footerBG_Tablet.webp": "/so_yummy_react_project/static/media/footerBG_Tablet.35cece3a57b557c83047.webp",
     "static/media/spinach_blur_mob2x.webp": "/so_yummy_react_project/static/media/spinach_blur_mob2x.b0d8695aa841d77345ee.webp",
-    "static/media/sprite.svg": "/so_yummy_react_project/static/media/sprite.4b2a91aaff5dd0af62544390f4869c78.svg",
+    "static/media/sprite.svg": "/so_yummy_react_project/static/media/sprite.894e85c8e04df8747ba2ef5d0eb756c4.svg",
     "static/media/recipe-not-found-mobile.webp": "/so_yummy_react_project/static/media/recipe-not-found-mobile.253c6bb51ebd0efff076.webp",
     "static/media/spinach_blur_tab1x.webp": "/so_yummy_react_project/static/media/spinach_blur_tab1x.233e373323b09c918757.webp",
     "static/media/footerBG_mobile.webp": "/so_yummy_react_project/static/media/footerBG_mobile.e193c6212e48344ae5e2.webp",
@@ -47,9 +47,9 @@
     "static/media/exit.svg": "/so_yummy_react_project/static/media/exit.e5ec20d5f2f4f822241baf13fab5a8be.svg",
     "static/media/burger.svg": "/so_yummy_react_project/static/media/burger.32b3cd4340613c9951a83bc4dd74e4cd.svg",
     "static/media/arrow-down.svg": "/so_yummy_react_project/static/media/arrow-down.4c0759d592b9bf854db97289ce89a574.svg",
-    "main.9cb88017.js.map": "/so_yummy_react_project/static/js/main.9cb88017.js.map"
+    "main.5eed20b2.js.map": "/so_yummy_react_project/static/js/main.5eed20b2.js.map"
   },
   "entrypoints": [
-    "static/js/main.9cb88017.js"
+    "static/js/main.5eed20b2.js"
   ]
 }
