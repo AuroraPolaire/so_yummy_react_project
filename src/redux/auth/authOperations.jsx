@@ -72,10 +72,13 @@ export const fetchCurrentUser = createAsyncThunk(
 
     token.set(persistedToken);
     try {
-      const { data } = await axios.get('/users/current');
+      const { data, status } = await axios.get('/users/current');
+      console.log(status);
+
       return data;
     } catch (error) {
-      // TODO: Добавить обработку ошибки error.message
+      console.log(error);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

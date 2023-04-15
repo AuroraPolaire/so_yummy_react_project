@@ -17,7 +17,10 @@ import WelcomePage from 'pages/WelcomePage/WelcomePage';
 
 import SharedLayout from './SharedLayout/SharedLayout';
 import { PrivateRoute } from './PrivateRoute';
-import { selectIsRefreshing } from '../redux/auth/authSelectors';
+import {
+  selectIsLoggedIn,
+  selectIsRefreshing,
+} from '../redux/auth/authSelectors';
 import { fetchCurrentUser, refreshToken } from '../redux/auth/authOperations';
 import { useEffect } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
@@ -26,17 +29,18 @@ export const App = () => {
   const dispatch = useDispatch();
   // const token = useSelector(selectToken);
   const isRefreshing = useSelector(selectIsRefreshing);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    dispatch(fetchCurrentUser())
-      .unwrap()
-      .then(
-        result => !result && dispatch(refreshToken())
-        // .unwrap()
-        // .then(result => dispatch(fetchCurrentUser()))
-      );
-    // .catch(error => dispatch(refreshToken()));
-  }, [dispatch]);
+    !isLoggedIn &&
+      dispatch(fetchCurrentUser())
+        .unwrap()
+        .then(result => {
+          console.log(result);
+          !result && dispatch(refreshToken());
+        })
+        .catch(error => dispatch(refreshToken()));
+  }, [dispatch, isLoggedIn]);
 
   return (
     <>
@@ -70,26 +74,23 @@ export const App = () => {
             }
           >
             <Route index element={<MainPage />} />
-            <Route path="/main" element={<MainPage />} />
+            <Route path="main" element={<MainPage />} />
             <Route
-              path="/categories/:categoryName"
+              path="categories/:categoryName"
               element={<CategoriesPage />}
             />
-            <Route path="/add" element={<AddRecipesPage />} />
-            <Route path="/my" element={<MyRecipesPage />} />
-            <Route path="/favourite" element={<FavouritePage />} />
+            <Route path="add" element={<AddRecipesPage />} />
+            <Route path="my" element={<MyRecipesPage />} />
+            <Route path="favourite" element={<FavouritePage />} />
             {/* <Route path="recipe/:recipeId" element={<RecipePage />} /> */}
             <Route
-              path="/recipe/:recipeId"
+              path="recipe/:recipeId"
               element={
-                <PrivateRoute
-                  redirectTo="/welcome"
-                  component={<RecipePage />}
-                />
+                <PrivateRoute redirectTo="welcome" component={<RecipePage />} />
               }
             />
-            <Route path="/shopping-list" element={<ShoppingListPage />} />
-            <Route path="/search" element={<SearchPage />} />
+            <Route path="shopping-list" element={<ShoppingListPage />} />
+            <Route path="search" element={<SearchPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
