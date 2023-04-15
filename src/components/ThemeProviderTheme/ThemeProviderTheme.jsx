@@ -17,9 +17,11 @@ const ThemeProviderTheme = createTheme({
           fontSize: '18px',
           color: '#BDBDBD',
           padding: '12px 10px 30px 10px',
+          letterSpacing: 'normal',
           '&.Mui-selected': {
             color: '#8BAA36',
             fontFamily: 'Poppins',
+            letterSpacing: 'normal',
           },
         },
       },

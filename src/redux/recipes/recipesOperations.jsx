@@ -67,6 +67,34 @@ export const fetchRecipesByCategory = createAsyncThunk(
   }
 );
 
+export const fetchFavoritRecipes = createAsyncThunk(
+  'recipes/favorite',
+  async ({ page = 1, limit = 4, sort = 'title' }, thunkAPI) => {
+    try {
+      const { data } = await axios.get(
+        `recipes/favorite?page=${page}&limit=${limit}&sort=${sort}`
+      );
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchMyRecipes = createAsyncThunk(
+  'own-recipes',
+  async ({ page = 1, limit = 4 }, thunkAPI) => {
+    try {
+      const { data } = await axios.get(
+        `own-recipes?page=${page}&limit=${limit}`
+      );
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 // export const fetchRecipeByQuery = createAsyncThunk(
 //   'recipes/search/query',
 //   async (query, thunkAPI) => {
