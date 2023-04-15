@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  padding: 20px 16px 28px 16px;
+  padding: 0 16px 28px 16px;
 
   @media screen and (min-width: 375px) {
     width: 375px;
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 768px;
-    padding: 28px 32px;
+    padding: 0 32px;
   }
 
   // 1440px//
