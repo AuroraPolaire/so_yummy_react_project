@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { Section, Wrapper } from 'components/theme/GlobalContainer';
 import PageTitle from 'components/PageTitle/PageTitle';
 import { fetchFavoritRecipes } from 'redux/recipes/recipesOperations';
-import { selectFavoritRecipesList } from 'redux/recipes/recipesSelectors';
+// import { selectFavoritRecipesList } from 'redux/recipes/recipesSelectors';
 import PreviewRecipesList from 'components/PreviewRecipesList/PreviewRecipesList';
 
 import { fetchRecipesByCategory } from 'redux/recipes/recipesOperations';
