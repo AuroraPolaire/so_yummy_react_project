@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.c27308a5.js",
+    "main.js": "/so_yummy_react_project/static/js/main.03651345.js",
     "static/media/recipe_hero_bg1x.webp": "/so_yummy_react_project/static/media/recipe_hero_bg1x.b7b1c44bc5346e70d72a.webp",
     "static/media/dish_desktop2x.webp": "/so_yummy_react_project/static/media/dish_desktop2x.3b07418e7e4470b259ed.webp",
     "static/media/recipe_hero_bg2x.webp": "/so_yummy_react_project/static/media/recipe_hero_bg2x.9d6a67271bda69ba007c.webp",
@@ -44,14 +44,22 @@
     "static/media/footerBG_mobile.webp": "/so_yummy_react_project/static/media/footerBG_mobile.e193c6212e48344ae5e2.webp",
     "static/media/spinach_blur_mob1x.webp": "/so_yummy_react_project/static/media/spinach_blur_mob1x.db17b960fab713eb1564.webp",
     "index.html": "/so_yummy_react_project/index.html",
+    "static/media/footer-logo.svg": "/so_yummy_react_project/static/media/footer-logo.3a2b0b0eb04e3edbd7f1fa05a4dfa246.svg",
     "static/media/logo-header.svg": "/so_yummy_react_project/static/media/logo-header.655af48f298b554c9f7b62471ca4dffd.svg",
+    "static/media/twitter-logo.svg": "/so_yummy_react_project/static/media/twitter-logo.925913d1b32befb642c6f0521756109c.svg",
+    "static/media/instagram-logo.svg": "/so_yummy_react_project/static/media/instagram-logo.2917ad3f5d671d720905e9543e48f661.svg",
+    "static/media/youtube-logo.svg": "/so_yummy_react_project/static/media/youtube-logo.bad4e240b793422914a90d5f8f5f1678.svg",
+    "static/media/Error-logo.svg": "/so_yummy_react_project/static/media/Error-logo.221af143b5544b0dc4b506dbc61b55fa.svg",
     "static/media/search.svg": "/so_yummy_react_project/static/media/search.7bd6033959ab7b144f43818cda85abae.svg",
+    "static/media/facebook-logo.svg": "/so_yummy_react_project/static/media/facebook-logo.bddff187a269cf93eeec0f7f6eb42b38.svg",
+    "static/media/email-icon-for-footer.svg": "/so_yummy_react_project/static/media/email-icon-for-footer.508505e1103af0b751a8466462ebe633.svg",
+    "static/media/Success-logo.svg": "/so_yummy_react_project/static/media/Success-logo.f70d8571f174566ba7b310743be99f06.svg",
     "static/media/exit.svg": "/so_yummy_react_project/static/media/exit.e5ec20d5f2f4f822241baf13fab5a8be.svg",
     "static/media/burger.svg": "/so_yummy_react_project/static/media/burger.32b3cd4340613c9951a83bc4dd74e4cd.svg",
     "static/media/arrow-down.svg": "/so_yummy_react_project/static/media/arrow-down.4c0759d592b9bf854db97289ce89a574.svg",
-    "main.c27308a5.js.map": "/so_yummy_react_project/static/js/main.c27308a5.js.map"
+    "main.03651345.js.map": "/so_yummy_react_project/static/js/main.03651345.js.map"
   },
   "entrypoints": [
-    "static/js/main.c27308a5.js"
+    "static/js/main.03651345.js"
   ]
 }
