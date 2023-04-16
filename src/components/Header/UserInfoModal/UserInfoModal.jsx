@@ -51,7 +51,10 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
 
     dispatch(updateUser(formData))
       .unwrap()
-      .then(res => closeUserInfoModal);
+      .then(res => closeUserInfoModal)
+      .catch(e => {
+        'додати обробку помилки';
+      });
   };
 
   const nameOnChange = e => {
@@ -98,7 +101,6 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
               type="name"
               pattern="[A-Za-z0-9]{6,}"
               value={newName}
-              // defaultValue={name}
               onChange={nameOnChange}
             />
             <CreateIcon />
