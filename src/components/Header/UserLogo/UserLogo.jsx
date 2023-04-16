@@ -132,7 +132,11 @@ const UserLogo = () => {
       )}
 
       <Dialog open={userInfoModalOpen} onClose={onUserInfoClose}>
-        <UserInfoModal closeUserInfoModal={onUserInfoClose} />
+        <UserInfoModal
+          avatarURL={avatarURL}
+          name={name}
+          closeUserInfoModal={onUserInfoClose}
+        />
       </Dialog>
 
       <Dialog open={logoutConfirmationOpen} onClose={onLogoutClose}>

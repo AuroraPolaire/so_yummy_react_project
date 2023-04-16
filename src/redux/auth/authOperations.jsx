@@ -138,10 +138,10 @@ export const subscribeUser = createAsyncThunk(
 
 export const updateUser = createAsyncThunk(
   'auth/update',
-  async (name, avatarURL, thunkAPI) => {
+  async (userData, thunkAPI) => {
     try {
-      const { data } = await axios.post('/users/update', name, avatarURL);
-      token.set(data.accesstoken);
+      const { data } = await axios.put('/users/update', userData);
+      // token.set(data.accesstoken);
       return data;
     } catch (error) {
       alert('Oops, something went wrong.');

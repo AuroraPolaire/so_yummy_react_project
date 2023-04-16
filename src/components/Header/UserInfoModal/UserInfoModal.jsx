@@ -19,7 +19,9 @@ import {
   EditSubmitButton,
 } from './UserInfoModal.styled';
 
-const UserInfoModal = ({ onClose, avatarURL, name }) => {
+const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
+  // const userData = useSelector(selectUser);
+  // console.log(userData);
   const [newAvatar, setNewAvatar] = useState(avatarURL);
   const [newName, setNewName] = useState(name);
   const dispatch = useDispatch();
@@ -34,27 +36,33 @@ const UserInfoModal = ({ onClose, avatarURL, name }) => {
   const handleOnSubmit = async e => {
     e.preventDefault();
     const files = e.target.elements[0].files[0];
+
     const formData = new FormData();
-    if (files) {
-      formData.append('avatar', files);
-    }
-    if (newName) {
-      formData.append('name', newName);
-    }
-    console.log(newName);
-    dispatch(updateUser(formData));
+
+    files && formData.append('avatar', files);
+    newName ? formData.append('name', newName) : formData.append('name', name);
+
+    // if (files) {
+    //   formData.append('avatar', files);
+    // }
+    // if (newName) {
+    //   formData.append('name', newName);
+    // }
+
+    dispatch(updateUser(formData))
+      .unwrap()
+      .then(res => closeUserInfoModal);
   };
 
   const nameOnChange = e => {
     setNewName(e.target.value);
-    console.log(e.target.value);
   };
 
   return (
     <div>
       <IconButton
         aria-label="close"
-        onClick={onClose}
+        onClick={closeUserInfoModal}
         sx={{
           position: 'absolute',
           right: 8,
@@ -89,12 +97,15 @@ const UserInfoModal = ({ onClose, avatarURL, name }) => {
             <EditUserNameInput
               type="name"
               pattern="[A-Za-z0-9]{6,}"
-              value={name}
+              value={newName}
+              // defaultValue={name}
               onChange={nameOnChange}
             />
             <CreateIcon />
           </EditUserNameLabel>
-          <EditSubmitButton onClick={onClose}>Save changes</EditSubmitButton>
+          <EditSubmitButton onClick={closeUserInfoModal}>
+            Save changes
+          </EditSubmitButton>
         </EditUserForm>
       </DialogContent>
     </div>
