@@ -42,7 +42,7 @@ export const App = () => {
   }, [dispatch, isLoggedIn]);
 
   return (
-    <>
+    <div>
       {isRefreshing ? null : (
         <Routes>
           <Route
@@ -94,6 +94,6 @@ export const App = () => {
           </Route>
         </Routes>
       )}
-    </>
+    </div>
   );
 };

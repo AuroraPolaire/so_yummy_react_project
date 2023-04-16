@@ -29,6 +29,7 @@ ${normalize}
 
 body {
   font-family: 'Poppins', sans-serif;
+  background-color:#FAFAFA;
 }
 
 li {

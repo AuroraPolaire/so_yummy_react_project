@@ -6,23 +6,19 @@ import LargeRecipeCard from 'components/LargeRecipeCard/LargeRecipeCard';
 // =======================
 
 const PreviewRecipesList = ({ type, recipesList }) => {
-  return (
-    <div>
-      {recipesList.flatMap((item, key) => {
-        return (
-          <div key={item[0]}>
-            {key === 0 ? (
-              <>
-                <List>
-                  <LargeRecipeCard recipe={item[1]}></LargeRecipeCard>
-                </List>
-              </>
-            ) : null}
-          </div>
-        );
-      })}
-    </div>
-  );
+  return recipesList.flatMap((item, key) => {
+    return (
+      <div key={item[0]}>
+        {key === 0 ? (
+          <>
+            <List>
+              <LargeRecipeCard recipe={item[1]} type={type}></LargeRecipeCard>
+            </List>
+          </>
+        ) : null}
+      </div>
+    );
+  });
 };
 
 // PreviewRecipesList.propTypes = {}
