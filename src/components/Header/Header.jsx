@@ -37,6 +37,7 @@ const Header = () => {
           {!isMobileDevice && <Navigation />}
           <UserWrapper>
             <UserLogo />
+
             <NavBurger onClick={onBurgerOpen}>
               <NavBurgerIcon />
             </NavBurger>

@@ -135,12 +135,27 @@ export const subscribeUser = createAsyncThunk(
     }
   }
 );
+
+export const updateUser = createAsyncThunk(
+  'auth/update',
+  async (name, avatarURL, thunkAPI) => {
+    try {
+      const { data } = await axios.post('/users/update', name, avatarURL);
+      token.set(data.accesstoken);
+      return data;
+    } catch (error) {
+      alert('Oops, something went wrong.');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 const operations = {
   register,
   logout,
   signIn,
   fetchCurrentUser,
   subscribeUser,
+  updateUser,
 };
 export default operations;
 
