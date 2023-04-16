@@ -67,6 +67,7 @@ export const RecipeHeroBox = styled.div`
     border-radius: 24px 44px;
     border: 1px solid var(--accent-color-green);
     background-color: transparent;
+    transition: background-color var(--transition-dur-and-func);
 
     :hover,
     :focus {

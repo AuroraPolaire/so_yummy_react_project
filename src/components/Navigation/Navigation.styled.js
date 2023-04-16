@@ -77,3 +77,28 @@ export const SearchIcon = styled(SvgSearchIcon)`
     height: 24px;
   }
 `;
+
+// export const LogoutBtn = styled.button`
+//   padding-top: 12px;
+//   padding-bottom: 12px;
+//   padding-left: 27px;
+//   padding-right: 12px;
+//   border-radius: 24px 44px;
+//   border: 0;
+//   color: var(--font-white);
+//   background-color: var(--accent-color-green);
+//   font-size: 14px;
+//   transition: background-color var(--transition-dur-and-func);
+
+//   :hover,
+//   :active,
+//   :focus {
+//     cursor: pointer;
+//     background-color: var(--font-gray);
+//   }
+
+//   @media screen and (min-width: 1440px) {
+//     padding-left: 35px;
+//     padding-right: 32px;
+//   }
+// `;

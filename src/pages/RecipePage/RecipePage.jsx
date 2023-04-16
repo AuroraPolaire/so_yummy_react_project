@@ -39,6 +39,7 @@ const RecipePage = props => {
           description={description}
           time={time}
           favorite={favorite}
+          id={recipeId}
         />
         <Wrapper>
           <RecipeInngredientsList ingredients={ingredients} />

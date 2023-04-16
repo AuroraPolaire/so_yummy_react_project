@@ -8,6 +8,7 @@ import { App } from 'components/App';
 import { store } from './redux/store';
 import { GlobalStyles } from 'components/theme/GlobalStyles';
 // import { Wrapper } from 'components/theme/GlobalContainer';
+import { setupInterceptors } from './redux/auth/authOperations';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -22,3 +23,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Provider>
   </React.StrictMode>
 );
+
+setupInterceptors(store);

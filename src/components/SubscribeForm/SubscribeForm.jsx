@@ -1,107 +1,95 @@
-// import { useSelector, useDispatch } from 'react-redux';
-// import { useFormik } from 'formik';
-// import * as yup from 'yup';
-// import notiflix from 'notiflix';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import notiflix from 'notiflix';
+import {
+  SubscribeFormWrapper,
+  InputForm,
+  FormFooterInput,
+  Error,
+  InputWrapper,
+  ErrorLogoStyled,
+  EmailIconStyled,
+  InputBtn,
+  SuccessLogoStyled,
+  ResetFormInput,
+} from './SubscribeForm.styled';
+import { selectorSwicherTheme } from 'redux/auth/authSelectors';
+import { subscribeUser } from 'redux/auth/authOperations';
 
-// import {
-//   FormFooter,
-//   FormFooterInput,
-//   FormFooterBtn,
-//   Error,
-//   InputWrapper,
-//   ErrorLogoStyled,
-//   SuccessLogoStyled,
-//   EmailIconStyled,
-//   ResetFormInput,
-// } from './SubscribeForm.styled';
+export const SubscribeForm = () => {
+  const dispatch = useDispatch();
 
-// import { selectUserEmail, selectorSwicherTheme } from 'redux/auth/authSelectors';
-// import { subscribeUser } from 'redux/auth/authOperations';
+  const onSubmit = (values) => {
+    dispatch(subscribeUser({ email: values.email }))
+      .then(() => {
+        notiflix.Notify.success('Subscribed Successful');
+      })
+      .catch((error) => {
+        if (error?.response?.status === 404) {
+          notiflix.Notify.warning('It`s not your Email');
+        } else if (error?.response?.status === 400) {
+          notiflix.Notify.warning('You are already subscribed');
+        } else {
+          console.log(error);
+          notiflix.Notify.failure('Subscription error');
+        }
+      });
+  };
 
-// export const SubscribeForm = () => {
-//   const dispatch = useDispatch();
-// const userEmail = useSelector(selectUserEmail);
-// const theme = useSelector(selectorSwicherTheme);
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
-// const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+    },
+    validationSchema: yup.object().shape({
+      email: yup.string().required('Required').matches(emailRegex, 'Invalid email address'),
+    }),
+    onSubmit,
+  });
 
-// const validationSchema = yup.object().shape({
-//   email: yup.string()
-//     .matches(emailRegex, 'Invalid email address')
-//     .required('Email is required'),
-// });
+  const onClickResetButton = () => {
+    formik.resetForm();
+  };
 
-//   const formik = useFormik({
-//   initialValues: {
-//   email: userEmail || ''
-// },
-//   validationSchema,
-//     onSubmit: (values) => {
-//       dispatch(subscribeUser({ email: values.email }))
-//         .then((rejected) => {
+  const theme = useSelector(selectorSwicherTheme);
 
-//           if (rejected.payload === 'Request failed with status code 404') {
-//             return notiflix.Notify.warning('It`s not yours Email');
-//           }
-//           if (rejected.payload === 'Request failed with status code 400') {
-//              return notiflix.Notify.warning('Is allready Subscribe');
-//           }
-//           notiflix.Notify.success('Subscribed Successful');
-//     }).catch((error) => {
-//       console.log(error);
-//       notiflix.Notify.failure('Error subscribing');
-//     });
-//     },
-//     validate: (values) => {
-//       const errors = {};
-//       if (!values.email) {
-//         errors.email = 'Required';
-//       } else if (!emailRegex.test(values.email)) {
-//         errors.email = 'Invalid email address';
-//       }
-//       return errors;
-//     },
-//   });
-
-//   const onClickResetButton = () => {
-//       formik.resetForm();
-//   }
-
-//   return (
-//     <FormFooter onSubmit={formik.handleSubmit}
-//     >
-//       <InputWrapper>
-//         <FormFooterInput
-//           type="email"
-//           id="email"
-//           name="email"
-//           placeholder='Enter your email address'
-//           value={formik.values.email}
-//           onChange={formik.handleChange}
-//           onBlur={formik.handleBlur}
-//           error={formik.errors.email}
-//           touched={formik.touched.email}
-//           required
-//           themeName={theme}
-
-//         />
-//         <EmailIconStyled errorformik={formik.errors.email } />
-//         {!formik.isValid ? (
-//           <ResetFormInput
-//             type='button'
-//             onClick={onClickResetButton}
-//           >
-//             <ErrorLogoStyled /></ResetFormInput>) : (<SuccessLogoStyled />)}
-//         {formik.errors.email ? (
-//           <Error>{formik.errors.email}</Error>
-//         ) : null}
-
-//       </InputWrapper>
-
-//       <FormFooterBtn type="submit" disabled={!formik.isValid}>Subscribe</FormFooterBtn>
-
-
-//     </FormFooter>
-
-//   );
-// }
+  return (
+    <SubscribeFormWrapper onSubmit={formik.handleSubmit}>
+      <InputForm>
+        <InputWrapper>
+          <FormFooterInput
+            type="email"
+            id="email"
+            name="email"
+            placeholder='Enter your email address'
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.errors.email}
+            touched={formik.touched.email}
+            required
+            themeName={theme}>
+          </FormFooterInput>
+          <EmailIconStyled errorformik={formik.errors.email } />
+          {!formik.isValid ? (
+            <ResetFormInput
+              type='button'
+              onClick={onClickResetButton}
+            >
+              <ErrorLogoStyled /></ResetFormInput>) : (<SuccessLogoStyled />)}
+          {formik.errors.email ? (
+            <Error>{formik.errors.email}</Error>
+          ) : null}
+        </InputWrapper>
+        <InputBtn
+          type='submit'
+          disabled={!formik.isValid}
+        >Subscribe
+        </InputBtn>
+      </InputForm>
+    </SubscribeFormWrapper>
+  );
+};
