@@ -8,6 +8,7 @@ import {
   register,
   fetchCurrentUser,
   refreshToken,
+  updateUser,
 } from './authOperations';
 
 const initialState = {
@@ -76,6 +77,18 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(subscribeUser.rejected, (state, action) => {
+        state.isError = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(updateUser.fulfilled, state => {
+        state.isError = null;
+        state.isLoading = false;
+        state.isUpdated = true;
+      })
+      .addCase(updateUser.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(updateUser.rejected, (state, action) => {
         state.isError = action.payload;
         state.isLoading = false;
       });
