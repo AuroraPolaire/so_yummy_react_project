@@ -129,7 +129,7 @@ export const subscribeUser = createAsyncThunk(
 
       const response = await axios.post('/users/subscribe', email);
 
-      return response.data.data.user;
+      return response.data.user;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -150,14 +150,14 @@ export const setupInterceptors = store => {
     response => response,
     error => {
       const originalRequest = error.config;
+      console.log('originalRequest', originalRequest);
 
       if (error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
 
         try {
-          dispatch(refreshToken()).then(() => {
-            return axios(originalRequest);
-          });
+          dispatch(refreshToken());
+          return axios(originalRequest);
         } catch (error) {
           dispatch(logout());
         }
