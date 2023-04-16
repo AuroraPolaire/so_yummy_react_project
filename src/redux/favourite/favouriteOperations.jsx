@@ -8,7 +8,6 @@ export const fetchFavouriteRecipes = createAsyncThunk(
       const { data } = await axios.get(
         `recipes/favorite?page=1&limit=${limit}&sort=${sort}`
       );
-      // 'https://so-yumi.p.goit.global/api/recipes/favorite?page=1&limit=12&sort=popular';
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

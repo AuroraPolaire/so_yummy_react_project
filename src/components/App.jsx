@@ -21,7 +21,7 @@ import {
   selectIsLoggedIn,
   selectIsRefreshing,
 } from '../redux/auth/authSelectors';
-import { fetchCurrentUser, refreshToken } from '../redux/auth/authOperations';
+import { fetchCurrentUser } from '../redux/auth/authOperations';
 import { useEffect } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
 
@@ -32,13 +32,12 @@ export const App = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    !isLoggedIn &&
-      dispatch(fetchCurrentUser())
-        .unwrap()
-        .then(result => {
-          console.log(result);
-          !result && dispatch(refreshToken());
-        });
+    !isLoggedIn && dispatch(fetchCurrentUser());
+    // .unwrap()
+    // .then(result => {
+    // console.log(result);
+    // !result && dispatch(refreshToken());
+    // });
     // .catch(error => dispatch(refreshToken()));
   }, [dispatch, isLoggedIn]);
 

@@ -1,12 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/authOperations';
-import { Formik, Form, ErrorMessage, Field } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Wrapper } from 'components/theme/GlobalContainer';
 import { AuthBox, StyledInput } from './RegisterForm.styled';
-
-
 
 // import { Navigate } from 'react-router';
 
@@ -61,54 +59,56 @@ export const RegisterForm = () => {
 
   return (
     <Wrapper>
+      <Formik
+        initialValues={{ name: '', email: '', password: '' }}
+        validationSchema={registerSchema}
+        onSubmit={(values, { resetForm }) => {
+          dispatch(register(values))
+            .unwrap()
+            .then(data => {})
+            .catch(error => console.log(error));
+          resetForm({ name: '', number: '', password: '' });
+        }}
+      >
+        {props => (
+          <AuthBox>
+            <StyledInput
+              type="text"
+              name="name"
+              placeholder="Name"
+              // autoComplete="off"
 
-    <Formik
-      initialValues={{ name: '', email: '', password: '' }}
-      validationSchema={registerSchema}
-      onSubmit={(values, { resetForm }) => {
-        dispatch(register(values))
-          .unwrap()
-          .then(data => {})
-          .catch(error => console.log(error));
-        resetForm({ name: '', number: '', password: '' });
-      }}
-    >
-      {props => (
-        <AuthBox>
-          <StyledInput
-            type="text"
-            name="name"
-            placeholder="Name"
-            // autoComplete="off"
+              // onChange={handleChange}
+              // value={props.values.name}
+            />
+            <ErrorMessage name="name" render={message => <p>{message}</p>} />
+            <StyledInput
+              type="text"
+              name="email"
+              placeholder="Email"
+              // autoComplete="off"
+              // onChange={handleChange}
+              // value={props.values.email}
+            />
+            <ErrorMessage name="email" render={message => <p>{message}</p>} />
+            <StyledInput
+              type="password"
+              name="password"
+              placeholder="Password"
+              // autoComplete="off"
 
-            // onChange={handleChange}
-            // value={props.values.name}
-          />
-          <ErrorMessage name="name" render={message => <p>{message}</p>} />
-          <StyledInput
-            type="text"
-            name="email"
-            placeholder="Email"
-            // autoComplete="off"
-            // onChange={handleChange}
-            // value={props.values.email}
-          />
-          <ErrorMessage name="email" render={message => <p>{message}</p>} />
-          <StyledInput
-            type="password"
-            name="password"
-            placeholder="Password"
-            // autoComplete="off"
+              // onChange={handleChange}
+              // value={props.values.password}
+            />
+            <ErrorMessage
+              name="password"
+              render={message => <p>{message}</p>}
+            />
 
-            // onChange={handleChange}
-            // value={props.values.password}
-          />
-          <ErrorMessage name="password" render={message => <p>{message}</p>} />
-
-          <button type="submit">Sign Up</button>
-        </AuthBox>
-      )}
-    </Formik>
+            <button type="submit">Sign Up</button>
+          </AuthBox>
+        )}
+      </Formik>
     </Wrapper>
   );
 };
