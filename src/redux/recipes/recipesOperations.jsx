@@ -95,6 +95,18 @@ export const fetchMyRecipes = createAsyncThunk(
   }
 );
 
+export const addRecipe = createAsyncThunk(
+  "recipes/addRecipe",
+  async (recipe, thunkAPI) => {
+    try {
+      const response = await axios.post("/own-recipes", recipe);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 // export const fetchRecipeByQuery = createAsyncThunk(
 //   'recipes/search/query',
 //   async (query, thunkAPI) => {
