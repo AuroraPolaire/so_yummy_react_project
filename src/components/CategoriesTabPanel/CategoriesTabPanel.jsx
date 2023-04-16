@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Fade from '@mui/material/Fade';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -18,7 +19,6 @@ import {
 import { fetchRecipesByCategory } from 'redux/recipes/recipesOperations';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 import { List, RecipesContainer } from './CategoriesTabPanel.styled';
-import Fade from '@mui/material/Fade';
 
 const CategoriesTabPanel = () => {
   const navigate = useNavigate();
