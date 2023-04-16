@@ -11,7 +11,7 @@ import {
   LogoutModalContainerStyled,
 } from './LogoutConfirmation.styled';
 
-const LogoutConfirmation = ({ onLogoutClose }) => {
+const LogoutConfirmation = ({ closeLogoutModal }) => {
   const dispatch = useDispatch();
   const onLogoutUser = () => {
     dispatch(logout());
@@ -20,7 +20,7 @@ const LogoutConfirmation = ({ onLogoutClose }) => {
     <LogoutModalContainerStyled>
       <IconButton
         aria-label="close"
-        onClick={onLogoutClose}
+        onClick={closeLogoutModal}
         sx={{
           position: 'absolute',
           right: 8,
@@ -36,7 +36,9 @@ const LogoutConfirmation = ({ onLogoutClose }) => {
       <ButtonsContainerStyled>
         <LogoutButtonStyled onClick={onLogoutUser}>Log out</LogoutButtonStyled>
 
-        <CancelButtonStyled onClick={onLogoutClose}>Cancel</CancelButtonStyled>
+        <CancelButtonStyled onClick={closeLogoutModal}>
+          Cancel
+        </CancelButtonStyled>
       </ButtonsContainerStyled>
     </LogoutModalContainerStyled>
   );

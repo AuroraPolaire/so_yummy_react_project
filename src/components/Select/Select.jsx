@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import PropTypes from 'prop-types';
+import { useFormikContext } from 'formik';
 
-export default function CustomSelect({ field, options, func, setFieldValue }) {
-    const [size, setSize] = useState(1);
+export default function CustomSelect({ field, options, func }) {
+  const [size, setSize] = useState(1);
+  const { setFieldValue } = useFormikContext();
+  const selectRef = useRef(null);
 
   function handleSelectMouseDown() {
+    const numOptions = selectRef.current.options.length;
+    if (numOptions < 6) {
+      return;
+    }
     setSize(6);
   }
 
@@ -11,18 +19,29 @@ export default function CustomSelect({ field, options, func, setFieldValue }) {
     setSize(0);
     }
     
-    function handleChange(event) {
+  function handleChange(event) {
         const selectedValue = event.target.value;
         setFieldValue(field.name, selectedValue);
         resetSize();
     }
 
-    return (
-        <select {...field} onMouseDown={handleSelectMouseDown}
-            onBlur={resetSize}
-            onChange={handleChange}
-            size={size} >
-            {func(options)}
+  return (
+      <div>
+      <select
+        {...field}
+        ref={selectRef}
+        onMouseDown={handleSelectMouseDown}
+        onBlur={resetSize}
+        onChange={handleChange}
+        size={size}
+      >
+        {func(options)}
     </select>
+      </div>
   )
+}
+
+CustomSelect.propTypes = {
+  options: PropTypes.array.isRequired,
+  func: PropTypes.func.isRequired,
 }

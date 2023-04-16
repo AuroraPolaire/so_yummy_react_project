@@ -1,5 +1,5 @@
 import Time from 'components/Time/Time';
-import React from 'react';
+import React, { useState } from 'react';
 import { RecipeBackground, RecipeHeroBox } from './RecipePageHero.styled';
 import SVG from '../../images/icons/sprite.svg';
 import { Section, Wrapper } from 'components/theme/GlobalContainer';
@@ -13,6 +13,8 @@ export default function RecipePageHero({
   time,
   id,
 }) {
+  console.log(favorite);
+  const [favouriteRecipe, setFavourite] = useState(favorite);
   const dispatch = useDispatch();
   return (
     <RecipeBackground>
@@ -21,8 +23,22 @@ export default function RecipePageHero({
           <RecipeHeroBox>
             <h1>{title}</h1>
             {description && <p>{description}</p>}
-            {!favorite && (
-              <button onClick={() => dispatch(toggleFavouriteRecipes(id))}>
+            <button
+              className={favouriteRecipe ? 'favourite' : 'not-favourite'}
+              onClick={() =>
+                dispatch(
+                  toggleFavouriteRecipes(id),
+                  setFavourite(!favouriteRecipe)
+                )
+              }
+            >
+              {favouriteRecipe
+                ? 'Remove from favorite recipes'
+                : 'Add to favorite recipes'}
+            </button>
+
+            {/* {!favorite && (
+              <button onClick={dispatch(toggleFavouriteRecipes(id))}>
                 Add to favorite recipes
               </button>
             )}
@@ -30,7 +46,7 @@ export default function RecipePageHero({
               <button onClick={() => dispatch(toggleFavouriteRecipes(id))}>
                 Remove from favorite recipes
               </button>
-            )}
+            )} */}
             {time.length > 0 && (
               <div>
                 <svg>

@@ -63,13 +63,18 @@ export const RecipeHeroBox = styled.div`
     padding: 10px 18px;
     font-size: 10px;
     font-weight: 400px;
-    color: var(--font-gray);
     border-radius: 24px 44px;
     border: 1px solid var(--accent-color-green);
-    background-color: transparent;
-    transition: background-color var(--transition-dur-and-func);
 
-    :hover,
+    @media screen and (min-width: 768px) {
+      padding: 18px 44px;
+      font-size: 16px;
+    }
+
+    /* background-color: transparent; */
+    /* transition: background-color var(--transition-dur-and-func); */
+
+    /* :hover,
     :focus {
       color: var(--font-white);
       cursor: pointer;
@@ -79,6 +84,30 @@ export const RecipeHeroBox = styled.div`
     @media screen and (min-width: 768px) {
       padding: 18px 44px;
       font-size: 16px;
+    } */
+  }
+
+  & .favourite {
+    color: var(--font-white);
+    background-color: var(--accent-color-green);
+    transition: background-color var(--transition-dur-and-func);
+
+    :hover {
+      color: var(--font-gray);
+      cursor: pointer;
+      background-color: transparent;
+    }
+  }
+
+  & .not-favourite {
+    color: var(--font-gray);
+    background-color: transparent;
+    transition: background-color var(--transition-dur-and-func);
+
+    :hover {
+      color: var(--font-white);
+      cursor: pointer;
+      background-color: var(--accent-color-green);
     }
   }
 

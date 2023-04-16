@@ -46,7 +46,6 @@ export default function RecipeDescriptionFields({ categories }) {
               component={CustomSelect}
               func={(arr) => arr.map(cat => <option key={cat._id} value={cat.title}>{cat.title}</option>)}
               options={categories}
-              setFieldValue={setFieldValue}
                 />
                 <ErrorMessage name="category" />
         
@@ -57,7 +56,6 @@ export default function RecipeDescriptionFields({ categories }) {
               component={CustomSelect}
               func={(arr) => arr.map(opt => <option key={opt} value={opt}>{ opt } min</option>)}
               options={createTimeOptions(TIME_MAX)}
-              setFieldValue={setFieldValue}
                 />
                 <ErrorMessage name="time" />
       </>
