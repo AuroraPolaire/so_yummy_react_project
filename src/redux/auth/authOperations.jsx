@@ -160,6 +160,21 @@ const operations = {
 export default operations;
 
 export const setupInterceptors = store => {
+  // axios.interceptors.request.use(
+  //   config => {
+  //     const state = store.getState();
+  //     const token = state.auth.token;
+  //     // console.log(state.auth.token);
+  //     if (token) {
+  //       token.set(token);
+  //     }
+  //     return config;
+  //   },
+  //   error => {
+  //     return Promise.reject(error);
+  //   }
+  // );
+
   const { dispatch } = store;
   axios.interceptors.response.use(
     response => response,
@@ -171,10 +186,9 @@ export const setupInterceptors = store => {
         originalRequest._retry = true;
 
         try {
-          dispatch(refreshToken());
-          return axios(originalRequest);
+          dispatch(refreshToken()).then(res => axios(originalRequest));
         } catch (error) {
-          dispatch(logout());
+          return dispatch(logout());
         }
       }
 

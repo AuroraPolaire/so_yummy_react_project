@@ -33,12 +33,6 @@ export const App = () => {
 
   useEffect(() => {
     !isLoggedIn && dispatch(fetchCurrentUser());
-    // .unwrap()
-    // .then(result => {
-    // console.log(result);
-    // !result && dispatch(refreshToken());
-    // });
-    // .catch(error => dispatch(refreshToken()));
   }, [dispatch, isLoggedIn]);
 
   return (
@@ -72,25 +66,87 @@ export const App = () => {
               />
             }
           >
-            <Route index element={<MainPage />} />
-            <Route path="main" element={<MainPage />} />
+            <Route
+              index
+              element={
+                <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
+              }
+            />
+            <Route
+              path="main"
+              element={
+                <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
+              }
+            />
             <Route
               path="categories/:categoryName"
-              element={<CategoriesPage />}
+              element={
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<CategoriesPage />}
+                />
+              }
             />
-            <Route path="add" element={<AddRecipesPage />} />
-            <Route path="my" element={<MyRecipesPage />} />
-            <Route path="favourite" element={<FavouritePage />} />
-            {/* <Route path="recipe/:recipeId" element={<RecipePage />} /> */}
+            <Route
+              path="add"
+              element={
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<AddRecipesPage />}
+                />
+              }
+            />
+            <Route
+              path="my"
+              element={
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<MyRecipesPage />}
+                />
+              }
+            />
+            <Route
+              path="favourite"
+              element={
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<FavouritePage />}
+                />
+              }
+            />
             <Route
               path="recipe/:recipeId"
               element={
                 <PrivateRoute redirectTo="welcome" component={<RecipePage />} />
               }
             />
-            <Route path="shopping-list" element={<ShoppingListPage />} />
-            <Route path="search" element={<SearchPage />} />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route
+              path="shopping-list"
+              element={
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<ShoppingListPage />}
+                />
+              }
+            />
+            <Route
+              path="search"
+              element={
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<SearchPage />}
+                />
+              }
+            />
+            <Route
+              path="*"
+              element={
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<NotFoundPage />}
+                />
+              }
+            />
           </Route>
         </Routes>
       )}
