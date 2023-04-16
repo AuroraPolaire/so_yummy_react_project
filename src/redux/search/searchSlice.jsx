@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { searchRecipes, searchIngredient } from './searchOperations';
+import { searchRecipes, searchIngredient, fetchIngredientsList } from './searchOperations';
 
 const initialState = {
   results: [],
@@ -42,6 +42,17 @@ export const searchSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(searchIngredient.rejected, state => {
+        state.status = 'error';
+      })
+      .addCase(fetchIngredientsList.fulfilled, (state, action) => {
+        state.results = action.payload;
+        state.totalResults = action.payload.total;
+        state.status = 'resolved';
+      })
+      .addCase(fetchIngredientsList.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(fetchIngredientsList.rejected, state => {
         state.status = 'error';
       });
   },

@@ -5,6 +5,7 @@ import {
   fetchRecipesByCategory,
   fetchMyRecipes,
   fetchFavoritRecipes,
+  addRecipe,
 } from './recipesOperations';
 import { createSlice } from '@reduxjs/toolkit';
 
@@ -107,6 +108,20 @@ const recipesSlice = createSlice({
         state.error = false;
       })
       .addCase(fetchMyRecipes.rejected, state => {
+        state.isLoading = false;
+        state.error = true;
+      })
+            // ---- ADD Recipe ----
+      .addCase(addRecipe.pending, state => {
+        state.isLoading = true;
+        state.error = false;
+      })
+      .addCase(addRecipe.fulfilled, (state, action) => {
+        state.currentRecipe = action.payload;
+        state.isLoading = false;
+        state.error = false;
+      })
+      .addCase(addRecipe.rejected, state => {
         state.isLoading = false;
         state.error = true;
       });

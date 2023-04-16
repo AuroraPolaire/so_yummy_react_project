@@ -1,22 +1,19 @@
-import { useFormikContext } from 'formik';
-import React, { useState } from 'react'
-import { IngredientsFieldsHeader } from './RecipeIngredientsFields.styled';
+import CustomSelect from 'components/Select/Select';
+import { ErrorMessage, Field, useFormikContext } from 'formik';
+import React, { useState } from 'react';
+import { CounterContainer, IngredientsFieldsHeader, InputsContainer, MeasureContainer, NumberInput, StyledSelect } from './RecipeIngredientsFields.styled';
 
-export default function RecipeIngredientsFields() {
-    const [counter, setCounter] = useState(0);
-    const { values, setFieldValue } = useFormikContext();
+const MEASURES = ['', 'tbs', 'tsp', 'kg', 'g', 'cup'];
 
-    function handleInputChange(index, e) {
-        const newValues = [...values.ingredients];
-        newValues[index].name = e.target.value;
-        setFieldValue('ingredients', newValues);
-    }
+export default function RecipeIngredientsFields({ingredients}) {
+  const [counter, setCounter] = useState(0);
+  const { values, setFieldValue } = useFormikContext();
 
     const incrementCounter = () => {
         setCounter((prevState) => prevState + 1);
         setFieldValue("ingredients", [
             ...values.ingredients,
-            { name: "", quantity: "" },
+            { title: "", id: "", quantity: "", measure: "" },
         ]);
     };
     
@@ -26,30 +23,66 @@ export default function RecipeIngredientsFields() {
         ...values.ingredients.slice(0, counter - 1),
         ...values.ingredients.slice(counter)
         ]);
-    };
+  };
+  
+  const preparedIngredients = ingredients.map((opt) => {
+    return {
+                    id: opt._id,
+                    value: opt.ttl,
+                    label: opt.ttl,
+                  }
+                })
 
     const renderInputs = () => {
     return Array.from({ length: counter }, (_, i) => (
-      <div key={i}>
-        <select
-          value={values.ingredients[i].name}
-          onChange={(e) => handleInputChange(i, e)}
-        >
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
-        </select>
-      </div>
+      <InputsContainer key={i}>
+        <Field
+            name={`ingredients[${i}].title`}
+            component={({ field, form }) => (
+              <StyledSelect
+                options={preparedIngredients}
+                value={preparedIngredients.find((option) => option.value === field.value)}
+                onChange={(option) => {
+                  form.setFieldValue(field.name, option.value);
+                  form.setFieldValue(`ingredients[${i}].id`, option.id);
+                }}
+                onBlur={field.onBlur}
+                menuPortalTarget={document.body}
+                menuPosition={"fixed"}
+                isSearchable
+              />
+            )}
+          />
+        <ErrorMessage name="ingredients" />
+        <MeasureContainer><Field
+          name={`ingredients[${i}].quantity`}
+          type="number"
+          min="0"
+          as={NumberInput}
+            />
+        <ErrorMessage name="ingredients" />
+        <Field
+          name={`ingredients[${i}].measure`}
+          type="text"
+          component={CustomSelect}
+          func={(arr) => arr.map(opt => <option key={opt} value={opt}>{ opt }</option>)}
+          options={MEASURES}
+            />
+        <ErrorMessage name="ingredients" />
+        </MeasureContainer>
+      </InputsContainer>
     ));
   };
 
   return (
     <div>
       <IngredientsFieldsHeader>
-              <h2>Ingredients</h2>
-              <button type='button' onClick={decrementCounter} disabled={counter === 0}>-</button>
-              <p>{counter}</p>
-              <button type='button' onClick={incrementCounter}>+</button>
+        <h2>Ingredients</h2>
+        <CounterContainer>
+          <button type='button' onClick={decrementCounter} disabled={counter === 0}>-</button>
+          <p>{counter}</p>
+          <button type='button' onClick={incrementCounter}>+</button>
+        </CounterContainer>
       </IngredientsFieldsHeader>
         <div>
               {renderInputs()}
