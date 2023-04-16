@@ -5,7 +5,7 @@ import MainTitle from 'components/MainTitle/MainTitle';
 import SearchBar from 'components/SearchBar/SearchBar';
 import SearchedRecipesList from 'components/SearchedRecepiesList/SearchedRecepiesList';
 import { searchRecipes, searchIngredient } from 'redux/search/searchOperations';
-import { selectSearchType, selectTotalResults } from 'redux/auth/authSelectors';
+import { selectSearchType, selectTotalResults } from 'redux/search/searchSelectors';
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();

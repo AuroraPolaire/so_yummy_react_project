@@ -1,15 +1,18 @@
+import React from 'react';
 import {
   SocialLinks,
   SocialLink,
   FacebookIcon,
   YoutubeIcon,
   TwitterIcon,
-  InstagramIcon
-
+  InstagramIcon,
+  // TitleSocial,
 } from "./FollowUs.styled";
 
 export const FollowUs = () => {
   return (
+    <>
+    {/* <TitleSocial>Follow us</TitleSocial> */}
     <SocialLinks>
 
       <SocialLink to='https://www.facebook.com/' target='_blank'>
@@ -29,9 +32,8 @@ export const FollowUs = () => {
       <SocialLink to='https://www.instagram.com/' target='_blank'>
         <InstagramIcon />
       </SocialLink>
-
-    </SocialLinks>
+      </SocialLinks>
+      </>
   );
 
 }
-
