@@ -7,7 +7,7 @@ import DefaultThumb from 'images/icons/page-not-found.svg';
 import {
   IngredientsShoppingListHead,
   IngredientsShoppingListItem,
-  IngredientsShoppingListMeasure,
+  //   IngredientsShoppingListMeasure,
   IngredientsShoppingListStyled,
 } from './IngredientsShoppingList.styled';
 import { removeProductFromShoppingList } from 'redux/shoppingList/shoppingListOperations';
@@ -29,22 +29,31 @@ export default function IngredientsShoppingList() {
           <IngredientsShoppingListItem key={productId}>
             <img src={thumb ?? DefaultThumb} alt={title} />
             <p>{title}</p>
-            {/* <p>{desc}</p> */}
-            <IngredientsShoppingListMeasure>
-              {measure}
-            </IngredientsShoppingListMeasure>
-
-            <Tooltip title="Remove">
-              <IconButton
-                onClick={() =>
-                  dispatch(
-                    removeProductFromShoppingList({ productId, measure })
-                  )
-                }
-              >
-                X
-              </IconButton>
-            </Tooltip>
+            {/* <IngredientsShoppingListMeasure> */}
+            <ul>
+              {measure.map((measure, i) => {
+                return (
+                  <li key={i}>
+                    {measure}
+                    <Tooltip title="Remove">
+                      <IconButton
+                        onClick={() =>
+                          dispatch(
+                            removeProductFromShoppingList({
+                              productId,
+                              measure,
+                            })
+                          )
+                        }
+                      >
+                        X
+                      </IconButton>
+                    </Tooltip>
+                  </li>
+                );
+              })}
+            </ul>
+            {/* </IngredientsShoppingListMeasure> */}
           </IngredientsShoppingListItem>
         ))}
       </IngredientsShoppingListStyled>
