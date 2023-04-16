@@ -17,46 +17,51 @@ import {
 } from 'redux/recipes/recipesSelectors';
 import { fetchRecipesByCategory } from 'redux/recipes/recipesOperations';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
-import { List } from './CategoriesTabPanel.styled';
+import { List, RecipesContainer } from './CategoriesTabPanel.styled';
+import Fade from '@mui/material/Fade';
 
 const CategoriesTabPanel = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const dispatch = useDispatch();
+
   const [pageName, setPageName] = useState('Beef');
   const [currentPage, setCurrentPage] = useState(1);
+  const [show, setShow] = useState(false);
+
   const categoryList = Object.entries(useSelector(selectCategoryList));
   const response = useSelector(selectRecipesByCategoryList);
   const recipesByCategoryList = Object.entries(response);
   const countPages = Math.ceil(response.total / response.limit)
     ? Math.ceil(response.total / response.limit)
     : 1;
-  const navigate = useNavigate();
-  const location = useLocation();
-  const dispatch = useDispatch();
-
-  const [isSkeleton, setIsSkeleton] = useState(true);
 
   useEffect(() => {
     const query = location.pathname.split('/')[2];
     const formattedQuery = query.charAt(0).toUpperCase() + query.slice(1);
     setPageName(formattedQuery);
 
-    const timer = setTimeout(() => setIsSkeleton(false), 1000);
+    const timer = setTimeout(() => setShow(true), 500);
     return () => clearTimeout(timer);
   }, [location]);
 
   const handleChange = (event, newValue) => {
     setPageName(newValue);
     setCurrentPage(1);
+    setShow(false);
     navigate(`/categories/${newValue}`);
-    setIsSkeleton(true);
-    const timer = setTimeout(() => setIsSkeleton(false), 2000);
+    const timer = setTimeout(() => setShow(true), 500);
     return () => clearTimeout(timer);
   };
 
   const handleChangePagination = (e, value) => {
+    setShow(false);
     dispatch(
       fetchRecipesByCategory({ categoryName: pageName, limit: 8, page: value })
     );
     setCurrentPage(value);
+    const timer = setTimeout(() => setShow(true), 500);
+    return () => clearTimeout(timer);
   };
   return (
     <>
@@ -64,7 +69,7 @@ const CategoriesTabPanel = () => {
         <Box sx={{ width: '100%', typography: 'body1' }}>
           <TabContext value={pageName}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-              <TabList onChange={handleChange}>
+              <TabList onChange={handleChange} variant="scrollable">
                 {categoryList.flatMap(item => {
                   return (
                     <Tab
@@ -80,22 +85,23 @@ const CategoriesTabPanel = () => {
               value={pageName}
               sx={{ padding: '0', typography: 'body1' }}
             >
-              {recipesByCategoryList.flatMap((item, key) => {
-                return (
-                  <div key={item[0]}>
-                    {key === 0 ? (
-                      <>
-                        <List>
-                          <RecipeCard
-                            recipe={item[1]}
-                            isSkeleton={isSkeleton}
-                          ></RecipeCard>
-                        </List>
-                      </>
-                    ) : null}
-                  </div>
-                );
-              })}
+              <Fade in={show}>
+                <RecipesContainer>
+                  {recipesByCategoryList.flatMap((item, key) => {
+                    return (
+                      <div key={item[0]}>
+                        {key === 0 ? (
+                          <>
+                            <List>
+                              <RecipeCard recipe={item[1]}></RecipeCard>
+                            </List>
+                          </>
+                        ) : null}
+                      </div>
+                    );
+                  })}
+                </RecipesContainer>
+              </Fade>
               <Stack spacing={2}>
                 <Pagination
                   page={currentPage}

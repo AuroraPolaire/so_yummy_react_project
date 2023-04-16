@@ -18,6 +18,7 @@ const ThemeProviderTheme = createTheme({
           color: '#BDBDBD',
           padding: '12px 10px 30px 10px',
           letterSpacing: 'normal',
+
           '&.Mui-selected': {
             color: '#8BAA36',
             fontFamily: 'Poppins',
@@ -32,7 +33,6 @@ const ThemeProviderTheme = createTheme({
           display: 'flex',
           justifyContent: 'center',
           textAlign: 'center',
-
           ul: {
             padding: '14px 24px',
             backgroundColor: '#FAFAFA',
@@ -52,5 +52,3 @@ const ThemeProviderTheme = createTheme({
   },
 });
 export default ThemeProviderTheme;
-
-// '&.Mui-selected': { backgroundColor: '#EBF3D4' },
