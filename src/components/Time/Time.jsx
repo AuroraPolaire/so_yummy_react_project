@@ -11,6 +11,9 @@ export default function Time({ minutes }) {
     if (hours <= 0 && minutes > 0) {
       return minutes + ' mins';
     }
+    if (hours > 0 && minutes === 0) {
+      return hours + ' h';
+    }
   };
 
   return <p>{calcTime(minutes)}</p>;

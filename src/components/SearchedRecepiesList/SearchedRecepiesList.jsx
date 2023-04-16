@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { selectResults, selectStatus } from 'redux/auth/authSelectors';
+import { selectResults, selectStatus } from 'redux/search/searchSelectors';
 
 import { Loader } from 'components/Loader/Loader';
 

@@ -1,14 +1,17 @@
 import React from 'react';
 import { Section, Wrapper } from 'components/theme/GlobalContainer';
-import PageNotFound from '../../images/icons/page-not-found.svg';
+// import PageNotFound from '../../images/icons/page-not-found.svg';
+import { NotFoundPicture, NotFoundContainer, NotFoundTitle, NotFoundSubTitle } from './NotFoundPage.styled';
 
 const NotFoundPage = () => {
   return (
     <Section>
       <Wrapper>
-        <img src={PageNotFound} alt="Page not found" />
-        <h2>We are sorry,</h2>
-        <p>but the page you were looking for can’t be found..</p>
+        <NotFoundPicture />
+        <NotFoundContainer>
+        <NotFoundTitle>We are sorry,</NotFoundTitle>
+        <NotFoundSubTitle>but the page you were looking for can’t be found..</NotFoundSubTitle>
+        </NotFoundContainer>
       </Wrapper>
     </Section>
   );

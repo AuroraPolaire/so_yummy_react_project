@@ -39,4 +39,11 @@ export const SeeAllButton = styled.button`
   background-color: var(--accent-color-green);
   border-radius: 6px;
   border: 1px solid var(--accent-color-green);
+  transition: background-color var(--transition-dur-and-func);
+
+  :hover,
+  :focus {
+    cursor: pointer;
+    background-color: var(--font-gray);
+  }
 `;

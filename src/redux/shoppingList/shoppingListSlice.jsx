@@ -30,7 +30,10 @@ const shoppingListSlice = createSlice({
 
       .addCase(addProductToShoppingList.pending, pendingReducer)
       .addCase(addProductToShoppingList.fulfilled, (state, { payload }) => {
-        state.products = [...state.products, payload];
+        // state.products = [...state.products, payload];
+
+        state.products = payload;
+
         state.isLoading = false;
         state.error = null;
       })
@@ -42,13 +45,14 @@ const shoppingListSlice = createSlice({
       .addCase(
         removeProductFromShoppingList.fulfilled,
         (state, { payload }) => {
-          state.products = [...state.products, payload];
+          // state.products = state.products.filter(
 
-          state.products = state.products.filter(
-            //  check when few products have the same id
+          //   //  check when few products have the same id
 
-            product => product.productId !== payload.productId
-          );
+          //   product => product.productId !== payload.productId
+          // );
+
+          state.products = payload;
 
           state.isLoading = false;
           state.error = null;

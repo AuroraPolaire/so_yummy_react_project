@@ -9,7 +9,7 @@ import {
 
 import { changeSearchType } from 'redux/search/searchSlice';
 
-import { selectSearchType } from 'redux/auth/authSelectors';
+import { selectSearchType } from 'redux/search/searchSelectors';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 

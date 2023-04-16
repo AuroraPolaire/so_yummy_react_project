@@ -1,12 +1,13 @@
 import RecipeInngredientsList from 'components/RecipeInngredientsList/RecipeInngredientsList';
 import RecipePageHero from 'components/RecipePageHero/RecipePageHero';
 import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
-import { Section, Wrapper } from 'components/theme/GlobalContainer';
+import { Wrapper } from 'components/theme/GlobalContainer';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchRecipe } from 'redux/recipes/recipesOperations';
 import { selectCurrentRecipe } from 'redux/recipes/recipesSelectors';
+import { fetchShoppingList } from 'redux/shoppingList/shoppingListOperations';
 
 // /recipe/640cd5ac2d9fecf12e8898a6 --- to test
 // 640cd5ac2d9fecf12e8898a3 ---- to test time in hours
@@ -17,6 +18,7 @@ const RecipePage = props => {
 
   useEffect(() => {
     dispatch(fetchRecipe(recipeId));
+    dispatch(fetchShoppingList());
   }, [dispatch, recipeId]);
 
   const currentRecipe = useSelector(selectCurrentRecipe);
@@ -33,14 +35,15 @@ const RecipePage = props => {
     } = currentRecipe;
 
     return (
-      <Section>
+      <>
+        <RecipePageHero
+          title={title}
+          description={description}
+          time={time}
+          favorite={favorite}
+          id={recipeId}
+        />
         <Wrapper>
-          <RecipePageHero
-            title={title}
-            description={description}
-            time={time}
-            favorite={favorite}
-          />
           <RecipeInngredientsList ingredients={ingredients} />
           {instructions && (
             <RecipePreparation
@@ -50,7 +53,7 @@ const RecipePage = props => {
             />
           )}
         </Wrapper>
-      </Section>
+      </>
     );
   }
 };

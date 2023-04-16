@@ -1,5 +1,14 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+// import { useSelector } from 'react-redux';
+// import { selectToken } from './authSelectors';
+// import { useStore } from 'react-redux';
+
+// const useToken = () => {
+//   const token = useSelector(selectToken);
+//   if (!token) return null;
+//   return token;
+// };
 
 axios.defaults.baseURL = 'https://so-yumi.p.goit.global/api';
 
@@ -73,14 +82,12 @@ export const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
-      // console.log('refresh user data', data);
-      // if (data.payload === undefined) {
-      // refreshToken();
-      // return;
-      // }
+      // console.log(status);
+
       return data;
     } catch (error) {
-      // TODO: Добавить обработку ошибки error.message
+      // console.log(error);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -100,7 +107,7 @@ export const refreshToken = createAsyncThunk(
       const { data } = await axios.post('/users/refresh', {
         refreshToken: persistedToken,
       });
-      // console.log('refresh token data', data);
+      token.set(data.accessToken);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -122,7 +129,7 @@ export const subscribeUser = createAsyncThunk(
 
       const response = await axios.post('/users/subscribe', email);
 
-      return response.data.data.user;
+      return response.data.user;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -151,3 +158,45 @@ const operations = {
   updateUser,
 };
 export default operations;
+
+export const setupInterceptors = store => {
+  const { dispatch } = store;
+  axios.interceptors.response.use(
+    response => response,
+    error => {
+      const originalRequest = error.config;
+      console.log('originalRequest', originalRequest);
+
+      if (error.response.status === 401 && !originalRequest._retry) {
+        originalRequest._retry = true;
+
+        try {
+          dispatch(refreshToken());
+          return axios(originalRequest);
+        } catch (error) {
+          dispatch(logout());
+        }
+      }
+
+      return Promise.reject(error);
+    }
+  );
+};
+
+// axios.interceptors.response.use(
+//   response => response,
+//   error => {
+//     const originalRequest = error.config;
+
+//     if (error.response.status === 401 && !originalRequest._retry) {
+//       originalRequest._retry = true;
+//       return useRefreshToken()
+//         .then(() => {
+//           return axios(originalRequest);
+//         })
+//         .catch(error => logout());
+//     }
+
+//     return Promise.reject(error);
+//   }
+// );

@@ -25,12 +25,15 @@ const CategoriesPage = () => {
       })
     );
   }, [dispatch, location]);
+
   return (
     <>
       <Section>
         <Wrapper>
           <PageTitle type="mainPage">Categories</PageTitle>
-          <CategoriesTabPanel state={{ from: location }}></CategoriesTabPanel>
+          <CategoriesTabPanel
+          // handleChangePagination={handleChangePagination}
+          ></CategoriesTabPanel>
         </Wrapper>
       </Section>
     </>

@@ -1,29 +1,45 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import PropTypes from 'prop-types';
 import DefaultThumb from 'images/icons/page-not-found.svg';
 import {
   Measure,
+  RecipeIngredientsContainer,
   RecipeInngredientsHead,
   RecipeInngredientsItem,
   RecipeInngredientsListStyled,
 } from './RecipeInngredientsList.styled';
-import { addProductToShoppingList } from 'redux/shoppingList/shoppingListOperations';
+import {
+  addProductToShoppingList,
+  removeProductFromShoppingList,
+} from 'redux/shoppingList/shoppingListOperations';
+import { selectShoppingList } from 'redux/shoppingList/shoppingListSelectors';
 
 export default function RecipeInngredientsList({ ingredients }) {
   const dispatch = useDispatch();
-  // const handleChecked = () => dispatch(toggleCompleted(task));
+  const products = useSelector(selectShoppingList);
+
+  const handleChecked = (productId, measure) => {
+    return products.some(
+      p => p.productId === productId && p.measure.some(m => m === measure)
+    );
+  };
+
   const handleOnChange = (productId, measure) => {
-    console.log(productId);
-    console.log(measure);
-    // const product = { productId, measure };
-    // console.log(product);
-    dispatch(addProductToShoppingList({ productId, measure }));
+    if (
+      products.some(
+        p => p.productId === productId && p.measure.some(m => m === measure)
+      )
+    ) {
+      dispatch(removeProductFromShoppingList({ productId, measure }));
+    } else {
+      dispatch(addProductToShoppingList({ productId, measure }));
+    }
   };
 
   return (
-    <div>
+    <RecipeIngredientsContainer>
       <RecipeInngredientsHead>
         <p>Ingredients</p>
         <p>Number</p>
@@ -39,7 +55,7 @@ export default function RecipeInngredientsList({ ingredients }) {
             <input
               type="checkbox"
               name="shoppingList"
-              // checked={handleChecked}
+              checked={handleChecked(_id, measure)}
               onChange={() => {
                 handleOnChange(_id, measure);
               }}
@@ -47,7 +63,7 @@ export default function RecipeInngredientsList({ ingredients }) {
           </RecipeInngredientsItem>
         ))}
       </RecipeInngredientsListStyled>
-    </div>
+    </RecipeIngredientsContainer>
   );
 }
 
