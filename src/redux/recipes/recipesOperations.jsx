@@ -42,7 +42,6 @@ export const fetchCategoryList = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(`recipes/category/list`);
-      console.log(response);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

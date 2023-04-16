@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import Time from 'components/Time/Time';
 
 export const RecipeCardBox = styled.div`
   display: flex;
@@ -28,6 +29,9 @@ export const RecipeCardBox = styled.div`
   }
 
   & .description {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -77,4 +81,11 @@ export const StyledLink = styled(NavLink)`
   /* &.active {
     color: orange;
   } */
+`;
+
+export const StyledTime = styled(Time)`
+  p {
+    color: red;
+    font-weight: bold;
+  }
 `;

@@ -1,10 +1,17 @@
 import React from 'react';
 
-import { RecipeCardBox, StyledLink } from './LargeRecipeCard.styled';
-import Time from 'components/Time/Time';
+import {
+  RecipeCardBox,
+  StyledLink,
+  StyledTime,
+} from './LargeRecipeCard.styled';
+
 // import Skeleton from '@mui/material/Skeleton';
 
 const LargeRecipeCard = ({ recipe, type }) => {
+  const splitText = (stringToSplit, separator) => {
+    return stringToSplit.split(separator).slice(0, -1);
+  };
   return recipe.map(item => {
     return (
       <RecipeCardBox key={item._id}>
@@ -12,9 +19,13 @@ const LargeRecipeCard = ({ recipe, type }) => {
 
         <div className="description-conainer">
           <h3>{item.title}</h3>
-          <p className="description">{item.description}</p>
+          <div className="description">
+            {splitText(item.description, '.').map(item => {
+              return <div key={item}>{item}.</div>;
+            })}
+          </div>
           <div className="btn-conainer">
-            <Time minutes={Number(item.time)}></Time>
+            <StyledTime minutes={Number(item.time)}></StyledTime>
             <StyledLink
               type={type}
               key={item._id}
