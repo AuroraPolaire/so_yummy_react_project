@@ -97,7 +97,7 @@ export const WelcomeTitle = styled.h1`
   letter-spacing: -0.02em;
   max-width: 305px;
   margin: 0 auto 14px;
-  color: #fafafa;
+  color: var(--font-white);
 
   @media screen and (min-width: 768px) {
     /* max-width: 505px; */
@@ -117,7 +117,7 @@ export const Text = styled.h1`
   letter-spacing: -0.02em;
 
   margin: 0 auto 44px;
-  color: #fafafa;
+  color: var(--font-white);
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -134,6 +134,33 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   gap: 12px;
 
+  & :first-child {
+    background-color: var(--accent-color-green);
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      background-color: var(--font-gray);
+    }
+  }
+
+  & :last-child {
+    border: 1px solid var(--font-white);
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      color: var(--accent-color-green);
+      border: 1px solid var(--accent-color-green);
+    }
+  }
+
+  /* &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: var(--accent-color-black);
+  } */
+
   @media screen and (min-width: 768px) {
     gap: 18px;
   }
@@ -146,7 +173,7 @@ export const StyledLink = styled(NavLink)`
 
   font-size: 14px;
   line-height: 1.5;
-  color: #fafafa;
+  color: var(--font-white);
   text-decoration: none;
   text-align: center;
 
@@ -154,8 +181,6 @@ export const StyledLink = styled(NavLink)`
   /* width: 132px;
   height: 45px; */
   border-radius: 24px 44px;
-  background-color: black;
-  background-color: #8baa36;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
