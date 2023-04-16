@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// axios.defaults.baseURL = 'https://so-yumi.p.goit.global/api';
-
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
@@ -18,10 +16,8 @@ export const fetchShoppingList = createAsyncThunk(
     try {
       const { data } = await axios.get('/users/shopping-list');
 
-      console.log(data);
       console.log(data.shoppingList);
 
-      // return data;
       return data.shoppingList;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -34,15 +30,13 @@ export const addProductToShoppingList = createAsyncThunk(
 
   async (product, thunkAPI) => {
     try {
-      console.log(product);
-      const response = await axios.post('/users/shopping-list', product);
+      console.log(product, 'ADDED');
 
-      console.log(response);
-      console.log(response.data);
+      const { data } = await axios.post('/users/shopping-list', product);
 
-      return response.data;
+      console.log(data.shoppingList);
 
-      // return response.data.shoppingList;
+      return data.shoppingList;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -53,14 +47,13 @@ export const removeProductFromShoppingList = createAsyncThunk(
   'shopping-list/remove',
   async (product, thunkAPI) => {
     try {
-      const response = await axios.patch('/users/shopping-list', product);
+      console.log(product, 'DELETED');
 
-      console.log(response);
-      console.log(response.data);
+      const { data } = await axios.patch('/users/shopping-list', product);
 
-      return response.data;
+      console.log(data.shoppingList);
 
-      // return response.data.shoppingList;
+      return data.shoppingList;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchRecipe } from 'redux/recipes/recipesOperations';
 import { selectCurrentRecipe } from 'redux/recipes/recipesSelectors';
+import { fetchShoppingList } from 'redux/shoppingList/shoppingListOperations';
 
 // /recipe/640cd5ac2d9fecf12e8898a6 --- to test
 // 640cd5ac2d9fecf12e8898a3 ---- to test time in hours
@@ -17,6 +18,7 @@ const RecipePage = props => {
 
   useEffect(() => {
     dispatch(fetchRecipe(recipeId));
+    dispatch(fetchShoppingList());
   }, [dispatch, recipeId]);
 
   const currentRecipe = useSelector(selectCurrentRecipe);
