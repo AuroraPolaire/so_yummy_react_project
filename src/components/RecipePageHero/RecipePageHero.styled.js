@@ -82,6 +82,19 @@ export const RecipeHeroBox = styled.div`
     }
   }
 
+  & .favourite {
+    color: var(--font-white);
+    background-color: var(--accent-color-green);
+    transition: background-color var(--transition-dur-and-func);
+
+    :hover,
+    :focus {
+      color: var(--font-gray);
+      cursor: pointer;
+      background-color: transparent;
+    }
+  }
+
   & div {
     display: flex;
     align-items: baseline;

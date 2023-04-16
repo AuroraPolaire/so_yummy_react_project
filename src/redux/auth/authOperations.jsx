@@ -1,14 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import { useSelector } from 'react-redux';
-// import { selectToken } from './authSelectors';
-// import { useStore } from 'react-redux';
-
-// const useToken = () => {
-//   const token = useSelector(selectToken);
-//   if (!token) return null;
-//   return token;
-// };
+import { store } from '../store';
 
 axios.defaults.baseURL = 'https://so-yumi.p.goit.global/api';
 
@@ -21,13 +13,24 @@ export const token = {
   },
 };
 
+axios.interceptors.response.use(
+  function (response) {
+    return response;
+  },
+  function (error) {
+    if (error.response.status === 401) {
+      store.dispatch(refreshToken());
+    }
+
+    return Promise.reject(error);
+  }
+);
+
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
       const { data } = await axios.post('/users/signup', credentials);
-      // token.set();
-
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -41,7 +44,6 @@ export const signIn = createAsyncThunk(
     try {
       const { data } = await axios.post('/users/login', credentials);
       token.set(data.accesstoken);
-      // console.log(data);
       return data;
     } catch (error) {
       alert('Wrong email or password! Please try again');
@@ -58,19 +60,10 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
-/*
- * GET @ /users/current
- * headers:
- *    Authorization: Bearer token
- *
- * 1. Забираем токен из стейта через getState()
- * 2. Если токена нет, выходим не выполняя никаких операций
- * 3. Если токен есть, добавляет его в HTTP-заголовок и выполянем операцию
- */
 
 // RefreshUser:
 export const fetchCurrentUser = createAsyncThunk(
-  'auth/refresh',
+  'auth/currentUser',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
@@ -82,11 +75,8 @@ export const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
-      // console.log(status);
-
       return data;
     } catch (error) {
-      // console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -141,7 +131,6 @@ export const updateUser = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const { data } = await axios.put('/users/update', userData);
-      // token.set(data.accesstoken);
       return data;
     } catch (error) {
       alert('Oops, something went wrong.');
@@ -158,59 +147,3 @@ const operations = {
   updateUser,
 };
 export default operations;
-
-export const setupInterceptors = store => {
-  // axios.interceptors.request.use(
-  //   config => {
-  //     const state = store.getState();
-  //     const token = state.auth.token;
-  //     // console.log(state.auth.token);
-  //     if (token) {
-  //       token.set(token);
-  //     }
-  //     return config;
-  //   },
-  //   error => {
-  //     return Promise.reject(error);
-  //   }
-  // );
-
-  const { dispatch } = store;
-  axios.interceptors.response.use(
-    response => response,
-    error => {
-      const originalRequest = error.config;
-      console.log('originalRequest', originalRequest);
-
-      if (error.response.status === 401 && !originalRequest._retry) {
-        originalRequest._retry = true;
-
-        try {
-          dispatch(refreshToken()).then(res => axios(originalRequest));
-        } catch (error) {
-          return dispatch(logout());
-        }
-      }
-
-      return Promise.reject(error);
-    }
-  );
-};
-
-// axios.interceptors.response.use(
-//   response => response,
-//   error => {
-//     const originalRequest = error.config;
-
-//     if (error.response.status === 401 && !originalRequest._retry) {
-//       originalRequest._retry = true;
-//       return useRefreshToken()
-//         .then(() => {
-//           return axios(originalRequest);
-//         })
-//         .catch(error => logout());
-//     }
-
-//     return Promise.reject(error);
-//   }
-// );

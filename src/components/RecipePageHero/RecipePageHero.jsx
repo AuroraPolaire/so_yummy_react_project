@@ -13,6 +13,7 @@ export default function RecipePageHero({
   time,
   id,
 }) {
+  // const [favouriteRecipe, setFavourite] = useState(false);
   const dispatch = useDispatch();
   return (
     <RecipeBackground>
@@ -21,8 +22,24 @@ export default function RecipePageHero({
           <RecipeHeroBox>
             <h1>{title}</h1>
             {description && <p>{description}</p>}
-            {!favorite && (
+
+            {/* {favorite ? (
               <button onClick={() => dispatch(toggleFavouriteRecipes(id))}>
+                Remove from favorite recipes
+              </button>
+            ) : (
+              <button
+                onClick={
+                  (() => setFavourite(true),
+                  dispatch(toggleFavouriteRecipes(id)))
+                }
+              >
+                Add to favorite recipes
+              </button>
+            )} */}
+
+            {!favorite && (
+              <button onClick={dispatch(toggleFavouriteRecipes(id))}>
                 Add to favorite recipes
               </button>
             )}
