@@ -6,13 +6,11 @@ import {
   YoutubeIcon,
   TwitterIcon,
   InstagramIcon,
-  // TitleSocial,
 } from "./FollowUs.styled";
 
 export const FollowUs = () => {
   return (
     <>
-    {/* <TitleSocial>Follow us</TitleSocial> */}
     <SocialLinks>
 
       <SocialLink to='https://www.facebook.com/' target='_blank'>
