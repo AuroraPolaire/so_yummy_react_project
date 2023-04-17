@@ -1,6 +1,30 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import Time from 'components/Time/Time';
+import { ReactComponent as IconDelete } from './../../images/icons/icon-delete.svg';
+
+export const DeleteSvg = styled(IconDelete)`
+  width: 18px;
+  height: 22px;
+
+  stroke: ${props => {
+    switch (props.type) {
+      case 'favorite':
+        return `#22252a`;
+
+      case 'my':
+        return '#FAFAFA';
+
+      default:
+        return;
+    }
+  }};
+
+  /* @media screen and (min-width: 768px) {
+    width: 44px;
+    height: 44px;
+  } */
+`;
 
 export const RecipeCardBox = styled.div`
   display: flex;
@@ -39,6 +63,7 @@ export const RecipeCardBox = styled.div`
     flex-direction: column;
     gap: 50px;
     width: 100%;
+    position: relative;
 
     @media screen and (max-width: 1440px) {
       gap: 28px;
