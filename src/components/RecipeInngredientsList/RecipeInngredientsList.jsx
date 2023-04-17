@@ -21,15 +21,12 @@ export default function RecipeInngredientsList({ ingredients }) {
   const products = useSelector(selectShoppingList);
 
   const handleChecked = (productId, measure) => {
-    console.log(productId);
-    console.log(measure);
     return products.some(
       p => p.productId === productId && p.measure.some(m => m === measure)
     );
   };
 
   const handleOnChange = (productId, measure) => {
-    console.log({ productId, measure });
     if (
       products.some(
         p => p.productId === productId && p.measure.some(m => m === measure)
