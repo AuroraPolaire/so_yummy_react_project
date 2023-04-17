@@ -11,7 +11,7 @@ import {
 } from './SearchedRecepiesList.styled';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 import { List } from 'components/CategoriesTabPanel/CategoriesTabPanel.styled';
-import { Wrapper } from 'components/theme/GlobalContainer';
+// import { Wrapper } from 'components/theme/GlobalContainer';
 
 const SearchedRecipiesList = () => {
   const recipes = useSelector(selectResults);

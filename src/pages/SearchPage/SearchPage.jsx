@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import MainTitle from 'components/MainTitle/MainTitle';
+// import MainTitle from 'components/MainTitle/MainTitle';
 import SearchBar from 'components/SearchBar/SearchBar';
 import SearchedRecipesList from 'components/SearchedRecepiesList/SearchedRecepiesList';
 import { searchRecipes, searchIngredient } from 'redux/search/searchOperations';
