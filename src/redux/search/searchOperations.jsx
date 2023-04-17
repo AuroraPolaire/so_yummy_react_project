@@ -24,7 +24,7 @@ export const searchIngredient = createAsyncThunk(
       const response = await axios.get(
         `/recipes/ingredient/${query}?page=${page}&limit=12`
       );
-
+      console.log(response.data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e);

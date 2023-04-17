@@ -44,7 +44,7 @@ const SearchedRecipiesList = () => {
         // </RecipesList>
       )}
 
-      {isResolved && recipes.length === 0 && (
+      {isResolved && recipes?.length === null && (
         <>
           <RecipeNotFoundImage />
           <RecipeNotFoundText>

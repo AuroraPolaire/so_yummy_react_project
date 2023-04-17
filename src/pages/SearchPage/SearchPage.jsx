@@ -5,7 +5,10 @@ import MainTitle from 'components/MainTitle/MainTitle';
 import SearchBar from 'components/SearchBar/SearchBar';
 import SearchedRecipesList from 'components/SearchedRecepiesList/SearchedRecepiesList';
 import { searchRecipes, searchIngredient } from 'redux/search/searchOperations';
-import { selectSearchType, selectTotalResults } from 'redux/search/searchSelectors';
+import {
+  selectSearchType,
+  selectTotalResults,
+} from 'redux/search/searchSelectors';
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
@@ -23,11 +26,10 @@ const SearchPage = () => {
       return;
     }
 
-    if (searchType === 'title') {
-      dispatch(searchRecipes({ query, page }));
-    } else {
+    if (searchType === 'title') dispatch(searchRecipes({ query, page }));
+
+    if (searchType === 'ingredient')
       dispatch(searchIngredient({ query, page }));
-    }
   }, [dispatch, page, query, searchType, totalResults]);
   return (
     <>

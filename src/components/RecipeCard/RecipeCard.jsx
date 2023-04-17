@@ -9,8 +9,9 @@ const RecipeCard = ({ recipe }) => {
       ? shortTitle.join(' ')
       : shortTitle.slice(0, 2).join(' ');
   }
+  console.log(recipe);
 
-  return recipe.map(item => {
+  return recipe?.map(item => {
     return (
       <NavLink key={item._id} to={`/recipe/${item._id}`}>
         <RecipeCardBox>
