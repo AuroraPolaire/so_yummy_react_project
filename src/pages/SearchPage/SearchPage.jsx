@@ -11,6 +11,7 @@ import {
 } from 'redux/search/searchSelectors';
 import { Section, Wrapper } from 'components/theme/GlobalContainer';
 import PageTitle from 'components/PageTitle/PageTitle';
+import Squares from 'components/Squares/Squares';
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
@@ -35,6 +36,7 @@ const SearchPage = () => {
   }, [dispatch, page, query, searchType, totalResults]);
   return (
     <>
+      <Squares />
       <Section>
         <Wrapper>
           <PageTitle type={'searchPage'}>Search</PageTitle>

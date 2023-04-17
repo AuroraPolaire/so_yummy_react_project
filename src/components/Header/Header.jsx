@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useMediaQuery } from '@mui/material';
 
-import { Wrapper } from 'components/theme/GlobalContainer';
 import {
   HeaderSection,
   UserWrapper,
@@ -31,25 +30,25 @@ const Header = () => {
 
   return (
     <header style={{ position: 'absolute', width: '100%' }}>
-      <Wrapper>
-        <HeaderSection>
-          <Logo />
-          {!isMobileDevice && <Navigation />}
-          <UserWrapper>
-            <UserLogo />
+      {/* <Wrapper> */}
+      <HeaderSection>
+        <Logo />
+        {!isMobileDevice && <Navigation />}
+        <UserWrapper>
+          <UserLogo />
 
-            <NavBurger onClick={onBurgerOpen}>
-              <NavBurgerIcon />
-            </NavBurger>
-            {!isMobileDevice && <ThemeToggler />}
-          </UserWrapper>
-          {isMobileDevice && BurgerMenu && (
-            <Modal onClose={onBurgerClose}>
-              <MobileMenu isShown={BurgerMenu} onBurgerClose={onBurgerClose} />
-            </Modal>
-          )}
-        </HeaderSection>
-      </Wrapper>
+          <NavBurger onClick={onBurgerOpen}>
+            <NavBurgerIcon />
+          </NavBurger>
+          {!isMobileDevice && <ThemeToggler />}
+        </UserWrapper>
+        {isMobileDevice && BurgerMenu && (
+          <Modal onClose={onBurgerClose}>
+            <MobileMenu isShown={BurgerMenu} onBurgerClose={onBurgerClose} />
+          </Modal>
+        )}
+      </HeaderSection>
+      {/* </Wrapper> */}
     </header>
   );
 };

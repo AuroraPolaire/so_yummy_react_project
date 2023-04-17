@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { ReactComponent as SvgBurger } from '../../images/icons/burger.svg';
 
-export const HeaderSection = styled.header`
+export const HeaderSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: auto;
-  padding-top: 18px;
+  padding: 18px 16px 0;
   @media (min-width: 768px) {
     padding-top: 18px;
     max-width: 704px;

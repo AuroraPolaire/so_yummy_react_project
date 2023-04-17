@@ -18,6 +18,9 @@ export const Title = styled.h2`
       case 'searchPage':
         return `50px`;
 
+      case 'shoppingListPage':
+        return `50px`;
+
       default:
         return;
     }
@@ -31,13 +34,34 @@ export const Title = styled.h2`
   text-transform: capitalize;
   transition: color var(--transition-dur-and-func);
   @media screen and (min-width: 768px) {
-    font-size: 28px;
     line-height: 1;
     font-weight: 600px;
+    font-size: ${props => {
+      switch (props.type) {
+        case 'mainPage':
+          return '44px';
+        case 'recipePage':
+          return '32px';
+
+        case 'addRecipe':
+          return '32px';
+
+        case 'categoryPage':
+          return `32px`;
+
+        case 'searchPage':
+          return '32px';
+
+        case 'shoppingListPage':
+          return `32px`;
+        default:
+          return;
+      }
+    }};
     padding-bottom: ${props => {
       switch (props.type) {
         case 'mainPage':
-          return `40px`;
+          return '40px';
 
         case 'recipePage':
           return '24px';
@@ -51,13 +75,17 @@ export const Title = styled.h2`
         case 'searchPage':
           return `40px`;
 
+        case 'shoppingListPage':
+          return `72px`;
+
         default:
           return;
       }
     }};
-    font-size: 44px;
-  }
+
+
   @media screen and (min-width: 1440px) {
+    font-size: 44px;
     padding-bottom: ${props => {
       switch (props.type) {
         case 'mainPage':
@@ -66,6 +94,8 @@ export const Title = styled.h2`
           return `110px`;
         case 'searchPage':
           return `50px`;
+        case 'shoppingListPage':
+          return `72px`;
         default:
           return;
       }

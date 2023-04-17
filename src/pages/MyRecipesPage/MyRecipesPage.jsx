@@ -16,6 +16,7 @@ import PreviewRecipesList from 'components/PreviewRecipesList/PreviewRecipesList
 
 import { fetchRecipesByCategory } from 'redux/recipes/recipesOperations';
 import { selectRecipesByCategoryList } from 'redux/recipes/recipesSelectors';
+import Squares from 'components/Squares/Squares';
 
 const MyRecipesPage = () => {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ const MyRecipesPage = () => {
 
   return (
     <ThemeProvider theme={MuiProviderTheme}>
+      <Squares />
       <Section>
         <Wrapper>
           <PageTitle type="mainPage">My recipes</PageTitle>
