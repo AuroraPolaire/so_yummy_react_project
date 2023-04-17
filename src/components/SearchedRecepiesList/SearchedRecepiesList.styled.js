@@ -34,9 +34,7 @@ export const RecipeNotFoundImage = styled.div`
   height: 133px;
   background-size: cover;
   margin: 0 auto;
-  @media (min-device-pixel-ratio: 2),
-            (min-resolution: 192dpi),
-            (min-resolution: 2dppx) {
+  @media screen and (min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (min-resolution: 2dppx) {
     background-image: url(${recipeNotFoundImgMobileRetina});
   }
   @media screen and (min-width: 768px) {
