@@ -11,7 +11,7 @@ const RecipeCard = ({ recipe }) => {
   }
   console.log(recipe);
 
-  return recipe?.map(item => {
+  return recipe.map(item => {
     return (
       <NavLink key={item._id} to={`/recipe/${item._id}`}>
         <RecipeCardBox>
