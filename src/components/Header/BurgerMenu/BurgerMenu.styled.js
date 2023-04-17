@@ -38,12 +38,18 @@ export const MobileContainer = styled.div`
     (min-resolution: 2dppx) {
     background-image: url(${BurgerBgMobile2x});
   }
+
   @media screen and (min-width: 768px) {
     background-image: url(${BurgerBgTablet});
+
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       background-image: url(${BurgerBgTablet2x});
+    }
+
+    @media screen and (min-width: 1280px) {
+      display: none;
     }
   }
 `;
@@ -52,6 +58,7 @@ export const HeaderLogoWrapper = styled.div`
   position: absolute;
   top: 18px;
   left: 16px;
+
   @media screen and (min-width: 768px) {
     top: 18px;
     left: 32px;
@@ -79,17 +86,19 @@ export const NavBurgerCloseIcon = styled(SvgExit)`
   stroke: var(--font-gray);
   width: 24px;
   height: 24px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--transition-dur-and-func);
 
   &:hover,
   &:focus {
     stroke: var(--accent-color-green);
   }
 `;
+
 export const ThemeTogglerWrap = styled.div`
   position: absolute;
   bottom: 18px;
   left: 16px;
+
   @media screen and (min-width: 768px) {
     bottom: 32px;
     left: 32px;

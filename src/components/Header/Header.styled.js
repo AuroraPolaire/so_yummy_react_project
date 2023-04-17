@@ -7,11 +7,13 @@ export const HeaderSection = styled.header`
   align-items: center;
   height: auto;
   padding-top: 18px;
+
   @media (min-width: 768px) {
     padding-top: 18px;
     max-width: 704px;
   }
-  @media (min-width: 1440px) {
+
+  @media (min-width: 1280px) {
     padding-top: 14px;
     max-width: 1240px;
   }
@@ -43,7 +45,8 @@ export const NavBurgerIcon = styled(SvgBurger)`
   height: 24px;
   fill: none;
   stroke: var(--font-gray);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--transition-dur-and-func);
+
   @media (min-width: 1280px) {
     display: none;
   }
