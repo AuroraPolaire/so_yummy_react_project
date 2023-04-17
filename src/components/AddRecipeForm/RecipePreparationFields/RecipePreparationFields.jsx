@@ -33,7 +33,7 @@ export default function RecipePreparationFields() {
                 />
           <ErrorMessage name="instructions" />
     </div>
-  )
+  );
 }
 
 // СПРОБИ РЕАЛІЗАЦІЇ ЧЕРЕЗ СЛУХАЧА ПОДІЙ ТА PUSH

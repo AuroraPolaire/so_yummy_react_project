@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 768px;
-    padding: 0 32px;
+    padding: 0px 16px 32px;
   }
 
   // 1440px//

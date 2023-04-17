@@ -34,7 +34,7 @@ export const searchSlice = createSlice({
       })
       .addCase(searchIngredient.fulfilled, (state, action) => {
         console.log(action);
-        state.results = action.payload.ingredients;
+        state.results = action.payload.recipes;
         state.totalResults = action.payload.total;
         state.status = 'resolved';
       })

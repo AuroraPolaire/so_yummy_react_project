@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 
 import { addRecipe, fetchCategoryList } from 'redux/recipes/recipesOperations';
 import { selectCategoryList } from 'redux/recipes/recipesSelectors';
@@ -13,17 +13,13 @@ import RecipePreparationFields from './RecipePreparationFields/RecipePreparation
 import { StyledForm } from './AddRecipeForm.styled';
 
 export default function AddRecipeForm() {
-    const validationSchema = Yup.object({
-       title: Yup.string()
-         .required('Required'),
-       description: Yup.string()
-            .required('Required'),
-       category: Yup.string()
-            .required('Required'),
-       time: Yup.string()
-         .required('Required'),
-    })
-  
+  // const validationSchema = Yup.object({
+  //   title: Yup.string().required('Required'),
+  //   instructions: Yup.string().required('Required'),
+  //   category: Yup.string().required('Required'),
+  //   time: Yup.string().required('Required'),
+  // });
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,6 +28,7 @@ export default function AddRecipeForm() {
   }, [dispatch]);
 
   const categories = useSelector(selectCategoryList);
+
   const ingredients = useSelector(state => state.search.results)
   
     return (
@@ -98,4 +95,5 @@ export default function AddRecipeForm() {
        )}
      </Formik>
   )
+
 }

@@ -12,16 +12,26 @@ const LargeRecipeCard = ({ recipe, type }) => {
   const splitText = (stringToSplit, separator) => {
     return stringToSplit.split(separator).slice(0, -1);
   };
+  function truncateTitle(str) {
+    const shortTitle = str.split(' ');
+    return shortTitle.length < 4
+      ? shortTitle.join(' ')
+      : shortTitle.slice(0, 2).join(' ');
+  }
   return recipe.map(item => {
     return (
       <RecipeCardBox key={item._id}>
         <img src={item.preview} alt={item.title} />
 
         <div className="description-conainer">
-          <h3>{item.title}</h3>
+          <h3>{truncateTitle(item.title)}</h3>
           <div className="description">
             {splitText(item.description, '.').map(item => {
-              return <div key={item}>{item}.</div>;
+              return (
+                <div className="description-text" key={item}>
+                  {item}.
+                </div>
+              );
             })}
           </div>
           <div className="btn-conainer">
