@@ -83,7 +83,7 @@ const authSlice = createSlice({
       .addCase(updateUser.fulfilled, state => {
         state.isError = null;
         state.isLoading = false;
-        state.isUpdated = true;
+        state.isSubscribed = true;
       })
       .addCase(updateUser.pending, state => {
         state.isLoading = true;
