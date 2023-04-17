@@ -8,10 +8,44 @@ export const RecipeCardBox = styled.div`
   padding: 40px;
   background-color: #ffffff;
 
+  @media screen and (max-width: 1440px) {
+    gap: 24px;
+    padding: 28px;
+
+    .description-text:not(:first-child) {
+      display: none;
+    }
+    .description-text {
+      max-height: 55px;
+      overflow: hidden;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    gap: 14px;
+    padding: 14px;
+
+    .description-text:not(:first-child) {
+      display: none;
+    }
+    .description-text {
+      max-height: 95px;
+      overflow: hidden;
+    }
+  }
+
   & .description-conainer {
     display: flex;
     flex-direction: column;
     gap: 50px;
+    width: 100%;
+
+    @media screen and (max-width: 1440px) {
+      gap: 28px;
+    }
+    @media screen and (max-width: 768px) {
+      gap: 14px;
+    }
   }
 
   & .btn-conainer {
@@ -26,6 +60,15 @@ export const RecipeCardBox = styled.div`
     width: 318px;
     border-radius: 8px;
     margin: 0;
+
+    @media screen and (max-width: 1440px) {
+      width: 228px;
+      height: 232px;
+    }
+    @media screen and (max-width: 768px) {
+      width: 124px;
+      height: 124px;
+    }
   }
 
   & .description {
@@ -41,7 +84,17 @@ export const RecipeCardBox = styled.div`
     padding-right: 120px;
 
     color: #23262a;
+
+    @media screen and (max-width: 1440px) {
+      padding-right: 100px;
+      font-size: 14px;
+    }
+    @media screen and (max-width: 768px) {
+      padding-right: 43px;
+      font-size: 8px;
+    }
   }
+
   & h3 {
     color: #3e4462;
     font-style: normal;
@@ -50,12 +103,11 @@ export const RecipeCardBox = styled.div`
     line-height: 1;
     letter-spacing: -0.24px;
 
-    @media screen and (min-width: 768px) {
-      min-width: 300px;
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
     }
 
-    @media screen and (min-width: 1440px) {
-      min-width: 268px;
+    @media screen and (max-width: 1440px) {
     }
   }
 `;
@@ -78,9 +130,10 @@ export const StyledLink = styled(NavLink)`
   text-decoration: none;
   padding: 14px 38px;
 
-  /* &.active {
-    color: orange;
-  } */
+  @media screen and (max-width: 768px) {
+    font-size: 10px;
+    padding: 6px 14px;
+  }
 `;
 
 export const StyledTime = styled(Time)`

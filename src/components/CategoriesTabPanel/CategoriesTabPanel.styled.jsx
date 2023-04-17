@@ -27,3 +27,10 @@ export const List = styled.ul`
     }
   }
 `;
+export const RecipesContainer = styled.div`
+  min-height: 795px;
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1440px) {
+  }
+`;

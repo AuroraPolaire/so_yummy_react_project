@@ -1,8 +1,8 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Pagination from '@mui/material/Pagination';
+import Fade from '@mui/material/Fade';
 import Stack from '@mui/material/Stack';
 import { ThemeProvider } from '@mui/material/styles';
 import MuiProviderTheme from 'components/MuiProviderTheme/MuiProviderTheme';
@@ -19,7 +19,8 @@ import { selectRecipesByCategoryList } from 'redux/recipes/recipesSelectors';
 
 const FavouritePage = () => {
   const dispatch = useDispatch();
-  const [currentPage, setCurrentPage] = React.useState(1);
+  const [show, setShow] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   const response = useSelector(selectRecipesByCategoryList);
   const favoritRecipesList = Object.entries(response);
   let pages = Math.ceil(response.total / response.limit)
@@ -29,27 +30,34 @@ const FavouritePage = () => {
   useEffect(() => {
     dispatch(fetchRecipesByCategory({ limit: 4 }));
     dispatch(fetchFavoritRecipes({}));
+    const timer = setTimeout(() => setShow(true), 300);
+    return () => clearTimeout(timer);
   }, [dispatch]);
   const handleChangePagination = (e, value) => {
     setCurrentPage(value);
     dispatch(fetchRecipesByCategory({ limit: 4, page: value }));
+    window.scrollTo(0, 0);
   };
   return (
     <ThemeProvider theme={MuiProviderTheme}>
       <Section>
         <Wrapper>
           <PageTitle type="mainPage">Favorites</PageTitle>
-          <PreviewRecipesList
-            type="favorite"
-            recipesList={favoritRecipesList}
-          ></PreviewRecipesList>
-          <Stack spacing={2}>
-            <Pagination
-              count={pages}
-              onChange={handleChangePagination}
-              page={currentPage}
-            />
-          </Stack>
+          <Fade in={show}>
+            <div>
+              <PreviewRecipesList
+                type="favorite"
+                recipesList={favoritRecipesList}
+              ></PreviewRecipesList>
+              <Stack spacing={2}>
+                <Pagination
+                  count={pages}
+                  onChange={handleChangePagination}
+                  page={currentPage}
+                />
+              </Stack>
+            </div>
+          </Fade>
         </Wrapper>
       </Section>
     </ThemeProvider>

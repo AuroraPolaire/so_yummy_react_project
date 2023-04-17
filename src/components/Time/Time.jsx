@@ -12,7 +12,10 @@ export default function Time({ minutes }) {
       return minutes + ' mins';
     }
     if (hours > 0 && minutes === 0) {
-      return hours + ' h';
+      if (hours === 1) {
+        return hours + ' hour';
+      }
+      return hours + ' hours';
     }
   };
 

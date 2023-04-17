@@ -1,8 +1,8 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Pagination from '@mui/material/Pagination';
+import Fade from '@mui/material/Fade';
 import Stack from '@mui/material/Stack';
 import { ThemeProvider } from '@mui/material/styles';
 import MuiProviderTheme from 'components/MuiProviderTheme/MuiProviderTheme';
@@ -19,7 +19,8 @@ import { selectRecipesByCategoryList } from 'redux/recipes/recipesSelectors';
 
 const MyRecipesPage = () => {
   const dispatch = useDispatch();
-  const [currentPage, setCurrentPage] = React.useState(1);
+  const [show, setShow] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   const response = useSelector(selectRecipesByCategoryList);
   const myRecipesList = Object.entries(response);
   let pages = Math.ceil(response.total / response.limit)
@@ -29,11 +30,14 @@ const MyRecipesPage = () => {
   useEffect(() => {
     dispatch(fetchRecipesByCategory({ limit: 4 }));
     dispatch(fetchMyRecipes({}));
+    const timer = setTimeout(() => setShow(true), 300);
+    return () => clearTimeout(timer);
   }, [dispatch]);
 
   const handleChangePagination = (e, value) => {
     setCurrentPage(value);
     dispatch(fetchRecipesByCategory({ limit: 4, page: value }));
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -41,18 +45,22 @@ const MyRecipesPage = () => {
       <Section>
         <Wrapper>
           <PageTitle type="mainPage">My recipes</PageTitle>
-          <PreviewRecipesList
-            type="my"
-            recipesList={myRecipesList}
-          ></PreviewRecipesList>
+          <Fade in={show}>
+            <div>
+              <PreviewRecipesList
+                type="my"
+                recipesList={myRecipesList}
+              ></PreviewRecipesList>
 
-          <Stack spacing={2}>
-            <Pagination
-              count={pages}
-              onChange={handleChangePagination}
-              page={currentPage}
-            />
-          </Stack>
+              <Stack spacing={2}>
+                <Pagination
+                  count={pages}
+                  onChange={handleChangePagination}
+                  page={currentPage}
+                />
+              </Stack>
+            </div>
+          </Fade>
         </Wrapper>
       </Section>
     </ThemeProvider>
