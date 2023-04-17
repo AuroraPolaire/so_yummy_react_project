@@ -85,7 +85,11 @@ export const LogoTitle = styled.p`
   color: #FAFAFA;
   margin-left: 8px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
+  color: #FAFAFA;
+  &:hover {
+    color: #8BAA36;
+  }
   @media screen and (min-width: 768px) {
     font-size: 28px;
     margin-left: 12px;

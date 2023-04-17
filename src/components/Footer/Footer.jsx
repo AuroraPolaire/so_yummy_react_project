@@ -45,7 +45,9 @@ const Footer = () => {
                 <LogoWrapper>
                 <LogoLink to="/main">
                   <LogoImg src={logo} alt="logo" width={32} />
-                  <LogoTitle>So Yummy</LogoTitle>
+                    <LogoTitle>So Yummy
+                      <LogoLink to="/main"></LogoLink>
+                  </LogoTitle>
                 </LogoLink>
                 </LogoWrapper>
                 <BenefitsList>
