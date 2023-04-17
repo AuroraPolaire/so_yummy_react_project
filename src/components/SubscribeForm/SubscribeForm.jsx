@@ -36,7 +36,9 @@ const validationSchema = yup.object().shape({
     onSubmit: (values) => {
       dispatch(subscribeUser({ email: values.email }))
         .then((rejected) => {
-
+          if (rejected.payload === 'Request failed with status code 403') {
+            return notiflix.Notify.warning('Sorry! Access denied');
+          }
           if (rejected.payload === 'Request failed with status code 404') {
             return notiflix.Notify.warning('It`s not your Email');
           }
