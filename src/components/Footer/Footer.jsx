@@ -72,7 +72,7 @@ const Footer = () => {
               <nav>
                 <FooterLinkWrapper>
                   <FooterLinkItem>
-                    <FooterLink to="search?type=ingredients">
+                    <FooterLink to="/search?type=ingredient">
                       Ingredients
                     </FooterLink>
                   </FooterLinkItem>
