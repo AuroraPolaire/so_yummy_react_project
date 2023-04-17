@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.d0757565.js",
+    "main.js": "/so_yummy_react_project/static/js/main.70896439.js",
     "static/media/recipe_hero_bg1x.webp": "/so_yummy_react_project/static/media/recipe_hero_bg1x.b7b1c44bc5346e70d72a.webp",
     "static/media/dish_desktop2x.webp": "/so_yummy_react_project/static/media/dish_desktop2x.3b07418e7e4470b259ed.webp",
     "static/media/recipe_hero_bg2x.webp": "/so_yummy_react_project/static/media/recipe_hero_bg2x.9d6a67271bda69ba007c.webp",
@@ -64,9 +64,9 @@
     "static/media/exit.svg": "/so_yummy_react_project/static/media/exit.e5ec20d5f2f4f822241baf13fab5a8be.svg",
     "static/media/burger.svg": "/so_yummy_react_project/static/media/burger.32b3cd4340613c9951a83bc4dd74e4cd.svg",
     "static/media/arrow-down.svg": "/so_yummy_react_project/static/media/arrow-down.4c0759d592b9bf854db97289ce89a574.svg",
-    "main.d0757565.js.map": "/so_yummy_react_project/static/js/main.d0757565.js.map"
+    "main.70896439.js.map": "/so_yummy_react_project/static/js/main.70896439.js.map"
   },
   "entrypoints": [
-    "static/js/main.d0757565.js"
+    "static/js/main.70896439.js"
   ]
 }
