@@ -39,7 +39,7 @@ export default function AddRecipeForm() {
         initialValues={{
           title: '',
           description: '',
-          preparation: [],
+          instructions: [],
           ingredients: [],
           category: '',
           time: '',
@@ -92,7 +92,7 @@ export default function AddRecipeForm() {
          <StyledForm onSubmit={formik.handleSubmit}>
             <RecipeDescriptionFields categories={categories} />
             <RecipeIngredientsFields ingredients={ingredients} />
-            <RecipePreparationFields onCahnge={formik.handleChange}></RecipePreparationFields>
+            <RecipePreparationFields ></RecipePreparationFields>
             <button type="submit">Add</button>
          </StyledForm>
        )}

@@ -13,7 +13,7 @@ export default function RecipePreparationFields() {
 
     useEffect(() => {
         const splittedValue = inputValue.split('\n');
-        setFieldValue('preparation', splittedValue);
+        setFieldValue('instructions', splittedValue);
     }, [inputValue, setFieldValue])
     
     const handleInputChange = (e) => {
@@ -24,14 +24,14 @@ export default function RecipePreparationFields() {
   return (
     <div>
           <h2>Recipe Preparation</h2>
-          <label htmlFor="preparation">Enter recipe</label>
+          <label htmlFor="instructions">Enter recipe</label>
           <Field
               value={inputValue}
-              name="preparation"
+              name="instructions"
               as="textarea"
               onChange={handleInputChange}
                 />
-          <ErrorMessage name="preparation" />
+          <ErrorMessage name="instructions" />
     </div>
   )
 }
