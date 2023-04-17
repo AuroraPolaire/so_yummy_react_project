@@ -8,12 +8,15 @@ export const Title = styled.h2`
 
       case 'recipePage':
         return '18px';
-      
+
       case 'addRecipe':
         return '72px';
 
       case 'categoryPage':
         return `60px`;
+
+      case 'searchPage':
+        return `50px`;
 
       default:
         return;
@@ -45,6 +48,9 @@ export const Title = styled.h2`
         case 'categoryPage':
           return `60px`;
 
+        case 'searchPage':
+          return `40px`;
+
         default:
           return;
       }
@@ -58,6 +64,8 @@ export const Title = styled.h2`
           return `50px`;
         case 'categoryPage':
           return `110px`;
+        case 'searchPage':
+          return `50px`;
         default:
           return;
       }

@@ -10,18 +10,18 @@ export const Title = styled.h2`
   font-feature-settings: 'liga' off;
   font-size: 28px;
   line-height: 100%;
-  padding-top: 74px;
+  /* padding-top: 74px; */
   @media screen and (min-width: 768px) {
     font-size: 32px;
-    padding-top: 102px;
+    /* padding-top: 102px; */
   }
   @media screen and (min-width: 1440px) {
     font-size: 44px;
-    padding-top: 102px;
+    /* padding-top: 102px; */
   }
 `;
 export const Green1 = styled.div`
-  z-index: -2;
+  z-index: -5;
   position: absolute;
   width: 8px;
   height: 8px;

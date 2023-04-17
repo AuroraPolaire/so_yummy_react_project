@@ -9,6 +9,8 @@ import {
   selectSearchType,
   selectTotalResults,
 } from 'redux/search/searchSelectors';
+import { Section, Wrapper } from 'components/theme/GlobalContainer';
+import PageTitle from 'components/PageTitle/PageTitle';
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
@@ -33,9 +35,14 @@ const SearchPage = () => {
   }, [dispatch, page, query, searchType, totalResults]);
   return (
     <>
-      <MainTitle text="Search" />
-      <SearchBar />
-      <SearchedRecipesList />
+      <Section>
+        <Wrapper>
+          <PageTitle type={'searchPage'}>Search</PageTitle>
+          {/* <MainTitle text="Search" /> */}
+          <SearchBar />
+          <SearchedRecipesList />
+        </Wrapper>
+      </Section>
     </>
   );
 };

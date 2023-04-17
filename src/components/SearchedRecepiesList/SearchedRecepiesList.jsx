@@ -25,11 +25,11 @@ const SearchedRecipiesList = () => {
           <Loader />
         </LoaderWrapper>
       ) : (
-        <Wrapper>
-          <List>
-            <RecipeCard recipe={recipes} />
-          </List>
-        </Wrapper>
+        // <Wrapper>
+        <List>
+          <RecipeCard recipe={recipes} />
+        </List>
+        // </Wrapper>
         // <RecipesList>
         //   {recipes.map(({ _id, title, preview }) => {
         //     return (
