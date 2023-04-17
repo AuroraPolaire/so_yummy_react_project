@@ -6,14 +6,11 @@ import {
   SearchIcon,
   HeaderSearchLinkWrapper,
   HeaderNavLinksWrapper,
-
 } from './Navigation.styled';
-// import { useDispatch } from 'react-redux';
-// import { logout } from 'redux/auth/authOperations';
 
 const Navigation = ({ onBurgerClose }) => {
   const isMobileDevice = useMediaQuery('(max-width: 1279px)');
-  // const dispatch = useDispatch();
+
   return (
     <nav>
       <HeaderNavLinksWrapper>
@@ -51,32 +48,8 @@ const Navigation = ({ onBurgerClose }) => {
             </HeaderSearchLinkWrapper>
           </HeaderLink>
         </li>
-        {/* <LogoutBtn
-          onClick={() => {
-            dispatch(logout());
-          }}
-        >
-          Log out
-        </LogoutBtn> */}
       </HeaderNavLinksWrapper>
     </nav>
   );
 };
 export default Navigation;
-
-// const Navigation = props => {
-//   return (
-//     <nav>
-//       <NavLink to="/categories/:categoryName">Categories</NavLink>
-//       <NavLink to="/add">Add recipes</NavLink>
-//       <NavLink to="/my">My recipes</NavLink>
-//       <NavLink to="/favourite">Favourite</NavLink>
-//       <NavLink to="/shopping-list">Shopping list</NavLink>
-//       <NavLink to="/search">SearchIcon</NavLink>
-//     </nav>
-//   );
-// };
-
-// // Navigation.propTypes = {}
-
-// export default Navigation;

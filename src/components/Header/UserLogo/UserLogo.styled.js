@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-// import { ReactComponent as EditIcon } from '../../../images/icons/edit-pencil.svg';
 
 export const UserLogoButton = styled.button`
   display: flex;
   align-items: center;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 `;
 
 export const UserAvatarWrapper = styled.div`
@@ -36,15 +36,18 @@ export const UserName = styled.span`
   }
 `;
 export const LogoutBtn = styled.button`
+  display: flex;
+  justify-content: space-between;
   padding-top: 12px;
   padding-bottom: 12px;
-  padding-left: 27px;
-  padding-right: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
   border-radius: 24px 44px;
   border: 0;
   color: var(--font-white);
   background-color: var(--accent-color-green);
   font-size: 14px;
+  font-weight: 400;
   transition: background-color var(--transition-dur-and-func);
 
   :hover,
@@ -57,5 +60,22 @@ export const LogoutBtn = styled.button`
   @media screen and (min-width: 1440px) {
     padding-left: 35px;
     padding-right: 32px;
+  }
+`;
+
+export const EditWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  line-height: 1.6;
+  color: '#22252A';
+  font-weight: 500;
+  transition: color var(--transition-dur-and-func);
+
+  :hover,
+  :active,
+  :focus {
+    cursor: pointer;
+    color: var(--accent-color-green);
   }
 `;

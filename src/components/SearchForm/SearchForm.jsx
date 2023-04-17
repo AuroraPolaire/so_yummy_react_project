@@ -1,6 +1,8 @@
 import { Formik } from 'formik';
+import { useDispatch } from 'react-redux';
 
 import { useSearchParams } from 'react-router-dom';
+import { searchIngredient } from 'redux/search/searchOperations';
 
 import {
   Form,
@@ -10,6 +12,7 @@ import {
 } from './SearchForm.styled';
 
 const SearchForm = () => {
+  const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const onSubmit = ({ query }) => {
@@ -21,6 +24,7 @@ const SearchForm = () => {
       return null;
     }
     setSearchParams({ query: trimmedQuery, page: 1 });
+    dispatch(searchIngredient(trimmedQuery, 1));
   };
 
   return (

@@ -15,9 +15,6 @@ export const fetchShoppingList = createAsyncThunk(
     setAuthHeader(persistedToken);
     try {
       const { data } = await axios.get('/users/shopping-list');
-
-      console.log(data.shoppingList);
-
       return data.shoppingList;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -30,12 +27,7 @@ export const addProductToShoppingList = createAsyncThunk(
 
   async (product, thunkAPI) => {
     try {
-      console.log(product, 'ADDED');
-
       const { data } = await axios.post('/users/shopping-list', product);
-
-      console.log(data.shoppingList);
-
       return data.shoppingList;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -47,12 +39,7 @@ export const removeProductFromShoppingList = createAsyncThunk(
   'shopping-list/remove',
   async (product, thunkAPI) => {
     try {
-      console.log(product, 'DELETED');
-
       const { data } = await axios.patch('/users/shopping-list', product);
-
-      console.log(data.shoppingList);
-
       return data.shoppingList;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

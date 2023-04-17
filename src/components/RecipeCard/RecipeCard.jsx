@@ -9,6 +9,7 @@ const RecipeCard = ({ recipe }) => {
       ? shortTitle.join(' ')
       : shortTitle.slice(0, 2).join(' ');
   }
+  console.log(recipe);
 
   return recipe.map(item => {
     return (
