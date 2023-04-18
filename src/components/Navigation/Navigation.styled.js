@@ -15,7 +15,7 @@ export const HeaderNavLinksWrapper = styled.ul`
     gap: 40px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -33,7 +33,7 @@ export const HeaderLink = styled(NavLink)`
   font-size: 18px;
   line-height: 1;
   color: var(--header-grey);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--transition-dur-and-func);
 
   &:hover,
   &:focus {
@@ -49,10 +49,10 @@ export const HeaderLink = styled(NavLink)`
 
   @media screen and (min-width: 768px) {
     font-size: 24px;
-    line-height: 1px;
+    line-height: 1;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     font-size: 14px;
     line-height: 22px;
   }
@@ -60,7 +60,7 @@ export const HeaderLink = styled(NavLink)`
 
 export const HeaderSearchLinkWrapper = styled.div`
   display: flex;
-  align-items: 'center';
+  align-items: center;
   gap: 8px;
 `;
 
@@ -70,7 +70,7 @@ export const SearchIcon = styled(SvgSearchIcon)`
   height: 20px;
   fill: none;
   stroke: var(--font-gray);
-  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: stroke var(--transition-dur-and-func);
 
   @media screen and (min-width: 768px) {
     width: 24px;

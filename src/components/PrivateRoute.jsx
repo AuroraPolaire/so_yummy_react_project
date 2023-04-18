@@ -8,6 +8,7 @@ import {
 export const PrivateRoute = ({ component: Component, redirectTo = '/' }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const isRefreshing = useSelector(selectIsRefreshing);
+  // const token = useSelector(state => state.auth.token);
 
   const shouldRedirect = !isLoggedIn && !isRefreshing;
 

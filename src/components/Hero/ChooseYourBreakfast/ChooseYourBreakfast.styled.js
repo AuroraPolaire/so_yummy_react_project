@@ -68,5 +68,9 @@ export const StyledBox = styled.div`
     width: 15px;
     height: 11px;
     stroke: var(--font-darkblue-p);
+
+    :hover {
+      stroke: red;
+    }
   }
 `;

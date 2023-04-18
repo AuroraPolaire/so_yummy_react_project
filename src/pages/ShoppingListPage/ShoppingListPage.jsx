@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import MainTitle from 'components/MainTitle/MainTitle';
 import { Section, Wrapper } from 'components/theme/GlobalContainer';
 import { fetchShoppingList } from 'redux/shoppingList/shoppingListOperations';
 import IngredientsShoppingList from 'components/IngredientsShoppingList/IngredientsShoppingList';
 import { selectShoppingList } from 'redux/shoppingList/shoppingListSelectors';
+import Squares from 'components/Squares/Squares';
+import PageTitle from 'components/PageTitle/PageTitle';
 
 const ShoppingListPage = () => {
   const dispatch = useDispatch();
@@ -18,13 +19,17 @@ const ShoppingListPage = () => {
   }, [dispatch, products]);
 
   return (
-    <Section>
-      <Wrapper>
-        <MainTitle text="Shopping list"></MainTitle>
+    <>
+      <Squares />
+      <Section>
+        <Wrapper>
+          <PageTitle type={'shoppingListPage'}>Shopping list</PageTitle>
+          {/* <MainTitle text="Shopping list"></MainTitle> */}
 
-        <IngredientsShoppingList />
-      </Wrapper>
-    </Section>
+          <IngredientsShoppingList />
+        </Wrapper>
+      </Section>
+    </>
   );
 };
 

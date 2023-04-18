@@ -16,6 +16,12 @@ export const Wrapper = styled.div`
     padding: 0px 16px 32px;
   }
 
+  //1280px//
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+
   // 1440px//
 
   @media screen and (min-width: 1440px) {
@@ -26,6 +32,7 @@ export const Wrapper = styled.div`
 
 export const Section = styled.section`
   padding-top: 114px;
+  min-height: calc(100vh - 30px - 18px);
 
   @media screen and (min-width: 768px) {
     padding-top: 136px;

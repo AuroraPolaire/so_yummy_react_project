@@ -1,7 +1,7 @@
 import React from 'react';
 // import { StyledLink } from './WelcomePage.styled';
 import { Wrapper } from 'components/theme/GlobalContainer';
-import { ReactComponent as Logo } from '../../images/icons/logo-header.svg';
+import { ReactComponent as Logo } from '../../images/icons/main-logo.svg';
 import {
   Section,
   StyledLink,
@@ -28,8 +28,12 @@ const WelcomePage = () => {
           </Text>
         </WelcomeContainer>
         <ButtonContainer>
-          <StyledLink to="/register" name="register">Registration</StyledLink>
-          <StyledLink to="/login" name="signIn">Sign In</StyledLink>
+          <StyledLink to="/register" name="register">
+            Registration
+          </StyledLink>
+          <StyledLink to="/login" name="signIn">
+            Sign In
+          </StyledLink>
         </ButtonContainer>
       </Wrapper>
     </Section>

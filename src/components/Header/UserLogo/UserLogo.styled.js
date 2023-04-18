@@ -28,13 +28,14 @@ export const UserNameWrapper = styled.div``;
 export const UserName = styled.span`
   font-weight: 600;
   font-size: 12px;
-  line-height: 170%;
+  line-height: 1.7;
   color: var(--font-gray);
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
   }
 `;
+
 export const LogoutBtn = styled.button`
   display: flex;
   justify-content: space-between;
@@ -57,7 +58,7 @@ export const LogoutBtn = styled.button`
     background-color: var(--font-gray);
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 768px) {
     padding-left: 35px;
     padding-right: 32px;
   }
@@ -68,7 +69,7 @@ export const EditWrapper = styled.div`
   justify-content: space-between;
   font-size: 14px;
   line-height: 1.6;
-  color: '#22252A';
+  color: var(--font-gray);
   font-weight: 500;
   transition: color var(--transition-dur-and-func);
 

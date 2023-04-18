@@ -9,6 +9,7 @@ import {
   fetchCategoryList,
   fetchRecipesByCategory,
 } from 'redux/recipes/recipesOperations';
+import Squares from 'components/Squares/Squares';
 
 const CategoriesPage = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const CategoriesPage = () => {
 
   return (
     <>
+      <Squares />
       <Section>
         <Wrapper>
           <PageTitle type="mainPage">Categories</PageTitle>
