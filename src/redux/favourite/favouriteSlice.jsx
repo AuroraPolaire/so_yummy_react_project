@@ -6,7 +6,10 @@ import {
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  favouriteRecipes: { recipes: [], total: 0 },
+  favouriteRecipes: {
+    recipes: [],
+    total: 0,
+  },
   isLoading: false,
   error: false,
 };
@@ -37,7 +40,7 @@ const favouriteRecipesSlice = createSlice({
       .addCase(toggleFavouriteRecipes.fulfilled, (state, action) => {
         console.log(action.payload);
         const index = state.favouriteRecipes.recipes.findIndex(
-          recipe => recipe.id === action.payload.id
+          recipe => recipe._id === action.payload._id
         );
         state.favouriteRecipes.recipes[index] = action.payload;
         state.isLoading = false;

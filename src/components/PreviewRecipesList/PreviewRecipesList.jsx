@@ -11,7 +11,6 @@ import LargeRecipeCard from 'components/LargeRecipeCard/LargeRecipeCard';
 const PreviewRecipesList = ({
   type,
   recipesList,
-  handleRemoveLocalRecipesList,
 }) => {
   return (
     <TransitionGroup>
