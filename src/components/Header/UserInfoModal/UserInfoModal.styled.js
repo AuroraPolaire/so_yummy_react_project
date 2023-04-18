@@ -72,6 +72,15 @@ export const EditUserNameLabel = styled.label`
       }
     }
   }
+  & .error {
+    position: absolute;
+    top: -20px;
+    left: 50px;
+    font-family: 'Poppins';
+    color: red;
+    font-size: 14px;
+    line-height: 1, 5;
+  }
 `;
 
 export const EditUserNameInput = styled.input`

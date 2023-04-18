@@ -41,25 +41,30 @@ export const App = () => {
           <Route
             path="/welcome"
             element={
-              <RestrictedRoute redirectTo="/main" component={<WelcomePage />} />
+              <RestrictedRoute redirectTo="/" component={<WelcomePage />} />
             }
           />
           <Route
             path="/register"
             element={
-              <RestrictedRoute
-                redirectTo="/main"
-                component={<RegisterPage />}
-              />
+              <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
             }
           />
           <Route
             path="/login"
             element={
-              <RestrictedRoute redirectTo="/main" component={<SignInPage />} />
+              <RestrictedRoute redirectTo="/" component={<SignInPage />} />
             }
           />
-          <Route path="/" element={<SharedLayout />}>
+          <Route
+            path="/"
+            element={
+              <PrivateRoute
+                redirectTo="/welcome"
+                component={<SharedLayout />}
+              />
+            }
+          >
             <Route
               index
               element={

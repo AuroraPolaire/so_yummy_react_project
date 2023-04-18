@@ -12,9 +12,9 @@ const statusConfig = status => {
 
   if (status === 'loading') {
     return {
-      ...statusStates,
-      isIdle: false,
-      isLoading: true,
+    ...statusStates,
+    isIdle: false,
+    isLoading: true,
     };
   }
 
@@ -33,6 +33,13 @@ const statusConfig = status => {
       isResolved: true,
     };
   }
+
+  // Возвращаем значения по умолчанию или выбираем одно из ожидаемых значений
+  // в качестве значения по умолчанию
+  return {
+    ...statusStates,
+    isIdle: true,
+  };
 };
 
 export default statusConfig;

@@ -29,7 +29,7 @@ export const StyledBox = styled.div`
 
   &:hover,
   &:focus {
-    transform: scale(1.1);
+    transform: scale(1.01);
   }
 
   & p {
@@ -77,7 +77,7 @@ export const StyledBox = styled.div`
     stroke: var(--font-darkblue-p);
 
     :hover {
-      stroke: red;
+      stroke: var(--accent-color-green);
     }
   }
 `;

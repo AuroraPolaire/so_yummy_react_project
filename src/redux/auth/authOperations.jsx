@@ -68,9 +68,9 @@ export const fetchCurrentUser = createAsyncThunk(
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue();
-    }
+    // if (persistedToken === null) {
+    //   return thunkAPI.rejectWithValue();
+    // }
 
     token.set(persistedToken);
     try {
@@ -90,7 +90,7 @@ export const refreshToken = createAsyncThunk(
     const persistedToken = state.auth.refreshToken;
 
     if (persistedToken === null) {
-      return thunkAPI.rejectWithValue();
+      console.log(thunkAPI.rejectWithValue());
     }
 
     try {
@@ -113,7 +113,7 @@ export const subscribeUser = createAsyncThunk(
       const persistedToken = state.auth.token;
 
       if (persistedToken === null) {
-        return thunkAPI.rejectWithValue();
+        console.log(thunkAPI.rejectWithValue());
       }
       token.set(persistedToken);
 
