@@ -20,7 +20,6 @@ import { PrivateRoute } from './PrivateRoute';
 import {
   // selectIsLoggedIn,
   selectIsRefreshing,
-  selectToken,
 } from '../redux/auth/authSelectors';
 import { fetchCurrentUser } from '../redux/auth/authOperations';
 import { useEffect } from 'react';
@@ -28,13 +27,12 @@ import { RestrictedRoute } from './RestrictedRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const token = useSelector(selectToken);
   const isRefreshing = useSelector(selectIsRefreshing);
-  // const isLoggedIn = useSelector(selectIsLoggedIn);
+
 
   useEffect(() => {
-    token && dispatch(fetchCurrentUser());
-  }, [dispatch, token]);
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
 
   return (
     <div>
