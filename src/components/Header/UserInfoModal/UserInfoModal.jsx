@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import * as Yup from 'yup';
+// import { Formik, Field, Form } from 'formik';
 import notiflix from 'notiflix';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -21,22 +21,13 @@ import {
   EditSubmitButton,
 } from './UserInfoModal.styled';
 
-const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
-  // const [avatarError, setAvatarError] = useState('');
-  // const [nameError, setNameError] = useState('');
+// import { updateValidationSchema, SUPPORTS } from './ValidationUpdateUser';
 
+const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
   const [avatar, setNewAvatar] = useState(avatarURL);
   const [newName, setNewName] = useState(name);
   const dispatch = useDispatch();
 
-  // const schema = Yup.string()
-  //   .min(3, 'Too Short!')
-  //   .max(40, 'Must be 40 characters or less')
-  //   .required('Required')
-  //   .matches(
-  //     /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
-  //     'Name may contain only letters, apostrophe, dash and spaces.'
-  //   );
 
   const onAvatarChange = e => {
     const [file] = e.target.files;
@@ -47,21 +38,36 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
     setNewName(e.target.value);
   };
 
+  // const initialValues = {
+  //   avatar: '',
+  //   name: name,
+  // };
+
   const clickOnSubmit = async e => {
     e.preventDefault();
     const files = e.target.elements[0].files[0];
+    // const clickOnSubmit = async (values, { setSubmitting }) => {
 
     const formData = new FormData();
+    // values.avatar && formData.append('avatar', values.avatar);
+    // formData.append('name', values.name);
     files && formData.append('avatar', files);
     newName ? formData.append('name', newName) : formData.append('name', name);
 
     dispatch(updateUser(formData))
       .unwrap()
       .then(res => closeUserInfoModal)
+      // {
+      //   notiflix.Notify.success(
+      //     'You have successfully updated your information!'
+      //   );
+      // }
       .catch(e => {
         notiflix.Notify.failure('Size of image is too large!');
       });
   };
+  // closeUserInfoModal();
+  // setSubmitting(false);
 
   return (
     <div>
@@ -78,6 +84,13 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
         <CloseIcon />
       </IconButton>
       <DialogContent sx={{ p: '60px' }}>
+        {/* <Formik
+          initialValues={initialValues}
+          validationSchema={updateValidationSchema}
+          onSubmit={clickOnSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form> */}
         <EditUserForm onSubmit={clickOnSubmit}>
           <Avatar
             sx={{
@@ -92,22 +105,21 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
 
           <EditUserlFileLabel>
             <EditUserInput
+              // as={Field}
               type={'file'}
               accept={'image/jpeg,image/png,image/gif'}
+              // accept={SUPPORTS.join(',')}
               onChange={onAvatarChange}
             />
             <AddIcon sx={{ fontSize: 18, fill: 'white' }} />
           </EditUserlFileLabel>
 
-          {/* {avatarError && (
-            <div style={{ color: 'red', marginBottom: '10px' }}>
-              {avatarError}
-            </div>
-          )} */}
-
           <EditUserNameLabel>
             <PermIdentityIcon />
             <EditUserNameInput
+              // as={Field}
+              // type="text"
+              // name="name"
               type="name"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               value={newName}
@@ -116,16 +128,16 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
             <CreateIcon />
           </EditUserNameLabel>
 
-          {/* {nameError && (
-            <div style={{ color: 'red', marginBottom: '10px' }}>
-              {nameError}
-            </div>
-          )} */}
-
-          <EditSubmitButton onClick={closeUserInfoModal}>
+          <EditSubmitButton
+            // type="submit"
+            // disabled={isSubmitting}
+            onClick={closeUserInfoModal}
+          >
             Save changes
           </EditSubmitButton>
+          {/* </Form> */}
         </EditUserForm>
+        {/* </Formik> */}
       </DialogContent>
     </div>
   );

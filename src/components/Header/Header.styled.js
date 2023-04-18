@@ -1,6 +1,30 @@
 import styled from 'styled-components';
 import { ReactComponent as SvgBurger } from '../../images/icons/burger.svg';
 
+export const HeaderWrapper = styled.div`
+  padding: 0 16px 28px;
+
+  @media screen and (min-width: 375px) {
+    width: 375px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 0px 16px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    padding: 0px 100px;
+  }
+`;
+
 export const HeaderSection = styled.div`
   display: flex;
   justify-content: space-between;
@@ -14,8 +38,11 @@ export const HeaderSection = styled.div`
   }
 
   @media (min-width: 1280px) {
-    padding-top: 14px;
     max-width: 1240px;
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 1440px;
   }
 `;
 
