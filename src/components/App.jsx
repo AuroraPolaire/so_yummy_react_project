@@ -20,7 +20,6 @@ import { PrivateRoute } from './PrivateRoute';
 import {
   // selectIsLoggedIn,
   selectIsRefreshing,
-  selectToken,
 } from '../redux/auth/authSelectors';
 import { fetchCurrentUser } from '../redux/auth/authOperations';
 import { useEffect } from 'react';
