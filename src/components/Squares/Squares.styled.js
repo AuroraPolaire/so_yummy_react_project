@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const SquaresContainer = styled.div`
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
 export const Green1 = styled.div`
   z-index: -5;
   position: absolute;

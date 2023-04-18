@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { searchRecipes, searchIngredient, fetchIngredientsList } from './searchOperations';
+import {
+  searchRecipes,
+  searchIngredient,
+  fetchIngredientsList,
+} from './searchOperations';
 
 const initialState = {
   results: [],
@@ -15,6 +19,7 @@ export const searchSlice = createSlice({
   initialState,
   reducers: {
     changeSearchType(state, action) {
+      console.log(action);
       state.searchType = action.payload;
     },
   },

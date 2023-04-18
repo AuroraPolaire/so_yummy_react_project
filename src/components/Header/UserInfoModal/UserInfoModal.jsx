@@ -28,6 +28,7 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
   const [newName, setNewName] = useState(name);
   const dispatch = useDispatch();
 
+
   const onAvatarChange = e => {
     const [file] = e.target.files;
     setNewAvatar(URL.createObjectURL(file));
