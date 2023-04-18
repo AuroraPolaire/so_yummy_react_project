@@ -1,5 +1,6 @@
 import * as React from 'react';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
+import notiflix from 'notiflix';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateUser } from '../../../redux/auth/authOperations';
@@ -21,38 +22,27 @@ import {
 } from './UserInfoModal.styled';
 
 const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
-  const [avatarError, setAvatarError] = useState('');
-  const [nameError, setNameError] = useState('');
+  // const [avatarError, setAvatarError] = useState('');
+  // const [nameError, setNameError] = useState('');
 
-  const [newAvatar, setNewAvatar] = useState(avatarURL);
+  const [avatar, setNewAvatar] = useState(avatarURL);
   const [newName, setNewName] = useState(name);
   const dispatch = useDispatch();
 
-  const schema = Yup.object().shape({
-    name: Yup.string()
-      .min(2, 'Too Short!')
-      .max(15, 'Too Long!')
-      .required('Required'),
-  });
+  // const schema = Yup.object().shape({
+  //   name: Yup.string()
+  //     .min(2, 'Too Short!')
+  //     .max(15, 'Too Long!')
+  //     .required('Required'),
+  // });
 
   const onAvatarChange = e => {
     const [file] = e.target.files;
-    if (file) {
-      if (['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
-        setNewAvatar(URL.createObjectURL(file));
-      } else {
-        setAvatarError('Invalid file type');
-      }
-    }
+    setNewAvatar(URL.createObjectURL(file));
   };
 
   const onNameChange = e => {
-    const { value } = e.target;
-    if (!schema) {
-      setNameError('');
-    } else {
-      setNewName(value);
-    }
+    setNewName(e.target.value);
   };
 
   const clickOnSubmit = async e => {
@@ -64,17 +54,12 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
     files && formData.append('avatar', files);
     newName ? formData.append('name', newName) : formData.append('name', name);
 
-    try {
-      await schema.validate(formData);
-      dispatch(updateUser(formData))
-        .unwrap()
-        .then(res => closeUserInfoModal())
-        .catch(e => {
-          console.error(e);
-        });
-    } catch (error) {
-      console.error(error);
-    }
+    dispatch(updateUser(formData))
+      .unwrap()
+      .then(res => closeUserInfoModal)
+      .catch(e => {
+        notiflix.Notify.failure('Size of image is too large!');
+      });
   };
 
   return (
@@ -101,7 +86,7 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
               mr: 'auto',
               mb: '52px',
             }}
-            src={avatarURL ? avatarURL : newAvatar}
+            src={avatar}
           />
 
           <EditUserlFileLabel>
@@ -113,28 +98,28 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
             <AddIcon sx={{ fontSize: 18, fill: 'white' }} />
           </EditUserlFileLabel>
 
-          {avatarError && (
+          {/* {avatarError && (
             <div style={{ color: 'red', marginBottom: '10px' }}>
               {avatarError}
             </div>
-          )}
+          )} */}
 
           <EditUserNameLabel>
             <PermIdentityIcon />
             <EditUserNameInput
               type="name"
-              pattern="[A-Za-z0-9]{6,}"
-              value={name}
+              pattern="[a-zA-Z][a-zA-Z ]{2,}"
+              value={newName}
               onChange={onNameChange}
             />
             <CreateIcon />
           </EditUserNameLabel>
 
-          {nameError && (
+          {/* {nameError && (
             <div style={{ color: 'red', marginBottom: '10px' }}>
               {nameError}
             </div>
-          )}
+          )} */}
 
           <EditSubmitButton onClick={closeUserInfoModal}>
             Save changes
