@@ -6,6 +6,7 @@ import {
   UserWrapper,
   NavBurger,
   NavBurgerIcon,
+  HeaderWrapper,
 } from './Header.styled';
 
 import Logo from 'components/Logo/Logo';
@@ -30,25 +31,27 @@ const Header = () => {
 
   return (
     <header style={{ position: 'absolute', width: '100%' }}>
-      {/* <Wrapper> */}
-      <HeaderSection>
-        <Logo />
-        {!isMobileDevice && <Navigation />}
-        <UserWrapper>
-          <UserLogo />
+      <HeaderWrapper>
+        {/* <Wrapper> */}
+        <HeaderSection>
+          <Logo />
+          {!isMobileDevice && <Navigation />}
+          <UserWrapper>
+            <UserLogo />
 
-          <NavBurger onClick={onBurgerOpen}>
-            <NavBurgerIcon />
-          </NavBurger>
-          {!isMobileDevice && <ThemeToggler />}
-        </UserWrapper>
-        {isMobileDevice && BurgerMenu && (
-          <Modal onClose={onBurgerClose}>
-            <MobileMenu isShown={BurgerMenu} onBurgerClose={onBurgerClose} />
-          </Modal>
-        )}
-      </HeaderSection>
-      {/* </Wrapper> */}
+            <NavBurger onClick={onBurgerOpen}>
+              <NavBurgerIcon />
+            </NavBurger>
+            {!isMobileDevice && <ThemeToggler />}
+          </UserWrapper>
+          {isMobileDevice && BurgerMenu && (
+            <Modal onClose={onBurgerClose}>
+              <MobileMenu isShown={BurgerMenu} onBurgerClose={onBurgerClose} />
+            </Modal>
+          )}
+        </HeaderSection>
+        {/* </Wrapper> */}
+      </HeaderWrapper>
     </header>
   );
 };
