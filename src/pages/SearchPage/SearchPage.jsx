@@ -1,7 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import MainTitle from 'components/MainTitle/MainTitle';
 import SearchBar from 'components/SearchBar/SearchBar';
 import SearchedRecipesList from 'components/SearchedRecepiesList/SearchedRecepiesList';
 import { searchRecipes, searchIngredient } from 'redux/search/searchOperations';
@@ -40,7 +39,6 @@ const SearchPage = () => {
       <Section>
         <Wrapper>
           <PageTitle type={'searchPage'}>Search</PageTitle>
-          {/* <MainTitle text="Search" /> */}
           <SearchBar />
           <SearchedRecipesList />
         </Wrapper>
@@ -48,5 +46,4 @@ const SearchPage = () => {
     </>
   );
 };
-
 export default SearchPage;

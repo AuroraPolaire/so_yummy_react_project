@@ -122,10 +122,7 @@ export const subscribeUser = createAsyncThunk(
       return response.data.user;
     } catch (e) {
       if (e.response && e.response.status === 409) {
-        // Обработка ошибки 409
-        // Можно выполнить соответствующие действия, например, показать сообщение пользователю
-        // и предложить выполнить другое действие
-        alert('Subscription with this email already exists. Please try again with a different email.');
+        console.log('Subscription with this email already exists. Please try again with a different email.');
       }
       return thunkAPI.rejectWithValue(e.message);
     }
