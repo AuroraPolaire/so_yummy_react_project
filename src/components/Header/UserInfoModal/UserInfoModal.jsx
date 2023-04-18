@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import * as Yup from 'yup';
+import { Formik, Field } from 'formik';
 import notiflix from 'notiflix';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -13,7 +13,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import CreateIcon from '@mui/icons-material/Create';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import {
-  EditUserForm,
+  Form,
   EditUserInput,
   EditUserlFileLabel,
   EditUserNameInput,
@@ -21,20 +21,12 @@ import {
   EditSubmitButton,
 } from './UserInfoModal.styled';
 
-const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
-  // const [avatarError, setAvatarError] = useState('');
-  // const [nameError, setNameError] = useState('');
+import { updateValidationSchema, SUPPORTS } from './ValidationUpdateUser';
 
+const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
   const [avatar, setNewAvatar] = useState(avatarURL);
   const [newName, setNewName] = useState(name);
   const dispatch = useDispatch();
-
-  // const schema = Yup.object().shape({
-  //   name: Yup.string()
-  //     .min(2, 'Too Short!')
-  //     .max(15, 'Too Long!')
-  //     .required('Required'),
-  // });
 
   const onAvatarChange = e => {
     const [file] = e.target.files;
@@ -45,20 +37,33 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
     setNewName(e.target.value);
   };
 
-  const clickOnSubmit = async e => {
-    e.preventDefault();
-    const files = e.target.elements[0].files[0];
+  const initialValues = {
+    avatar: '',
+    name: name,
+  };
+
+  const clickOnSubmit = async (values, { setSubmitting }) => {
+    // e.preventDefault();
+    // const files = e.target.elements[0].files[0];
 
     const formData = new FormData();
-    files && formData.append('avatar', files);
-    newName ? formData.append('name', newName) : formData.append('name', name);
+    values.avatar && formData.append('avatar', values.avatar);
+    formData.append('name', values.name);
+    // files && formData.append('avatar', files);
+    // newName ? formData.append('name', newName) : formData.append('name', name);
 
     dispatch(updateUser(formData))
       .unwrap()
-      .then(res => closeUserInfoModal)
+      .then(res => {
+        notiflix.Notify.success(
+          'You have successfully updated your information!'
+        );
+      })
       .catch(e => {
         notiflix.Notify.failure('Size of image is too large!');
       });
+    closeUserInfoModal();
+    setSubmitting(false);
   };
 
   return (
@@ -76,54 +81,59 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
         <CloseIcon />
       </IconButton>
       <DialogContent sx={{ p: '60px' }}>
-        <EditUserForm onSubmit={clickOnSubmit}>
-          <Avatar
-            sx={{
-              height: { xs: 103, sm: 103, md: 103 },
-              width: { xs: 103, sm: 103, md: 103 },
-              ml: 'auto',
-              mr: 'auto',
-              mb: '52px',
-            }}
-            src={avatar}
-          />
+        <Formik
+          initialValues={initialValues}
+          validationSchema={updateValidationSchema}
+          onSubmit={clickOnSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form>
+              {/* // <EditUserForm onSubmit={clickOnSubmit}> */}
+              <Avatar
+                sx={{
+                  height: { xs: 103, sm: 103, md: 103 },
+                  width: { xs: 103, sm: 103, md: 103 },
+                  ml: 'auto',
+                  mr: 'auto',
+                  mb: '52px',
+                }}
+                src={avatar}
+              />
 
-          <EditUserlFileLabel>
-            <EditUserInput
-              type={'file'}
-              accept={'image/jpeg,image/png,image/gif'}
-              onChange={onAvatarChange}
-            />
-            <AddIcon sx={{ fontSize: 18, fill: 'white' }} />
-          </EditUserlFileLabel>
+              <EditUserlFileLabel>
+                <EditUserInput
+                  as={Field}
+                  type={'file'}
+                  accept={SUPPORTS.join(',')}
+                  onChange={onAvatarChange}
+                />
+                <AddIcon sx={{ fontSize: 18, fill: 'white' }} />
+              </EditUserlFileLabel>
 
-          {/* {avatarError && (
-            <div style={{ color: 'red', marginBottom: '10px' }}>
-              {avatarError}
-            </div>
-          )} */}
+              <EditUserNameLabel>
+                <PermIdentityIcon />
+                <EditUserNameInput
+                  as={Field}
+                  type="text"
+                  name="name"
+                  // pattern="[A-Za-z]{1,32}"
+                  value={newName}
+                  onChange={onNameChange}
+                />
+                <CreateIcon />
+              </EditUserNameLabel>
 
-          <EditUserNameLabel>
-            <PermIdentityIcon />
-            <EditUserNameInput
-              type="name"
-              pattern="[A-Za-z]{1,32}"
-              value={newName}
-              onChange={onNameChange}
-            />
-            <CreateIcon />
-          </EditUserNameLabel>
-
-          {/* {nameError && (
-            <div style={{ color: 'red', marginBottom: '10px' }}>
-              {nameError}
-            </div>
-          )} */}
-
-          <EditSubmitButton onClick={closeUserInfoModal}>
-            Save changes
-          </EditSubmitButton>
-        </EditUserForm>
+              <EditSubmitButton
+                type="submit"
+                disabled={isSubmitting}
+                onClick={closeUserInfoModal}
+              >
+                Save changes
+              </EditSubmitButton>
+            </Form>
+            // {/* </EditUserForm> */}
+          )}
+        </Formik>
       </DialogContent>
     </div>
   );
