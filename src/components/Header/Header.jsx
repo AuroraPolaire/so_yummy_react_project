@@ -18,7 +18,7 @@ import Modal from './Modal/Modal';
 
 const Header = () => {
   const [BurgerMenu, setBurgerMenu] = useState(false);
-  const isMobileDevice = useMediaQuery('(max-width: 1439px)');
+  const isMobileDevice = useMediaQuery('(max-width: 1279px)');
 
   const onBurgerOpen = () => {
     setBurgerMenu(true);
