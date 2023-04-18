@@ -4,6 +4,7 @@ import Select from "react-select";
 export const IngredientsFieldsHeader = styled.div`
 display: flex;
 align-items: center;
+margin-bottom: 24px;
 
 h2{
     margin-right: 116px;
@@ -30,6 +31,7 @@ button {
 
 export const InputsContainer = styled.div`
 display: flex;
+margin-bottom: 44px;
 `
 
 export const MeasureContainer = styled.div`
@@ -42,13 +44,12 @@ export const NumberInput = styled.input`
 `
 
 export const StyledSelect = styled(Select)`
-  min-width: 200px;
 
-  .menu-portal {
-    z-index: 9999;
-  }
-
-  .menu {
-    max-height: 194px;
-  }
+  /* DOESN"T WORK */
+ &::-webkit-scrollbar {
+  width: 6px;
+  height: 93px;
+  background: #E7E5E5;
+  border-radius: 12px;
+}
 `;

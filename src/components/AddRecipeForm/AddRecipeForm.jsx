@@ -11,13 +11,15 @@ import RecipeDescriptionFields from './RecipeDescriptionFields/RecipeDescription
 import RecipeIngredientsFields from './RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from './RecipePreparationFields/RecipePreparationFields';
 import { StyledForm } from './AddRecipeForm.styled';
+import Button from 'components/Button/Button';
 
 export default function AddRecipeForm() {
   const validationSchema = Yup.object({
     title: Yup.string().required('Required'),
-    instructions: Yup.string().required('Required'),
+    description: Yup.string().required('Required'),
     category: Yup.string().required('Required'),
     time: Yup.string().required('Required'),
+    instructions: Yup.string().required('Required'),
   });
 
   const dispatch = useDispatch();
@@ -92,7 +94,7 @@ export default function AddRecipeForm() {
           <RecipeDescriptionFields categories={categories} />
           <RecipeIngredientsFields ingredients={ingredients} />
           <RecipePreparationFields></RecipePreparationFields>
-          <button type="submit">Add</button>
+          <Button type="submit" title='Add' background='#22252A' color='#FAFAFA' borderColor />
         </StyledForm>
       )}
     </Formik>

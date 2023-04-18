@@ -3,7 +3,7 @@ import { ErrorMessage, Field, useFormikContext } from 'formik';
 import React, { useState } from 'react';
 import { CounterContainer, IngredientsFieldsHeader, InputsContainer, MeasureContainer, NumberInput, StyledSelect } from './RecipeIngredientsFields.styled';
 
-const MEASURES = ['', 'tbs', 'tsp', 'kg', 'g', 'cup'];
+const MEASURES = ['itms', 'tbs', 'tsp', 'kg', 'g', 'cup'];
 
 export default function RecipeIngredientsFields({ingredients}) {
   const [counter, setCounter] = useState(0);
@@ -27,11 +27,37 @@ export default function RecipeIngredientsFields({ingredients}) {
   
   const preparedIngredients = ingredients.map((opt) => {
     return {
-                    id: opt._id,
-                    value: opt.ttl,
-                    label: opt.ttl,
-                  }
-                })
+      id: opt._id,    
+      value: opt.ttl,                   
+      label: opt.ttl,                   
+    } 
+  })
+
+  const customStyles = {
+    // option: (provided, state) => ({
+    //   // ...provided,
+    //   height: '18px',
+    //   backgroundColor: state.isFocused ? '#ddd' : 'white',
+    //   color: state.isFocused ? 'black' : 'gray',
+    //   marginBottom: '6px',
+    // }),
+    control: (provided, state) => ({
+      // ...provided,
+      display: 'flex',
+      height: '53px',
+      width: '194px',
+      background: '#D9D9D9',
+      borderRadius: '6px',
+    }),
+  //   menu: (provided, state) => ({
+  //   // ...provided,
+  //   backgroundColor: 'white',
+  //   boxShadow: '0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);',
+  //   borderRadius: '6px',
+  //     marginTop: '0',
+  //   maxHeight: '144px',  // (optionHeight + optionMarginBottom) * 6
+  // }),
+  };
 
     const renderInputs = () => {
     return Array.from({ length: counter }, (_, i) => (
@@ -40,6 +66,7 @@ export default function RecipeIngredientsFields({ingredients}) {
             name={`ingredients[${i}].title`}
             component={({ field, form }) => (
               <StyledSelect
+                styles={customStyles}
                 options={preparedIngredients}
                 value={preparedIngredients.find((option) => option.value === field.value)}
                 onChange={(option) => {
