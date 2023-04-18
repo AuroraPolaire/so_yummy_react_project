@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { ReactComponent as EmailIcon } from '../../images/icons/email-icon-for-footer.svg';
-import { ReactComponent as ErrorLogo } from '../../images/icons/Error-logo.svg';
-import { ReactComponent as SuccessLogo } from '../../images/icons/Success-logo.svg';
+
 export const EmailIconStyled = styled(EmailIcon)`
   position: absolute;
   display: inline-block;
@@ -20,18 +19,21 @@ export const EmailIconStyled = styled(EmailIcon)`
   }
 `;
 
-export const ErrorLogoStyled = styled(ErrorLogo)`
+export const ErrorLogoStyled = styled.svg`
   position: absolute;
   background-color: #22252A;
   width: 20px;
+  height: 20px;
   transition: transform 0.5s ease;
   &:hover {
     transform: rotate(360deg);
   }
 `;
 
-export const SuccessLogoStyled = styled(SuccessLogo)`
+export const SuccessLogoStyled = styled.svg`
   position: absolute;
+  height: 20px;
+  width: 20px;
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
