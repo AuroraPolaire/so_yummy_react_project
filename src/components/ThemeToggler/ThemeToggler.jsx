@@ -6,11 +6,11 @@ const ThemeToggler = props => {
   return (
     <ThemeTogglerStyled>
       <input className="tgl tgl-light" id="cb1" type="checkbox" />
-      <label className="tgl-btn" for="cb1"></label>
+      <label className="tgl-btn" htmlFor="cb1"></label>
     </ThemeTogglerStyled>
   );
 };
 
-ThemeToggler.propTypes = {};
+// ThemeToggler.propTypes = {};
 
 export default ThemeToggler;
