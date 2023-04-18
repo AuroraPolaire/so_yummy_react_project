@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.64151722.js",
+    "main.js": "/so_yummy_react_project/static/js/main.8d1bbc7a.js",
     "static/media/recipe_hero_bg1x.webp": "/so_yummy_react_project/static/media/recipe_hero_bg1x.b7b1c44bc5346e70d72a.webp",
     "static/media/dish_desktop2x.webp": "/so_yummy_react_project/static/media/dish_desktop2x.3b07418e7e4470b259ed.webp",
     "static/media/recipe_hero_bg2x.webp": "/so_yummy_react_project/static/media/recipe_hero_bg2x.9d6a67271bda69ba007c.webp",
@@ -49,6 +49,7 @@
     "static/media/auth-bg-bottom-mobile@2x.webp": "/so_yummy_react_project/static/media/auth-bg-bottom-mobile@2x.ecb54e02958e517d4882.webp",
     "static/media/auth-bg-bottom-tablet@1x.webp": "/so_yummy_react_project/static/media/auth-bg-bottom-tablet@1x.2d71b8f5564206f4a95a.webp",
     "static/media/auth-bg-bottom-desktop@1x.webp": "/so_yummy_react_project/static/media/auth-bg-bottom-desktop@1x.715ac8b96f77ace403b0.webp",
+    "static/media/default-photo.svg": "/so_yummy_react_project/static/media/default-photo.edb6d4850def329cef39085ef42c9a33.svg",
     "index.html": "/so_yummy_react_project/index.html",
     "static/media/footer-logo.svg": "/so_yummy_react_project/static/media/footer-logo.3a2b0b0eb04e3edbd7f1fa05a4dfa246.svg",
     "static/media/default-avatar.svg": "/so_yummy_react_project/static/media/default-avatar.8882f2c7aaae2994b36f7d1dc715439e.svg",
@@ -66,9 +67,9 @@
     "static/media/exit.svg": "/so_yummy_react_project/static/media/exit.e5ec20d5f2f4f822241baf13fab5a8be.svg",
     "static/media/burger.svg": "/so_yummy_react_project/static/media/burger.32b3cd4340613c9951a83bc4dd74e4cd.svg",
     "static/media/arrow-down.svg": "/so_yummy_react_project/static/media/arrow-down.4c0759d592b9bf854db97289ce89a574.svg",
-    "main.64151722.js.map": "/so_yummy_react_project/static/js/main.64151722.js.map"
+    "main.8d1bbc7a.js.map": "/so_yummy_react_project/static/js/main.8d1bbc7a.js.map"
   },
   "entrypoints": [
-    "static/js/main.64151722.js"
+    "static/js/main.8d1bbc7a.js"
   ]
 }
