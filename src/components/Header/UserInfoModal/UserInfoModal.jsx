@@ -50,7 +50,6 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
     const files = e.target.elements[0].files[0];
 
     const formData = new FormData();
-
     files && formData.append('avatar', files);
     newName ? formData.append('name', newName) : formData.append('name', name);
 
@@ -108,7 +107,7 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
             <PermIdentityIcon />
             <EditUserNameInput
               type="name"
-              pattern="[a-zA-Z][a-zA-Z ]{2,}"
+              pattern="[A-Za-z]{1,32}"
               value={newName}
               onChange={onNameChange}
             />

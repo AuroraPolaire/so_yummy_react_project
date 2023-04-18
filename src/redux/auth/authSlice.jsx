@@ -16,7 +16,7 @@ const initialState = {
   token: null,
   refreshToken: null,
   isLoggedIn: false,
-  isRefreshing: false,
+  isRefreshing: true,
   isSubscribed: false,
   isSubscribeError: false,
 };

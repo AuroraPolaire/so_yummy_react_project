@@ -18,9 +18,9 @@ import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import SharedLayout from './SharedLayout/SharedLayout';
 import { PrivateRoute } from './PrivateRoute';
 import {
-  selectIsLoggedIn,
+  // selectIsLoggedIn,
   selectIsRefreshing,
-  selectToken,
+  // selectToken,
 } from '../redux/auth/authSelectors';
 import { fetchCurrentUser } from '../redux/auth/authOperations';
 import { useEffect } from 'react';
@@ -28,13 +28,13 @@ import { RestrictedRoute } from './RestrictedRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const token = useSelector(selectToken);
+  // const token = useSelector(selectToken);
   const isRefreshing = useSelector(selectIsRefreshing);
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+  // const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    !isLoggedIn && token && dispatch(fetchCurrentUser());
-  }, [dispatch, isLoggedIn, token]);
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
 
   return (
     <div>
@@ -43,30 +43,25 @@ export const App = () => {
           <Route
             path="/welcome"
             element={
-              <RestrictedRoute redirectTo="/" component={<WelcomePage />} />
+              <RestrictedRoute redirectTo="/main" component={<WelcomePage />} />
             }
           />
           <Route
             path="/register"
             element={
-              <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
+              <RestrictedRoute
+                redirectTo="/main"
+                component={<RegisterPage />}
+              />
             }
           />
           <Route
             path="/login"
             element={
-              <RestrictedRoute redirectTo="/" component={<SignInPage />} />
+              <RestrictedRoute redirectTo="/main" component={<SignInPage />} />
             }
           />
-          <Route
-            path="/"
-            element={
-              <PrivateRoute
-                redirectTo="/welcome"
-                component={<SharedLayout />}
-              />
-            }
-          >
+          <Route path="/" element={<SharedLayout />}>
             <Route
               index
               element={
@@ -74,13 +69,13 @@ export const App = () => {
               }
             />
             <Route
-              path="main"
+              path="/main"
               element={
                 <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
               }
             />
             <Route
-              path="categories/:categoryName"
+              path="/categories/:categoryName"
               element={
                 <PrivateRoute
                   redirectTo="/welcome"
@@ -89,7 +84,7 @@ export const App = () => {
               }
             />
             <Route
-              path="add"
+              path="/add"
               element={
                 <PrivateRoute
                   redirectTo="/welcome"
@@ -98,7 +93,7 @@ export const App = () => {
               }
             />
             <Route
-              path="my"
+              path="/my"
               element={
                 <PrivateRoute
                   redirectTo="/welcome"
@@ -107,7 +102,7 @@ export const App = () => {
               }
             />
             <Route
-              path="favourite"
+              path="/favourite"
               element={
                 <PrivateRoute
                   redirectTo="/welcome"
@@ -116,13 +111,13 @@ export const App = () => {
               }
             />
             <Route
-              path="recipe/:recipeId"
+              path="/recipe/:recipeId"
               element={
                 <PrivateRoute redirectTo="welcome" component={<RecipePage />} />
               }
             />
             <Route
-              path="shopping-list"
+              path="/shopping-list"
               element={
                 <PrivateRoute
                   redirectTo="/welcome"
@@ -131,7 +126,7 @@ export const App = () => {
               }
             />
             <Route
-              path="search"
+              path="/search"
               element={
                 <PrivateRoute
                   redirectTo="/welcome"
