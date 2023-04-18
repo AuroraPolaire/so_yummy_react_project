@@ -10,33 +10,37 @@ import MuiProviderTheme from 'components/MuiProviderTheme/MuiProviderTheme';
 // =======================
 import { Section, Wrapper } from 'components/theme/GlobalContainer';
 import PageTitle from 'components/PageTitle/PageTitle';
-import { fetchFavoritRecipes } from 'redux/recipes/recipesOperations';
+// import { fetchFavoritRecipes } from 'redux/recipes/recipesOperations';
+import { fetchFavouriteRecipes } from 'redux/favourite/favouriteOperations';
 // import { selectFavoritRecipesList } from 'redux/recipes/recipesSelectors';
 import PreviewRecipesList from 'components/PreviewRecipesList/PreviewRecipesList';
 
-import { fetchRecipesByCategory } from 'redux/recipes/recipesOperations';
-import { selectRecipesByCategoryList } from 'redux/recipes/recipesSelectors';
+// import { fetchRecipesByCategory } from 'redux/recipes/recipesOperations';
+// import { selectRecipesByCategoryList } from 'redux/recipes/recipesSelectors';
+import { selectFavouriteRecipes } from 'redux/favourite/favouriteSelectors';
 import Squares from 'components/Squares/Squares';
 
 const FavouritePage = () => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const response = useSelector(selectRecipesByCategoryList);
+  const response = useSelector(selectFavouriteRecipes);
   const favoritRecipesList = Object.entries(response);
+  // console.log('favoritRecipesList', favoritRecipesList);
   let pages = Math.ceil(response.total / response.limit)
     ? Math.ceil(response.total / response.limit)
     : 1;
 
   useEffect(() => {
-    dispatch(fetchRecipesByCategory({ limit: 4 }));
-    dispatch(fetchFavoritRecipes({}));
+    // dispatch(fetchRecipesByCategory({ limit: 4 }));
+    dispatch(fetchFavouriteRecipes({ limit: 4 }));
     const timer = setTimeout(() => setShow(true), 300);
     return () => clearTimeout(timer);
   }, [dispatch]);
   const handleChangePagination = (e, value) => {
     setCurrentPage(value);
-    dispatch(fetchRecipesByCategory({ limit: 4, page: value }));
+    dispatch(fetchFavouriteRecipes({ limit: 4, page: value }));
+    // dispatch(fetchRecipesByCategory({ limit: 4, page: value }));
     window.scrollTo(0, 0);
   };
   return (

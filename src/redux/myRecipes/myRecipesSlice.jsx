@@ -1,12 +1,9 @@
-import {
-  fetchFavouriteRecipes,
-  toggleFavouriteRecipes,
-} from './favouriteOperations';
+import { fetchMyRecipes, deleteMyRecipes } from './myRecipesOperations';
 
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  favouriteRecipes: {
+  myRecipes: {
     recipes: [
       {
         _id: '640cd5ac2d9fecf12e8898fa',
@@ -42,43 +39,46 @@ const initialState = {
   error: false,
 };
 
-const favouriteRecipesSlice = createSlice({
-  name: 'favouriteRecipes',
+const myRecipesSlice = createSlice({
+  name: 'myRecipes',
   initialState,
   extraReducers: builder => {
     builder
-      .addCase(fetchFavouriteRecipes.pending, state => {
+      .addCase(fetchMyRecipes.pending, state => {
         state.isLoading = true;
         state.error = false;
       })
-      .addCase(fetchFavouriteRecipes.fulfilled, (state, action) => {
+      .addCase(fetchMyRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = false;
-        // state.favouriteRecipes.recipes = action.payload.recipes;
-        state.favouriteRecipes.total = action.payload.total;
+        // state.myRecipes.recipes = action.payload.recipes;
+        state.myRecipes.total = action.payload.total;
       })
-      .addCase(fetchFavouriteRecipes.rejected, state => {
+      .addCase(fetchMyRecipes.rejected, state => {
         state.isLoading = false;
         state.error = true;
       })
-      .addCase(toggleFavouriteRecipes.pending, state => {
+      .addCase(deleteMyRecipes.pending, state => {
         state.isLoading = true;
         state.error = false;
       })
-      .addCase(toggleFavouriteRecipes.fulfilled, (state, action) => {
-        console.log(action.payload);
-        const index = state.favouriteRecipes.recipes.findIndex(
-          recipe => recipe._id === action.payload._id
+      .addCase(deleteMyRecipes.fulfilled, (state, action) => {
+        console.log('action.payload', action.payload.message);
+        const message = action.payload.message;
+        const responceId = message.split(' ')[1];
+        console.log('responceId', responceId);
+
+        state.myRecipes.recipes = state.myRecipes.recipes.filter(
+          recipe => recipe._id !== responceId
         );
-        state.favouriteRecipes.recipes[index] = action.payload;
         state.isLoading = false;
         state.error = false;
       })
-      .addCase(toggleFavouriteRecipes.rejected, state => {
+      .addCase(deleteMyRecipes.rejected, state => {
         state.error = true;
         state.isLoading = false;
       });
   },
 });
 
-export const favouriteRecipesReducer = favouriteRecipesSlice.reducer;
+export const myRecipesReducer = myRecipesSlice.reducer;
