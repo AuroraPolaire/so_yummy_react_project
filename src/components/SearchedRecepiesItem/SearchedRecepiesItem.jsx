@@ -9,7 +9,6 @@ import {
 
 const SearchedRecipesItem = ({ title, preview, id }) => {
   const animation = title.length > 34;
-
   return (
     <>
       <RecipeItem animation={animation}>
@@ -25,5 +24,4 @@ const SearchedRecipesItem = ({ title, preview, id }) => {
     </>
   );
 };
-
 export default SearchedRecipesItem;

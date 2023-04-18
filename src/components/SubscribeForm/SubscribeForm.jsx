@@ -36,17 +36,19 @@ const validationSchema = yup.object().shape({
     onSubmit: (values) => {
       dispatch(subscribeUser({ email: values.email }))
         .then((rejected) => {
-
-          if (rejected.payload === 'Request failed with status code 404') {
-            return notiflix.Notify.warning('It`s not yours Email');
+          if (rejected.payload === 'Request failed with status code 403') {
+            return notiflix.Notify.warning('Sorry! Access denied');
           }
-          if (rejected.payload === 'Request failed with status code 400') {
-             return notiflix.Notify.warning('Is allready Subscribe');
+          if (rejected.payload === 'Request failed with status code 404') {
+            return notiflix.Notify.warning('It`s not your Email');
+          }
+          if (rejected.payload === 'Request failed with status code 409') {
+             return notiflix.Notify.warning('You are already Subscribed. Try a different e-mail address.');
           }
           notiflix.Notify.success('Subscribed Successful');
     }).catch((error) => {
       console.log(error);
-      notiflix.Notify.failure('Error subscribing');
+      notiflix.Notify.failure('Subscription error');
     });
     },
     validate: (values) => {

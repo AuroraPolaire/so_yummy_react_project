@@ -121,6 +121,9 @@ export const subscribeUser = createAsyncThunk(
 
       return response.data.user;
     } catch (e) {
+      if (e.response && e.response.status === 409) {
+        console.log('Subscription with this email already exists. Please try again with a different email.');
+      }
       return thunkAPI.rejectWithValue(e.message);
     }
   }

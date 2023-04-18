@@ -11,7 +11,12 @@ const RecipeCard = ({ recipe }) => {
   }
   console.log(recipe);
 
-  return recipe?.map(item => {
+  // Проверка на существование recipe и его длину
+  if (!recipe || recipe.length === 0) {
+    return null; 
+  }
+
+  return recipe.map(item => {
     return (
       <NavLink key={item._id} to={`/recipe/${item._id}`}>
         <RecipeCardBox>

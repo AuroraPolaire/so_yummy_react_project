@@ -1,23 +1,19 @@
+import React from 'react';
 import { useSelector } from 'react-redux';
-
 import { selectResults, selectStatus } from 'redux/search/searchSelectors';
-
+import RecipeCard from 'components/RecipeCard/RecipeCard';
+import { List } from 'components/CategoriesTabPanel/CategoriesTabPanel.styled';
 import { Loader } from 'components/Loader/Loader';
-
 import {
   LoaderWrapper,
   RecipeNotFoundImage,
   RecipeNotFoundText,
 } from './SearchedRecepiesList.styled';
-import RecipeCard from 'components/RecipeCard/RecipeCard';
-import { List } from 'components/CategoriesTabPanel/CategoriesTabPanel.styled';
-import { Wrapper } from 'components/theme/GlobalContainer';
 
 const SearchedRecipiesList = () => {
   const recipes = useSelector(selectResults);
   console.log(recipes);
   const { isLoading, isResolved } = useSelector(selectStatus);
-
   return (
     <>
       {isLoading ? (
@@ -25,26 +21,11 @@ const SearchedRecipiesList = () => {
           <Loader />
         </LoaderWrapper>
       ) : (
-        <Wrapper>
-          <List>
-            <RecipeCard recipe={recipes} />
-          </List>
-        </Wrapper>
-        // <RecipesList>
-        //   {recipes.map(({ _id, title, preview }) => {
-        //     return (
-        //       <SearchedRecipesItem
-        //         key={_id}
-        //         title={title}
-        //         preview={preview}
-        //         id={_id}
-        //       />
-        //     );
-        //   })}
-        // </RecipesList>
+        <List>
+          <RecipeCard recipe={recipes} />
+        </List>
       )}
-
-      {isResolved && recipes?.length === null && (
+      {isResolved && recipes.length === 0 && (
         <>
           <RecipeNotFoundImage />
           <RecipeNotFoundText>
@@ -55,5 +36,4 @@ const SearchedRecipiesList = () => {
     </>
   );
 };
-
 export default SearchedRecipiesList;

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
-// import * as Yup from 'yup';
+import * as Yup from 'yup';
 
 import { addRecipe, fetchCategoryList } from 'redux/recipes/recipesOperations';
 import { selectCategoryList } from 'redux/recipes/recipesSelectors';
@@ -13,12 +13,12 @@ import RecipePreparationFields from './RecipePreparationFields/RecipePreparation
 import { StyledForm } from './AddRecipeForm.styled';
 
 export default function AddRecipeForm() {
-  // const validationSchema = Yup.object({
-  //   title: Yup.string().required('Required'),
-  //   instructions: Yup.string().required('Required'),
-  //   category: Yup.string().required('Required'),
-  //   time: Yup.string().required('Required'),
-  // });
+  const validationSchema = Yup.object({
+    title: Yup.string().required('Required'),
+    instructions: Yup.string().required('Required'),
+    category: Yup.string().required('Required'),
+    time: Yup.string().required('Required'),
+  });
 
   const dispatch = useDispatch();
 
@@ -28,6 +28,7 @@ export default function AddRecipeForm() {
   }, [dispatch]);
 
   const categories = useSelector(selectCategoryList);
+
   const ingredients = useSelector(state => state.search.results);
 
   return (
@@ -41,7 +42,7 @@ export default function AddRecipeForm() {
         time: '',
         fullImage: '',
       }}
-      // validationSchema={validationSchema}
+      validationSchema={validationSchema}
       onKeyDown={e => {
         if (e.key === 'Enter') {
           e.preventDefault();
@@ -90,9 +91,7 @@ export default function AddRecipeForm() {
         <StyledForm onSubmit={formik.handleSubmit}>
           <RecipeDescriptionFields categories={categories} />
           <RecipeIngredientsFields ingredients={ingredients} />
-          <RecipePreparationFields
-            onCahnge={formik.handleChange}
-          ></RecipePreparationFields>
+          <RecipePreparationFields></RecipePreparationFields>
           <button type="submit">Add</button>
         </StyledForm>
       )}

@@ -16,6 +16,7 @@ import PreviewRecipesList from 'components/PreviewRecipesList/PreviewRecipesList
 
 import { fetchRecipesByCategory } from 'redux/recipes/recipesOperations';
 import { selectRecipesByCategoryList } from 'redux/recipes/recipesSelectors';
+import Squares from 'components/Squares/Squares';
 
 const FavouritePage = () => {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ const FavouritePage = () => {
   };
   return (
     <ThemeProvider theme={MuiProviderTheme}>
+      <Squares />
       <Section>
         <Wrapper>
           <PageTitle type="mainPage">Favorites</PageTitle>

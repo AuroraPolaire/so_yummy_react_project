@@ -21,6 +21,8 @@ export const EmailIconStyled = styled(EmailIcon)`
 `;
 
 export const ErrorLogoStyled = styled(ErrorLogo)`
+  position: absolute;
+  background-color: #22252A;
   width: 20px;
   transition: transform 0.5s ease;
   &:hover {

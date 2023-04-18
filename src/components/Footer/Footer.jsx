@@ -29,11 +29,13 @@ import { FollowUs } from '../FollowUs/FollowUs';
 import FooterSharedBg from './FooterSharedBg';
 
 const Footer = () => {
+  const handleFooterLinkClick = () => {
+    window.scrollTo(0, 0);
+  }
   return (
     <footer
       style={{
         position: 'relative',
-        // zIndex: 3,
       }}
     >
       <FooterSharedBg />
@@ -45,7 +47,9 @@ const Footer = () => {
                 <LogoWrapper>
                 <LogoLink to="/main">
                   <LogoImg src={logo} alt="logo" width={32} />
-                  <LogoTitle>So Yummy</LogoTitle>
+                    <LogoTitle>So Yummy
+                      <LogoLink to="/main"></LogoLink>
+                  </LogoTitle>
                 </LogoLink>
                 </LogoWrapper>
                 <BenefitsList>
@@ -70,21 +74,21 @@ const Footer = () => {
               <nav>
                 <FooterLinkWrapper>
                   <FooterLinkItem>
-                    <FooterLink to="search?type=ingredients">
+                    <FooterLink to="/search?type=ingredient" onClick={handleFooterLinkClick}>
                       Ingredients
                     </FooterLink>
                   </FooterLinkItem>
                   <FooterLinkItem>
-                    <FooterLink to="/add">Add recipes</FooterLink>
+                    <FooterLink to="/add" onClick={handleFooterLinkClick}>Add recipes</FooterLink>
                   </FooterLinkItem>
                   <FooterLinkItem>
-                    <FooterLink to="/my">My recipes</FooterLink>
+                    <FooterLink to="/my" onClick={handleFooterLinkClick}>My recipes</FooterLink>
                   </FooterLinkItem>
                   <FooterLinkItem>
-                    <FooterLink to="/favorite">Favorite</FooterLink>
+                    <FooterLink to="/favorite" onClick={handleFooterLinkClick}>Favorite</FooterLink>
                   </FooterLinkItem>
                   <FooterLinkItem>
-                    <FooterLink to="/shopping-list">Shopping list</FooterLink>
+                    <FooterLink to="/shopping-list" onClick={handleFooterLinkClick}>Shopping list</FooterLink>
                   </FooterLinkItem>
                 </FooterLinkWrapper>
               </nav>

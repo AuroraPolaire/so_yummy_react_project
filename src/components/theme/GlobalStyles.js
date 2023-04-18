@@ -14,6 +14,7 @@ ${normalize}
   --font-categories: #bdbdbd;
 	--light-green: #ebf3d4;
 	--header-grey: #23262a;
+  --switches-bg:#EFEFEF;
 
   --warning: #f6c23e;
   --error: #e74a3b;

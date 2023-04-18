@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import recipeNotFoundImgTabletDesktop from '../../images/bg/recipe-not-found-tablet-desktop.webp';
 import recipeNotFoundImgTabletDesktopRetina from '../../images/bg/recipe-not-found-tablet-desktop-2x.webp';
 import recipeNotFoundImgMobile from '../../images/bg/recipe-not-found-mobile.webp';
@@ -11,7 +10,6 @@ export const LoaderWrapper = styled.div`
   align-items: center;
   margin-bottom: 100px;
 `;
-
 export const RecipesList = styled.ul`
   display: flex;
   flex-direction: column;
@@ -27,7 +25,6 @@ export const RecipesList = styled.ul`
     gap: 14px;
   }
 `;
-
 export const RecipeNotFoundImage = styled.div`
   background-image: url(${recipeNotFoundImgMobile});
   width: 208px;
@@ -48,7 +45,6 @@ export const RecipeNotFoundImage = styled.div`
     }
   }
 `;
-
 export const RecipeNotFoundText = styled.p`
   font-weight: 500;
   font-size: 14px;
