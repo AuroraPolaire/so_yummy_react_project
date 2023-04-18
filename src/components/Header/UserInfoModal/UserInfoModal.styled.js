@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Form = styled.form`
+export const EditUserForm = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
