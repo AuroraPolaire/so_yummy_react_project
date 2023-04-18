@@ -6,6 +6,7 @@ import * as yup from 'yup';
 import { selectUserEmail } from '../../redux/auth/authSelectors';
 import { selectorSwicherTheme } from 'redux/auth/authSelectors';
 import { subscribeUser } from 'redux/auth/authOperations';
+import SVG from '../../images/icons/sprite.svg';
 import {
   SubscribeFooterSection,
   FormInput,
@@ -81,13 +82,18 @@ const validationSchema = yup.object().shape({
           required
           themeName={theme}
         />
-        <EmailIconStyled errorformik={formik.errors.email } />
+        <EmailIconStyled errorformik={formik.errors.email}>
+          <use href={`${SVG}#icon-email-icon-for-footer`}></use>
+          </EmailIconStyled>
         {!formik.isValid ? (
           <ResetFormInput
             type='button'
             onClick={onClickResetButton}
           >
-            <ErrorLogoStyled /></ResetFormInput>) : (<SuccessLogoStyled />)}
+            <ErrorLogoStyled>
+              <use href={`${SVG}#icon-Error-logo`}></use>
+              </ErrorLogoStyled>
+          </ResetFormInput>) : (<SuccessLogoStyled><use href={`${SVG}#icon-Success-logo`}></use></SuccessLogoStyled>)}
         {formik.errors.email ? (
           <Error>{formik.errors.email}</Error>
         ) : null}
