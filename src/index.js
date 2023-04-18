@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}></PersistGate>
-      <BrowserRouter basename="/">
+      <BrowserRouter basename="/so_yummy_react_project">
         <GlobalStyles />
         <App />
       </BrowserRouter>
