@@ -21,16 +21,17 @@ export default function CustomSelect({ field, options, func }) {
   // function resetSize() {
   //   setSize(0);
   //   }
-    
+
   function handleChange(event) {
-        const selectedValue = event.target.value;
-        setFieldValue(field.name, selectedValue);
-        // resetSize();
-    }
+    const selectedValue = event.target.value;
+    setFieldValue(field.name, selectedValue);
+    // resetSize();
+  }
 
   return (
-      <div>
+    <>
       <select
+        className="unitInput"
         {...field}
         ref={selectRef}
         // onMouseDown={handleSelectMouseDown}
@@ -39,12 +40,12 @@ export default function CustomSelect({ field, options, func }) {
         // size={size}
       >
         {func(options)}
-    </select>
-      </div>
-  )
+      </select>
+    </>
+  );
 }
 
 CustomSelect.propTypes = {
   options: PropTypes.array.isRequired,
   func: PropTypes.func.isRequired,
-}
+};

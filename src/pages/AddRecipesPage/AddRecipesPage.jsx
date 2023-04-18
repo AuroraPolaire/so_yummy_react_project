@@ -8,8 +8,8 @@ import React from 'react';
 const AddRecipesPage = () => {
   return (
     <>
-      <Squares />
       <Section>
+        <Squares />
         <Wrapper>
           <PageTitle type="addRecipe">Add Recipe</PageTitle>
           <AddRecipeForm />

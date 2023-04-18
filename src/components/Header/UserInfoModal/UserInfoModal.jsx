@@ -29,12 +29,14 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
   const [newName, setNewName] = useState(name);
   const dispatch = useDispatch();
 
-  // const schema = Yup.object().shape({
-  //   name: Yup.string()
-  //     .min(2, 'Too Short!')
-  //     .max(15, 'Too Long!')
-  //     .required('Required'),
-  // });
+  // const schema = Yup.string()
+  //   .min(3, 'Too Short!')
+  //   .max(40, 'Must be 40 characters or less')
+  //   .required('Required')
+  //   .matches(
+  //     /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
+  //     'Name may contain only letters, apostrophe, dash and spaces.'
+  //   );
 
   const onAvatarChange = e => {
     const [file] = e.target.files;
@@ -107,7 +109,7 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
             <PermIdentityIcon />
             <EditUserNameInput
               type="name"
-              pattern="[A-Za-z]{1,32}"
+              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               value={newName}
               onChange={onNameChange}
             />
