@@ -6,6 +6,7 @@ import {
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { StyledTextArea, Subtitle } from './RecipePreparationFields.styled';
 
 export default function RecipePreparationFields() {
     const { setFieldValue } = useFormikContext();
@@ -23,13 +24,13 @@ export default function RecipePreparationFields() {
 
   return (
     <div>
-          <h2>Recipe Preparation</h2>
-          <label htmlFor="instructions">Enter recipe</label>
+          <Subtitle>Recipe Preparation</Subtitle>
           <Field
               value={inputValue}
               name="instructions"
-              as="textarea"
+              as={StyledTextArea}
               onChange={handleInputChange}
+              placeholder='Enter recipe'
                 />
           <ErrorMessage name="instructions" />
     </div>
