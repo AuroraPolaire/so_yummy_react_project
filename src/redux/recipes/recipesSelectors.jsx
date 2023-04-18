@@ -5,6 +5,7 @@ export const selectCurrentRecipe = state => state.recipes.currentRecipe;
 export const selectCategoryList = state => state.recipes.categoryList;
 export const selectRecipesByCategoryList = state =>
   state.recipes.recipesByCategoryList;
+export const selectAllRecipe = state => state.recipes.allRecipe;
 // export const selectFavoritRecipesList = state =>
 //   state.recipes.favoritRecipesList;
 // export const selectMyRecipesList = state => state.recipes.myRecipesList;

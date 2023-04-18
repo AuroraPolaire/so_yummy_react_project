@@ -3,6 +3,7 @@ import {
   fetchRecipesMainPage,
   fetchCategoryList,
   fetchRecipesByCategory,
+  fetchAllRecipes,
   // fetchMyRecipes,
   // fetchFavoritRecipes,
   addRecipe,
@@ -16,7 +17,7 @@ const initialState = {
   isLoading: false,
   error: false,
   currentRecipe: null,
-
+  allRecipe: {},
   categoryList: [],
   recipesByCategoryList: {},
   // favoritRecipesList: {
@@ -72,6 +73,20 @@ const recipesSlice = createSlice({
         state.error = false;
       })
       .addCase(fetchRecipesMainPage.rejected, state => {
+        state.isLoading = false;
+        state.error = true;
+      })
+      // ---------All RECIPES-----------
+      .addCase(fetchAllRecipes.pending, state => {
+        state.isLoading = true;
+        state.error = false;
+      })
+      .addCase(fetchAllRecipes.fulfilled, (state, action) => {
+        state.allRecipe = action.payload;
+        state.isLoading = false;
+        state.error = false;
+      })
+      .addCase(fetchAllRecipes.rejected, state => {
         state.isLoading = false;
         state.error = true;
       })
