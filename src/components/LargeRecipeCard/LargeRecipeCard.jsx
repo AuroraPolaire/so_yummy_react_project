@@ -1,16 +1,10 @@
 import React from 'react';
 import IconButton from '@mui/material/IconButton';
 import { ThemeProvider } from '@mui/material/styles';
+import Time from 'components/Time/Time';
 import MuiProviderTheme from 'components/MuiProviderTheme/MuiProviderTheme';
 
-import {
-  RecipeCardBox,
-  StyledLink,
-  StyledTime,
-  DeleteSvg,
-} from './LargeRecipeCard.styled';
-
-// import Skeleton from '@mui/material/Skeleton';
+import { RecipeCardBox, StyledLink, DeleteSvg } from './LargeRecipeCard.styled';
 
 const LargeRecipeCard = ({ recipe, type }) => {
   const splitText = (stringToSplit, separator) => {
@@ -22,10 +16,11 @@ const LargeRecipeCard = ({ recipe, type }) => {
       ? shortTitle.join(' ')
       : shortTitle.slice(0, 2).join(' ');
   }
+  const handleRemoveLocalRecipesList = (e, value) => {};
   return recipe.map(item => {
     return (
-      <ThemeProvider theme={MuiProviderTheme}>
-        <RecipeCardBox key={item._id}>
+      <ThemeProvider theme={MuiProviderTheme} key={item._id}>
+        <RecipeCardBox>
           <img src={item.preview} alt={item.title} />
 
           <div className="description-conainer">
@@ -34,6 +29,7 @@ const LargeRecipeCard = ({ recipe, type }) => {
               aria-label="delete picture"
               component="label"
               className={type}
+              onClick={() => handleRemoveLocalRecipesList(item._id)}
             >
               <DeleteSvg type={type} />
             </IconButton>
@@ -47,7 +43,7 @@ const LargeRecipeCard = ({ recipe, type }) => {
               })}
             </div>
             <div className="btn-conainer">
-              <StyledTime minutes={Number(item.time)}></StyledTime>
+              <Time minutes={Number(item.time)}></Time>
               <StyledLink
                 type={type}
                 key={item._id}

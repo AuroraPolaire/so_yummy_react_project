@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import Time from 'components/Time/Time';
 import { ReactComponent as IconDelete } from './../../images/icons/icon-delete.svg';
 
 export const DeleteSvg = styled(IconDelete)`
@@ -10,20 +9,15 @@ export const DeleteSvg = styled(IconDelete)`
   stroke: ${props => {
     switch (props.type) {
       case 'favorite':
-        return `#22252a`;
+        return `var(--font-gray)`;
 
       case 'my':
-        return '#FAFAFA';
+        return `var(--font-white)`;
 
       default:
         return;
     }
   }};
-
-  /* @media screen and (min-width: 768px) {
-    width: 44px;
-    height: 44px;
-  } */
 `;
 
 export const RecipeCardBox = styled.div`
@@ -108,7 +102,7 @@ export const RecipeCardBox = styled.div`
     letter-spacing: -0.02em;
     padding-right: 120px;
 
-    color: #23262a;
+    color: var(--font-gray);
 
     @media screen and (max-width: 1440px) {
       padding-right: 100px;
@@ -140,30 +134,42 @@ export const StyledLink = styled(NavLink)`
   background-color: ${props => {
     switch (props.type) {
       case 'favorite':
-        return `#22252A`;
+        return `var(--font-gray)`;
 
       case 'my':
-        return '#8BAA36';
+        return `var(--accent-color-green)`;
 
       default:
         return;
     }
   }};
   display: inline-block;
-  color: #fafafa;
+  color: var(--font-white);
   border-radius: 24px 44px;
   text-decoration: none;
   padding: 14px 38px;
+  transition: background-color var(--transition-dur-and-func);
+
+  :hover,
+  :active,
+  :focus {
+    cursor: pointer;
+    background-color: ${props => {
+      switch (props.type) {
+        case 'favorite':
+          return `var(--accent-color-green)`;
+
+        case 'my':
+          return `var(--accent-color-gray)`;
+
+        default:
+          return;
+      }
+    }};
+  }
 
   @media screen and (max-width: 768px) {
     font-size: 10px;
     padding: 6px 14px;
-  }
-`;
-
-export const StyledTime = styled(Time)`
-  p {
-    color: red;
-    font-weight: bold;
   }
 `;

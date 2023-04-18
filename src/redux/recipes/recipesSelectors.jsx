@@ -8,3 +8,8 @@ export const selectRecipesByCategoryList = state =>
 export const selectFavoritRecipesList = state =>
   state.recipes.favoritRecipesList;
 export const selectMyRecipesList = state => state.recipes.myRecipesList;
+
+export const selectfavoriteRecipeStatus = state =>
+  state.recipes.favoriteRecipeStatus;
+export const selectremoveRecipeStatus = state =>
+  state.recipes.removeRecipeStatus;

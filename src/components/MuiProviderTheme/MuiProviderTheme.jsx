@@ -64,20 +64,12 @@ const ThemeProviderTheme = createTheme({
           '@media (min-width: 768px)': {
             width: '38px',
             height: '38px',
-            background: '#d8971d',
           },
 
           '@media (min-width: 1440px)': {
             width: '44px',
             height: '44px',
-            background: '#d8421d',
           },
-
-          // sx: {
-          //   width: '38px',
-          //   height: '38px',
-          //   background: '#d8971d',
-          // },
 
           '&.favorite': {
             background: '#EBF3D4',
