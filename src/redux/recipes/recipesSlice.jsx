@@ -6,6 +6,8 @@ import {
   fetchMyRecipes,
   fetchFavoritRecipes,
   addRecipe,
+  removeRecipeFromMyList,
+  removeRecipeFromFavoriteList,
 } from './recipesOperations';
 import { createSlice } from '@reduxjs/toolkit';
 
@@ -19,6 +21,8 @@ const initialState = {
   recipesByCategoryList: {},
   favoritRecipesList: {},
   myRecipesList: {},
+  favoriteRecipeStatus: {},
+  removeRecipeStatus: {},
 };
 
 //   ------------------Random 4 categories for main page -----------//
@@ -83,7 +87,7 @@ const recipesSlice = createSlice({
         state.isLoading = false;
         state.error = true;
       })
-      // ---- GET Favorit Recipes ----
+      // ---- GET Favorite Recipes ----
       .addCase(fetchFavoritRecipes.pending, state => {
         state.isLoading = true;
         state.error = false;
@@ -94,6 +98,21 @@ const recipesSlice = createSlice({
         state.error = false;
       })
       .addCase(fetchFavoritRecipes.rejected, state => {
+        state.isLoading = false;
+        state.error = true;
+      })
+      // ---- delete Favorite Recipe ----
+      .addCase(removeRecipeFromFavoriteList.pending, state => {
+        state.favoriteRecipeStatus = {};
+        state.isLoading = true;
+        state.error = false;
+      })
+      .addCase(removeRecipeFromFavoriteList.fulfilled, (state, action) => {
+        state.favoriteRecipeStatus = action.payload;
+        state.isLoading = false;
+        state.error = false;
+      })
+      .addCase(removeRecipeFromFavoriteList.rejected, state => {
         state.isLoading = false;
         state.error = true;
       })
@@ -111,7 +130,23 @@ const recipesSlice = createSlice({
         state.isLoading = false;
         state.error = true;
       })
-            // ---- ADD Recipe ----
+
+      // ---- delete My Recipe ----
+      .addCase(removeRecipeFromMyList.pending, state => {
+        state.removeRecipeStatus = {};
+        state.isLoading = true;
+        state.error = false;
+      })
+      .addCase(removeRecipeFromMyList.fulfilled, (state, action) => {
+        state.removeRecipeStatus = action.payload;
+        state.isLoading = false;
+        state.error = false;
+      })
+      .addCase(removeRecipeFromMyList.rejected, state => {
+        state.isLoading = false;
+        state.error = true;
+      })
+      // ---- ADD Recipe ----
       .addCase(addRecipe.pending, state => {
         state.isLoading = true;
         state.error = false;

@@ -49,6 +49,35 @@ const ThemeProviderTheme = createTheme({
         },
       },
     },
+    MuiIconButton: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          position: 'absolute',
+          right: '0',
+          top: '0',
+          width: '24px',
+          height: '24px',
+          background: '#8BAA36',
+          borderRadius: '4px',
+          ':hover': { background: '#b7c981' },
+          '@media (min-width: 768px)': {
+            width: '38px',
+            height: '38px',
+          },
+
+          '@media (min-width: 1440px)': {
+            width: '44px',
+            height: '44px',
+          },
+
+          '&.favorite': {
+            background: '#EBF3D4',
+            ':hover': { background: '#b7c981' },
+          },
+        },
+      },
+    },
   },
 });
 export default ThemeProviderTheme;
