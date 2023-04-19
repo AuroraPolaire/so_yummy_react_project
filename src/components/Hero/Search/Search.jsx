@@ -1,22 +1,27 @@
 import React from 'react';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { SearchBox, StyledInput } from './Search.styled';
+import { changeSearchType } from 'redux/search/searchSlice';
+import { useDispatch } from 'react-redux';
 
 const Search = () => {
   const navigate = useNavigate();
-  // const [searchParams, setSearchParams] = useSearchParams('');
-  // const searchQuery = searchParams.get('query') ?? '';
-  // console.log(searchQuery);
+  const dispatch = useDispatch();
+  const [searchParams] = useSearchParams('');
+  const searchQuery = searchParams.get('query') ?? '';
+  console.log(searchQuery);
 
   // useEffect(() => {
   //   const currentParams = Object.fromEntries([...searchParams]);
   //   console.log(currentParams.query); // get new values onchange
   // }, [searchParams]);
 
-  // const updateQueryString = query => {
+  // const updateQueryString = e => {
+  //   let query = e.target.value;
+  //   console.log(query);
   //   const nextParams = query !== '' ? { query } : {};
   //   setSearchParams(nextParams);
   // };
@@ -30,29 +35,36 @@ const Search = () => {
 
   return (
     <Formik
-      initialValues={{ searchQuery: '' }}
+      initialValues={{ query: '' }}
       validationSchema={validationSchema}
-      onSubmit={values => {
-        console.log(values);
+      onSubmit={({ query }) => {
+        console.log(query);
+        dispatch(changeSearchType('title'));
         navigate({
           pathname: '/search',
-          search: `?query=${values.searchQuery}`,
+          search: `?query=${query}`,
         });
+        window.scrollTo(0, 0);
       }}
     >
-      {({ errors }) => (
-        <SearchBox>
-          <div width="500px">
-            <StyledInput
-              type="text"
-              name="searchQuery"
-              placeholder="Enter the text"
-            />
-            {errors.searchQuery ? <div>{errors.searchQuery}</div> : null}
-            <button type="submit">Search</button>
-          </div>
-        </SearchBox>
-      )}
+      {({ errors, handleSubmit }) => {
+        return (
+          <SearchBox>
+            <div width="500px">
+              <StyledInput
+                onSubmit={handleSubmit}
+                type="text"
+                name="query"
+                placeholder="Enter the text"
+              />
+              {errors.searchQuery ? (
+                <div className="error">{errors.searchQuery}</div>
+              ) : null}
+              <button type="submit">Search</button>
+            </div>
+          </SearchBox>
+        );
+      }}
     </Formik>
   );
 };

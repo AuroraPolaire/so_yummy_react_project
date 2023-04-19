@@ -1,8 +1,9 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
+import * as Yup from 'yup';
 
 import { useSearchParams } from 'react-router-dom';
-import { searchIngredient } from 'redux/search/searchOperations';
+import { searchIngredient, searchRecipes } from 'redux/search/searchOperations';
 
 import {
   Form,
@@ -11,37 +12,55 @@ import {
   SearchBtn,
 } from './SearchForm.styled';
 
-const SearchForm = () => {
+const SearchForm = ({ searchType }) => {
   const dispatch = useDispatch();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams('');
+  const searchQuery = searchParams.get('query') ?? '';
 
-  const onSubmit = ({ query }) => {
-    const trimmedQuery = query.trim();
+  // useEffect(() => {
+  //   const currentParams = Object.fromEntries([...searchParams]);
+  //   // console.log(currentParams.query); // get new values onchange
+  // }, [searchParams]);
 
-    if (trimmedQuery === '') {
-      setSearchParams();
-
-      return null;
-    }
-    setSearchParams({ query: trimmedQuery, page: 1 });
-    dispatch(searchIngredient(trimmedQuery, 1));
+  const updateQueryString = e => {
+    let query = e.target.value;
+    const nextParams = query !== '' ? { query } : {};
+    setSearchParams(nextParams);
   };
+
+  const validationSchema = Yup.object().shape({
+    query: Yup.string('Only Latin Letters!')
+      .matches(/^([^0-9]*)$/, 'Only Latin letters!')
+      .min(2, 'Too Short!')
+      .max(50, 'Too Long!'),
+  });
 
   return (
     <Formik
-      initialValues={{ query: searchParams.get('query') || '' }}
-      onSubmit={onSubmit}
+      initialValues={{ query: '' }}
+      validationSchema={validationSchema}
+      onSubmit={values => {
+        // console.log(values);
+        searchType === 'title' && dispatch(searchRecipes(searchQuery));
+        searchType === 'ingredient' && dispatch(searchIngredient(searchQuery));
+      }}
     >
-      {({ handleSubmit, handleChange, values }) => {
+      {({ handleSubmit, errors, setFieldValue }) => {
         return (
           <Form onSubmit={handleSubmit}>
             <SearchContainer>
+              {errors.query ? (
+                <div className="error">{errors.query}</div>
+              ) : null}
               <SearchValue
                 type="text"
                 name="query"
-                value={values.query}
+                defaultValue={searchQuery}
                 placeholder="Enter the text"
-                onChange={handleChange}
+                onChange={event => {
+                  updateQueryString(event);
+                  setFieldValue('query', event.target.value);
+                }}
               />
               <SearchBtn type="submit">Search</SearchBtn>
             </SearchContainer>

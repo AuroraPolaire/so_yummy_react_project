@@ -36,6 +36,8 @@ export const searchSlice = createSlice({
       })
       .addCase(searchRecipes.rejected, state => {
         state.status = 'error';
+        state.results = [];
+        state.totalResults = 0;
       })
       .addCase(searchIngredient.fulfilled, (state, action) => {
         console.log(action);
@@ -48,6 +50,8 @@ export const searchSlice = createSlice({
       })
       .addCase(searchIngredient.rejected, state => {
         state.status = 'error';
+        state.results = [];
+        state.totalResults = 0;
       })
       .addCase(fetchIngredientsList.fulfilled, (state, action) => {
         state.results = action.payload;

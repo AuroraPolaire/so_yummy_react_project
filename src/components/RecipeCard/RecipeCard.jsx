@@ -9,11 +9,11 @@ const RecipeCard = ({ recipe }) => {
       ? shortTitle.join(' ')
       : shortTitle.slice(0, 2).join(' ');
   }
-  console.log(recipe);
+  // console.log(recipe);
 
   // Проверка на существование recipe и его длину
   if (!recipe || recipe.length === 0) {
-    return null; 
+    return null;
   }
 
   return recipe.map(item => {

@@ -46,9 +46,9 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
       name: Yup.string(),
     }),
     name: Yup.string('Only Latin Letters!')
+      .matches(/^([^0-9]*)$/, 'Only Latin letters!')
       .min(2, 'Too Short!')
-      .max(50, 'Too Long!')
-      .matches(/^([^0-9]*)$/, 'Only Latin letters!'),
+      .max(50, 'Too Long!'),
   });
 
   return (
@@ -56,25 +56,24 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
       <Formik
         initialValues={{
           avatar: avatar,
-          name: '',
+          name: newName,
         }}
         validationSchema={editSchema}
-        onSubmit={values => {
-          const formData = new FormData();
+        // onSubmit={values => {
+        //   const formData = new FormData();
 
-          values.avatar && formData.append('avatar', values.avatar);
-          newName
-            ? formData.append('name', newName)
-            : formData.append('name', name);
+        //   values.avatar && formData.append('avatar', values.avatar);
+        //   newName
+        //     ? formData.append('name', newName)
+        //     : formData.append('name', name);
 
-          dispatch(updateUser(formData))
-            .unwrap()
-            .then(res => closeUserInfoModal)
-
-            .catch(e => {
-              notiflix.Notify.failure('Size of image is too large!');
-            });
-        }}
+        //   dispatch(updateUser(formData))
+        //     .unwrap()
+        //     .then(res => closeUserInfoModal)
+        //     .catch(e => {
+        //       notiflix.Notify.failure('Size of image is too large!');
+        //     });
+        // }}
       >
         {({ errors, handleSubmit, setFieldValue }) => (
           <>

@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import {
   SelectorWrapper,
@@ -9,34 +9,19 @@ import {
 
 import { changeSearchType } from 'redux/search/searchSlice';
 
-import { selectSearchType } from 'redux/search/searchSelectors';
-import { useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
-
-const SearchTypeSelector = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+const SearchTypeSelector = ({ searchType }) => {
   const dispatch = useDispatch();
-  const searchType = useSelector(selectSearchType);
-  const queryType = searchParams.get('type');
 
   const handleChange = e => {
     dispatch(changeSearchType(e.target.value));
   };
 
-  useEffect(() => {
-    if (queryType === 'ingredients') {
-      dispatch(changeSearchType(queryType));
-      searchParams.delete('type');
-      setSearchParams(searchParams);
-    }
-  }, [dispatch, queryType, searchParams, setSearchParams]);
-
   return (
     <SelectorWrapper>
       <SelectorText>Search by:</SelectorText>
-      <TypeSelector value={searchType} onChange={handleChange}>
+      <TypeSelector defaultValue={searchType} onChange={handleChange}>
         <SelectorOption value="title">Title</SelectorOption>
-        <SelectorOption value="ingredients">Ingredients</SelectorOption>
+        <SelectorOption value="ingredient">Ingredient</SelectorOption>
       </TypeSelector>
     </SelectorWrapper>
   );

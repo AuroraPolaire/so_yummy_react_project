@@ -84,4 +84,14 @@ export const StyledInput = styled(Field)`
     border: 1px solid rgba(35, 38, 42, 0.2);
     outline: 0;
   }
+
+  & .error {
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    font-family: 'Poppins';
+    color: red;
+    font-size: 14px;
+    line-height: 1, 5;
+  }
 `;
