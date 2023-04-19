@@ -18,7 +18,7 @@ export default function RecipePageHero({
   const dispatch = useDispatch();
   return (
     <RecipeBackground>
-      <Section>
+      <Section page={'recipePage'}>
         <Wrapper>
           <RecipeHeroBox>
             <h1>{title}</h1>
