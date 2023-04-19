@@ -27,10 +27,10 @@ const Search = () => {
   // };
 
   const validationSchema = Yup.object().shape({
-    searchQuery: Yup.string()
+    query: Yup.string()
+      .matches(/^([^0-9]*)$/, 'No numbers allowed!')
       .min(2, 'Too Short!')
-      .max(50, 'Too Long!')
-      .required('Required'),
+      .max(20, 'Too Long!'),
   });
 
   return (
@@ -47,7 +47,7 @@ const Search = () => {
         window.scrollTo(0, 0);
       }}
     >
-      {({ errors, handleSubmit }) => {
+      {({ errors, handleSubmit, setFieldValue }) => {
         return (
           <SearchBox>
             <div width="500px">
@@ -56,9 +56,10 @@ const Search = () => {
                 type="text"
                 name="query"
                 placeholder="Enter the text"
+                onChange={event => setFieldValue('query', event.target.value)}
               />
-              {errors.searchQuery ? (
-                <div className="error">{errors.searchQuery}</div>
+              {errors.query ? (
+                <div className="error">{errors.query}</div>
               ) : null}
               <button type="submit">Search</button>
             </div>

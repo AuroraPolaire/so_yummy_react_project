@@ -46,7 +46,7 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
       name: Yup.string(),
     }),
     name: Yup.string('Only Latin Letters!')
-      .matches(/^([^0-9]*)$/, 'Only Latin letters!')
+      .matches(/^([^0-9]*)$/, 'No numbers allowed!')
       .min(2, 'Too Short!')
       .max(50, 'Too Long!'),
   });

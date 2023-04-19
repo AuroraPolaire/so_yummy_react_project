@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Field, Form } from 'formik';
 
 export const SearchBox = styled(Form)`
+  position: relative;
   padding-bottom: 80px;
   display: flex;
   flex-wrap: nowrap;
@@ -53,6 +54,15 @@ export const SearchBox = styled(Form)`
   @media screen and (min-width: 1440px) {
     justify-content: left;
   }
+  & .error {
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    font-family: 'Poppins';
+    color: red;
+    font-size: 14px;
+    line-height: 1, 5;
+  }
 `;
 
 export const StyledInput = styled(Field)`
@@ -83,15 +93,5 @@ export const StyledInput = styled(Field)`
     background-color: #ffffff;
     border: 1px solid rgba(35, 38, 42, 0.2);
     outline: 0;
-  }
-
-  & .error {
-    position: absolute;
-    top: -20px;
-    left: 30px;
-    font-family: 'Poppins';
-    color: red;
-    font-size: 14px;
-    line-height: 1, 5;
   }
 `;
