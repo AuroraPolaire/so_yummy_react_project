@@ -31,17 +31,15 @@ import { ThemeProvider } from 'styled-components';
 export const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
-  const isLoggedIn = useSelector(selectIsLoggedIn);
   const themeMode = useSelector(selectTheme);
-
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
   return (
-    <ThemeProvider theme={{ mode: themeMode }}>
-      <>
+    <>
+      <ThemeProvider theme={{ mode: themeMode }}>
         <GlobalStyles />
         <div>
           {isRefreshing ? null : (
@@ -52,78 +50,110 @@ export const App = () => {
                   <RestrictedRoute redirectTo="/" component={<WelcomePage />} />
                 }
               />
-
-            }
-          >
-            <Route
-              index
-              element={
-                <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
-              }
-            />
-            <Route
-              path="/main"
-              element={
-                <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
-              }
-            />
-            <Route
-              path="/categories/:categoryName"
-              element={
-                <PrivateRoute
-                  redirectTo="/welcome"
-                  component={<CategoriesPage />}
+              <Route
+                path="/register"
+                element={
+                  <RestrictedRoute
+                    redirectTo="/"
+                    component={<RegisterPage />}
+                  />
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <RestrictedRoute redirectTo="/" component={<SignInPage />} />
+                }
+              />
+              <Route
+                path="/"
+                element={
+                  <PrivateRoute
+                    redirectTo="/welcome"
+                    component={<SharedLayout />}
+                  />
+                }
+              >
+                <Route
+                  index
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<MainPage />}
+                    />
+                  }
                 />
-              }
-            />
-            <Route
-              path="/add"
-              element={
-                <PrivateRoute
-                  redirectTo="/welcome"
-                  component={<AddRecipesPage />}
+                <Route
+                  path="/main"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<MainPage />}
+                    />
+                  }
                 />
-              }
-            />
-            <Route
-              path="/my"
-              element={
-                <PrivateRoute
-                  redirectTo="/welcome"
-                  component={<MyRecipesPage />}
+                <Route
+                  path="/categories/:categoryName"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<CategoriesPage />}
+                    />
+                  }
                 />
-              }
-            />
-            <Route
-              path="/favourite"
-              element={
-                <PrivateRoute
-                  redirectTo="/welcome"
-                  component={<FavouritePage />}
+                <Route
+                  path="/add"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<AddRecipesPage />}
+                    />
+                  }
                 />
-              }
-            />
-            <Route
-              path="/recipe/:recipeId"
-              element={
-                <PrivateRoute redirectTo="welcome" component={<RecipePage />} />
-              }
-            />
-            <Route
-              path="/shopping-list"
-              element={
-                <PrivateRoute
-                  redirectTo="/welcome"
-                  component={<ShoppingListPage />}
+                <Route
+                  path="/my"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<MyRecipesPage />}
+                    />
+                  }
                 />
-              }
-            />
-            <Route
-              path="/search"
-              element={
-                <PrivateRoute
-                  redirectTo="/welcome"
-                  component={<SearchPage />}
+                <Route
+                  path="/favourite"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<FavouritePage />}
+                    />
+                  }
+                />
+                <Route
+                  path="/recipe/:recipeId"
+                  element={
+                    <PrivateRoute
+                      redirectTo="welcome"
+                      component={<RecipePage />}
+                    />
+                  }
+                />
+                <Route
+                  path="/shopping-list"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<ShoppingListPage />}
+                    />
+                  }
+                />
+                <Route
+                  path="/search"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<SearchPage />}
+                    />
+                  }
                 />
                 <Route
                   path="*"
@@ -138,7 +168,7 @@ export const App = () => {
             </Routes>
           )}
         </div>
-      </>
-    </ThemeProvider>
+      </ThemeProvider>
+    </>
   );
 };

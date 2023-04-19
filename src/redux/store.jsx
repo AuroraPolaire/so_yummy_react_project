@@ -19,7 +19,6 @@ import { themeReducer } from './theme/themeSlice';
 
 import { myRecipesReducer } from './myRecipes/myRecipesSlice';
 
-
 export const store = configureStore({
   reducer: {
     auth: authReducer,
@@ -28,10 +27,9 @@ export const store = configureStore({
     favouriteRecipes: favouriteRecipesReducer,
     shoppingList: shoppingListReducer,
 
-    theme: themeReducer
+    theme: themeReducer,
 
     myRecipes: myRecipesReducer,
-
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
