@@ -8,7 +8,7 @@ export const StyledBox = styled.div`
   right: 27px;
   padding: 8px;
   border-radius: 8px;
-  background-color: var(--font-white);
+  background-color:${props => props.theme.mode === "light" ? "var(--body-color-light)" : "var(--body-color-dark)"};
   position: absolute;
   transition: transform var(--transition-dur-and-func);
 
@@ -36,7 +36,7 @@ export const StyledBox = styled.div`
     font-size: 12px;
     font-weight: 500px;
     line-height: 1.5;
-    color: var(--font-darkblue-p);
+    color:${props => props.theme.mode === "light" ? "var(--font-darkblue-p)" : "var(--font-white)"};
 
     @media screen and (min-width: 768px) {
       font-size: 14px;
@@ -49,6 +49,11 @@ export const StyledBox = styled.div`
 
   & p > span {
     color: var(--accent-color-green);
+  }
+
+  & a {
+    text-decoration:none;
+    color:${props => props.theme.mode === "light" ? "var(--font-darkblue-p)" : "var(--font-white)"};
   }
 
   & div {
@@ -74,7 +79,7 @@ export const StyledBox = styled.div`
     padding-left: 7px;
     width: 15px;
     height: 11px;
-    stroke: var(--font-darkblue-p);
+    stroke:${props => props.theme.mode === "light" ? "var(--font-darkblue-p)" : "var(--font-white)"};
 
     :hover {
       stroke: var(--accent-color-green);

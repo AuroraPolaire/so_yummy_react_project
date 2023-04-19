@@ -10,7 +10,7 @@ import bgDesktopRetina from '../../images/bg/footerBG_Desktop@2x.webp';
 export const FooterSection = styled.div`
   font-family: 'Poppins';
   position: relative;
-  background-color: #22252a;
+  background-color:${props => props.theme.mode === "light" ? "var(--font-gray)" : "var(--accent-color-green)"};
   padding-top: 28px;
   padding-bottom: 28px;
   z-index: 3;
@@ -205,7 +205,7 @@ export const SubFooterBgContainer = styled.div``;
 export const SubFooter = styled.div`
   padding-top: 28px;
   padding-bottom: 28px;
-  background-color: #ececec;
+  background-color:${props => props.theme.mode === "light" ? "var(--body-color-light)" : "var(--body-color-dark)"};
   background-image: url('${bgMobile}');
   background-repeat: no-repeat;
   background-position: 100% 100%;
@@ -249,24 +249,24 @@ export const SubFooterText = styled.div`
   }
 `;
 export const SubFooterTextBold = styled.p`
-  color: #22252a;
+  color:${props => props.theme.mode === "light" ? "var(--font-gray)" : "var(--font-white)"};
+  opacity: 0.5;
   font-weight: 500;
   font-size: 10px;
   line-height: 10px;
   letter-spacing: -0.01em;
-  color: #22252a;
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 14px;
   }
 `;
 export const SubFooterTextRegular = styled.p`
-  color: #22252a;
+  color:${props => props.theme.mode === "light" ? "var(--font-gray)" : "var(--font-white)"};
+  opacity: 0.5;
   font-weight: 400;
   font-size: 10px;
   line-height: 10px;
   letter-spacing: -0.01em;
-  color: #22252a;
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 14px;

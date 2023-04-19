@@ -30,7 +30,7 @@ export const Title = styled.h1`
   letter-spacing: -0.005em;
   font-weight: 400;
   text-align: center;
-  color: var(--font-gray);
+  color:${props => props.theme.mode === "light" ? "var(--font-gray)" : "var(--font-white)"};
 
   .title-green {
     color: var(--accent-color-green);
@@ -54,6 +54,8 @@ export const Description = styled.p`
   font-weight: 400px;
   font-size: 14px;
   letter-spacing: -0.5px;
+  color:${props => props.theme.mode === "light" ? "var(--font-gray)" : "var(--font-white)"};
+  
 
   @media screen and (min-width: 768px) {
     max-width: 362px;

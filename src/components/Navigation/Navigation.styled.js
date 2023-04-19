@@ -32,7 +32,7 @@ export const HeaderLink = styled(NavLink)`
   font-weight: 500;
   font-size: 18px;
   line-height: 1;
-  color: var(--header-grey);
+  color:${props => props.theme.mode === "light" ? "var(--header-grey)" : "var(--font-white)"};
   transition: color var(--transition-dur-and-func);
 
   &:hover,
@@ -69,7 +69,8 @@ export const SearchIcon = styled(SvgSearchIcon)`
   width: 20px;
   height: 20px;
   fill: none;
-  stroke: var(--font-gray);
+  stroke:${props => props.theme.mode === "light" ? "var(--header-grey)" : "var(--font-white)"};
+  
   transition: stroke var(--transition-dur-and-func);
 
   @media screen and (min-width: 768px) {

@@ -24,7 +24,7 @@ export const MobileContainer = styled.div`
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: var(--light-green);
+  background-color:${props => props.theme.mode === "light" ? "var(--light-green)" : "var(--body-color-dark)"};
   background-image: url(${BurgerBgMobile});
   background-repeat: no-repeat;
   background-position: bottom right;
@@ -83,7 +83,7 @@ export const NavBurgerClose = styled.button`
 
 export const NavBurgerCloseIcon = styled(SvgExit)`
   cursor: pointer;
-  stroke: var(--font-gray);
+  stroke:${props => props.theme.mode === "light" ? "var(--font-gray)" : "var(--font-white)"};
   width: 24px;
   height: 24px;
   transition: color var(--transition-dur-and-func);
