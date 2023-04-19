@@ -22,46 +22,37 @@ import {
   selectIsRefreshing,
 } from '../redux/auth/authSelectors';
 import { fetchCurrentUser } from '../redux/auth/authOperations';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
+import { selectTheme } from '../redux/theme/themeSelectors';
+import { GlobalStyles } from './theme/GlobalStyles';
+import { ThemeProvider } from 'styled-components';
 
 export const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const themeMode = useSelector(selectTheme);
+
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
   return (
-    <div>
-      {isRefreshing ? null : (
-        <Routes>
-          <Route
-            path="/welcome"
-            element={
-              <RestrictedRoute redirectTo="/" component={<WelcomePage />} />
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <RestrictedRoute redirectTo="/" component={<SignInPage />} />
-            }
-          />
-          <Route
-            path="/"
-            element={
-              <PrivateRoute
-                redirectTo="/welcome"
-                component={<SharedLayout />}
+    <ThemeProvider theme={{ mode: themeMode }}>
+      <>
+        <GlobalStyles />
+        <div>
+          {isRefreshing ? null : (
+            <Routes>
+              <Route
+                path="/welcome"
+                element={
+                  <RestrictedRoute redirectTo="/" component={<WelcomePage />} />
+                }
               />
+
             }
           >
             <Route
@@ -134,20 +125,20 @@ export const App = () => {
                   redirectTo="/welcome"
                   component={<SearchPage />}
                 />
-              }
-            />
-            <Route
-              path="*"
-              element={
-                <PrivateRoute
-                  redirectTo="/welcome"
-                  component={<NotFoundPage />}
+                <Route
+                  path="*"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<NotFoundPage />}
+                    />
+                  }
                 />
-              }
-            />
-          </Route>
-        </Routes>
-      )}
-    </div>
+              </Route>
+            </Routes>
+          )}
+        </div>
+      </>
+    </ThemeProvider>
   );
 };
