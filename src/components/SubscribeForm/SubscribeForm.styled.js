@@ -62,6 +62,7 @@ export const InputWrapper = styled.div`
 `;
 export const FormInput = styled.input`
   box-sizing: border-box;
+  text-overflow: ellipsis;
   display: block;
   margin: 0 auto;
   padding: 0;
