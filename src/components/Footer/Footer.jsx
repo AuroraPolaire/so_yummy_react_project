@@ -93,8 +93,8 @@ const Footer = () => {
                     </FooterLink>
                   </FooterLinkItem>
                   <FooterLinkItem>
-                    <FooterLink to="/favorite" onClick={handleFooterLinkClick}>
-                      Favorite
+                    <FooterLink to="/favourite" onClick={handleFooterLinkClick}>
+                      Favourite
                     </FooterLink>
                   </FooterLinkItem>
                   <FooterLinkItem>
