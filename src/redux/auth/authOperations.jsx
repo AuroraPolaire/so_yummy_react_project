@@ -18,7 +18,9 @@ axios.interceptors.response.use(
     return response;
   },
   function (error) {
-    if (error.response.status === 401) {
+    const originalRequest = error.config;
+    if (error.response.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
       store.dispatch(refreshToken());
     }
 
@@ -30,8 +32,16 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('/users/signup', credentials);
-      return data;
+      const result = await axios.post('/users/signup', credentials);
+      if (result.statusText === 'OK') {
+        const userData = {
+          email: credentials.email,
+          password: credentials.password,
+        };
+        store.dispatch(signIn(userData));
+      }
+      console.log(result);
+      return result.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -68,9 +78,9 @@ export const fetchCurrentUser = createAsyncThunk(
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
-    // if (persistedToken === null) {
-    //   return thunkAPI.rejectWithValue();
-    // }
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
 
     token.set(persistedToken);
     try {
@@ -90,7 +100,7 @@ export const refreshToken = createAsyncThunk(
     const persistedToken = state.auth.refreshToken;
 
     if (persistedToken === null) {
-      console.log(thunkAPI.rejectWithValue());
+      return thunkAPI.rejectWithValue();
     }
 
     try {
@@ -113,7 +123,7 @@ export const subscribeUser = createAsyncThunk(
       const persistedToken = state.auth.token;
 
       if (persistedToken === null) {
-        console.log(thunkAPI.rejectWithValue());
+        return console.log(thunkAPI.rejectWithValue());
       }
       token.set(persistedToken);
 
