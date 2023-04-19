@@ -15,17 +15,9 @@ export const List = styled.ul`
 `;
 
 export const RecipeCardBox = styled.li`
-  @media screen and (min-width: 768px) {
-    :nth-last-child(-n + 2) {
-      display: none;
-    }
-  }
-`;
-export const StyledLink = styled(NavLink)`
-  display: flex;
-  gap: 12px;
   position: relative;
-  transition: background-color var(--transition-dur-and-func);
+  border-radius: 8px;
+  padding-right: 5px;
   &:after {
     content: '';
     position: absolute;
@@ -42,6 +34,23 @@ export const StyledLink = styled(NavLink)`
     cursor: pointer;
     background-color: var(--switches-bg);
   }
+  @media screen and (min-width: 768px) {
+    :nth-last-child(-n + 2) {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    :nth-last-child(-n + 2) {
+      display: block;
+    }
+  }
+`;
+export const StyledLink = styled(NavLink)`
+  display: flex;
+  gap: 12px;
+
+  transition: background-color var(--transition-dur-and-func);
 
   & .description {
     font-style: normal;
