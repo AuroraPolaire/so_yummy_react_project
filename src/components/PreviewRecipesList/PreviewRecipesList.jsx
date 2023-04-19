@@ -1,17 +1,13 @@
 import React from 'react';
 import { TransitionGroup } from 'react-transition-group';
 import Collapse from '@mui/material/Collapse';
-// import { useEffect, useState } from 'react';
 import { List } from './PreviewRecipesList.styled';
 import LargeRecipeCard from 'components/LargeRecipeCard/LargeRecipeCard';
 
 // import PropTypes from 'prop-types'
 // =======================
 
-const PreviewRecipesList = ({
-  type,
-  recipesList,
-}) => {
+const PreviewRecipesList = ({ type, recipesList }) => {
   return (
     <TransitionGroup>
       {recipesList.map((item, key) => {
@@ -31,7 +27,7 @@ const PreviewRecipesList = ({
             </div>
           </Collapse>
         );
-      })}{' '}
+      })}
     </TransitionGroup>
   );
 };

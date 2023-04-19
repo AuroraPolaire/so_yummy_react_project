@@ -12,6 +12,7 @@ export const StyledForm = styled.form`
   @media screen and (min-width: 768px) {
   }
   @media screen and (min-width: 1440px) {
+    width: 233%;
     display: block;
   }
 `;
