@@ -24,6 +24,20 @@ export const fetchRecipesMainPage = createAsyncThunk(
   }
 );
 
+export const fetchAllRecipes = createAsyncThunk(
+  'recipes/',
+  async ({ page = 1, limit = 4, sort = 'popular' }, thunkAPI) => {
+    try {
+      const { data } = await axios.get(
+        `/recipes/?page=${page}&limit=${limit}&sort=${sort}`
+      );
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const fetchRecipe = createAsyncThunk(
   'recipe/fetchById',
 
