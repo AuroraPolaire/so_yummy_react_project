@@ -2,7 +2,6 @@
 import { Button, ButtonContainer } from './MainPage.styled';
 import Hero from 'components/Hero/Hero';
 import PreviewCategories from 'components/PreviewCategories/PreviewCategories';
-// import Search from 'components/Search/Search';
 import { Wrapper } from 'components/theme/GlobalContainer';
 import React from 'react';
 import { useEffect } from 'react';
@@ -24,8 +23,10 @@ const MainPage = () => {
       <Wrapper>
         <PreviewCategories />
         <ButtonContainer>
-          <Link to="/categories">
-            <Button>Other Categories</Button>
+          <Link to="/categories/beef">
+            <Button onClick={e => window.scrollTo(0, 0)}>
+              Other Categories
+            </Button>
           </Link>
         </ButtonContainer>
       </Wrapper>

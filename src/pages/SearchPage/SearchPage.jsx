@@ -3,11 +3,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchBar from 'components/SearchBar/SearchBar';
 import SearchedRecipesList from 'components/SearchedRecepiesList/SearchedRecepiesList';
-import { searchRecipes, searchIngredient } from 'redux/search/searchOperations';
-import {
-  selectSearchType,
-  selectTotalResults,
-} from 'redux/search/searchSelectors';
+import { searchRecipes } from 'redux/search/searchOperations';
+import { selectSearchType } from 'redux/search/searchSelectors';
 import { Section, Wrapper } from 'components/theme/GlobalContainer';
 import PageTitle from 'components/PageTitle/PageTitle';
 import Squares from 'components/Squares/Squares';
@@ -15,31 +12,23 @@ import Squares from 'components/Squares/Squares';
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
   const searchType = useSelector(selectSearchType);
-  const totalResults = useSelector(selectTotalResults);
 
   const dispatch = useDispatch();
   const query = searchParams.get('query');
-  console.log(query);
-
-  const page = searchParams.get('page') ? Number(searchParams.get('page')) : 1;
 
   useEffect(() => {
-    if (!query) {
-      return;
-    }
+    if (!query) return;
+    dispatch(searchRecipes(query));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    if (searchType === 'title') dispatch(searchRecipes({ query, page }));
-
-    if (searchType === 'ingredient')
-      dispatch(searchIngredient({ query, page }));
-  }, [dispatch, page, query, searchType, totalResults]);
   return (
     <>
       <Squares />
       <Section>
         <Wrapper>
           <PageTitle type={'searchPage'}>Search</PageTitle>
-          <SearchBar />
+          <SearchBar searchType={searchType} query={query} />
           <SearchedRecipesList />
         </Wrapper>
       </Section>

@@ -26,7 +26,16 @@ export const Wrapper = styled.div`
 
 export const Section = styled.section`
   padding-top: 114px;
-  min-height: calc(100vh - 30px - 18px);
+  /* min-height: calc(100vh - 30px - 18px); */
+  min-height: ${props => {
+    switch (props.page) {
+      case 'recipePage':
+        return `auto`;
+
+      default:
+        return 'calc(100vh - 30px - 18px);';
+    }
+  }};
 
   @media screen and (min-width: 768px) {
     padding-top: 136px;

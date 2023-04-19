@@ -46,9 +46,9 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
       name: Yup.string(),
     }),
     name: Yup.string('Only Latin Letters!')
+      .matches(/^([^0-9]*)$/, 'No numbers allowed!')
       .min(2, 'Too Short!')
-      .max(50, 'Too Long!')
-      .matches(/^([^0-9]*)$/, 'Only Latin letters!'),
+      .max(50, 'Too Long!'),
   });
 
   return (
@@ -56,24 +56,21 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
       <Formik
         initialValues={{
           avatar: avatar,
-          name: '',
+          name: newName,
         }}
         validationSchema={editSchema}
         onSubmit={values => {
-          const formData = new FormData();
-
-          values.avatar && formData.append('avatar', values.avatar);
-          newName
-            ? formData.append('name', newName)
-            : formData.append('name', name);
-
-          dispatch(updateUser(formData))
-            .unwrap()
-            .then(res => closeUserInfoModal)
-
-            .catch(e => {
-              notiflix.Notify.failure('Size of image is too large!');
-            });
+          //   const formData = new FormData();
+          //   values.avatar && formData.append('avatar', values.avatar);
+          //   newName
+          //     ? formData.append('name', newName)
+          //     : formData.append('name', name);
+          //   dispatch(updateUser(formData))
+          //     .unwrap()
+          //     .then(res => closeUserInfoModal)
+          //     .catch(e => {
+          //       notiflix.Notify.failure('Size of image is too large!');
+          //     });
         }}
       >
         {({ errors, handleSubmit, setFieldValue }) => (
@@ -102,7 +99,6 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
                   }}
                   src={avatar}
                 />
-
                 <EditUserlFileLabel>
                   <EditUserInput
                     name="image"
@@ -114,13 +110,12 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
                         URL.createObjectURL(event.currentTarget.files[0])
                       );
                       setNewFileAvatar(event.currentTarget.files[0]);
-                      console.log(event.currentTarget.files[0]);
+                      // console.log(event.currentTarget.files[0]);
                     }}
                   />
                   <AddIcon sx={{ fontSize: 18, fill: 'white' }} />
                   {errors.image ? <div>{errors.image}</div> : null}
                 </EditUserlFileLabel>
-
                 <EditUserNameLabel>
                   <PermIdentityIcon />
                   <EditUserNameInput
@@ -131,7 +126,7 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
                       setFieldValue('name', e.target.value);
                       setNewName(e.target.value);
                     }}
-                    helperText={errors.name}
+                    // helperText={errors.name}
                   />
                   {errors.name ? (
                     <div
@@ -143,7 +138,6 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
                   ) : null}
                   <CreateIcon />
                 </EditUserNameLabel>
-
                 <EditSubmitButton
                   type="submit"
                   onClick={() => {

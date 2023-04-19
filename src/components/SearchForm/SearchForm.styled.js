@@ -20,6 +20,16 @@ export const SearchContainer = styled.div`
   @media screen and (min-width: 1440px) {
     width: 510px;
   }
+
+  & .error {
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    font-family: 'Poppins';
+    color: red;
+    font-size: 14px;
+    line-height: 1, 5;
+  }
 `;
 
 export const SearchValue = styled.input`
@@ -31,8 +41,8 @@ export const SearchValue = styled.input`
   border-radius: 24px 44px;
   font-size: 12px;
   line-height: 1.5;
-  color: #3E4462;
-  @media screen and (min-width: 768px){
+  color: #3e4462;
+  @media screen and (min-width: 768px) {
     width: 100%;
     height: 57px;
     padding-left: 38px;
@@ -53,20 +63,20 @@ export const SearchBtn = styled.button`
   height: 100%;
   display: flex;
   align-items: center;
-  background-color: #8BAA36;
-  color: #FAFAFA;
+  background-color: #8baa36;
+  color: #fafafa;
   border-radius: 24px 44px;
   border: none;
   padding: 23px 52px;
   font-size: 14px;
   line-height: 1.5;
   &:hover {
-    background-color: #22252A;
+    background-color: #22252a;
     transition: all 250ms linear 0s;
   }
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
- @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1440px) {
   }
 `;

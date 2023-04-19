@@ -29,7 +29,6 @@ export const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
 
-
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);

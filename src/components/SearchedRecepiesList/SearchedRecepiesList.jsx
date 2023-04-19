@@ -12,7 +12,7 @@ import {
 
 const SearchedRecipiesList = () => {
   const recipes = useSelector(selectResults);
-  console.log(recipes);
+  // console.log(recipes);
   const { isLoading, isResolved } = useSelector(selectStatus);
   return (
     <>

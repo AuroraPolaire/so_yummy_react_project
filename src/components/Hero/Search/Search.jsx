@@ -4,10 +4,13 @@ import { Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 
 import { SearchBox, StyledInput } from './Search.styled';
+import { changeSearchType } from 'redux/search/searchSlice';
+import { useDispatch } from 'react-redux';
 
 const Search = () => {
   const navigate = useNavigate();
-  // const [searchParams, setSearchParams] = useSearchParams('');
+  const dispatch = useDispatch();
+  // const [searchParams] = useSearchParams('');
   // const searchQuery = searchParams.get('query') ?? '';
   // console.log(searchQuery);
 
@@ -16,43 +19,53 @@ const Search = () => {
   //   console.log(currentParams.query); // get new values onchange
   // }, [searchParams]);
 
-  // const updateQueryString = query => {
+  // const updateQueryString = e => {
+  //   let query = e.target.value;
+  //   console.log(query);
   //   const nextParams = query !== '' ? { query } : {};
   //   setSearchParams(nextParams);
   // };
 
   const validationSchema = Yup.object().shape({
-    searchQuery: Yup.string()
+    query: Yup.string()
+      .matches(/^([^0-9]*)$/, 'No numbers allowed!')
       .min(2, 'Too Short!')
-      .max(50, 'Too Long!')
-      .required('Required'),
+      .max(20, 'Too Long!'),
   });
 
   return (
     <Formik
-      initialValues={{ searchQuery: '' }}
+      initialValues={{ query: '' }}
       validationSchema={validationSchema}
-      onSubmit={values => {
-        console.log(values);
+      onSubmit={({ query }) => {
+        // console.log(query);
+        dispatch(changeSearchType('title'));
         navigate({
           pathname: '/search',
-          search: `?query=${values.searchQuery}`,
+          search: `?query=${query}`,
         });
+        window.scrollTo(0, 0);
       }}
     >
-      {({ errors }) => (
-        <SearchBox>
-          <div width="500px">
-            <StyledInput
-              type="text"
-              name="searchQuery"
-              placeholder="Enter the text"
-            />
-            {errors.searchQuery ? <div>{errors.searchQuery}</div> : null}
-            <button type="submit">Search</button>
-          </div>
-        </SearchBox>
-      )}
+      {({ errors, handleSubmit, setFieldValue }) => {
+        return (
+          <SearchBox>
+            <div width="500px">
+              <StyledInput
+                onSubmit={handleSubmit}
+                type="text"
+                name="query"
+                placeholder="Enter the text"
+                onChange={event => setFieldValue('query', event.target.value)}
+              />
+              {errors.query ? (
+                <div className="error">{errors.query}</div>
+              ) : null}
+              <button type="submit">Search</button>
+            </div>
+          </SearchBox>
+        );
+      }}
     </Formik>
   );
 };
