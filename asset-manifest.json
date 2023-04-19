@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.2578f9cc.js",
+    "main.js": "/so_yummy_react_project/static/js/main.d4a79766.js",
     "static/media/recipe_hero_bg1x.webp": "/so_yummy_react_project/static/media/recipe_hero_bg1x.b7b1c44bc5346e70d72a.webp",
     "static/media/dish_desktop2x.webp": "/so_yummy_react_project/static/media/dish_desktop2x.3b07418e7e4470b259ed.webp",
     "static/media/recipe_hero_bg2x.webp": "/so_yummy_react_project/static/media/recipe_hero_bg2x.9d6a67271bda69ba007c.webp",
@@ -11,11 +11,12 @@
     "static/media/footerSharedDB_Desktop@2x.webp": "/so_yummy_react_project/static/media/footerSharedDB_Desktop@2x.851cc36f664fb0aced43.webp",
     "static/media/dish_desktop1x.webp": "/so_yummy_react_project/static/media/dish_desktop1x.764ad9db4f41f406c5f7.webp",
     "static/media/tablet-modal-bg@2x.webp": "/so_yummy_react_project/static/media/tablet-modal-bg@2x.89d994a99a75b223b2fd.webp",
+    "static/media/auth-bg-orderfoodblacklegs.svg": "/so_yummy_react_project/static/media/auth-bg-orderfoodblacklegs.e570ace1b35f5548a5d2e1062daf78d2.svg",
     "static/media/footerSharedDB_Tablet@2x.webp": "/so_yummy_react_project/static/media/footerSharedDB_Tablet@2x.e0d4dbc507a623f405cc.webp",
     "static/media/welcome-home-bg-mobile@2x.jpg": "/so_yummy_react_project/static/media/welcome-home-bg-mobile@2x.a80a6f5cf4832962c372.jpg",
     "static/media/welcome-bg-desktop@1x.jpg": "/so_yummy_react_project/static/media/welcome-bg-desktop@1x.59c7691679ff00d6f20f.jpg",
     "static/media/dish_tab1x.webp": "/so_yummy_react_project/static/media/dish_tab1x.1a2572914054017bdc4f.webp",
-    "static/media/auth-bg-orderfood.svg": "/so_yummy_react_project/static/media/auth-bg-orderfood.afd5e9f39630493e7a7d2bcc0be33eb9.svg",
+    "static/media/auth-bg-orderfood.svg": "/so_yummy_react_project/static/media/auth-bg-orderfood.bc41da51d3bfb77d1b8cfc3289601a5b.svg",
     "static/media/mobile-modal-bg@2x.webp": "/so_yummy_react_project/static/media/mobile-modal-bg@2x.6d1ac875acf55fb3f8da.webp",
     "static/media/dish_mob1x.webp": "/so_yummy_react_project/static/media/dish_mob1x.0c0eb0eee86701cffc2f.webp",
     "static/media/footerBG_Desktop@2x.webp": "/so_yummy_react_project/static/media/footerBG_Desktop@2x.02f799649c1c099632aa.webp",
@@ -27,7 +28,7 @@
     "static/media/spinach_blur_desktop2x.webp": "/so_yummy_react_project/static/media/spinach_blur_desktop2x.d47f89f442eeaed1cc60.webp",
     "static/media/footerBG_Tablet@2x.webp": "/so_yummy_react_project/static/media/footerBG_Tablet@2x.d6c00a70924f0ce22d47.webp",
     "static/media/footerSharedDB_Tablet.webp": "/so_yummy_react_project/static/media/footerSharedDB_Tablet.abe34756b55880407d0b.webp",
-    "static/media/page-not-found.svg": "/so_yummy_react_project/static/media/page-not-found.e7600a8f734bd26f161b7e956f4aff68.svg",
+    "static/media/page-not-found.svg": "/so_yummy_react_project/static/media/page-not-found.eb06cb5680360d33a2284f1e006ba4be.svg",
     "static/media/welcome-home-bg-mobile@1x.jpg": "/so_yummy_react_project/static/media/welcome-home-bg-mobile@1x.4d54a7a64b7caf05f095.jpg",
     "static/media/recipe-not-found-mobile-2x.webp": "/so_yummy_react_project/static/media/recipe-not-found-mobile-2x.ec47bc4a305e5d8d6fc4.webp",
     "static/media/mobile-modal-bg.webp": "/so_yummy_react_project/static/media/mobile-modal-bg.d74ef67b0d0f5e6a2465.webp",
@@ -62,9 +63,9 @@
     "static/media/exit.svg": "/so_yummy_react_project/static/media/exit.e5ec20d5f2f4f822241baf13fab5a8be.svg",
     "static/media/burger.svg": "/so_yummy_react_project/static/media/burger.32b3cd4340613c9951a83bc4dd74e4cd.svg",
     "static/media/arrow-down.svg": "/so_yummy_react_project/static/media/arrow-down.4c0759d592b9bf854db97289ce89a574.svg",
-    "main.2578f9cc.js.map": "/so_yummy_react_project/static/js/main.2578f9cc.js.map"
+    "main.d4a79766.js.map": "/so_yummy_react_project/static/js/main.d4a79766.js.map"
   },
   "entrypoints": [
-    "static/js/main.2578f9cc.js"
+    "static/js/main.d4a79766.js"
   ]
 }
