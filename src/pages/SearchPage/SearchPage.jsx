@@ -17,6 +17,7 @@ const SearchPage = () => {
   const query = searchParams.get('query');
 
   useEffect(() => {
+    // if (query === '') return;
     if (!query) return;
     dispatch(searchRecipes(query));
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -29,7 +30,7 @@ const SearchPage = () => {
         <Wrapper>
           <PageTitle type={'searchPage'}>Search</PageTitle>
           <SearchBar searchType={searchType} query={query} />
-          <SearchedRecipesList />
+          {query && <SearchedRecipesList />}
         </Wrapper>
       </Section>
     </>
