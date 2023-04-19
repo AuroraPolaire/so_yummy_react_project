@@ -1,9 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../redux/auth/authOperations';
-import { Formik, Form, ErrorMessage, Field } from 'formik';
+// import { Formik, Form, ErrorMessage, Field } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
+
 import * as Yup from 'yup';
-import { Wrapper } from 'components/theme/GlobalContainer';
+// import { Wrapper } from 'components/theme/GlobalContainer';
+import { FormWrapper, AuthBox, StyledInput } from './SignInForm.styled';
 
 const signInSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email address').required('Required'),
@@ -44,12 +47,12 @@ export const SignInForm = () => {
   // };
 
   return (
-    <Wrapper>
+    <FormWrapper>
       <Formik
         initialValues={{ email: '', password: '' }}
         validationSchema={signInSchema}
         onSubmit={(values, { resetForm }) => {
-          // console.log(values);
+          console.log(values);
           dispatch(signIn(values))
             .unwrap()
             .then(data => {})
@@ -58,8 +61,8 @@ export const SignInForm = () => {
         }}
       >
         {props => (
-          <Form>
-            <Field
+          <AuthBox>
+            <StyledInput
               type="text"
               name="email"
               placeholder="Email"
@@ -67,7 +70,7 @@ export const SignInForm = () => {
               // value={props.values.email}
             />
             <ErrorMessage name="email" render={message => <p>{message}</p>} />
-            <Field
+            <StyledInput
               type="password"
               name="password"
               placeholder="Password"
@@ -79,11 +82,11 @@ export const SignInForm = () => {
               render={message => <p>{message}</p>}
             />
 
-            <button type="submit">Sign Up</button>
-          </Form>
+            <button type="submit">Sign in</button>
+          </AuthBox>
         )}
       </Formik>
-    </Wrapper>
+    </FormWrapper>
   );
 };
 
