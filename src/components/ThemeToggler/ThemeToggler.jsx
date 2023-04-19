@@ -1,16 +1,17 @@
 import React from 'react';
 import { ThemeTogglerStyled } from './ThemeToggler.styled';
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
-const ThemeToggler = props => {
+const ThemeToggler = ({ value, onToggle }) => {
   return <ThemeTogglerStyled>
-    <input class="tgl tgl-light" id="cb1" type="checkbox" />
-    <label class="tgl-btn" for="cb1"></label>
+    <input className="tgl tgl-light" id="cb1" type="checkbox" checked={value} onChange={onToggle ? (e) => onToggle(e.target.value) : undefined} />
+    <label className="tgl-btn" htmlFor="cb1"></label>
   </ThemeTogglerStyled>;
 };
 
 ThemeToggler.propTypes = {
-
+  value: PropTypes.bool,
+  onToggle: PropTypes.func
 }
 
 export default ThemeToggler;

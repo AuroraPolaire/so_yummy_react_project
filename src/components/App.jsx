@@ -23,134 +23,143 @@ import {
   selectToken,
 } from '../redux/auth/authSelectors';
 import { fetchCurrentUser } from '../redux/auth/authOperations';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
+import { selectTheme } from '../redux/theme/themeSelectors';
+import { GlobalStyles } from './theme/GlobalStyles';
+import { ThemeProvider } from 'styled-components';
 
 export const App = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const isRefreshing = useSelector(selectIsRefreshing);
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const themeMode = useSelector(selectTheme);
 
   useEffect(() => {
     !isLoggedIn && token && dispatch(fetchCurrentUser());
   }, [dispatch, isLoggedIn, token]);
 
   return (
-    <div>
-      {isRefreshing ? null : (
-        <Routes>
-          <Route
-            path="/welcome"
-            element={
-              <RestrictedRoute redirectTo="/" component={<WelcomePage />} />
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <RestrictedRoute redirectTo="/" component={<SignInPage />} />
-            }
-          />
-          <Route
-            path="/"
-            element={
-              <PrivateRoute
-                redirectTo="/welcome"
-                component={<SharedLayout />}
+    <ThemeProvider theme={{ mode: themeMode }}>
+      <>
+        <GlobalStyles />
+        <div>
+          {isRefreshing ? null : (
+            <Routes>
+              <Route
+                path="/welcome"
+                element={
+                  <RestrictedRoute redirectTo="/" component={<WelcomePage />} />
+                }
               />
-            }
-          >
-            <Route
-              index
-              element={
-                <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
-              }
-            />
-            <Route
-              path="main"
-              element={
-                <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
-              }
-            />
-            <Route
-              path="categories/:categoryName"
-              element={
-                <PrivateRoute
-                  redirectTo="/welcome"
-                  component={<CategoriesPage />}
+              <Route
+                path="/register"
+                element={
+                  <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <RestrictedRoute redirectTo="/" component={<SignInPage />} />
+                }
+              />
+              <Route
+                path="/"
+                element={
+                  <PrivateRoute
+                    redirectTo="/welcome"
+                    component={<SharedLayout />}
+                  />
+                }
+              >
+                <Route
+                  index
+                  element={
+                    <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
+                  }
                 />
-              }
-            />
-            <Route
-              path="add"
-              element={
-                <PrivateRoute
-                  redirectTo="/welcome"
-                  component={<AddRecipesPage />}
+                <Route
+                  path="main"
+                  element={
+                    <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
+                  }
                 />
-              }
-            />
-            <Route
-              path="my"
-              element={
-                <PrivateRoute
-                  redirectTo="/welcome"
-                  component={<MyRecipesPage />}
+                <Route
+                  path="categories/:categoryName"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<CategoriesPage />}
+                    />
+                  }
                 />
-              }
-            />
-            <Route
-              path="favourite"
-              element={
-                <PrivateRoute
-                  redirectTo="/welcome"
-                  component={<FavouritePage />}
+                <Route
+                  path="add"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<AddRecipesPage />}
+                    />
+                  }
                 />
-              }
-            />
-            <Route
-              path="recipe/:recipeId"
-              element={
-                <PrivateRoute redirectTo="welcome" component={<RecipePage />} />
-              }
-            />
-            <Route
-              path="shopping-list"
-              element={
-                <PrivateRoute
-                  redirectTo="/welcome"
-                  component={<ShoppingListPage />}
+                <Route
+                  path="my"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<MyRecipesPage />}
+                    />
+                  }
                 />
-              }
-            />
-            <Route
-              path="search"
-              element={
-                <PrivateRoute
-                  redirectTo="/welcome"
-                  component={<SearchPage />}
+                <Route
+                  path="favourite"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<FavouritePage />}
+                    />
+                  }
                 />
-              }
-            />
-            <Route
-              path="*"
-              element={
-                <PrivateRoute
-                  redirectTo="/welcome"
-                  component={<NotFoundPage />}
+                <Route
+                  path="recipe/:recipeId"
+                  element={
+                    <PrivateRoute redirectTo="welcome" component={<RecipePage />} />
+                  }
                 />
-              }
-            />
-          </Route>
-        </Routes>
-      )}
-    </div>
+                <Route
+                  path="shopping-list"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<ShoppingListPage />}
+                    />
+                  }
+                />
+                <Route
+                  path="search"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<SearchPage />}
+                    />
+                  }
+                />
+                <Route
+                  path="*"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/welcome"
+                      component={<NotFoundPage />}
+                    />
+                  }
+                />
+              </Route>
+            </Routes>
+          )}
+        </div>
+      </>
+    </ThemeProvider>
   );
 };
