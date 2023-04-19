@@ -18,9 +18,8 @@ import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import SharedLayout from './SharedLayout/SharedLayout';
 import { PrivateRoute } from './PrivateRoute';
 import {
-  selectIsLoggedIn,
+  // selectIsLoggedIn,
   selectIsRefreshing,
-  selectToken,
 } from '../redux/auth/authSelectors';
 import { fetchCurrentUser } from '../redux/auth/authOperations';
 import React, { useEffect } from 'react';
@@ -31,14 +30,14 @@ import { ThemeProvider } from 'styled-components';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const token = useSelector(selectToken);
   const isRefreshing = useSelector(selectIsRefreshing);
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const themeMode = useSelector(selectTheme);
 
+
   useEffect(() => {
-    !isLoggedIn && token && dispatch(fetchCurrentUser());
-  }, [dispatch, isLoggedIn, token]);
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
 
   return (
     <ThemeProvider theme={{ mode: themeMode }}>
@@ -53,98 +52,78 @@ export const App = () => {
                   <RestrictedRoute redirectTo="/" component={<WelcomePage />} />
                 }
               />
-              <Route
-                path="/register"
-                element={
-                  <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
-                }
-              />
-              <Route
-                path="/login"
-                element={
-                  <RestrictedRoute redirectTo="/" component={<SignInPage />} />
-                }
-              />
-              <Route
-                path="/"
-                element={
-                  <PrivateRoute
-                    redirectTo="/welcome"
-                    component={<SharedLayout />}
-                  />
-                }
-              >
-                <Route
-                  index
-                  element={
-                    <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
-                  }
+
+            }
+          >
+            <Route
+              index
+              element={
+                <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
+              }
+            />
+            <Route
+              path="/main"
+              element={
+                <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
+              }
+            />
+            <Route
+              path="/categories/:categoryName"
+              element={
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<CategoriesPage />}
                 />
-                <Route
-                  path="main"
-                  element={
-                    <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
-                  }
+              }
+            />
+            <Route
+              path="/add"
+              element={
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<AddRecipesPage />}
                 />
-                <Route
-                  path="categories/:categoryName"
-                  element={
-                    <PrivateRoute
-                      redirectTo="/welcome"
-                      component={<CategoriesPage />}
-                    />
-                  }
+              }
+            />
+            <Route
+              path="/my"
+              element={
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<MyRecipesPage />}
                 />
-                <Route
-                  path="add"
-                  element={
-                    <PrivateRoute
-                      redirectTo="/welcome"
-                      component={<AddRecipesPage />}
-                    />
-                  }
+              }
+            />
+            <Route
+              path="/favourite"
+              element={
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<FavouritePage />}
                 />
-                <Route
-                  path="my"
-                  element={
-                    <PrivateRoute
-                      redirectTo="/welcome"
-                      component={<MyRecipesPage />}
-                    />
-                  }
+              }
+            />
+            <Route
+              path="/recipe/:recipeId"
+              element={
+                <PrivateRoute redirectTo="welcome" component={<RecipePage />} />
+              }
+            />
+            <Route
+              path="/shopping-list"
+              element={
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<ShoppingListPage />}
                 />
-                <Route
-                  path="favourite"
-                  element={
-                    <PrivateRoute
-                      redirectTo="/welcome"
-                      component={<FavouritePage />}
-                    />
-                  }
-                />
-                <Route
-                  path="recipe/:recipeId"
-                  element={
-                    <PrivateRoute redirectTo="welcome" component={<RecipePage />} />
-                  }
-                />
-                <Route
-                  path="shopping-list"
-                  element={
-                    <PrivateRoute
-                      redirectTo="/welcome"
-                      component={<ShoppingListPage />}
-                    />
-                  }
-                />
-                <Route
-                  path="search"
-                  element={
-                    <PrivateRoute
-                      redirectTo="/welcome"
-                      component={<SearchPage />}
-                    />
-                  }
+              }
+            />
+            <Route
+              path="/search"
+              element={
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<SearchPage />}
                 />
                 <Route
                   path="*"

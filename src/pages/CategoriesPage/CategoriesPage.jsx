@@ -9,6 +9,7 @@ import {
   fetchCategoryList,
   fetchRecipesByCategory,
 } from 'redux/recipes/recipesOperations';
+import Squares from 'components/Squares/Squares';
 
 const CategoriesPage = () => {
   const dispatch = useDispatch();
@@ -24,16 +25,16 @@ const CategoriesPage = () => {
         categoryName: formattedQuery,
       })
     );
+    window.scrollTo(0, 100);
   }, [dispatch, location]);
 
   return (
     <>
+      <Squares />
       <Section>
         <Wrapper>
           <PageTitle type="mainPage">Categories</PageTitle>
-          <CategoriesTabPanel
-          // handleChangePagination={handleChangePagination}
-          ></CategoriesTabPanel>
+          <CategoriesTabPanel></CategoriesTabPanel>
         </Wrapper>
       </Section>
     </>

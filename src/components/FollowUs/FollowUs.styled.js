@@ -1,58 +1,70 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { ReactComponent as Facebook } from '../../images/icons/facebook-logo.svg';
-import { ReactComponent as Twitter } from '../../images/icons/twitter-logo.svg';
-import { ReactComponent as Youtube } from '../../images/icons/youtube-logo.svg';
-import { ReactComponent as Instagram } from '../../images/icons/instagram-logo.svg';
 
-export const FacebookIcon = styled(Facebook)`
-  width: 26px;
-  path {
-    fill: #8BAA36;
-    transition: fill 250ms linear;
-  }
-  :hover path,
-  :focus path {
-    fill: #FAFAFA;
-  }
-`;
-export const TwitterIcon = styled(Twitter)`
-  width: 26px;
-  path {
-    fill: #8BAA36;
-    transition: fill 250ms linear;
-  }
-  :hover path,
-  :focus path {
-    fill: #FAFAFA;
-  }
-`;
-export const YoutubeIcon = styled(Youtube)`
-  width: 26px;
-  path {
-    fill: #8BAA36;
-    transition: fill 250ms linear;
-  }
-  :hover path,
-  :focus path {
-    fill: #FAFAFA;
-  }
-`;
-export const InstagramIcon = styled(Instagram)`
-  width: 26px;
-  path {
-    fill: #8BAA36;
-    transition: fill 250ms linear;
-  }
-  :hover path,
-  :focus path {
-    fill: #FAFAFA;
+export const LogoIcon = styled.svg`
+  height: 20px;
+  width: 20px;
+  fill: #8baa36;
+  transition: fill 250ms linear;
+  &:hover,
+  &:focus {
+    fill: #b7c981;
   }
 `;
 export const SocialLinks = styled.ul`
-  display: flex;
   align-items: center;
-  justify-content: center;
+  display: ${props => {
+    switch (props.type) {
+      case 'addRecipePage':
+        return `none`;
+
+      case 'footer':
+        return `flex`;
+
+      default:
+        return;
+    }
+  }};
+  justify-content: ${props => {
+    switch (props.type) {
+      case 'addRecipePage':
+        return `flex-start`;
+
+      case 'footer':
+        return `center`;
+
+      default:
+        return;
+    }
+  }};
+
+  margin-bottom: ${props => {
+    switch (props.type) {
+      case 'addRecipePage':
+        return `100px`;
+
+      case 'footer':
+        return `0`;
+
+      default:
+        return;
+    }
+  }};
+
+  @media screen and (min-width: 1440px) {
+    display: ${props => {
+      switch (props.type) {
+        case 'addRecipePage':
+          return `flex`;
+
+        case 'footer':
+          return `flex`;
+
+        default:
+          return;
+      }
+    }};
+  }
 `;
 export const SocialLink = styled(NavLink)`
   display: flex;
@@ -60,6 +72,11 @@ export const SocialLink = styled(NavLink)`
   align-items: center;
   cursor: pointer;
   &:not(:first-child) {
-    margin-left: 10px;
+    margin-left: 14px;
+  }
+  @media screen and (min-width: 768px) {
+    &:not(:first-child) {
+      margin-left: 18px;
+    }
   }
 `;

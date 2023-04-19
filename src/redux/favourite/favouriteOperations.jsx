@@ -3,10 +3,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchFavouriteRecipes = createAsyncThunk(
   'recipes/favorite',
-  async ({ limit = 4, sort = 'title' }, thunkAPI) => {
+  async ({ page = 1, limit = 4, sort = 'title' }, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `recipes/favorite?page=1&limit=${limit}&sort=${sort}`
+        `recipes/favorite?page=${page}&limit=${limit}&sort=${sort}`
       );
       return data;
     } catch (error) {

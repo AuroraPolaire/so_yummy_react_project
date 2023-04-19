@@ -1,19 +1,48 @@
 import styled from 'styled-components';
 import { ReactComponent as SvgBurger } from '../../images/icons/burger.svg';
 
-export const HeaderSection = styled.header`
+export const HeaderWrapper = styled.div`
+  padding: 0 16px 28px;
+
+  @media screen and (min-width: 375px) {
+    width: 375px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 0px 16px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    padding: 0px 100px;
+  }
+`;
+
+export const HeaderSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: auto;
-  padding-top: 18px;
+  padding: 18px 16px 0;
+
   @media (min-width: 768px) {
     padding-top: 18px;
     max-width: 704px;
   }
-  @media (min-width: 1440px) {
-    padding-top: 14px;
+
+  @media (min-width: 1280px) {
     max-width: 1240px;
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 1440px;
   }
 `;
 
@@ -43,7 +72,8 @@ export const NavBurgerIcon = styled(SvgBurger)`
   height: 24px;
   fill: none;
   stroke: var(--font-gray);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--transition-dur-and-func);
+
   @media (min-width: 1280px) {
     display: none;
   }

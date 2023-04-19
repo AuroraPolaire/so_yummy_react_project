@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useMediaQuery } from '@mui/material';
 
-import { Wrapper } from 'components/theme/GlobalContainer';
 import {
   HeaderSection,
   UserWrapper,
   NavBurger,
   NavBurgerIcon,
+  HeaderWrapper,
 } from './Header.styled';
 
 import Logo from 'components/Logo/Logo';
@@ -23,7 +23,7 @@ import { toggle } from '../../redux/theme/themeSlice';
 const Header = () => {
   const dispatch = useDispatch();
   const [BurgerMenu, setBurgerMenu] = useState(false);
-  const isMobileDevice = useMediaQuery('(max-width: 1439px)');
+  const isMobileDevice = useMediaQuery('(max-width: 1279px)');
 
   const themeIsLight = useSelector(selectThemeIsLight);
   const onToggleTheme = () => {
@@ -40,7 +40,8 @@ const Header = () => {
 
   return (
     <header style={{ position: 'absolute', width: '100%' }}>
-      <Wrapper>
+      <HeaderWrapper>
+        {/* <Wrapper> */}
         <HeaderSection>
           <Logo />
           {!isMobileDevice && <Navigation />}
@@ -58,7 +59,8 @@ const Header = () => {
             </Modal>
           )}
         </HeaderSection>
-      </Wrapper>
+        {/* </Wrapper> */}
+      </HeaderWrapper>
     </header>
   );
 };

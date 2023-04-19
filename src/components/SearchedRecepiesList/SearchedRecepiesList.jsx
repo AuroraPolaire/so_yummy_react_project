@@ -12,9 +12,8 @@ import {
 
 const SearchedRecipiesList = () => {
   const recipes = useSelector(selectResults);
-  console.log(recipes);
+  // console.log(recipes);
   const { isLoading, isResolved } = useSelector(selectStatus);
-
   return (
     <>
       {isLoading ? (
@@ -26,7 +25,6 @@ const SearchedRecipiesList = () => {
           <RecipeCard recipe={recipes} />
         </List>
       )}
-
       {isResolved && recipes.length === 0 && (
         <>
           <RecipeNotFoundImage />
@@ -38,5 +36,4 @@ const SearchedRecipiesList = () => {
     </>
   );
 };
-
 export default SearchedRecipiesList;

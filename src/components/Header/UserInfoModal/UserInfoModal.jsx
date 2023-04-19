@@ -1,7 +1,9 @@
 import * as React from 'react';
+import notiflix from 'notiflix';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateUser } from '../../../redux/auth/authOperations';
+import * as Yup from 'yup';
 
 import DialogContent from '@mui/material/DialogContent';
 import Avatar from '@mui/material/Avatar';
@@ -18,92 +20,139 @@ import {
   EditUserNameLabel,
   EditSubmitButton,
 } from './UserInfoModal.styled';
+import { Field, Formik } from 'formik';
 
 const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
-  // const userData = useSelector(selectUser);
-  const [newAvatar, setNewAvatar] = useState(avatarURL);
+  const [avatar, setNewAvatar] = useState(avatarURL);
+  const [fileAvatar, setNewFileAvatar] = useState('');
   const [newName, setNewName] = useState(name);
   const dispatch = useDispatch();
 
-  const onAvatarChange = e => {
-    const [file] = e.target.files;
-    if (file) {
-      setNewAvatar(URL.createObjectURL(file));
-    }
-  };
-  const onNameChange = e => {
-    setNewName(e.target.value);
-  };
-
-  const handleOnSubmit = async e => {
-    e.preventDefault();
-    const files = e.target.elements[0].files[0];
-
+  const clickOnSubmit = () => {
     const formData = new FormData();
-
-    files && formData.append('avatar', files);
+    fileAvatar && formData.append('avatar', fileAvatar);
     newName ? formData.append('name', newName) : formData.append('name', name);
 
     dispatch(updateUser(formData))
       .unwrap()
       .then(res => closeUserInfoModal)
       .catch(e => {
-        'додати обробку помилки';
+        notiflix.Notify.failure('Size of image is too large!');
       });
   };
 
+  const editSchema = Yup.object().shape({
+    file: Yup.object().shape({
+      name: Yup.string(),
+    }),
+    name: Yup.string('Only Latin Letters!')
+      .matches(/^([^0-9]*)$/, 'No numbers allowed!')
+      .min(2, 'Too Short!')
+      .max(50, 'Too Long!'),
+  });
+
   return (
-    <div>
-      <IconButton
-        aria-label="close"
-        onClick={closeUserInfoModal}
-        sx={{
-          position: 'absolute',
-          right: 8,
-          top: 8,
-          color: theme => theme.palette.grey[500],
+    <>
+      <Formik
+        initialValues={{
+          avatar: avatar,
+          name: newName,
+        }}
+        validationSchema={editSchema}
+        onSubmit={values => {
+          //   const formData = new FormData();
+          //   values.avatar && formData.append('avatar', values.avatar);
+          //   newName
+          //     ? formData.append('name', newName)
+          //     : formData.append('name', name);
+          //   dispatch(updateUser(formData))
+          //     .unwrap()
+          //     .then(res => closeUserInfoModal)
+          //     .catch(e => {
+          //       notiflix.Notify.failure('Size of image is too large!');
+          //     });
         }}
       >
-        <CloseIcon />
-      </IconButton>
-      <DialogContent sx={{ p: '60px' }}>
-        <EditUserForm onSubmit={handleOnSubmit}>
-          <Avatar
-            sx={{
-              height: { xs: 103, sm: 103, md: 103 },
-              width: { xs: 103, sm: 103, md: 103 },
-              ml: 'auto',
-              mr: 'auto',
-              mb: '52px',
-            }}
-            src={avatarURL ? avatarURL : newAvatar}
-          />
-          <EditUserlFileLabel>
-            <EditUserInput
-              type={'file'}
-              accept={'image/jpeg,image/png,image/gif'}
-              onChange={onAvatarChange}
-            />
-            <AddIcon sx={{ fontSize: 18, fill: 'white' }} />
-          </EditUserlFileLabel>
-
-          <EditUserNameLabel>
-            <PermIdentityIcon />
-            <EditUserNameInput
-              type="name"
-              pattern="[A-Za-z0-9]{6,}"
-              value={newName}
-              onChange={onNameChange}
-            />
-            <CreateIcon />
-          </EditUserNameLabel>
-
-          <EditSubmitButton onClick={closeUserInfoModal}>
-            Save changes
-          </EditSubmitButton>
-        </EditUserForm>
-      </DialogContent>
-    </div>
+        {({ errors, handleSubmit, setFieldValue }) => (
+          <>
+            <IconButton
+              aria-label="close"
+              onClick={closeUserInfoModal}
+              sx={{
+                position: 'absolute',
+                right: 8,
+                top: 8,
+                color: theme => theme.palette.grey[500],
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+            <DialogContent sx={{ p: '60px' }}>
+              <EditUserForm onSubmit={handleSubmit}>
+                <Avatar
+                  sx={{
+                    height: { xs: 103, sm: 103, md: 103 },
+                    width: { xs: 103, sm: 103, md: 103 },
+                    ml: 'auto',
+                    mr: 'auto',
+                    mb: '52px',
+                  }}
+                  src={avatar}
+                />
+                <EditUserlFileLabel>
+                  <EditUserInput
+                    name="image"
+                    type={'file'}
+                    accept={'image/jpeg,image/png,image/gif'}
+                    onChange={event => {
+                      setFieldValue('avatar', event.currentTarget.files[0]);
+                      setNewAvatar(
+                        URL.createObjectURL(event.currentTarget.files[0])
+                      );
+                      setNewFileAvatar(event.currentTarget.files[0]);
+                      // console.log(event.currentTarget.files[0]);
+                    }}
+                  />
+                  <AddIcon sx={{ fontSize: 18, fill: 'white' }} />
+                  {errors.image ? <div>{errors.image}</div> : null}
+                </EditUserlFileLabel>
+                <EditUserNameLabel>
+                  <PermIdentityIcon />
+                  <EditUserNameInput
+                    as={Field}
+                    type="text"
+                    name="name"
+                    onChange={e => {
+                      setFieldValue('name', e.target.value);
+                      setNewName(e.target.value);
+                    }}
+                    // helperText={errors.name}
+                  />
+                  {errors.name ? (
+                    <div
+                      className="error"
+                      style={{ color: 'red', fontSize: '14px' }}
+                    >
+                      {errors.name}
+                    </div>
+                  ) : null}
+                  <CreateIcon />
+                </EditUserNameLabel>
+                <EditSubmitButton
+                  type="submit"
+                  onClick={() => {
+                    closeUserInfoModal();
+                    clickOnSubmit();
+                  }}
+                >
+                  Save changes
+                </EditSubmitButton>
+              </EditUserForm>
+            </DialogContent>
+          </>
+        )}
+      </Formik>
+    </>
   );
 };
 

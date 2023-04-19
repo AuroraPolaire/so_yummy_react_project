@@ -4,10 +4,10 @@ import axios from 'axios';
 
 export const searchRecipes = createAsyncThunk(
   'search/searchRecipes',
-  async ({ query, page }, thunkAPI) => {
+  async (query, thunkAPI) => {
     try {
       const response = await axios.get(
-        `/recipes/title/${query}?page=${page}&limit=12`
+        `/recipes/title/${query}?page=1&limit=12`
       );
 
       return response.data;

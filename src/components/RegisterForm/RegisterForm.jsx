@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/authOperations';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { Wrapper } from 'components/theme/GlobalContainer';
-import { AuthBox, StyledInput } from './RegisterForm.styled';
+// import { Wrapper } from 'components/theme/GlobalContainer';
+import { FormWrapper, AuthBox, StyledInput } from './RegisterForm.styled';
 
 // import { Navigate } from 'react-router';
 
@@ -58,7 +58,7 @@ export const RegisterForm = () => {
   // };
 
   return (
-    <Wrapper>
+    <FormWrapper>
       <Formik
         initialValues={{ name: '', email: '', password: '' }}
         validationSchema={registerSchema}
@@ -109,7 +109,7 @@ export const RegisterForm = () => {
           </AuthBox>
         )}
       </Formik>
-    </Wrapper>
+    </FormWrapper>
   );
 };
 

@@ -1,1 +1,2 @@
-export const selectFavouriteRecipes = state => state.favouriteRecipes.recipes;
+export const selectFavouriteRecipes = state =>
+  state.favouriteRecipes.favouriteRecipes;

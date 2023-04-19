@@ -10,6 +10,7 @@ export const StyledBox = styled.div`
   border-radius: 8px;
   background-color: var(--font-white);
   position: absolute;
+  transition: transform var(--transition-dur-and-func);
 
   @media screen and (min-width: 768px) {
     padding: 12px;
@@ -25,6 +26,12 @@ export const StyledBox = styled.div`
     top: 462px;
     right: 8%;
   }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.01);
+  }
+
   & p {
     font-size: 12px;
     font-weight: 500px;
@@ -68,5 +75,9 @@ export const StyledBox = styled.div`
     width: 15px;
     height: 11px;
     stroke: var(--font-darkblue-p);
+
+    :hover {
+      stroke: var(--accent-color-green);
+    }
   }
 `;

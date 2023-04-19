@@ -1,23 +1,5 @@
 import styled from 'styled-components';
 
-export const ButtonPlus = styled.button`
-  width: 24px;
-  height: 24px;
-  border-radius: 50px;
-  border: none;
-  background-color: #8baa36;
-  padding: 0;
-  position: absolute;
-  right: 215px;
-  top: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.1);
-  }
-`;
 export const EditUserForm = styled.form`
   display: flex;
   justify-content: center;
@@ -89,6 +71,15 @@ export const EditUserNameLabel = styled.label`
         height: 19px;
       }
     }
+  }
+  & .error {
+    position: absolute;
+    top: -20px;
+    left: 50px;
+    font-family: 'Poppins';
+    color: red;
+    font-size: 14px;
+    line-height: 1, 5;
   }
 `;
 

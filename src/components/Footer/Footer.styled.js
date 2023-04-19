@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import bgMobile from "../../images/bg/footerBG_mobile.webp";
-import bgMobileRetina from "../../images/bg/footerBG_mobile@2x.webp";
+import bgMobile from '../../images/bg/footerBG_mobile.webp';
+import bgMobileRetina from '../../images/bg/footerBG_mobile@2x.webp';
 import bgTablet from '../../images/bg/footerBG_Tablet.webp';
 import bgTabletRetina from '../../images/bg/footerBG_Tablet@2x.webp';
 import bgDesktop from '../../images/bg/footerBG_Desktop.webp';
@@ -10,7 +10,7 @@ import bgDesktopRetina from '../../images/bg/footerBG_Desktop@2x.webp';
 export const FooterSection = styled.div`
   font-family: 'Poppins';
   position: relative;
-  background-color: #22252A;
+  background-color: #22252a;
   padding-top: 28px;
   padding-bottom: 28px;
   z-index: 3;
@@ -29,7 +29,7 @@ export const FooterSection = styled.div`
   }
 `;
 export const Container = styled.div`
-  color: #FAFAFA;
+  color: #fafafa;
   @media screen and (min-width: 375px) {
     display: block;
     margin: 0 auto;
@@ -57,13 +57,13 @@ export const LogoSection = styled.div`
   }
 `;
 export const LogoWrapper = styled.div`
-  display: flex; 
+  display: flex;
   justify-content: center;
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
     width: 215px;
   }
-`
+`;
 export const LogoBenefitsWrapper = styled.div`
   display: block;
 `;
@@ -82,13 +82,13 @@ export const LogoImg = styled.img`
   }
 `;
 export const LogoTitle = styled.p`
-  color: #FAFAFA;
+  color: #fafafa;
   margin-left: 8px;
   font-size: 18px;
   font-weight: 700;
-  color: #FAFAFA;
+  color: #fafafa;
   &:hover {
-    color: #8BAA36;
+    color: #8baa36;
   }
   @media screen and (min-width: 768px) {
     font-size: 28px;
@@ -98,10 +98,10 @@ export const LogoTitle = styled.p`
 export const BenefitsList = styled.ul`
   display: none;
   @media screen and (min-width: 768px) {
-  display: block;
-   width: 418px;
-   display: block;
-  margin-top: 24px;
+    display: block;
+    width: 418px;
+    display: block;
+    margin-top: 24px;
   }
 `;
 export const BenefitsItem = styled.li`
@@ -114,42 +114,42 @@ export const BenefitsItem = styled.li`
     margin-top: 10px;
   }
   @media screen and (min-width: 1440px) {
-  margin-bottom: 10px;
-  &:last-child {
-      margin-bottom: 0;    
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
     }
-}
+  }
   @media screen and (min-width: 1440px) {
     font-size: 18px;
     &:not(:first-child) {
-    margin-top: 14px;
+      margin-top: 14px;
     }
   }
 `;
 export const FooterLinkWrapper = styled.ul`
   margin-top: 32px;
   text-align: center;
-@media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     margin-top: 0;
     text-align: start;
     margin-left: 173px;
-}
-@media screen and (min-width: 1440px) {
-  margin-left: 0;
-}
+  }
+  @media screen and (min-width: 1440px) {
+    margin-left: 0;
+  }
 `;
 export const FooterLink = styled(NavLink)`
   padding-top: 7px;
   padding-bottom: 7px;
-  color: #FAFAFA;
-   font-size: 14px;
+  color: #fafafa;
+  font-size: 14px;
   transition: color 250ms linear;
   &:hover,
   &:focus {
-    color: #8BAA36;
+    color: #8baa36;
   }
   .active {
-    color: #8BAA36;
+    color: #8baa36;
   }
   @media screen and (min-width: 768px) {
     padding-top: 10px;
@@ -160,19 +160,18 @@ export const FooterLink = styled(NavLink)`
   }
 `;
 export const FooterLinkItem = styled.li`
-font-weight: 500;
-font-size: 14px;
-line-height: 18px;
-letter-spacing: -0.02em;
-margin-bottom: 14px;
-@media screen and (min-width: 768px) {
-  margin-bottom: 20px;    
-}
-@media screen and (min-width: 1440px) {
-  margin-bottom: 24px;  
-    }
-}
-`
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 24px;
+  }
+`;
 export const SubscriptionSection = styled.div`
   @media screen and (min-width: 1440px) {
     width: 340px;
@@ -194,19 +193,19 @@ export const SubscriptionWrapper = styled.div`
   }
 `;
 export const FollowUsSection = styled.div`
-   margin-top: 44px;
+  margin-top: 44px;
   @media screen and (min-width: 768px) {
     margin-top: 38px;
   }
   @media screen and (min-width: 1440px) {
     margin-top: 41px;
   }
-`
+`;
 export const SubFooterBgContainer = styled.div``;
 export const SubFooter = styled.div`
   padding-top: 28px;
   padding-bottom: 28px;
-  background-color: #ECECEC;
+  background-color: #ececec;
   background-image: url('${bgMobile}');
   background-repeat: no-repeat;
   background-position: 100% 100%;
@@ -237,7 +236,7 @@ export const SubFooterText = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #22252A;
+  color: #22252a;
   font-size: 10px;
   p:not(:first-child) {
     margin-left: 14px;
@@ -250,24 +249,24 @@ export const SubFooterText = styled.div`
   }
 `;
 export const SubFooterTextBold = styled.p`
-  color: #22252A;
+  color: #22252a;
   font-weight: 500;
   font-size: 10px;
   line-height: 10px;
   letter-spacing: -0.01em;
-  color: #22252A;
+  color: #22252a;
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 14px;
   }
 `;
 export const SubFooterTextRegular = styled.p`
-  color: #22252A;
+  color: #22252a;
   font-weight: 400;
   font-size: 10px;
   line-height: 10px;
   letter-spacing: -0.01em;
-  color: #22252A;
+  color: #22252a;
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 14px;

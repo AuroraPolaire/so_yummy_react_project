@@ -14,7 +14,11 @@ import { searchReducer } from 'redux/search/searchSlice';
 import { recipesReducer } from './recipes/recipesSlice';
 import { shoppingListReducer } from './shoppingList/shoppingListSlice';
 import { favouriteRecipesReducer } from './favourite/favouriteSlice';
+
 import { themeReducer } from './theme/themeSlice';
+
+import { myRecipesReducer } from './myRecipes/myRecipesSlice';
+
 
 export const store = configureStore({
   reducer: {
@@ -23,7 +27,11 @@ export const store = configureStore({
     recipes: recipesReducer,
     favouriteRecipes: favouriteRecipesReducer,
     shoppingList: shoppingListReducer,
+
     theme: themeReducer
+
+    myRecipes: myRecipesReducer,
+
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

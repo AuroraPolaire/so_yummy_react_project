@@ -18,7 +18,9 @@ axios.interceptors.response.use(
     return response;
   },
   function (error) {
-    if (error.response.status === 401) {
+    const originalRequest = error.config;
+    if (error.response.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
       store.dispatch(refreshToken());
     }
 
@@ -30,8 +32,16 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('/users/signup', credentials);
-      return data;
+      const result = await axios.post('/users/signup', credentials);
+      if (result.statusText === 'OK') {
+        const userData = {
+          email: credentials.email,
+          password: credentials.password,
+        };
+        store.dispatch(signIn(userData));
+      }
+      // console.log(result);
+      return result.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -113,7 +123,7 @@ export const subscribeUser = createAsyncThunk(
       const persistedToken = state.auth.token;
 
       if (persistedToken === null) {
-        return thunkAPI.rejectWithValue();
+        return console.log(thunkAPI.rejectWithValue());
       }
       token.set(persistedToken);
 
@@ -122,10 +132,9 @@ export const subscribeUser = createAsyncThunk(
       return response.data.user;
     } catch (e) {
       if (e.response && e.response.status === 409) {
-        // Обработка ошибки 409
-        // Можно выполнить соответствующие действия, например, показать сообщение пользователю
-        // и предложить выполнить другое действие
-        alert('Subscription with this email already exists. Please try again with a different email.');
+        console.log(
+          'Subscription with this email already exists. Please try again with a different email.'
+        );
       }
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -139,7 +148,6 @@ export const updateUser = createAsyncThunk(
       const { data } = await axios.put('/users/update', userData);
       return data;
     } catch (error) {
-      alert('Oops, something went wrong.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
