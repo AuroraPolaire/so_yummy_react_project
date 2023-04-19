@@ -33,6 +33,8 @@ const ThemeProviderTheme = createTheme({
           display: 'flex',
           justifyContent: 'center',
           textAlign: 'center',
+          marginTop: '50px',
+          marginBottom: '70px',
           ul: {
             padding: '14px 24px',
             backgroundColor: '#FAFAFA',
