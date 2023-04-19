@@ -45,41 +45,44 @@ export const SignInForm = () => {
 
   return (
     <Wrapper>
-    <Formik
-      initialValues={{ email: '', password: '' }}
-      validationSchema={signInSchema}
-      onSubmit={(values, { resetForm }) => {
-        console.log(values);
-        dispatch(signIn(values))
-          .unwrap()
-          .then(data => {})
-          .catch(error => console.log(error));
-        resetForm({ email: '', password: '' });
-      }}
-    >
-      {props => (
-        <Form>
-          <Field
-            type="text"
-            name="email"
-            placeholder="Email"
-            // onChange={handleChange}
-            // value={props.values.email}
-          />
-          <ErrorMessage name="email" render={message => <p>{message}</p>} />
-          <Field
-            type="password"
-            name="password"
-            placeholder="Password"
-            // onChange={handleChange}
-            // value={props.values.password}
-          />
-          <ErrorMessage name="password" render={message => <p>{message}</p>} />
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        validationSchema={signInSchema}
+        onSubmit={(values, { resetForm }) => {
+          // console.log(values);
+          dispatch(signIn(values))
+            .unwrap()
+            .then(data => {})
+            .catch(error => console.log(error));
+          resetForm({ email: '', password: '' });
+        }}
+      >
+        {props => (
+          <Form>
+            <Field
+              type="text"
+              name="email"
+              placeholder="Email"
+              // onChange={handleChange}
+              // value={props.values.email}
+            />
+            <ErrorMessage name="email" render={message => <p>{message}</p>} />
+            <Field
+              type="password"
+              name="password"
+              placeholder="Password"
+              // onChange={handleChange}
+              // value={props.values.password}
+            />
+            <ErrorMessage
+              name="password"
+              render={message => <p>{message}</p>}
+            />
 
-          <button type="submit">Sign Up</button>
-        </Form>
-      )}
-    </Formik>
+            <button type="submit">Sign Up</button>
+          </Form>
+        )}
+      </Formik>
     </Wrapper>
   );
 };

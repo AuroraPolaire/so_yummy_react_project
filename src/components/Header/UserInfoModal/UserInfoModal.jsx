@@ -59,21 +59,19 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
           name: newName,
         }}
         validationSchema={editSchema}
-        // onSubmit={values => {
-        //   const formData = new FormData();
-
-        //   values.avatar && formData.append('avatar', values.avatar);
-        //   newName
-        //     ? formData.append('name', newName)
-        //     : formData.append('name', name);
-
-        //   dispatch(updateUser(formData))
-        //     .unwrap()
-        //     .then(res => closeUserInfoModal)
-        //     .catch(e => {
-        //       notiflix.Notify.failure('Size of image is too large!');
-        //     });
-        // }}
+        onSubmit={values => {
+          //   const formData = new FormData();
+          //   values.avatar && formData.append('avatar', values.avatar);
+          //   newName
+          //     ? formData.append('name', newName)
+          //     : formData.append('name', name);
+          //   dispatch(updateUser(formData))
+          //     .unwrap()
+          //     .then(res => closeUserInfoModal)
+          //     .catch(e => {
+          //       notiflix.Notify.failure('Size of image is too large!');
+          //     });
+        }}
       >
         {({ errors, handleSubmit, setFieldValue }) => (
           <>
@@ -101,7 +99,6 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
                   }}
                   src={avatar}
                 />
-
                 <EditUserlFileLabel>
                   <EditUserInput
                     name="image"
@@ -113,13 +110,12 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
                         URL.createObjectURL(event.currentTarget.files[0])
                       );
                       setNewFileAvatar(event.currentTarget.files[0]);
-                      console.log(event.currentTarget.files[0]);
+                      // console.log(event.currentTarget.files[0]);
                     }}
                   />
                   <AddIcon sx={{ fontSize: 18, fill: 'white' }} />
                   {errors.image ? <div>{errors.image}</div> : null}
                 </EditUserlFileLabel>
-
                 <EditUserNameLabel>
                   <PermIdentityIcon />
                   <EditUserNameInput
@@ -130,7 +126,7 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
                       setFieldValue('name', e.target.value);
                       setNewName(e.target.value);
                     }}
-                    helperText={errors.name}
+                    // helperText={errors.name}
                   />
                   {errors.name ? (
                     <div
@@ -142,7 +138,6 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
                   ) : null}
                   <CreateIcon />
                 </EditUserNameLabel>
-
                 <EditSubmitButton
                   type="submit"
                   onClick={() => {

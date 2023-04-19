@@ -19,7 +19,7 @@ export const searchSlice = createSlice({
   initialState,
   reducers: {
     changeSearchType(state, action) {
-      console.log(action);
+      // console.log(action);
       state.searchType = action.payload;
     },
   },
@@ -29,7 +29,7 @@ export const searchSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(searchRecipes.fulfilled, (state, action) => {
-        console.log(action);
+        // console.log(action);
         state.results = action.payload.recipes;
         state.totalResults = action.payload.total;
         state.status = 'resolved';
@@ -40,7 +40,7 @@ export const searchSlice = createSlice({
         state.totalResults = 0;
       })
       .addCase(searchIngredient.fulfilled, (state, action) => {
-        console.log(action);
+        // console.log(action);
         state.results = action.payload.recipes;
         state.totalResults = action.payload.total;
         state.status = 'resolved';

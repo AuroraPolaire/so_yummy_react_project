@@ -13,7 +13,7 @@ export default function RecipePageHero({
   time,
   id,
 }) {
-  console.log(favorite);
+  // console.log(favorite);
   const [favouriteRecipe, setFavourite] = useState(favorite);
   const dispatch = useDispatch();
   return (
