@@ -13,6 +13,7 @@ import Squares from 'components/Squares/Squares';
 import PageTitle from 'components/PageTitle/PageTitle';
 import Loader from 'components/Loader/Loader';
 import { ShoppingListLoader } from './ShoppingListPage.styled';
+import { Notify } from 'notiflix';
 
 const ShoppingListPage = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,11 @@ const ShoppingListPage = () => {
     if (products === null) {
       dispatch(fetchShoppingList());
     }
-  }, [dispatch, products]);
+
+    if (error !== null) {
+      Notify.failure(error);
+    }
+  }, [dispatch, products, error]);
 
   return (
     <>
@@ -32,7 +37,6 @@ const ShoppingListPage = () => {
       <Section>
         <Wrapper>
           <PageTitle type={'shoppingListPage'}>Shopping list</PageTitle>
-          {/* <MainTitle text="Shopping list"></MainTitle> */}
 
           <IngredientsShoppingList />
 
@@ -41,8 +45,6 @@ const ShoppingListPage = () => {
               <Loader />
             </ShoppingListLoader>
           )}
-
-          {error !== null && <p>Oops, some error occured... {error}</p>}
         </Wrapper>
       </Section>
     </>
