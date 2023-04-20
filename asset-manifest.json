@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.f3e0b803.js",
+    "main.js": "/so_yummy_react_project/static/js/main.664a595e.js",
     "static/media/recipe_hero_bg1x.webp": "/so_yummy_react_project/static/media/recipe_hero_bg1x.b7b1c44bc5346e70d72a.webp",
     "static/media/dish_desktop2x.webp": "/so_yummy_react_project/static/media/dish_desktop2x.3b07418e7e4470b259ed.webp",
     "static/media/recipe_hero_bg2x.webp": "/so_yummy_react_project/static/media/recipe_hero_bg2x.9d6a67271bda69ba007c.webp",
@@ -55,8 +55,11 @@
     "static/media/footer-logo.svg": "/so_yummy_react_project/static/media/footer-logo.3a2b0b0eb04e3edbd7f1fa05a4dfa246.svg",
     "static/media/default-avatar.svg": "/so_yummy_react_project/static/media/default-avatar.8882f2c7aaae2994b36f7d1dc715439e.svg",
     "static/media/auth-bg-bottom-mobile@1x.webp": "/so_yummy_react_project/static/media/auth-bg-bottom-mobile@1x.be6f1c1b5345c6e2055b.webp",
+    "static/media/authEmailIcon.svg": "/so_yummy_react_project/static/media/authEmailIcon.b3624b00b1e34c17f3f58e886f69cabe.svg",
+    "static/media/authPasswordIcon.svg": "/so_yummy_react_project/static/media/authPasswordIcon.14efc5243d9d48691076193c45f3addb.svg",
     "static/media/main-logo.svg": "/so_yummy_react_project/static/media/main-logo.5b9ddd57fe123674f925f4dacba2f48b.svg",
     "static/media/main--logo.svg": "/so_yummy_react_project/static/media/main--logo.d2174c2ad55a6fd324b43c568b091b3e.svg",
+    "static/media/authNameIcon.svg": "/so_yummy_react_project/static/media/authNameIcon.967af49948afe7b0fc21af337eb5a532.svg",
     "static/media/icon-delete.svg": "/so_yummy_react_project/static/media/icon-delete.8ae49a883741360b9f5bd63235e19157.svg",
     "static/media/cross-icon.svg": "/so_yummy_react_project/static/media/cross-icon.23d81d5f8f2738146037c058679bc846.svg",
     "static/media/search.svg": "/so_yummy_react_project/static/media/search.7bd6033959ab7b144f43818cda85abae.svg",
@@ -64,9 +67,9 @@
     "static/media/exit.svg": "/so_yummy_react_project/static/media/exit.e5ec20d5f2f4f822241baf13fab5a8be.svg",
     "static/media/burger.svg": "/so_yummy_react_project/static/media/burger.32b3cd4340613c9951a83bc4dd74e4cd.svg",
     "static/media/arrow-down.svg": "/so_yummy_react_project/static/media/arrow-down.4c0759d592b9bf854db97289ce89a574.svg",
-    "main.f3e0b803.js.map": "/so_yummy_react_project/static/js/main.f3e0b803.js.map"
+    "main.664a595e.js.map": "/so_yummy_react_project/static/js/main.664a595e.js.map"
   },
   "entrypoints": [
-    "static/js/main.f3e0b803.js"
+    "static/js/main.664a595e.js"
   ]
 }
