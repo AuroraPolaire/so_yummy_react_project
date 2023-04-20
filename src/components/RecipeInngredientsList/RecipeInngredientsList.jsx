@@ -18,8 +18,6 @@ import {
 } from 'redux/shoppingList/shoppingListOperations';
 import { selectShoppingList } from 'redux/shoppingList/shoppingListSelectors';
 
-import { ReactComponent as Unchecked } from '../../images/icons/unchecked.svg';
-import { ReactComponent as Checked } from '../../images/icons/checked.svg';
 import { DefaultIngredientPicture } from 'components/DefaultIngredientPicture/DefaultIngredientPicture';
 
 export default function RecipeInngredientsList({ ingredients }) {
@@ -55,7 +53,11 @@ export default function RecipeInngredientsList({ ingredients }) {
       <RecipeInngredientsListStyled>
         {ingredients.map(({ measure, title, _id, thumb, desc }) => (
           <RecipeInngredientsItem key={_id}>
-            {thumb ? <img src={thumb} alt={title} /> : <DefaultIngredientPicture />}
+            {thumb ? (
+              <img src={thumb} alt={title} />
+            ) : (
+              <DefaultIngredientPicture />
+            )}
             <p>{title}</p>
             {/* <p>{desc}</p> */}
             <Measure>{measure}</Measure>

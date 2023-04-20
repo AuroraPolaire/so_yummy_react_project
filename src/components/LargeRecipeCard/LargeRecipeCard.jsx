@@ -36,52 +36,53 @@ const LargeRecipeCard = ({ recipe, type }) => {
     }
   };
 
-  return recipe.map(({ preview, _id, title, favorite, time, description }) => {
-    if ((type === 'favorite' && favorite) || type === 'my') {
-      return (
-        <ThemeProvider theme={MuiProviderTheme} key={_id}>
-            {item.preview && <img src={item.preview} alt={item.title} />}
-
-
-            <div className="description-conainer">
-              <h3>{truncateTitle(title)}</h3>
-              <IconButton
-                aria-label="delete picture"
-                component="label"
-                className={type}
-                onClick={() => handleOnDelete(_id)}
-              >
-                <input hidden type="button" />
-                <DeleteSvg type={type} />
-              </IconButton>
-              <div className="description">
-                {splitText(description, '.').map(item => {
-                  return (
-                    <div className="description-text" key={item}>
-                      {item}.
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="btn-conainer">
-                <Time minutes={Number(time)}></Time>
-                <StyledLink
-                  page={type}
-                  type="button"
-                  onClick={() =>
-                    navigate(`/recipe/${_id}`, { state: location })
-                  }
+  return recipe.map(
+    ({ preview, _id, title, favorite, time, description, item }) => {
+      if ((type === 'favorite' && favorite) || type === 'my') {
+        return (
+          <ThemeProvider theme={MuiProviderTheme} key={_id}>
+            <RecipeCardBox>
+              {preview && <img src={preview} alt={title} />}
+              <div className="description-conainer">
+                <h3>{truncateTitle(title)}</h3>
+                <IconButton
+                  aria-label="delete picture"
+                  component="label"
+                  className={type}
+                  onClick={() => handleOnDelete(_id)}
                 >
-                  See recipe
-                </StyledLink>
+                  <input hidden type="button" />
+                  <DeleteSvg type={type} />
+                </IconButton>
+                <div className="description">
+                  {splitText(description, '.').map(item => {
+                    return (
+                      <div className="description-text" key={item}>
+                        {item}.
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="btn-conainer">
+                  <Time minutes={Number(time)}></Time>
+                  <StyledLink
+                    page={type}
+                    type="button"
+                    onClick={() =>
+                      navigate(`/recipe/${_id}`, { state: location })
+                    }
+                  >
+                    See recipe
+                  </StyledLink>
+                </div>
               </div>
-            </div>
-          </RecipeCardBox>
-        </ThemeProvider>
-      );
+            </RecipeCardBox>
+          </ThemeProvider>
+        );
+      }
+      return null;
     }
-    return null;
-  });
+  );
 };
 
 LargeRecipeCard.propTypes = {
