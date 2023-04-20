@@ -36,18 +36,20 @@ const SearchPage = () => {
 
   useEffect(() => {
     if (!query) return;
-    dispatch(searchRecipes(query));
+    dispatch(searchRecipes({ query, page: 1 }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleChangePagination = (e, value) => {
+    setCurrentPage(value);
+    // dispatch(searchRecipes({ query, value }));
+    // console.log({ query, value });
     if (searchType === 'title') {
-      dispatch(searchRecipes(query, value));
+      dispatch(searchRecipes({ query, value }));
     }
     if (searchType === 'ingredient') {
-      dispatch(searchIngredient(query, value));
+      dispatch(searchIngredient({ query, value }));
     }
-    setCurrentPage(value);
     window.scrollTo(0, 0);
   };
 
