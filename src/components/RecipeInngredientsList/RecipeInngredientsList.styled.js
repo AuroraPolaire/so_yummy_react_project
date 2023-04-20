@@ -69,6 +69,7 @@ export const RecipeInngredientsItem = styled.li`
     width: 65px;
     height: 100%;
     margin: 0px 8px 0px 0px;
+    border-radius: 8px;
     @media screen and (min-width: 768px) {
       width: 144px;
       margin-right: 24px;
