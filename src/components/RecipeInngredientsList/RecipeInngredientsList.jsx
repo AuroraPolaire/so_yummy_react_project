@@ -21,7 +21,7 @@ export default function RecipeInngredientsList({ ingredients }) {
   const products = useSelector(selectShoppingList);
 
   const handleChecked = (productId, measure) => {
-    if (products === null) return;
+    if (products === null) return false;
     return products.some(
       p => p.productId === productId && p.measure.some(m => m === measure)
     );
