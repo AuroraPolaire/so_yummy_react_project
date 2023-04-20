@@ -9,7 +9,7 @@ export const IngredientsShoppingListHead = styled.div`
   color: #fafafa;
   font-weight: 600;
   font-size: 10px;
-  line-height: 1, 5;
+  line-height: 1.5;
   background-color: #8baa36;
   border-radius: 8px;
   @media screen and (min-width: 768px) {
@@ -105,9 +105,11 @@ export const IngredientsShoppingListMeasure = styled.div`
   background-color: #8baa36;
   color: #fafafa;
   font-size: 10px;
-  line-height: 1, 5;
+  line-height: 1.5;
   font-weight: 600;
   border-radius: 4px;
+  text-align: center;
+
   @media screen and (min-width: 768px) {
     padding: 4px 8px;
     font-size: 18px;
