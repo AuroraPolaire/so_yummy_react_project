@@ -24,7 +24,6 @@ const RecipePage = props => {
   const products = useSelector(selectShoppingList);
 
   useEffect(() => {
-    console.log(prevPage);
     if (prevPage === '/my') {
       dispatch(fetchOneRecipe(recipeId));
     } else {

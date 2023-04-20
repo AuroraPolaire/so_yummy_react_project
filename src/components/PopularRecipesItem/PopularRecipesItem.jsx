@@ -1,5 +1,6 @@
 // PopularRecipesItem;
 import React from 'react';
+import PropTypes from 'prop-types';
 import { RecipeCardBox, Title, StyledLink } from './PopularRecipesItem.styled';
 
 const PopularRecipesItem = ({ recipe }) => {
@@ -29,6 +30,10 @@ const PopularRecipesItem = ({ recipe }) => {
       </RecipeCardBox>
     );
   });
+};
+
+PopularRecipesItem.propTypes = {
+  recipe: PropTypes.array.isRequired,
 };
 
 export default PopularRecipesItem;
