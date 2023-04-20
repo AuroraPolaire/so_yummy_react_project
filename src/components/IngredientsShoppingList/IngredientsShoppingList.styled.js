@@ -9,7 +9,7 @@ export const IngredientsShoppingListHead = styled.div`
   color: #fafafa;
   font-weight: 600;
   font-size: 10px;
-  line-height: 1, 5;
+  line-height: 1.5;
   background-color: #8baa36;
   border-radius: 8px;
   @media screen and (min-width: 768px) {
@@ -32,9 +32,10 @@ export const IngredientsShoppingListHead = styled.div`
 `;
 export const IngredientsShoppingListStyled = styled.ul`
   li:not(:last-child) {
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
+    border-bottom: 1px solid #e0e0e0;
     @media screen and (min-width: 768px) {
-      margin-bottom: 24px;
+      /* margin-bottom: 45px; */
     }
   }
 `;
@@ -46,8 +47,8 @@ export const IngredientsShoppingListItem = styled.li`
   padding: 10px;
   font-size: 12px;
   font-weight: 500;
-  background: #ebf3d4;
-  border-radius: 8px;
+  /* background: #ebf3d4; */
+  /* border-radius: 8px; */
   @media screen and (min-width: 768px) {
     max-width: 704px;
     padding: 16px 24px;
@@ -55,7 +56,10 @@ export const IngredientsShoppingListItem = styled.li`
   }
   @media screen and (min-width: 1440px) {
     max-width: 1240px;
-    padding: 0px 70px 0px 32px;
+    /* padding: 0px 40px 0px 40px; */
+    padding: 0;
+    margin-left: 40px;
+    margin-right: 40px;
   }
 
   img {
@@ -67,17 +71,11 @@ export const IngredientsShoppingListItem = styled.li`
       margin-right: 24px;
     }
     @media screen and (min-width: 1440px) {
-      width: 180px;
-      margin-right: 40px;
-    }
-  }
-
-  input[type='checkbox'] {
-    width: 18px;
-    height: 18px;
-    @media screen and (min-width: 768px) {
-      width: 35px;
-      height: 35px;
+      width: 81px;
+      margin-right: 6px;
+      margin-left: 6px;
+      margin-top: 8px;
+      margin-bottom: 8px;
     }
   }
 
@@ -86,21 +84,41 @@ export const IngredientsShoppingListItem = styled.li`
   }
 `;
 
-export const IngredientsShoppingListMeasure = styled.p`
-  margin-right: 28px;
+export const ImgWrapper = styled.div`
+  background: #ebf3d4;
+  border-radius: 8px;
+  margin-right: 16px;
+
+  margin-top: 45px;
+  margin-bottom: 45px;
+`;
+
+export const IngredientsShoppingListMeasureWrapper = styled.div`
+  display: flex;
+  width: 250px;
+`;
+
+export const IngredientsShoppingListMeasure = styled.div`
+  margin-bottom: 0;
+  margin-right: auto;
   padding: 4px;
   background-color: #8baa36;
   color: #fafafa;
   font-size: 10px;
-  line-height: 1, 5;
+  line-height: 1.5;
   font-weight: 600;
   border-radius: 4px;
+  text-align: center;
+
   @media screen and (min-width: 768px) {
     padding: 4px 8px;
     font-size: 18px;
-    margin-right: 78px;
+    margin-right: auto;
   }
   @media screen and (min-width: 1440px) {
-    margin-right: 151px;
+    margin-right: auto;
+
+    min-width: 68px;
+    height: 35px;
   }
 `;
