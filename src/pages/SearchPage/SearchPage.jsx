@@ -44,12 +44,11 @@ const SearchPage = () => {
   }, []);
 
   const handleChangePagination = (e, value) => {
-    console.log({ query, value });
     if (searchType === 'title') {
-      dispatch(searchRecipes({ query, currentPage }));
+      dispatch(searchRecipes({ query: query, page: value }));
     }
     if (searchType === 'ingredient') {
-      dispatch(searchIngredient({ query, currentPage }));
+      dispatch(searchIngredient({ query: query, page: value }));
     }
     window.scrollTo(0, 0);
     setCurrentPage(value);
