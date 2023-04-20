@@ -72,6 +72,7 @@ export default function AddRecipeForm() {
 
         dispatch(addRecipe(formData));
         navigate('/my');
+        window.scrollTo(0, 0);
       }}
     >
       {formik => (
@@ -79,7 +80,16 @@ export default function AddRecipeForm() {
           <RecipeDescriptionFields categories={categories} />
           <RecipeIngredientsFields ingredients={ingredients} />
           <RecipePreparationFields></RecipePreparationFields>
-          <SubmitButton type="submit" title='Add' background='#22252A' color='#FAFAFA' borderColor> Add </SubmitButton>
+          <SubmitButton
+            type="submit"
+            title="Add"
+            background="#22252A"
+            color="#FAFAFA"
+            borderColor
+          >
+            {' '}
+            Add{' '}
+          </SubmitButton>
         </StyledForm>
       )}
     </Formik>

@@ -1,9 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import {
-  searchRecipes,
-  searchIngredient,
-} from './searchOperations';
+import { searchRecipes, searchIngredient } from './searchOperations';
 
 const initialState = {
   results: [],
@@ -20,7 +17,6 @@ export const searchSlice = createSlice({
   initialState,
   reducers: {
     changeSearchType(state, action) {
-      // console.log(action);
       state.searchType = action.payload;
     },
     emptySearchResults(state, action) {
@@ -33,19 +29,16 @@ export const searchSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(searchRecipes.fulfilled, (state, action) => {
-        // console.log(action);
         state.searchResults = action.payload.recipes;
         state.totalResults = action.payload.total;
         state.limit = action.payload.limit;
         state.status = 'resolved';
       })
       .addCase(searchRecipes.rejected, state => {
-        // state.searchResults = 'error';
         state.searchResults = [];
         state.totalResults = 0;
       })
       .addCase(searchIngredient.fulfilled, (state, action) => {
-        // console.log(action);
         state.searchResults = action.payload.recipes;
         state.totalResults = action.payload.total;
         state.limit = action.payload.limit;
@@ -58,7 +51,7 @@ export const searchSlice = createSlice({
         state.status = 'error';
         state.searchResults = [];
         state.totalResults = 0;
-      })
+      });
   },
 });
 
