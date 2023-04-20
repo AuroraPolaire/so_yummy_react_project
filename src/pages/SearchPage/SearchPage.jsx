@@ -7,7 +7,6 @@ import { searchIngredient, searchRecipes } from 'redux/search/searchOperations';
 import {
   selectTotalResults,
   selectSearchType,
-  // selectSearchResults,
   selectLimitResults,
 } from 'redux/search/searchSelectors';
 import { Section, Wrapper } from 'components/theme/GlobalContainer';
@@ -23,7 +22,6 @@ import { emptySearchResults } from 'redux/search/searchSlice';
 const SearchPage = () => {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
-  // const [page, setPage] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const searchType = useSelector(selectSearchType);
   const totalResults = useSelector(selectTotalResults);
