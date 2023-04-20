@@ -7,7 +7,7 @@ import {
 } from './shoppingListOperations';
 
 const initialState = {
-  products: [],
+  products: null,
   isLoading: false,
   error: null,
 };

@@ -23,7 +23,7 @@ const RecipePage = props => {
   }, [dispatch, recipeId]);
 
   useEffect(() => {
-    if (products.length < 1) {
+    if (products === null) {
       dispatch(fetchShoppingList());
     }
   }, [dispatch, products]);

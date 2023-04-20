@@ -13,7 +13,7 @@ const ShoppingListPage = () => {
   const products = useSelector(selectShoppingList);
 
   useEffect(() => {
-    if (products.length < 1) {
+    if (products === null) {
       dispatch(fetchShoppingList());
     }
   }, [dispatch, products]);
