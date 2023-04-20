@@ -6,7 +6,7 @@ export const Title = styled.h2`
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.24px;
-  color: var(--font-darkblue-p);
+  color:${props => props.theme.mode === "light" ? "var(--font-darkblue-p)" : "var(--font-white)"};
   margin-bottom: 32px;
 
   &.linksTitle {

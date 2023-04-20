@@ -16,7 +16,6 @@ export const StyledForm = styled.form`
 `;
 
 export const SubmitButton = styled.button`
-background-color: #22252A;
 color: #FAFAFA;
 border-radius: 24px 44px;
 border: 1px solid green;
@@ -24,6 +23,7 @@ padding: 12px 48px;
 font-family: 'Poppins';
 font-size: 16px;
 line-height: 1.5;
+background-color:${props => props.theme.mode === "light" ? "var(--font-gray)" : "var(--accent-color-green)"};
 
 &:hover,
 &:focus {
