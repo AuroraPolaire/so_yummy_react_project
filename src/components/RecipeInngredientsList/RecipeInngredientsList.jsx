@@ -16,6 +16,9 @@ import {
 } from 'redux/shoppingList/shoppingListOperations';
 import { selectShoppingList } from 'redux/shoppingList/shoppingListSelectors';
 
+import { ReactComponent as Unchecked } from '../../images/icons/unchecked.svg';
+import { ReactComponent as Checked } from '../../images/icons/checked.svg';
+
 export default function RecipeInngredientsList({ ingredients }) {
   const dispatch = useDispatch();
   const products = useSelector(selectShoppingList);
@@ -53,14 +56,29 @@ export default function RecipeInngredientsList({ ingredients }) {
             <p>{title}</p>
             {/* <p>{desc}</p> */}
             <Measure>{measure}</Measure>
-            <input
+            {/* <input
               type="checkbox"
               name="shoppingList"
               checked={handleChecked(_id, measure)}
               onChange={() => {
                 handleOnChange(_id, measure);
               }}
-            />
+            /> */}
+            {handleChecked(_id, measure) ? (
+              <Checked
+                style={{ cursor: 'pointer' }}
+                onClick={() => {
+                  handleOnChange(_id, measure);
+                }}
+              />
+            ) : (
+              <Unchecked
+                style={{ cursor: 'pointer' }}
+                onClick={() => {
+                  handleOnChange(_id, measure);
+                }}
+              />
+            )}
           </RecipeInngredientsItem>
         ))}
       </RecipeInngredientsListStyled>
