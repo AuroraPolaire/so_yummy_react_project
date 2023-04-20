@@ -24,6 +24,9 @@ export const searchSlice = createSlice({
       // console.log(action);
       state.searchType = action.payload;
     },
+    emptySearchResults(state, action) {
+      state.searchResults = [];
+    },
   },
   extraReducers: builder => {
     builder
@@ -71,6 +74,6 @@ export const searchSlice = createSlice({
   },
 });
 
-export const { changeSearchType } = searchSlice.actions;
+export const { changeSearchType, emptySearchResults } = searchSlice.actions;
 
 export const searchReducer = searchSlice.reducer;

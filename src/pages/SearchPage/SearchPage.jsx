@@ -18,6 +18,7 @@ import Fade from '@mui/material/Fade';
 import Stack from '@mui/material/Stack';
 import { ThemeProvider } from '@mui/material/styles';
 import MuiProviderTheme from 'components/MuiProviderTheme/MuiProviderTheme';
+import { emptySearchResults } from 'redux/search/searchSlice';
 
 const SearchPage = () => {
   const dispatch = useDispatch();
@@ -37,20 +38,21 @@ const SearchPage = () => {
   useEffect(() => {
     if (!query) return;
     dispatch(searchRecipes({ query, page: 1 }));
+
+    return () => dispatch(emptySearchResults());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleChangePagination = (e, value) => {
-    setCurrentPage(value);
-    // dispatch(searchRecipes({ query, value }));
-    // console.log({ query, value });
+    console.log({ query, value });
     if (searchType === 'title') {
-      dispatch(searchRecipes({ query, value }));
+      dispatch(searchRecipes({ query, currentPage }));
     }
     if (searchType === 'ingredient') {
-      dispatch(searchIngredient({ query, value }));
+      dispatch(searchIngredient({ query, currentPage }));
     }
     window.scrollTo(0, 0);
+    setCurrentPage(value);
   };
 
   return (
