@@ -29,6 +29,7 @@ export const IngredientsFieldsHeader = styled.div`
 
   h2 {
     margin-right: 116px;
+    color:${props => props.theme.mode === "light" ? "var( --accent-color-gray)" : "var(--font-white)"};
   }
 `;
 
@@ -38,8 +39,9 @@ export const CounterContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 14px;
-  border: 1px solid rgba(51, 51, 51, 0.3);
   border-radius: 18px;
+  color:${props => props.theme.mode === "light" ? "var( --accent-color-gray)" : "var(--font-white)"};
+  border:${props => props.theme.mode === "light" ? "1px solid rgba(51, 51, 51, 0.3)" : "1px solid #FAFAFA"};
 
   button {
     width: 14px;
@@ -140,6 +142,7 @@ export const CrossIcon = styled(Cross)`
   width: 18px;
   height: 18px;
   transition: fill 250ms linear;
+
 
   &:hover path,
   &:focus path {
