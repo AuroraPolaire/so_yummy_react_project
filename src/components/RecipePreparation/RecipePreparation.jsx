@@ -4,6 +4,7 @@ import {
   RecipePreparationStyled,
   StepsStyled,
   StepsListStyled,
+  DefaultRecipeImg,
 } from './RecipePreparation.styled';
 
 export default function RecipePreparation({ instructions, previewImg, alt }) {
@@ -35,7 +36,7 @@ export default function RecipePreparation({ instructions, previewImg, alt }) {
             );
           })}
         </StepsListStyled>
-        {previewImg && <img src={previewImg} alt={alt}></img>}
+        {previewImg ? <img src={previewImg} alt={alt}></img> : <DefaultRecipeImg />}
       </InstructionsStyled>
     </RecipePreparationStyled>
   );

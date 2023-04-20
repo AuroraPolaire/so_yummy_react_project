@@ -39,7 +39,7 @@ const LargeRecipeCard = ({ recipe, type }) => {
       return (
         <ThemeProvider theme={MuiProviderTheme} key={item._id}>
           <RecipeCardBox>
-            <img src={item.preview} alt={item.title} />
+            {item.preview && <img src={item.preview} alt={item.title} />}
 
             <div className="description-conainer">
               <h3>{truncateTitle(item.title)}</h3>
