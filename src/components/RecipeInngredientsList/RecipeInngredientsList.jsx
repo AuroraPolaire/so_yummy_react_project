@@ -49,7 +49,7 @@ export default function RecipeInngredientsList({ ingredients }) {
       <RecipeInngredientsListStyled>
         {ingredients.map(({ measure, title, _id, thumb, desc }) => (
           <RecipeInngredientsItem key={_id}>
-            <img src={thumb ?? DefaultThumb} alt={title} />
+            <img src={thumb || DefaultThumb} alt={title} />
             <p>{title}</p>
             {/* <p>{desc}</p> */}
             <Measure>{measure}</Measure>
