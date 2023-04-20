@@ -21,12 +21,14 @@ import {
   EditSubmitButton,
 } from './UserInfoModal.styled';
 import { Field, Formik } from 'formik';
+import { useTheme } from 'styled-components';
 
 const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
   const [avatar, setNewAvatar] = useState(avatarURL);
   const [fileAvatar, setNewFileAvatar] = useState('');
   const [newName, setNewName] = useState(name);
   const dispatch = useDispatch();
+  const theme = useTheme();
 
   const clickOnSubmit = () => {
     const formData = new FormData();
@@ -82,12 +84,15 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
                 position: 'absolute',
                 right: 8,
                 top: 8,
-                color: theme => theme.palette.grey[500],
+                color: theme.mode === "light" ? "var(--font-gray)" : "var(--font-white)",
               }}
             >
               <CloseIcon />
             </IconButton>
-            <DialogContent sx={{ p: '60px' }}>
+            <DialogContent sx={{
+              p: '60px',
+              backgroundColor: theme.mode === "light" ? "var(--body-color-light)" : "var(--body-color-dark)",
+            }}>
               <EditUserForm onSubmit={handleSubmit}>
                 <Avatar
                   sx={{
@@ -126,7 +131,7 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
                       setFieldValue('name', e.target.value);
                       setNewName(e.target.value);
                     }}
-                    // helperText={errors.name}
+                  // helperText={errors.name}
                   />
                   {errors.name ? (
                     <div

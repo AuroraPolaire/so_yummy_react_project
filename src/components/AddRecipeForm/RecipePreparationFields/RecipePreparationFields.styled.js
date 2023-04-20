@@ -5,9 +5,10 @@ export const StyledTextArea = styled.textarea`
   height: 154px;
   padding: 10px 16px;
   resize: none;
-  background: #D9D9D9;
+  background:${props => props.theme.mode === "light" ? "#D9D9D9" : "var(--body-color-dark)"};
   border-radius: 6px;
-  opacity: 50%;
+  opacity:${props => props.theme.mode === "light" ? "50%" : "1"};
+  
 
   @media screen and (min-width: 768px) {
       width: 505px;
@@ -17,6 +18,8 @@ export const StyledTextArea = styled.textarea`
 
 export const Subtitle = styled.h2`
   margin-bottom: 24px;
+  color:${props => props.theme.mode === "light" ? "var(--body-color-dark)" : "var(--font-white)"};
+  
     @media screen and (min-width: 768px) {
       margin-bottom: 32px;
     }
@@ -24,6 +27,7 @@ export const Subtitle = styled.h2`
 
 export const RecipePreparationContainer = styled.div`
   margin-bottom: 18px;
+  
     @media screen and (min-width: 768px) {
       margin-bottom: 32px;
     }
