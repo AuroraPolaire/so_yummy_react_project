@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 // import DefaultThumb from 'images/icons/page-not-found.svg';
 import {
+  CheckboxChecked,
+  CheckboxUnchecked,
   Measure,
   RecipeIngredientsContainer,
   RecipeInngredientsHead,
@@ -66,15 +68,13 @@ export default function RecipeInngredientsList({ ingredients }) {
               }}
             /> */}
             {handleChecked(_id, measure) ? (
-              <Checked
-                style={{ cursor: 'pointer' }}
+              <CheckboxChecked
                 onClick={() => {
                   handleOnChange(_id, measure);
                 }}
               />
             ) : (
-              <Unchecked
-                style={{ cursor: 'pointer' }}
+              <CheckboxUnchecked
                 onClick={() => {
                   handleOnChange(_id, measure);
                 }}

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactComponent as defaultPhoto } from '../../images/icons/default-photo.svg';
 
 export const RecipePreparationStyled = styled.div`
   margin-top: 50px;
@@ -92,5 +93,29 @@ export const StepsStyled = styled.div`
     @media screen and (min-width: 768px) {
       font-size: 14px;
     }
+  }
+`;
+
+export const DefaultRecipeImg = styled(defaultPhoto)`
+    width: 343px;
+    height: 100%;
+    border-radius: 8px;
+    margin: 0;
+      @media screen and (min-width: 1440px) {
+        width: 433px;
+      }
+
+  rect {
+    fill: #D9D9D9;
+  }
+
+  path:nth-of-type(2) {
+    fill: #C4C4C4;
+    transition: fill 250ms linear;
+  }
+
+  path:first-of-type {
+    stroke: #C4C4C4;
+    transition: fill 250ms linear;
   }
 `;

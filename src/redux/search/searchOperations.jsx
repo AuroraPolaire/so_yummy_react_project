@@ -25,15 +25,3 @@ export const searchIngredient = createAsyncThunk(
     } catch (e) {}
   }
 );
-
-export const fetchIngredientsList = createAsyncThunk(
-  'search/getAll',
-  async (_, thunkAPI) => {
-    try {
-      const { data } = await axios.get('/recipes/ingredients');
-      return data.ingredients;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
