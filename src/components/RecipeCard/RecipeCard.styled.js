@@ -32,7 +32,10 @@ export const RecipeCardBox = styled.div`
     padding: 16px;
     text-align: left;
     line-height: 1.25;
-    color: var(--font-darkblue-p);
+    color:${props => props.theme.mode === "light" ? "var(--font-darkblue-p)" : "var(--font-white)"};
+    background-color:${props => props.theme.mode === "light" ? "var(--body-color-light)" : "var(--body-color-dark)"};
+    
+    
 
     @media screen and (min-width: 768px) {
       min-width: 300px;

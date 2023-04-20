@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const LogoIcon = styled.svg`
   height: 20px;
   width: 20px;
-  fill: #8baa36;
+  fill:${props => props.theme.mode === "light" ? "var(--accent-color-green)" : "var(--font-white)"};
   transition: fill 250ms linear;
   &:hover,
   &:focus {
@@ -53,17 +53,17 @@ export const SocialLinks = styled.ul`
 
   @media screen and (min-width: 1440px) {
     display: ${props => {
-      switch (props.type) {
-        case 'addRecipePage':
-          return `flex`;
+    switch (props.type) {
+      case 'addRecipePage':
+        return `flex`;
 
-        case 'footer':
-          return `flex`;
+      case 'footer':
+        return `flex`;
 
-        default:
-          return;
-      }
-    }};
+      default:
+        return;
+    }
+  }};
   }
 `;
 export const SocialLink = styled(NavLink)`
