@@ -51,6 +51,7 @@ const RecipePage = props => {
       ingredients,
       favorite,
       previewImg,
+      preview,
     } = currentRecipe;
 
     return (
@@ -67,7 +68,7 @@ const RecipePage = props => {
           {instructions && (
             <RecipePreparation
               instructions={instructions}
-              previewImg={previewImg}
+              previewImg={previewImg || preview}
               alt={title}
             />
           )}
