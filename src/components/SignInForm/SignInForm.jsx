@@ -58,6 +58,7 @@ export const SignInForm = () => {
               console.log(error);
               notiflix.Notify.failure('Subscription error');
             });
+
           resetForm({ email: '', password: '' });
         }}
       >
@@ -91,6 +92,7 @@ export const SignInForm = () => {
             </InputWrapper>
 
             <FormBtn type="submit">Sign Up</FormBtn>
+
           </AuthBox>
         )}
       </Formik>

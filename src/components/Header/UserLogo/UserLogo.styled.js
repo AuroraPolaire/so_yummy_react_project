@@ -69,7 +69,7 @@ export const EditWrapper = styled.div`
   justify-content: space-between;
   font-size: 14px;
   line-height: 1.6;
-  color: var(--font-gray);
+  color:${props => props.theme.mode === "light" ? "var(--font-gray)" : "var(--font-white)"};
   font-weight: 500;
   transition: color var(--transition-dur-and-func);
 

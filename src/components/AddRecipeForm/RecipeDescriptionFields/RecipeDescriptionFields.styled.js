@@ -3,13 +3,18 @@ import { ReactComponent as defaultPhoto } from '../../../images/icons/default-ph
 import { Field } from 'formik';
 
 export const RecipeDescriptionContainer = styled.div`
-  margin: 0 auto 44px;
+  margin-bottom: 44px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+   @media screen and (max-width: 768px) {
+    align-items: center;
+  }
   @media screen and (min-width: 768px) {
     flex-direction: row;
     gap: 32px;
+    width: 704px;
+    height: 268px;
+    margin-bottom: 100px;
   }
   @media screen and (min-width: 1440px) {
     flex-direction: row;
@@ -32,14 +37,14 @@ export const StyledInput = styled.input`
   border-bottom-color: ${props => (props.isError ? 'red' : 'black')};
   background-color: transparent;
 
-  /* @media screen and (min-width: 768px) {
-  font-size: 32px;
-  padding-top: 102px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+      width: 393px;
+      height: 43px;
   }
   @media screen and (min-width: 1440px) {
-    font-size: 44px;
-    padding-top: 102px;
-  } */
+    margin-bottom: 40px;
+  }
 
   &::placeholder {
     position: absolute;
@@ -48,9 +53,13 @@ export const StyledInput = styled.input`
     text-align: left;
     font-family: 'Poppins';
     font-size: 14px;
-    line-height: 1, 5;
+    line-height: 1,5;
     color: #000000;
     opacity: 0.5;
+
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+    }
   }
 
   &:hover,
@@ -69,18 +78,39 @@ export const RelativeContainerPlaceholder = styled(Field)``;
 
 // ----FILE INPUT WITH SVG------
 export const FileUploadLabel = styled.label`
+  position: relative;
   display: block;
   width: 279px;
   height: 268px;
-  margin-bottom: 32px;
   border-radius: 8px;
   cursor: pointer;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 32px;
+  }
+    @media screen and (min-width: 1440px) {
+    width: 357px;
+    height: 344px;
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 
 export const DefaultPhotoIcon = styled(defaultPhoto)`
   width: 279px;
   height: 268px;
   border-radius: 8px;
+      @media screen and (min-width: 1440px) {
+        width: 357px;
+        height: 344px;
+      }
 
   rect {
     fill: #8baa36;
@@ -115,10 +145,20 @@ export const SelectContainer = styled.div`
   display: flex;
   align-items: center;
   width: 343px;
-  height: 40px;
+  min-height: 40px;
   margin-bottom: 24px;
   border-bottom: 1px solid;
   border-bottom-color: ${props => (props.isError ? 'red' : 'black')};
+
+  @media screen and (min-width: 768px) {
+      width: 393px;
+      min-height: 43px;
+      margin-bottom: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 40px;
+  }
 
   label {
     position: absolute;
@@ -130,22 +170,17 @@ export const SelectContainer = styled.div`
     line-height: 1, 5;
     color: #000000;
     opacity: 0.5;
+
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
   }
 
-  select {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 85px;
-    font-weight: 400;
-    font-size: 12px;
-    color: #000000;
-    border: none;
-    background-color: transparent;
-    outline: 0;
-    /* -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none; */
+  }
+
+  /* select {
+    .slot {
+      max-height: 100px;
+    }
 
     @media screen and (min-width: 768px) {
       font-size: 14px;
@@ -156,7 +191,7 @@ export const SelectContainer = styled.div`
     &:focus {
       border: none;
     }
-  }
+  } */
 `;
 
 // ------ERROR ------

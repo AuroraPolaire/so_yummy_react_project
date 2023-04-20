@@ -40,7 +40,6 @@ const SearchForm = ({ searchType }) => {
       initialValues={{ query: '' }}
       validationSchema={validationSchema}
       onSubmit={values => {
-        // console.log(values);
         searchType === 'title' && dispatch(searchRecipes(searchQuery));
         searchType === 'ingredient' && dispatch(searchIngredient(searchQuery));
       }}

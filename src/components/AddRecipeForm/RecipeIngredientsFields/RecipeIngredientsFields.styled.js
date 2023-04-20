@@ -1,16 +1,37 @@
 import styled from 'styled-components';
 import Select from 'react-select';
 import { Field } from 'formik';
+import { ReactComponent as Cross } from '../../../images/icons/cross-icon.svg';
+
+export const IngredientsFieldsContainer = styled.div`
+width: 343px;
+  @media screen and (min-width: 768px) {
+    width: 704px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 609px;
+  }
+
+  ul {
+    margin-bottom: 44px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 100px;
+  }
+  }
+`
 
 export const IngredientsFieldsHeader = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 24px;
 
   h2 {
     margin-right: 116px;
   }
 `;
+
 export const CounterContainer = styled.div`
   display: flex;
   padding: 4px 14px;
@@ -22,7 +43,6 @@ export const CounterContainer = styled.div`
 
   button {
     width: 14px;
-    height: 14px;
     padding: 0;
     color: #8baa36;
     background-color: transparent;
@@ -34,11 +54,13 @@ export const InputsContainer = styled.li`
   width: 343px;
   display: flex;
   align-items: center;
+  gap: 14px;
   :not(:last-child) {
     margin-bottom: 18px;
   }
   @media screen and (min-width: 768px) {
     width: 704px;
+    gap: 32px;
     :not(:last-child) {
       margin-bottom: 24px;
     }
@@ -48,58 +70,40 @@ export const InputsContainer = styled.li`
   }
 `;
 
-export const InputWrap = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-`;
-
 export const MeasureContainer = styled.div`
   display: flex;
-  position: relative;
   gap: 0;
-
-  & .unitInput {
-    width: 57px;
-    height: 53px;
-    z-index: 5;
-    position: absolute;
-    right: -50px;
-    border: 0;
-    background-color: #f5f5f5;
-    /* opacity: 0.5; */
-    border-radius: 6px;
-    outline: none;
-
-    @media screen and (min-width: 768px) {
-      left: 40px;
-      height: 59px;
-    }
-
-    @media screen and (min-width: 1440px) {
-    }
+  width: 84px;
+  @media screen and (min-width: 768px) {
+    width: 97px;
   }
 `;
 
 export const NumberInput = styled(Field)`
-  position: relative;
   padding-left: 10px;
-  width: 45px;
+  /* min-width: 32px; */
+  width: 35%; 
   height: 53px;
   cursor: pointer;
   border: 0;
   background-color: #f5f5f5;
-  /* opacity: 0.5; */
-  border-radius: 6px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
   outline: none;
+  text-align: right;
+
+  /* Chrome, Safari, Edge, Opera */
+&::-webkit-outer-spin-button,
+&::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+  -moz-appearance: textfield;
 
   @media screen and (min-width: 768px) {
-    /* width: 97px; */
     height: 59px;
-    /* margin-right: 157px; */
-  }
-  @media screen and (min-width: 1440px) {
-    /* margin-right: 60px; */
   }
 `;
 
@@ -115,12 +119,33 @@ export const StyledSelect = styled(Select)`
   border-radius: 6px;
   outline: none;
   letter-spacing: -0.02em;
-  /* opacity: 0.5; */
   @media screen and (min-width: 768px) {
     width: 398px;
     height: 59px;
   }
   @media screen and (min-width: 1440px) {
     /* margin-right: 60px; */
+  }
+`;
+
+export const DeleteBtn = styled.button`
+border: none;
+outline: none;
+background-color: transparent;
+margin-left: auto;
+`
+
+export const CrossIcon = styled(Cross)`
+  width: 18px;
+  height: 18px;
+
+  :hover path,
+  :focus path {
+    stroke: red;
+  }
+
+    @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
   }
 `;

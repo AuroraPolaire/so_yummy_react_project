@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { SearchBox, StyledInput } from './Search.styled';
 import { changeSearchType } from 'redux/search/searchSlice';
@@ -10,9 +10,9 @@ import { useDispatch } from 'react-redux';
 const Search = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [searchParams] = useSearchParams('');
-  const searchQuery = searchParams.get('query') ?? '';
-  console.log(searchQuery);
+  // const [searchParams] = useSearchParams('');
+  // const searchQuery = searchParams.get('query') ?? '';
+  // console.log(searchQuery);
 
   // useEffect(() => {
   //   const currentParams = Object.fromEntries([...searchParams]);
@@ -38,7 +38,7 @@ const Search = () => {
       initialValues={{ query: '' }}
       validationSchema={validationSchema}
       onSubmit={({ query }) => {
-        console.log(query);
+        // console.log(query);
         dispatch(changeSearchType('title'));
         navigate({
           pathname: '/search',

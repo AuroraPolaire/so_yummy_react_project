@@ -2,6 +2,9 @@ import React from 'react';
 import Logo from 'components/Logo/Logo';
 import Navigation from 'components/Navigation/Navigation';
 import ThemeToggler from 'components/ThemeToggler/ThemeToggler';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectThemeIsLight } from '../../../redux/theme/themeSelectors';
+import { toggle } from '../../../redux/theme/themeSlice';
 
 import {
   MobileContainer,
@@ -12,6 +15,11 @@ import {
 } from './BurgerMenu.styled';
 
 const MobileMenu = ({ isShown, onBurgerClose }) => {
+  const dispatch = useDispatch();
+  const themeIsLight = useSelector(selectThemeIsLight);
+  const onToggleTheme = () => {
+    dispatch(toggle());
+  }
   return (
     <MobileContainer isShown={isShown}>
       <HeaderLogoWrapper onClick={onBurgerClose}>
@@ -24,7 +32,7 @@ const MobileMenu = ({ isShown, onBurgerClose }) => {
 
       <Navigation onBurgerClose={onBurgerClose} />
       <ThemeTogglerWrap>
-        <ThemeToggler />
+        <ThemeToggler value={!themeIsLight} onToggle={onToggleTheme} />
       </ThemeTogglerWrap>
     </MobileContainer>
   );

@@ -26,7 +26,8 @@ export const SearchBox = styled(Form)`
     border-radius: 24px 44px;
     border: 0;
     color: var(--font-white);
-    background-color: var(--font-gray);
+    ${'' /* background-color: var(--font-gray); */}
+    background-color:${props => props.theme.mode === "light" ? "var(--body-color-dark)" : "var(--accent-color-green)"};
     font-size: 14px;
     transition: background-color var(--transition-dur-and-func);
 
@@ -72,6 +73,7 @@ export const StyledInput = styled(Field)`
   background-color: #ffffff;
   color: var(--font-gray);
   height: 52px;
+  background-color:${props => props.theme.mode === "light" ? "var(--body-color-light)" : "var(--body-color-dark)"};
 
   @media screen and (min-width: 768px) {
     height: 59px;

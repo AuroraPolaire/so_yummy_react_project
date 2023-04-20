@@ -4,16 +4,17 @@ import { RecipeCardBox } from './RecipeCard.styled';
 
 const RecipeCard = ({ recipe }) => {
   function truncateTitle(str) {
+    if (str === undefined) return;
     const shortTitle = str.split(' ');
     return shortTitle.length < 4
       ? shortTitle.join(' ')
       : shortTitle.slice(0, 2).join(' ');
   }
-  // console.log(recipe);
+  console.log(recipe);
 
   // Проверка на существование recipe и его длину
   if (!recipe || recipe.length === 0) {
-    return null;
+    return;
   }
 
   return recipe.map(item => {

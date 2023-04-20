@@ -60,6 +60,7 @@ const CategoriesTabPanel = () => {
       fetchRecipesByCategory({ categoryName: pageName, limit: 8, page: value })
     );
     setCurrentPage(value);
+    window.scrollTo(0, 100);
     const timer = setTimeout(() => setShow(true), 500);
     return () => clearTimeout(timer);
   };
@@ -91,11 +92,9 @@ const CategoriesTabPanel = () => {
                     return (
                       <div key={item[0]}>
                         {key === 0 ? (
-                          <>
-                            <List>
-                              <RecipeCard recipe={item[1]}></RecipeCard>
-                            </List>
-                          </>
+                          <List>
+                            <RecipeCard recipe={item[1]}></RecipeCard>
+                          </List>
                         ) : null}
                       </div>
                     );

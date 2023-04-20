@@ -18,14 +18,12 @@ const MyRecipesPage = () => {
   const [show, setShow] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const response = useSelector(selectMyRecipes);
-  console.log('myRecipesList', response);
   const myRecipesList = Object.entries(response);
   let pages = Math.ceil(response.total / response.limit)
     ? Math.ceil(response.total / response.limit)
     : 1;
 
   useEffect(() => {
-    // dispatch(fetchRecipesByCategory({ limit: 4 }));
     dispatch(fetchMyRecipes({ limit: 4 }));
     const timer = setTimeout(() => setShow(true), 300);
     return () => clearTimeout(timer);

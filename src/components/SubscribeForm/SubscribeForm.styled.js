@@ -62,6 +62,7 @@ export const InputWrapper = styled.div`
 `;
 export const FormInput = styled.input`
   box-sizing: border-box;
+  text-overflow: ellipsis;
   display: block;
   margin: 0 auto;
   padding: 0;
@@ -84,7 +85,7 @@ export const FormInput = styled.input`
   border-radius: 6px;
   border: 1px solid
     ${({ error, touched }) =>
-      touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
+    touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
   @media screen and (min-width: 768px) {
     font-size: 14px;
   }
@@ -95,7 +96,7 @@ export const FormInput = styled.input`
     font-size: 10px;
     font-weight: 400;
     color: ${({ error, touched }) =>
-      touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
+    touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
     opacity: 1;
     @media screen and (min-width: 768px) {
       font-size: 14px;
@@ -143,7 +144,7 @@ export const FormBtn = styled.button`
   margin-top: 15px;
   padding: 11px 71px;
   font-size: 12px;
-  background-color: #8BAA36;
+  background-color:${props => props.theme.mode === "light" ? "var(--accent-color-green)" : "var(--body-color-dark)"};
   border-radius: 6px;
   transition: color 250ms linear;
   @media screen and (min-width: 768px) {

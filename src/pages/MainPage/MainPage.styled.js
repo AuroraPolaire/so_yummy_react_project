@@ -17,8 +17,9 @@ export const ButtonContainer = styled.div`
 
 export const Button = styled.button`
   padding: 14px 32px;
-  background-color: transparent;
-  color: var(--font-gray);
+  background-color:${props => props.theme.mode === "light" ? "var(--body-color-light)" : "var(--body-color-dark)"};
+  color:${props => props.theme.mode === "light" ? "var(--font-gray)" : "var(--font-white)"};
+
   font-size: 14px;
   font-weight: 400px;
   border-radius: 24px 44px;

@@ -25,6 +25,7 @@ const CategoriesPage = () => {
         categoryName: formattedQuery,
       })
     );
+    window.scrollTo(0, 100);
   }, [dispatch, location]);
 
   return (
@@ -33,9 +34,7 @@ const CategoriesPage = () => {
       <Section>
         <Wrapper>
           <PageTitle type="mainPage">Categories</PageTitle>
-          <CategoriesTabPanel
-          // handleChangePagination={handleChangePagination}
-          ></CategoriesTabPanel>
+          <CategoriesTabPanel></CategoriesTabPanel>
         </Wrapper>
       </Section>
     </>

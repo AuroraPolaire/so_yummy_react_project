@@ -23,7 +23,7 @@ import {
   SubFooterText,
   SubFooterTextBold,
   SubFooterTextRegular,
-} from "./Footer.styled";
+} from './Footer.styled';
 import { SubscribeForm } from '../SubscribeForm/SubscribeForm';
 import { changeSearchType } from 'redux/search/searchSlice';
 import { FollowUs } from '../FollowUs/FollowUs';
@@ -32,9 +32,9 @@ import FooterSharedBg from './FooterSharedBg';
 const Footer = () => {
   const dispatch = useDispatch();
   const handleFooterLinkClick = () => {
-  dispatch(changeSearchType('ingredient'));
+    dispatch(changeSearchType('ingredient'));
     window.scrollTo(0, 0);
-  }
+  };
   return (
     <footer
       style={{
@@ -48,12 +48,12 @@ const Footer = () => {
             <LogoFooterLinksWrapper>
               <LogoBenefitsWrapper>
                 <LogoWrapper>
-                <LogoLink to="/main">
-                  <LogoImg src={logo} alt="logo" width={32} />
-                    <LogoTitle>So Yummy
-                      <LogoLink to="/main"></LogoLink>
-                  </LogoTitle>
-                </LogoLink>
+                  <LogoLink to="/main">
+                    <LogoImg src={logo} alt="logo" width={32} />
+                    <LogoTitle>
+                      So Yummy
+                    </LogoTitle>
+                  </LogoLink>
                 </LogoWrapper>
                 <BenefitsList>
                   <BenefitsItem>
@@ -82,16 +82,27 @@ const Footer = () => {
                     </FooterLink>
                   </FooterLinkItem>
                   <FooterLinkItem>
-                    <FooterLink to="/add" onClick={handleFooterLinkClick}>Add recipes</FooterLink>
+                    <FooterLink to="/add" onClick={handleFooterLinkClick}>
+                      Add recipes
+                    </FooterLink>
                   </FooterLinkItem>
                   <FooterLinkItem>
-                    <FooterLink to="/my" onClick={handleFooterLinkClick}>My recipes</FooterLink>
+                    <FooterLink to="/my" onClick={handleFooterLinkClick}>
+                      My recipes
+                    </FooterLink>
                   </FooterLinkItem>
                   <FooterLinkItem>
-                    <FooterLink to="/favorite" onClick={handleFooterLinkClick}>Favorite</FooterLink>
+                    <FooterLink to="/favourite" onClick={handleFooterLinkClick}>
+                      Favourite
+                    </FooterLink>
                   </FooterLinkItem>
                   <FooterLinkItem>
-                    <FooterLink to="/shopping-list" onClick={handleFooterLinkClick}>Shopping list</FooterLink>
+                    <FooterLink
+                      to="/shopping-list"
+                      onClick={handleFooterLinkClick}
+                    >
+                      Shopping list
+                    </FooterLink>
                   </FooterLinkItem>
                 </FooterLinkWrapper>
               </nav>
@@ -111,7 +122,7 @@ const Footer = () => {
           </LogoSection>
 
           <FollowUsSection>
-            <FollowUs />
+            <FollowUs type="footer" />
           </FollowUsSection>
         </Container>
       </FooterSection>

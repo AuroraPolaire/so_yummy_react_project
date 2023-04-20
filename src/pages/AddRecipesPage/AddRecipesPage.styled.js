@@ -7,5 +7,6 @@ export const Content = styled.div`
   }
   @media screen and (min-width: 1440px) {
     flex-direction: row;
+    gap: 121px;
   }
 `;

@@ -14,7 +14,7 @@ const PopularRecipesItem = ({ recipe }) => {
   };
   return recipe.map(item => {
     return (
-      <RecipeCardBox>
+      <RecipeCardBox key={item._id}>
         <StyledLink key={item._id} to={`/recipe/${item._id}`}>
           <img src={item.preview} alt={item.title} />
 
