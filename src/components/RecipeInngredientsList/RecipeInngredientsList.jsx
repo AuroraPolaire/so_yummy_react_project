@@ -16,11 +16,15 @@ import {
 } from 'redux/shoppingList/shoppingListOperations';
 import { selectShoppingList } from 'redux/shoppingList/shoppingListSelectors';
 
+import { ReactComponent as Unchecked } from '../../images/icons/unchecked.svg';
+import { ReactComponent as Checked } from '../../images/icons/checked.svg';
+
 export default function RecipeInngredientsList({ ingredients }) {
   const dispatch = useDispatch();
   const products = useSelector(selectShoppingList);
 
   const handleChecked = (productId, measure) => {
+    if (products === null) return false;
     return products.some(
       p => p.productId === productId && p.measure.some(m => m === measure)
     );
@@ -48,18 +52,33 @@ export default function RecipeInngredientsList({ ingredients }) {
       <RecipeInngredientsListStyled>
         {ingredients.map(({ measure, title, _id, thumb, desc }) => (
           <RecipeInngredientsItem key={_id}>
-            <img src={thumb ?? DefaultThumb} alt={title} />
+            <img src={thumb || DefaultThumb} alt={title} />
             <p>{title}</p>
             {/* <p>{desc}</p> */}
             <Measure>{measure}</Measure>
-            <input
+            {/* <input
               type="checkbox"
               name="shoppingList"
               checked={handleChecked(_id, measure)}
               onChange={() => {
                 handleOnChange(_id, measure);
               }}
-            />
+            /> */}
+            {handleChecked(_id, measure) ? (
+              <Checked
+                style={{ cursor: 'pointer' }}
+                onClick={() => {
+                  handleOnChange(_id, measure);
+                }}
+              />
+            ) : (
+              <Unchecked
+                style={{ cursor: 'pointer' }}
+                onClick={() => {
+                  handleOnChange(_id, measure);
+                }}
+              />
+            )}
           </RecipeInngredientsItem>
         ))}
       </RecipeInngredientsListStyled>

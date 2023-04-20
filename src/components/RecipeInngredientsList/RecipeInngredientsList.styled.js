@@ -76,14 +76,14 @@ export const RecipeInngredientsItem = styled.li`
     }
   }
 
-  input[type='checkbox'] {
+  /* input[type='checkbox'] {
     width: 18px;
     height: 18px;
     @media screen and (min-width: 768px) {
       width: 35px;
       height: 35px;
     }
-  }
+  } */
 
   p:nth-child(2) {
     margin-right: auto;
