@@ -6,7 +6,7 @@ import {
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { StyledTextArea, Subtitle } from './RecipePreparationFields.styled';
+import { RecipePreparationContainer, StyledTextArea, Subtitle } from './RecipePreparationFields.styled';
 
 export default function RecipePreparationFields() {
     const { setFieldValue } = useFormikContext();
@@ -23,7 +23,7 @@ export default function RecipePreparationFields() {
 
 
   return (
-    <div>
+    <RecipePreparationContainer>
           <Subtitle>Recipe Preparation</Subtitle>
           <Field
               value={inputValue}
@@ -33,7 +33,7 @@ export default function RecipePreparationFields() {
               placeholder='Enter recipe'
                 />
           <ErrorMessage name="instructions" />
-    </div>
+    </RecipePreparationContainer>
   );
 }
 

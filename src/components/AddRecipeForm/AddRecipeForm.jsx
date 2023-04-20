@@ -10,8 +10,7 @@ import { fetchIngredientsList } from 'redux/search/searchOperations';
 import RecipeDescriptionFields from './RecipeDescriptionFields/RecipeDescriptionFields';
 import RecipeIngredientsFields from './RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from './RecipePreparationFields/RecipePreparationFields';
-import { StyledForm } from './AddRecipeForm.styled';
-import Button from 'components/Button/Button';
+import { StyledForm, SubmitButton } from './AddRecipeForm.styled';
 
 export default function AddRecipeForm() {
   const validationSchema = Yup.object({
@@ -19,7 +18,7 @@ export default function AddRecipeForm() {
     description: Yup.string().required('Required'),
     category: Yup.string().required('Required'),
     time: Yup.string().required('Required'),
-    instructions: Yup.string().required('Required'),
+    instructions: Yup.array().required('Required'),
   });
 
   const dispatch = useDispatch();
@@ -94,7 +93,7 @@ export default function AddRecipeForm() {
           <RecipeDescriptionFields categories={categories} />
           <RecipeIngredientsFields ingredients={ingredients} />
           <RecipePreparationFields></RecipePreparationFields>
-          <Button type="submit" title='Add' background='#22252A' color='#FAFAFA' borderColor />
+          <SubmitButton type="submit" title='Add' background='#22252A' color='#FAFAFA' borderColor> Add </SubmitButton>
         </StyledForm>
       )}
     </Formik>
