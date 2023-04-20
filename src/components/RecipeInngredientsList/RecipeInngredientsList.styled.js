@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+import { ReactComponent as Unchecked } from '../../images/icons/unchecked.svg';
+import { ReactComponent as Checked } from '../../images/icons/checked.svg';
+
 export const RecipeIngredientsContainer = styled.div`
   padding-top: 50px;
 `;
@@ -106,5 +109,29 @@ export const Measure = styled.p`
   }
   @media screen and (min-width: 1440px) {
     margin-right: 151px;
+  }
+`;
+
+export const CheckboxUnchecked = styled(Unchecked)`
+  cursor: pointer;
+
+  width: 18px;
+  height: 18px;
+
+  @media screen and (min-width: 768px) {
+    width: 35px;
+    height: 35px;
+  }
+`;
+
+export const CheckboxChecked = styled(Checked)`
+  cursor: pointer;
+
+  width: 18px;
+  height: 18px;
+
+  @media screen and (min-width: 768px) {
+    width: 35px;
+    height: 35px;
   }
 `;
