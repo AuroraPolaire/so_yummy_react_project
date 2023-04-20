@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import PropTypes from 'prop-types';
-import DefaultThumb from 'images/icons/page-not-found.svg';
+// import DefaultThumb from 'images/icons/page-not-found.svg';
 import {
   Measure,
   RecipeIngredientsContainer,
@@ -18,6 +18,7 @@ import { selectShoppingList } from 'redux/shoppingList/shoppingListSelectors';
 
 import { ReactComponent as Unchecked } from '../../images/icons/unchecked.svg';
 import { ReactComponent as Checked } from '../../images/icons/checked.svg';
+import { DefaultIngredientPicture } from 'components/DefaultIngredientPicture/DefaultIngredientPicture';
 
 export default function RecipeInngredientsList({ ingredients }) {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ export default function RecipeInngredientsList({ ingredients }) {
       <RecipeInngredientsListStyled>
         {ingredients.map(({ measure, title, _id, thumb, desc }) => (
           <RecipeInngredientsItem key={_id}>
-            <img src={thumb || DefaultThumb} alt={title} />
+            {thumb ? <img src={thumb} alt={title} /> : <DefaultIngredientPicture />}
             <p>{title}</p>
             {/* <p>{desc}</p> */}
             <Measure>{measure}</Measure>
