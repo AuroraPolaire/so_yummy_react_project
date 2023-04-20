@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 // import { NavLink } from 'react-router-dom';
 import { ReactComponent as IconDelete } from './../../images/icons/icon-delete.svg';
+import { ReactComponent as camera } from './../../images/icons/camera.svg';
 
 export const DeleteSvg = styled(IconDelete)`
   width: 18px;
@@ -173,4 +174,26 @@ export const StyledLink = styled.button`
     font-size: 10px;
     padding: 6px 14px;
   }
+`;
+
+export const DefaultPhotoIcon = styled(camera)`
+  width: 151px;
+  height: 124px;
+  padding: 45px;
+  border-radius: 8px;
+  fill: #fafafa;
+  background-color: rgb(217, 217, 217);
+  @media screen and (min-width: 768px) {
+    padding: 50px 80px;
+    width: 268px;
+    height: 232px;
+  }
+      @media screen and (min-width: 1440px) {
+        padding: 100px 120px;
+        width: 353px;
+        height: 318px;
+      }
+    path:nth-child(1) {
+      stroke: #fafafa;
+    }
 `;

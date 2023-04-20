@@ -62,7 +62,7 @@ export const RecipeInngredientsItem = styled.li`
   }
   @media screen and (min-width: 1440px) {
     max-width: 1240px;
-    padding: 0px 70px 0px 32px;
+    padding: 26px 70px 26px 32px;
   }
 
   img {

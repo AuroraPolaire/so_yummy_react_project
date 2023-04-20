@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as defaultPhoto } from '../../../images/icons/default-photo.svg';
+import { ReactComponent as camera } from '../../../images/icons/camera.svg';
 import { Field } from 'formik';
 
 export const RecipeDescriptionContainer = styled.div`
@@ -12,7 +12,7 @@ export const RecipeDescriptionContainer = styled.div`
   @media screen and (min-width: 768px) {
     flex-direction: row;
     gap: 32px;
-    width: 704px;
+    min-width: 704px;
     height: 268px;
     margin-bottom: 100px;
   }
@@ -103,32 +103,25 @@ export const FileUploadLabel = styled.label`
   }
 `;
 
-export const DefaultPhotoIcon = styled(defaultPhoto)`
-  width: 279px;
-  height: 268px;
+export const DefaultPhotoIcon = styled(camera)`
+  width: 100%;
+  height: 100%;
+  padding: 107.5px 102px;
   border-radius: 8px;
+  fill: #fafafa;
+  background-color: #8baa36;
+  transition: fill 250ms linear;
       @media screen and (min-width: 1440px) {
-        width: 357px;
-        height: 344px;
+        padding: 140px 146.5px;
       }
 
-  rect {
-    fill: #8baa36;
-  }
+    path:nth-child(1) {
+      stroke: #fafafa;
+    }
 
-  path:nth-of-type(2) {
-    fill: #fafafa;
-    transition: fill 250ms linear;
-  }
-
-  path:first-of-type {
-    stroke: #fafafa;
-    transition: fill 250ms linear;
-  }
-
-  :hover rect,
-  :focus rect {
-    fill: #8baa36;
+  :hover,
+  :focus {
+    background-color: #8baa36;
     filter: brightness(0.8);
   }
 `;
@@ -204,6 +197,9 @@ export const StyledErrorMessage = styled.span`
 
       case 'select':
         return '20px';
+      
+      case 'file':
+        return '-20px';
 
       default:
         return;
@@ -213,9 +209,6 @@ export const StyledErrorMessage = styled.span`
     switch (props.type) {
       case 'input':
         return 0;
-
-      case 'select':
-        return;
 
       default:
         return;
@@ -227,6 +220,9 @@ export const StyledErrorMessage = styled.span`
         return;
 
       case 'select':
+        return 0;
+      
+       case 'file':
         return 0;
 
       default:
