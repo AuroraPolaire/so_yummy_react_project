@@ -5,17 +5,19 @@ import PreviewCategories from 'components/PreviewCategories/PreviewCategories';
 import { Wrapper } from 'components/theme/GlobalContainer';
 import React from 'react';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchRecipesMainPage } from 'redux/recipes/recipesOperations';
 import { Link } from 'react-router-dom';
+import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 
 const MainPage = () => {
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    dispatch(fetchRecipesMainPage());
-  }, [dispatch]);
+    isLoggedIn && dispatch(fetchRecipesMainPage());
+  }, [dispatch, isLoggedIn]);
 
   return (
     <>

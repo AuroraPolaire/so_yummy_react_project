@@ -28,7 +28,7 @@ const authSlice = createSlice({
     builder
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.isLoggedIn = true;
+        // state.isLoggedIn = true;
       })
       .addCase(signIn.fulfilled, (state, action) => {
         console.log(action);
@@ -40,6 +40,7 @@ const authSlice = createSlice({
       .addCase(logout.fulfilled, state => {
         state.user = { name: null, email: null, avatarURL: null };
         state.token = null;
+        state.refreshToken = null;
         state.isLoggedIn = false;
       })
       .addCase(fetchCurrentUser.pending, state => {

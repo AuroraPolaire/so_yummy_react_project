@@ -17,10 +17,7 @@ import WelcomePage from 'pages/WelcomePage/WelcomePage';
 
 import SharedLayout from './SharedLayout/SharedLayout';
 import { PrivateRoute } from './PrivateRoute';
-import {
-  // selectIsLoggedIn,
-  selectIsRefreshing,
-} from '../redux/auth/authSelectors';
+import { selectIsRefreshing } from '../redux/auth/authSelectors';
 import { fetchCurrentUser } from '../redux/auth/authOperations';
 import React, { useEffect } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
