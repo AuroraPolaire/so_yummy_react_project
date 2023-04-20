@@ -8,7 +8,9 @@ import {
 
 const initialState = {
   results: [],
+  searchResults: [],
   totalResults: null,
+  limit: null,
   status: 'idle',
   searchType: 'title',
   query: '',
@@ -30,19 +32,21 @@ export const searchSlice = createSlice({
       })
       .addCase(searchRecipes.fulfilled, (state, action) => {
         // console.log(action);
-        state.results = action.payload.recipes;
+        state.searchResults = action.payload.recipes;
         state.totalResults = action.payload.total;
+        state.limit = action.payload.limit;
         state.status = 'resolved';
       })
       .addCase(searchRecipes.rejected, state => {
-        state.status = 'error';
-        state.results = [];
+        // state.searchResults = 'error';
+        state.searchResults = [];
         state.totalResults = 0;
       })
       .addCase(searchIngredient.fulfilled, (state, action) => {
         // console.log(action);
-        state.results = action.payload.recipes;
+        state.searchResults = action.payload.recipes;
         state.totalResults = action.payload.total;
+        state.limit = action.payload.limit;
         state.status = 'resolved';
       })
       .addCase(searchIngredient.pending, state => {
@@ -50,7 +54,7 @@ export const searchSlice = createSlice({
       })
       .addCase(searchIngredient.rejected, state => {
         state.status = 'error';
-        state.results = [];
+        state.searchResults = [];
         state.totalResults = 0;
       })
       .addCase(fetchIngredientsList.fulfilled, (state, action) => {

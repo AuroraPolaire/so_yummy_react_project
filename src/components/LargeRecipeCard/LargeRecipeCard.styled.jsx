@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { ReactComponent as IconDelete } from './../../images/icons/icon-delete.svg';
 
 export const DeleteSvg = styled(IconDelete)`
