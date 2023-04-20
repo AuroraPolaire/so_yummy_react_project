@@ -55,9 +55,8 @@ const RecipePage = props => {
 
   const currentRecipe = useSelector(
     prevPage === '/my' ? selectOneOwnRecipe : selectCurrentRecipe
-    );
-    
-    console.log('currentRecipe: ', currentRecipe);
+  );
+
   if (currentRecipe !== null) {
     const {
       title,
