@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { IconButton, Tooltip } from '@mui/material';
 
-import DefaultThumb from 'images/icons/page-not-found.svg';
+import DefaultThumb from '../../images/icons/page-not-found.svg';
 import {
   CrossIcon,
   ImgWrapper,
@@ -40,7 +40,7 @@ export default function IngredientsShoppingList() {
           products.map(({ productId, title, thumb, measure }) => (
             <IngredientsShoppingListItem key={productId}>
               <ImgWrapper>
-                <img src={thumb ?? DefaultThumb} alt={title} />
+                <img src={thumb || DefaultThumb} alt={title} />
               </ImgWrapper>
 
               <p>{title}</p>
