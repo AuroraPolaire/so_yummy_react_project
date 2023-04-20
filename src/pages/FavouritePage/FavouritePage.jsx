@@ -48,8 +48,8 @@ const FavouritePage = () => {
               <Stack spacing={2}>
                 <Pagination
                   count={pages}
-                  onChange={handleChangePagination}
                   page={currentPage}
+                  onChange={handleChangePagination}
                 />
               </Stack>
             </div>

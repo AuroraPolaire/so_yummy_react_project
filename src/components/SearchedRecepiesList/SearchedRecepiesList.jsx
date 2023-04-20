@@ -1,6 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectResults, selectStatus } from 'redux/search/searchSelectors';
+import {
+  selectSearchResults,
+  selectStatus,
+} from 'redux/search/searchSelectors';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 import { List } from 'components/CategoriesTabPanel/CategoriesTabPanel.styled';
 import { Loader } from 'components/Loader/Loader';
@@ -11,7 +14,7 @@ import {
 } from './SearchedRecepiesList.styled';
 
 const SearchedRecipiesList = () => {
-  const recipes = useSelector(selectResults);
+  const recipes = useSelector(selectSearchResults);
   // console.log(recipes);
   const { isLoading, isResolved } = useSelector(selectStatus);
   return (

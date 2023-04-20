@@ -3,8 +3,12 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchBar from 'components/SearchBar/SearchBar';
 import SearchedRecipesList from 'components/SearchedRecepiesList/SearchedRecepiesList';
-import { searchRecipes } from 'redux/search/searchOperations';
-import { selectResults, selectTotalResults, selectSearchType } from 'redux/search/searchSelectors';
+import { searchIngredient, searchRecipes } from 'redux/search/searchOperations';
+import {
+  selectTotalResults,
+  selectSearchType,
+  selectLimitResults,
+} from 'redux/search/searchSelectors';
 import { Section, Wrapper } from 'components/theme/GlobalContainer';
 import PageTitle from 'components/PageTitle/PageTitle';
 import Squares from 'components/Squares/Squares';
@@ -13,28 +17,40 @@ import Fade from '@mui/material/Fade';
 import Stack from '@mui/material/Stack';
 import { ThemeProvider } from '@mui/material/styles';
 import MuiProviderTheme from 'components/MuiProviderTheme/MuiProviderTheme';
+import { emptySearchResults } from 'redux/search/searchSlice';
 
 const SearchPage = () => {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
-  const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const searchType = useSelector(selectSearchType);
   const totalResults = useSelector(selectTotalResults);
-  const results = useSelector(selectResults);
-  
+  const limit = useSelector(selectLimitResults);
+
+  let countPages = Math.ceil(totalResults / limit)
+    ? Math.ceil(totalResults / limit)
+    : 1;
 
   const query = searchParams.get('query');
 
   useEffect(() => {
     if (!query) return;
-    dispatch(searchRecipes(query));
+    dispatch(searchRecipes({ query, page: 1 }));
+
+    return () => dispatch(emptySearchResults());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handlePageChange = (event, value) => {
-  setPage(value);
-  dispatch(searchRecipes(query, value, searchType)); // добавляем searchType
-};
+  const handleChangePagination = (e, value) => {
+    if (searchType === 'title') {
+      dispatch(searchRecipes({ query: query, page: value }));
+    }
+    if (searchType === 'ingredient') {
+      dispatch(searchIngredient({ query: query, page: value }));
+    }
+    window.scrollTo(0, 0);
+    setCurrentPage(value);
+  };
 
   return (
     <>
@@ -43,16 +59,16 @@ const SearchPage = () => {
         <Wrapper>
           <PageTitle type={'searchPage'}>Search</PageTitle>
           <SearchBar searchType={searchType} query={query} />
-          <SearchedRecipesList results={results.items} />
+          <SearchedRecipesList />
           {totalResults > 0 && (
             <Fade in={true}>
               <Stack spacing={2}>
                 <ThemeProvider theme={MuiProviderTheme}>
                   <Pagination
-                    count={Math.ceil(totalResults / 12)}
+                    page={currentPage}
+                    count={countPages}
+                    onChange={handleChangePagination}
                     color="primary"
-                    page={page}
-                    onChange={handlePageChange}
                   />
                 </ThemeProvider>
               </Stack>
