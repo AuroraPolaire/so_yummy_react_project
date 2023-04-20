@@ -79,15 +79,6 @@ export const IngredientsShoppingListItem = styled.li`
     }
   }
 
-  /* input[type='checkbox'] {
-    width: 18px;
-    height: 18px;
-    @media screen and (min-width: 768px) {
-      width: 35px;
-      height: 35px;
-    }
-  } */
-
   p:nth-child(2) {
     margin-right: auto;
   }
@@ -97,16 +88,19 @@ export const ImgWrapper = styled.div`
   background: #ebf3d4;
   border-radius: 8px;
   margin-right: 16px;
-  margin-bottom: 42px;
+
+  margin-top: 45px;
+  margin-bottom: 45px;
 `;
 
 export const IngredientsShoppingListMeasureWrapper = styled.div`
   display: flex;
+  width: 250px;
 `;
 
 export const IngredientsShoppingListMeasure = styled.div`
   margin-bottom: 0;
-  margin-right: 28px;
+  margin-right: auto;
   padding: 4px;
   background-color: #8baa36;
   color: #fafafa;
@@ -117,10 +111,10 @@ export const IngredientsShoppingListMeasure = styled.div`
   @media screen and (min-width: 768px) {
     padding: 4px 8px;
     font-size: 18px;
-    margin-right: 78px;
+    margin-right: auto;
   }
   @media screen and (min-width: 1440px) {
-    margin-right: 151px;
+    margin-right: auto;
 
     min-width: 68px;
     height: 35px;
