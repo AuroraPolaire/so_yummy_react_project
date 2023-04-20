@@ -5,14 +5,18 @@ import * as Yup from 'yup';
 
 import { addRecipe, fetchCategoryList } from 'redux/recipes/recipesOperations';
 import { selectCategoryList } from 'redux/recipes/recipesSelectors';
-import { fetchIngredientsList } from 'redux/search/searchOperations';
+import { fetchIngredientsList } from 'redux/ingredients/ingredientsOperations';
+import { selectIngredientsList } from 'redux/ingredients/ingredientsSelector';
 
 import RecipeDescriptionFields from './RecipeDescriptionFields/RecipeDescriptionFields';
 import RecipeIngredientsFields from './RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from './RecipePreparationFields/RecipePreparationFields';
 import { StyledForm, SubmitButton } from './AddRecipeForm.styled';
+import { useNavigate } from 'react-router-dom';
 
 export default function AddRecipeForm() {
+  const navigate = useNavigate();
+
   const validationSchema = Yup.object({
     title: Yup.string().required('Required'),
     description: Yup.string().required('Required'),
@@ -30,7 +34,7 @@ export default function AddRecipeForm() {
 
   const categories = useSelector(selectCategoryList);
 
-  const ingredients = useSelector(state => state.search.results);
+  const ingredients = useSelector(selectIngredientsList);
 
   return (
     <Formik
@@ -67,25 +71,8 @@ export default function AddRecipeForm() {
         });
 
         dispatch(addRecipe(formData));
-
-        // const reader = new FileReader();
-        // reader.onload = () => {
-        //   const imageDataUrl = reader.result;
-        //   const recipe = {
-        //     ...values,
-        //     fullImage: imageDataUrl,
-        //     ingredients: values.ingredients.map(({ id, quantity, measure }) => {
-        //       return {
-        //         id,
-        //         measure: quantity + measure,
-        //       }
-        //     })
-        //   }
-
-        //   console.dir(recipe);
-        //   dispatch(addRecipe(recipe));
-        // };
-        // reader.readAsDataURL(values.fullImage);
+        navigate('/my');
+        window.scrollTo(0, 0);
       }}
     >
       {formik => (
@@ -93,7 +80,16 @@ export default function AddRecipeForm() {
           <RecipeDescriptionFields categories={categories} />
           <RecipeIngredientsFields ingredients={ingredients} />
           <RecipePreparationFields></RecipePreparationFields>
-          <SubmitButton type="submit" title='Add' background='#22252A' color='#FAFAFA' borderColor> Add </SubmitButton>
+          <SubmitButton
+            type="submit"
+            title="Add"
+            background="#22252A"
+            color="#FAFAFA"
+            borderColor
+          >
+            {' '}
+            Add{' '}
+          </SubmitButton>
         </StyledForm>
       )}
     </Formik>

@@ -1,22 +1,20 @@
+import React from 'react';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 import Footer from 'components/Footer/Footer';
 import Header from 'components/Header/Header';
-// import { Wrapper } from 'components/theme/GlobalContainer';
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-// import PropTypes from 'prop-types'
+import Loader from 'components/Loader/Loader';
 
 const SharedLayout = props => {
   return (
-    <div>
-      {/* <Wrapper> */}
+    <>
       <Header />
-      <Outlet />
-      {/* </Wrapper> */}
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
       <Footer />
-    </div>
+    </>
   );
 };
-
-// SharedLayout.propTypes = {}
 
 export default SharedLayout;

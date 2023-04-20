@@ -135,15 +135,17 @@ border: none;
 outline: none;
 background-color: transparent;
 margin-left: auto;
+cursor: pointer;
 `
 
 export const CrossIcon = styled(Cross)`
   width: 18px;
   height: 18px;
-  
+  transition: fill 250ms linear;
 
-  :hover path,
-  :focus path {
+
+  &:hover path,
+  &:focus path {
     stroke: red;
   }
 

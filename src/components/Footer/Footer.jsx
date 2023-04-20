@@ -48,7 +48,7 @@ const Footer = () => {
             <LogoFooterLinksWrapper>
               <LogoBenefitsWrapper>
                 <LogoWrapper>
-                  <LogoLink to="/main">
+                  <LogoLink to="/main" onClick={handleFooterLinkClick}>
                     <LogoImg src={logo} alt="logo" width={32} />
                     <LogoTitle>
                       So Yummy

@@ -32,6 +32,7 @@ const CategoriesTabPanel = () => {
 
   const categoryList = Object.entries(useSelector(selectCategoryList));
   const response = useSelector(selectRecipesByCategoryList);
+
   const recipesByCategoryList = Object.entries(response);
   const countPages = Math.ceil(response.total / response.limit)
     ? Math.ceil(response.total / response.limit)
@@ -41,7 +42,6 @@ const CategoriesTabPanel = () => {
     const query = location.pathname.split('/')[2];
     const formattedQuery = query.charAt(0).toUpperCase() + query.slice(1);
     setPageName(formattedQuery);
-
     const timer = setTimeout(() => setShow(true), 500);
     return () => clearTimeout(timer);
   }, [location]);
