@@ -1,12 +1,20 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../redux/auth/authOperations';
-// import { Formik, Form, ErrorMessage, Field } from 'formik';
 import { Formik, ErrorMessage } from 'formik';
-
 import * as Yup from 'yup';
-// import { Wrapper } from 'components/theme/GlobalContainer';
-import { FormWrapper, AuthBox, StyledInput } from './SignInForm.styled';
+import {
+  AuthEmailIconStyled,
+  AuthPasswordIconStyled,
+  FormWrapper,
+  AuthBox,
+  InputWrapper,
+  StyledInput,
+  FormBtn,
+} from './SignInForm.styled';
+
+import notiflix from 'notiflix';
+// import { useFormik } from 'formik';
 
 const signInSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email address').required('Required'),
@@ -23,29 +31,6 @@ const signInSchema = Yup.object().shape({
 export const SignInForm = () => {
   const dispatch = useDispatch();
 
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-
-  // const handleChange = ({ target: { name, value } }) => {
-  //   switch (name) {
-  //     case 'email':
-  //       return setEmail(value);
-  //     case 'password':
-  //       return setPassword(value);
-  //     default:
-  //       return;
-  //   }
-  // };
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   dispatch(signIn({ email, password }));
-
-  //   setEmail('');
-  //   setPassword('');
-  //   <Navigate to="mainPage" />;
-  // };
-
   return (
     <FormWrapper>
       <Formik
@@ -55,34 +40,59 @@ export const SignInForm = () => {
           console.log(values);
           dispatch(signIn(values))
             .unwrap()
-            .then(data => {})
-            .catch(error => console.log(error));
+            .then(rejected => {
+              if (rejected.payload === 'Request failed with status code 403') {
+                return notiflix.Notify.warning('Sorry! Access denied');
+              }
+              if (rejected.payload === 'Request failed with status code 404') {
+                return notiflix.Notify.warning('It`s not your Email');
+              }
+              if (rejected.payload === 'Request failed with status code 409') {
+                return notiflix.Notify.warning(
+                  'You are already Subscribed. Try a different e-mail address.'
+                );
+              }
+              notiflix.Notify.success('Subscribed Successful');
+            })
+            .catch(error => {
+              console.log(error);
+              notiflix.Notify.failure('Subscription error');
+            });
+
           resetForm({ email: '', password: '' });
         }}
       >
         {props => (
           <AuthBox>
-            <StyledInput
-              type="text"
-              name="email"
-              placeholder="Email"
-              // onChange={handleChange}
-              // value={props.values.email}
-            />
-            <ErrorMessage name="email" render={message => <p>{message}</p>} />
-            <StyledInput
-              type="password"
-              name="password"
-              placeholder="Password"
-              // onChange={handleChange}
-              // value={props.values.password}
-            />
-            <ErrorMessage
-              name="password"
-              render={message => <p>{message}</p>}
-            />
+            <InputWrapper>
+              <AuthEmailIconStyled />
+              <StyledInput
+                type="text"
+                name="email"
+                placeholder="Email"
+                // onChange={handleChange}
+                // value={props.values.email}
+              />
+              <ErrorMessage name="email" render={message => <p>{message}</p>} />
+            </InputWrapper>
 
-            <button type="submit">Sign in</button>
+            <InputWrapper>
+              <AuthPasswordIconStyled />
+              <StyledInput
+                type="password"
+                name="password"
+                placeholder="Password"
+                // onChange={handleChange}
+                // value={props.values.password}
+              />
+              <ErrorMessage
+                name="password"
+                render={message => <p>{message}</p>}
+              />
+            </InputWrapper>
+
+            <FormBtn type="submit">Sign Up</FormBtn>
+
           </AuthBox>
         )}
       </Formik>

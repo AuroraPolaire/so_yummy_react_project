@@ -3,10 +3,25 @@ import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/authOperations';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-// import { Wrapper } from 'components/theme/GlobalContainer';
-import { FormWrapper, AuthBox, StyledInput } from './RegisterForm.styled';
+import {
+  AuthNameIconStyled,
+  AuthEmailIconStyled,
+  AuthPasswordIconStyled,
+  FormWrapper,
+  AuthBox,
+  InputWrapper,
+  StyledInput,
+  FormBtn,
+} from './RegisterForm.styled';
 
-// import { Navigate } from 'react-router';
+// import AuthNameIcon from '../../images/icons/authNameIcon.svg';
+// import authEmailIcon from '../../images/icons/authEmailIcon.svg';
+// import authPasswordIcon from '../../images/icons/authPasswordIcon.svg';
+// import authWarningIcon from '../../images/icons/authWarningIcon.svg';
+
+import notiflix from 'notiflix';
+// import { useFormik } from 'formik';
+
 
 const registerSchema = Yup.object().shape({
   name: Yup.string()
@@ -31,32 +46,6 @@ const registerSchema = Yup.object().shape({
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
-  // const [name, setName] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-
-  // const handleChange = ({ target: { name, value } }) => {
-  //   switch (name) {
-  //     case 'name':
-  //       return setName(value);
-  //     case 'email':
-  //       return setEmail(value);
-  //     case 'password':
-  //       return setPassword(value);
-  //     default:
-  //       return;
-  //   }
-  // };
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   dispatch(register({ name, email, password }));
-  //   setName('');
-  //   setEmail('');
-  //   setPassword('');
-  //   <Navigate to="mainPage" />;
-  // };
-
   return (
     <FormWrapper>
       <Formik
@@ -65,47 +54,74 @@ export const RegisterForm = () => {
         onSubmit={(values, { resetForm }) => {
           dispatch(register(values))
             .unwrap()
-            .then(data => {})
-            .catch(error => console.log(error));
+            .then(rejected => {
+              if (rejected.payload === 'Request failed with status code 403') {
+                return notiflix.Notify.warning('Sorry! Access denied');
+              }
+              if (rejected.payload === 'Request failed with status code 404') {
+                return notiflix.Notify.warning('It`s not your Email');
+              }
+              if (rejected.payload === 'Request failed with status code 409') {
+                return notiflix.Notify.warning(
+                  'You are already Subscribed. Try a different e-mail address.'
+                );
+              }
+              notiflix.Notify.success('Subscribed Successful');
+            })
+            .catch(error => {
+              console.log(error);
+              notiflix.Notify.failure('Subscription error');
+            });
           resetForm({ name: '', number: '', password: '' });
         }}
       >
         {props => (
           <AuthBox>
-            <StyledInput
-              type="text"
-              name="name"
-              placeholder="Name"
-              // autoComplete="off"
+            <InputWrapper>
+              <AuthNameIconStyled />
+              <StyledInput
+                type="text"
+                name="name"
+                placeholder="Name"
+                // autoComplete="off"
 
-              // onChange={handleChange}
-              // value={props.values.name}
-            />
-            <ErrorMessage name="name" render={message => <p>{message}</p>} />
-            <StyledInput
-              type="text"
-              name="email"
-              placeholder="Email"
-              // autoComplete="off"
-              // onChange={handleChange}
-              // value={props.values.email}
-            />
-            <ErrorMessage name="email" render={message => <p>{message}</p>} />
-            <StyledInput
-              type="password"
-              name="password"
-              placeholder="Password"
-              // autoComplete="off"
+                // onChange={handleChange}
+                // value={props.values.name}
+              />
+              <ErrorMessage name="name" render={message => <p>{message}</p>} />
+            </InputWrapper>
 
-              // onChange={handleChange}
-              // value={props.values.password}
-            />
-            <ErrorMessage
-              name="password"
-              render={message => <p>{message}</p>}
-            />
+            <InputWrapper>
+              <AuthEmailIconStyled />
+              <StyledInput
+                type="text"
+                name="email"
+                placeholder="Email"
+                // autoComplete="off"
+                // onChange={handleChange}
+                // value={props.values.email}
+              />
+              <ErrorMessage name="email" render={message => <p>{message}</p>} />
+            </InputWrapper>
 
-            <button type="submit">Sign Up</button>
+            <InputWrapper>
+              <AuthPasswordIconStyled />
+              <StyledInput
+                type="password"
+                name="password"
+                placeholder="Password"
+                // autoComplete="off"
+
+                // onChange={handleChange}
+                // value={props.values.password}
+              />
+              <ErrorMessage
+                name="password"
+                render={message => <p>{message}</p>}
+              />
+            </InputWrapper>
+
+            <FormBtn type="submit">Sign Up</FormBtn>
           </AuthBox>
         )}
       </Formik>

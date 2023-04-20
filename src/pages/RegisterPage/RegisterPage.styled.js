@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-
 // import authBgMobile from '../../images/auth/auth-bg-bottom-center-mobile.webp';
 // import authBgMobileRetina from '../../images/auth/auth-bg-bottom-center-mobile@2.webp';
 // import authBgTablet from '../../images/auth/auth-bg-bottom-center-tablet.webp';
@@ -19,9 +18,7 @@ import authBgDesktopRetina from '../../images/auth/auth-bg-bottom-desktop@2x.web
 import Picture from '../../images/icons/auth-bg-orderfood.svg';
 import PictureBlackLegs from '../../images/icons/auth-bg-orderfoodblacklegs.svg';
 
-export const BackgroundContainer = styled.div`
-
-`;
+export const BackgroundContainer = styled.div``;
 
 export const Section = styled.section`
   display: flex;
@@ -123,6 +120,7 @@ export const FormContainer = styled.div`
   @media screen and (min-width: 768px) {
     width: 500px;
     height: 481px;
+    padding: 44px 50px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -132,7 +130,7 @@ export const FormContainer = styled.div`
 `;
 
 export const FormTitle = styled.h2`
-  margin-bottom: 50px;
+  margin-bottom: 18px;
   font-weight: 600;
   font-size: 24px;
   line-height: 1.17;
@@ -152,7 +150,7 @@ export const StyledLink = styled(NavLink)`
   line-height: 1.5;
   color: var(--font-white);
   text-align: center;
-
+  text-decoration: underline;
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
