@@ -25,11 +25,16 @@ export default function IngredientsShoppingList() {
 
   return (
     <div>
-      <IngredientsShoppingListHead>
-        <p>Products</p>
-        <p>Number</p>
-        <p>Remove</p>
-      </IngredientsShoppingListHead>
+      {products !== null && products.length > 0 ? (
+        <IngredientsShoppingListHead>
+          <p>Products</p>
+          <p>Number</p>
+          <p>Remove</p>
+        </IngredientsShoppingListHead>
+      ) : (
+        <p>Your shopping list is empty</p>
+      )}
+
       <IngredientsShoppingListStyled>
         {products &&
           products.map(({ productId, title, thumb, measure }) => (
