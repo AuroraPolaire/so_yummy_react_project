@@ -11,10 +11,7 @@ import authBgDesktopRetina from '../../images/auth/auth-bg-bottom-desktop@2x.web
 import Picture from '../../images/icons/auth-bg-orderfood.svg';
 import PictureBlackLegs from '../../images/icons/auth-bg-orderfoodblacklegs.svg';
 
-export const BackgroundContainer = styled.div`
-
-`;
-
+export const BackgroundContainer = styled.div``;
 
 export const Section = styled.section`
   display: flex;
@@ -116,16 +113,15 @@ export const FormContainer = styled.div`
   @media screen and (min-width: 768px) {
     width: 500px;
     height: 419px;
+    padding: 44px 50px;
   }
 
   @media screen and (min-width: 1440px) {
-    /* width: 500px;
-    height: 484px; */
   }
 `;
 
 export const FormTitle = styled.h2`
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   font-weight: 600;
   font-size: 24px;
   line-height: 1.17;
@@ -136,7 +132,10 @@ export const FormTitle = styled.h2`
   @media screen and (min-width: 768px) {
     font-size: 28px;
     line-height: 1.07;
-    margin-bottom: 32px;
+    margin-bottom: 50px;
+  }
+
+  @media screen and (min-width: 1440px) {
   }
 `;
 
@@ -145,6 +144,7 @@ export const StyledLink = styled(NavLink)`
   line-height: 1.5;
   color: var(--font-white);
   text-align: center;
+  text-decoration: underline;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
