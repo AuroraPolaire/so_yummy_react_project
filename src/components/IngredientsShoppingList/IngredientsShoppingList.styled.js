@@ -32,9 +32,10 @@ export const IngredientsShoppingListHead = styled.div`
 `;
 export const IngredientsShoppingListStyled = styled.ul`
   li:not(:last-child) {
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
+    border-bottom: 1px solid #e0e0e0;
     @media screen and (min-width: 768px) {
-      margin-bottom: 24px;
+      /* margin-bottom: 45px; */
     }
   }
 `;
@@ -46,8 +47,8 @@ export const IngredientsShoppingListItem = styled.li`
   padding: 10px;
   font-size: 12px;
   font-weight: 500;
-  background: #ebf3d4;
-  border-radius: 8px;
+  /* background: #ebf3d4; */
+  /* border-radius: 8px; */
   @media screen and (min-width: 768px) {
     max-width: 704px;
     padding: 16px 24px;
@@ -55,7 +56,10 @@ export const IngredientsShoppingListItem = styled.li`
   }
   @media screen and (min-width: 1440px) {
     max-width: 1240px;
-    padding: 0px 70px 0px 32px;
+    /* padding: 0px 40px 0px 40px; */
+    padding: 0;
+    margin-left: 40px;
+    margin-right: 40px;
   }
 
   img {
@@ -67,26 +71,41 @@ export const IngredientsShoppingListItem = styled.li`
       margin-right: 24px;
     }
     @media screen and (min-width: 1440px) {
-      width: 180px;
-      margin-right: 40px;
+      width: 81px;
+      margin-right: 6px;
+      margin-left: 6px;
+      margin-top: 8px;
+      margin-bottom: 8px;
     }
   }
 
-  input[type='checkbox'] {
+  /* input[type='checkbox'] {
     width: 18px;
     height: 18px;
     @media screen and (min-width: 768px) {
       width: 35px;
       height: 35px;
     }
-  }
+  } */
 
   p:nth-child(2) {
     margin-right: auto;
   }
 `;
 
-export const IngredientsShoppingListMeasure = styled.p`
+export const ImgWrapper = styled.div`
+  background: #ebf3d4;
+  border-radius: 8px;
+  margin-right: 16px;
+  margin-bottom: 42px;
+`;
+
+export const IngredientsShoppingListMeasureWrapper = styled.div`
+  display: flex;
+`;
+
+export const IngredientsShoppingListMeasure = styled.div`
+  margin-bottom: 0;
   margin-right: 28px;
   padding: 4px;
   background-color: #8baa36;
@@ -102,5 +121,8 @@ export const IngredientsShoppingListMeasure = styled.p`
   }
   @media screen and (min-width: 1440px) {
     margin-right: 151px;
+
+    min-width: 68px;
+    height: 35px;
   }
 `;
