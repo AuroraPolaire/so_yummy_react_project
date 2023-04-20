@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   InstructionsStyled,
   RecipePreparationStyled,
@@ -40,3 +41,9 @@ export default function RecipePreparation({ instructions, previewImg, alt }) {
     </RecipePreparationStyled>
   );
 }
+
+RecipePreparation.propTypes = {
+  instructions: PropTypes.string.isRequired,
+  previewImg: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+};
