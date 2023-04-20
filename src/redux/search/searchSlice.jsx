@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   searchRecipes,
   searchIngredient,
-  fetchIngredientsList,
 } from './searchOperations';
 
 const initialState = {
@@ -60,17 +59,6 @@ export const searchSlice = createSlice({
         state.searchResults = [];
         state.totalResults = 0;
       })
-      .addCase(fetchIngredientsList.fulfilled, (state, action) => {
-        state.results = action.payload;
-        state.totalResults = action.payload.total;
-        state.status = 'resolved';
-      })
-      .addCase(fetchIngredientsList.pending, state => {
-        state.status = 'loading';
-      })
-      .addCase(fetchIngredientsList.rejected, state => {
-        state.status = 'error';
-      });
   },
 });
 

@@ -40,8 +40,9 @@ const LargeRecipeCard = ({ recipe, type }) => {
     if ((type === 'favorite' && favorite) || type === 'my') {
       return (
         <ThemeProvider theme={MuiProviderTheme} key={_id}>
-          <RecipeCardBox>
-            <img src={preview} alt={title} />
+            {item.preview && <img src={item.preview} alt={item.title} />}
+
+
             <div className="description-conainer">
               <h3>{truncateTitle(title)}</h3>
               <IconButton

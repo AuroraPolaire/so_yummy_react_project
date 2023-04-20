@@ -28,8 +28,9 @@ export default function CustomSelect({ options, ofType, ...props }) {
 
     control: (provided, state) => {
       const defaultStyles = {
-          border: 0,
-          outline: 0,
+        border: 0,
+        outline: 0,
+        cursor: 'pointer',
         '& .css-1dimb5e-singleValue': {
         color: 'gray',
         fontSize: '14px',
