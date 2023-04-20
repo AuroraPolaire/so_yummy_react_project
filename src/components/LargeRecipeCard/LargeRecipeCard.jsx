@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import Time from 'components/Time/Time';
 import MuiProviderTheme from 'components/MuiProviderTheme/MuiProviderTheme';
 import { useDispatch } from 'react-redux';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { RecipeCardBox, StyledLink, DeleteSvg } from './LargeRecipeCard.styled';
 import { toggleFavouriteRecipes } from 'redux/favourite/favouriteOperations';
@@ -11,6 +12,8 @@ import { deleteMyRecipes } from 'redux/myRecipes/myRecipesOperations';
 
 const LargeRecipeCard = ({ recipe, type }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
   const splitText = (stringToSplit, separator) => {
     return stringToSplit.split(separator).slice(0, -1);
   };
@@ -61,10 +64,11 @@ const LargeRecipeCard = ({ recipe, type }) => {
               <div className="btn-conainer">
                 <Time minutes={Number(item.time)}></Time>
                 <StyledLink
-                  type={type}
-                  key={item._id}
-                  to={`/recipe/${item._id}`}
-                  className="link"
+                  page={type}
+                  type="button"
+                  onClick={() =>
+                    navigate(`/recipe/${item._id}`, { state: location })
+                  }
                 >
                   See recipe
                 </StyledLink>

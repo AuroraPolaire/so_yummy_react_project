@@ -130,9 +130,9 @@ export const RecipeCardBox = styled.div`
     }
   }
 `;
-export const StyledLink = styled(NavLink)`
+export const StyledLink = styled.button`
   background-color: ${props => {
-    switch (props.type) {
+    switch (props.page) {
       case 'favorite':
         return `var(--font-gray)`;
 
@@ -149,13 +149,14 @@ export const StyledLink = styled(NavLink)`
   text-decoration: none;
   padding: 14px 38px;
   transition: background-color var(--transition-dur-and-func);
+  border: none;
 
   :hover,
   :active,
   :focus {
     cursor: pointer;
     background-color: ${props => {
-      switch (props.type) {
+      switch (props.page) {
         case 'favorite':
           return `var(--accent-color-green)`;
 
