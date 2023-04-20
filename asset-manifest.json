@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.f7dfbd0b.js",
+    "main.js": "/so_yummy_react_project/static/js/main.21241e02.js",
     "static/media/recipe_hero_bg1x.webp": "/so_yummy_react_project/static/media/recipe_hero_bg1x.b7b1c44bc5346e70d72a.webp",
     "static/media/dish_desktop2x.webp": "/so_yummy_react_project/static/media/dish_desktop2x.3b07418e7e4470b259ed.webp",
     "static/media/recipe_hero_bg2x.webp": "/so_yummy_react_project/static/media/recipe_hero_bg2x.9d6a67271bda69ba007c.webp",
@@ -50,7 +50,7 @@
     "static/media/auth-bg-bottom-mobile@2x.webp": "/so_yummy_react_project/static/media/auth-bg-bottom-mobile@2x.ecb54e02958e517d4882.webp",
     "static/media/auth-bg-bottom-tablet@1x.webp": "/so_yummy_react_project/static/media/auth-bg-bottom-tablet@1x.2d71b8f5564206f4a95a.webp",
     "static/media/auth-bg-bottom-desktop@1x.webp": "/so_yummy_react_project/static/media/auth-bg-bottom-desktop@1x.715ac8b96f77ace403b0.webp",
-    "static/media/default-photo.svg": "/so_yummy_react_project/static/media/default-photo.edb6d4850def329cef39085ef42c9a33.svg",
+    "static/media/default-photo.svg": "/so_yummy_react_project/static/media/default-photo.6b2769fd26cfc8f402ae5aacbe12ca94.svg",
     "index.html": "/so_yummy_react_project/index.html",
     "static/media/footer-logo.svg": "/so_yummy_react_project/static/media/footer-logo.3a2b0b0eb04e3edbd7f1fa05a4dfa246.svg",
     "static/media/default-avatar.svg": "/so_yummy_react_project/static/media/default-avatar.8882f2c7aaae2994b36f7d1dc715439e.svg",
@@ -69,9 +69,9 @@
     "static/media/burger.svg": "/so_yummy_react_project/static/media/burger.32b3cd4340613c9951a83bc4dd74e4cd.svg",
     "static/media/unchecked.svg": "/so_yummy_react_project/static/media/unchecked.0e78bb0b4e293b9d34605f73a54f6c26.svg",
     "static/media/arrow-down.svg": "/so_yummy_react_project/static/media/arrow-down.4c0759d592b9bf854db97289ce89a574.svg",
-    "main.f7dfbd0b.js.map": "/so_yummy_react_project/static/js/main.f7dfbd0b.js.map"
+    "main.21241e02.js.map": "/so_yummy_react_project/static/js/main.21241e02.js.map"
   },
   "entrypoints": [
-    "static/js/main.f7dfbd0b.js"
+    "static/js/main.21241e02.js"
   ]
 }
