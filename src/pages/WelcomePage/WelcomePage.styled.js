@@ -26,6 +26,7 @@ export const Section = styled.div`
   /* background-image: url(${welcomeMobile}); */
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
 
   @media screen and (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -53,7 +54,7 @@ export const Section = styled.div`
       (min-resolution: 2dppx) {
       background-image: url(${welcomeDesktopRetina});
     }
-  } ;
+  }
 `;
 
 export const LogoContainer = styled.div`
