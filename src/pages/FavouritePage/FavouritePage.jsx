@@ -19,7 +19,9 @@ const FavouritePage = () => {
   const [show, setShow] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const response = useSelector(selectFavouriteRecipes);
+  // console.log(response.total, 'favoritRecipesList');
   const favoritRecipesList = Object.entries(response);
+
   let pages = Math.ceil(response.total / response.limit)
     ? Math.ceil(response.total / response.limit)
     : 1;
@@ -47,11 +49,15 @@ const FavouritePage = () => {
                 recipesList={favoritRecipesList}
               ></PreviewRecipesList>
               <Stack spacing={2}>
-                <StyledPagination
-                  count={pages}
-                  page={currentPage}
-                  onChange={handleChangePagination}
-                />
+                {response.total ? (
+                  <StyledPagination
+                    count={pages}
+                    page={currentPage}
+                    onChange={handleChangePagination}
+                  />
+                ) : (
+                  <div>You don't have any favorite recipes yet</div>
+                )}
               </Stack>
             </div>
           </Fade>
@@ -62,13 +68,17 @@ const FavouritePage = () => {
 };
 
 const StyledPagination = styled(Pagination)`
-.MuiPagination-ul {
-  background-color:${props => props.theme.mode === "light" ? "var(--body-color-light)" : "#2A2C36;"};
-}
+  .MuiPagination-ul {
+    background-color: ${props =>
+      props.theme.mode === 'light' ? 'var(--body-color-light)' : '#2A2C36;'};
+  }
 
-li > button[aria-current=true] {
-  background-color:${props => props.theme.mode === "light" ? "var(--light-green)" : "var(--accent-color-green)"};
-}
+  li > button[aria-current='true'] {
+    background-color: ${props =>
+      props.theme.mode === 'light'
+        ? 'var(--light-green)'
+        : 'var(--accent-color-green)'};
+  }
 `;
 
 export default FavouritePage;

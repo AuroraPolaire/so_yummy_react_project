@@ -16,7 +16,6 @@ import styled from 'styled-components';
 
 const MyRecipesPage = () => {
   const dispatch = useDispatch();
-  // const location = useLocation();
   const [show, setShow] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const response = useSelector(selectMyRecipes);
@@ -51,11 +50,15 @@ const MyRecipesPage = () => {
               ></PreviewRecipesList>
 
               <Stack spacing={2}>
-                <StyledPagination
-                  count={pages}
-                  onChange={handleChangePagination}
-                  page={currentPage}
-                />
+                {response.total ? (
+                  <StyledPagination
+                    count={pages}
+                    onChange={handleChangePagination}
+                    page={currentPage}
+                  />
+                ) : (
+                  <div>You haven't added your own recipes yet</div>
+                )}
               </Stack>
             </div>
           </Fade>
