@@ -2,8 +2,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import PropTypes from 'prop-types';
-import DefaultThumb from 'images/icons/page-not-found.svg';
+// import DefaultThumb from 'images/icons/page-not-found.svg';
 import {
+  CheckboxChecked,
+  CheckboxUnchecked,
   Measure,
   RecipeIngredientsContainer,
   RecipeInngredientsHead,
@@ -16,11 +18,14 @@ import {
 } from 'redux/shoppingList/shoppingListOperations';
 import { selectShoppingList } from 'redux/shoppingList/shoppingListSelectors';
 
+import { DefaultIngredientPicture } from 'components/DefaultIngredientPicture/DefaultIngredientPicture';
+
 export default function RecipeInngredientsList({ ingredients }) {
   const dispatch = useDispatch();
   const products = useSelector(selectShoppingList);
 
   const handleChecked = (productId, measure) => {
+    if (products === null) return false;
     return products.some(
       p => p.productId === productId && p.measure.some(m => m === measure)
     );
@@ -48,18 +53,35 @@ export default function RecipeInngredientsList({ ingredients }) {
       <RecipeInngredientsListStyled>
         {ingredients.map(({ measure, title, _id, thumb, desc }) => (
           <RecipeInngredientsItem key={_id}>
-            <img src={thumb ?? DefaultThumb} alt={title} />
+            {thumb ? (
+              <img src={thumb} alt={title} />
+            ) : (
+              <DefaultIngredientPicture />
+            )}
             <p>{title}</p>
             {/* <p>{desc}</p> */}
             <Measure>{measure}</Measure>
-            <input
+            {/* <input
               type="checkbox"
               name="shoppingList"
               checked={handleChecked(_id, measure)}
               onChange={() => {
                 handleOnChange(_id, measure);
               }}
-            />
+            /> */}
+            {handleChecked(_id, measure) ? (
+              <CheckboxChecked
+                onClick={() => {
+                  handleOnChange(_id, measure);
+                }}
+              />
+            ) : (
+              <CheckboxUnchecked
+                onClick={() => {
+                  handleOnChange(_id, measure);
+                }}
+              />
+            )}
           </RecipeInngredientsItem>
         ))}
       </RecipeInngredientsListStyled>

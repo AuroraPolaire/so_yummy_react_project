@@ -1,24 +1,40 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import { addRecipe, fetchCategoryList } from 'redux/recipes/recipesOperations';
 import { selectCategoryList } from 'redux/recipes/recipesSelectors';
-import { fetchIngredientsList } from 'redux/search/searchOperations';
-
+import { fetchIngredientsList } from 'redux/ingredients/ingredientsOperations';
+import { selectIngredientsList } from 'redux/ingredients/ingredientsSelector';
+import { StyledForm, SubmitButton } from './AddRecipeForm.styled';
 import RecipeDescriptionFields from './RecipeDescriptionFields/RecipeDescriptionFields';
 import RecipeIngredientsFields from './RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from './RecipePreparationFields/RecipePreparationFields';
-import { StyledForm, SubmitButton } from './AddRecipeForm.styled';
 
 export default function AddRecipeForm() {
+  const navigate = useNavigate();
+
   const validationSchema = Yup.object({
     title: Yup.string().required('Required'),
     description: Yup.string().required('Required'),
     category: Yup.string().required('Required'),
     time: Yup.string().required('Required'),
     instructions: Yup.array().required('Required'),
+    fullImage: Yup.mixed()
+      .test(
+        'fileSize',
+        'File size is too large',
+        value => !value || value.size <= 10240
+      ) // limit to 10kb
+      .test(
+        'fileType',
+        'Only image files are allowed',
+        value => value =>
+          !value ||
+          ['image/jpg', 'image/jpeg', 'image/png'].includes(value.type)
+      ),
   });
 
   const dispatch = useDispatch();
@@ -30,7 +46,7 @@ export default function AddRecipeForm() {
 
   const categories = useSelector(selectCategoryList);
 
-  const ingredients = useSelector(state => state.search.results);
+  const ingredients = useSelector(selectIngredientsList);
 
   return (
     <Formik
@@ -66,26 +82,10 @@ export default function AddRecipeForm() {
           formData.append(key, recipe[key]);
         });
 
-        dispatch(addRecipe(formData));
-
-        // const reader = new FileReader();
-        // reader.onload = () => {
-        //   const imageDataUrl = reader.result;
-        //   const recipe = {
-        //     ...values,
-        //     fullImage: imageDataUrl,
-        //     ingredients: values.ingredients.map(({ id, quantity, measure }) => {
-        //       return {
-        //         id,
-        //         measure: quantity + measure,
-        //       }
-        //     })
-        //   }
-
-        //   console.dir(recipe);
-        //   dispatch(addRecipe(recipe));
-        // };
-        // reader.readAsDataURL(values.fullImage);
+        dispatch(addRecipe(formData))
+          .unwrap()
+          .then(res => navigate('/my'));
+        // navigate('/my');
       }}
     >
       {formik => (
@@ -93,7 +93,16 @@ export default function AddRecipeForm() {
           <RecipeDescriptionFields categories={categories} />
           <RecipeIngredientsFields ingredients={ingredients} />
           <RecipePreparationFields></RecipePreparationFields>
-          <SubmitButton type="submit" title='Add' background='#22252A' color='#FAFAFA' borderColor> Add </SubmitButton>
+          <SubmitButton
+            type="submit"
+            title="Add"
+            background="#22252A"
+            color="#FAFAFA"
+            borderColor
+          >
+            {' '}
+            Add{' '}
+          </SubmitButton>
         </StyledForm>
       )}
     </Formik>

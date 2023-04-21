@@ -71,7 +71,7 @@ export const NavBurgerIcon = styled(SvgBurger)`
   width: 24px;
   height: 24px;
   fill: none;
-  stroke: var(--font-gray);
+  stroke:${props => props.theme.mode === "light" ? "var(--body-color-dark)" : "var(--body-color-light)"};
   transition: color var(--transition-dur-and-func);
 
   @media (min-width: 1280px) {

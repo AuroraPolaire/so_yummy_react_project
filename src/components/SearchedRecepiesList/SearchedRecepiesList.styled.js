@@ -53,7 +53,7 @@ export const RecipeNotFoundText = styled.p`
   text-align: center;
   margin-top: 24px;
   margin-bottom: 100px;
-  color: #000000;
+  color:${props => props.theme.mode === "light" ? "#000000" : "var(--font-white)"};
   opacity: 0.5;
   @media screen and (min-width: 768px) {
     font-size: 24px;

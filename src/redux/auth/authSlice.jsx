@@ -28,10 +28,8 @@ const authSlice = createSlice({
     builder
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        // state.isLoggedIn = true;
       })
       .addCase(signIn.fulfilled, (state, action) => {
-        console.log(action);
         state.user = action.payload.user;
         state.token = action.payload.accessToken;
         state.refreshToken = action.payload.refreshToken;
@@ -79,7 +77,6 @@ const authSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
-        console.log(action);
         state.isError = null;
         state.isLoading = false;
         state.isSubscribed = true;

@@ -40,7 +40,6 @@ export const register = createAsyncThunk(
         };
         store.dispatch(signIn(userData));
       }
-      // console.log(result);
       return result.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

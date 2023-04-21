@@ -19,6 +19,7 @@ import {
 import { fetchRecipesByCategory } from 'redux/recipes/recipesOperations';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 import { List, RecipesContainer } from './CategoriesTabPanel.styled';
+import styled from 'styled-components';
 
 const CategoriesTabPanel = () => {
   const navigate = useNavigate();
@@ -102,7 +103,7 @@ const CategoriesTabPanel = () => {
                 </RecipesContainer>
               </Fade>
               <Stack spacing={2}>
-                <Pagination
+                <StyledPagination
                   page={currentPage}
                   count={countPages}
                   onChange={handleChangePagination}
@@ -116,5 +117,16 @@ const CategoriesTabPanel = () => {
     </>
   );
 };
+
+const StyledPagination = styled(Pagination)`
+.MuiPagination-ul {
+  background-color:${props => props.theme.mode === "light" ? "var(--body-color-light)" : "#2A2C36;"};
+
+}
+
+li > button[aria-current=true] {
+  background-color:${props => props.theme.mode === "light" ? "var(--light-green)" : "var(--accent-color-green)"};
+}
+`;
 
 export default CategoriesTabPanel;

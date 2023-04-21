@@ -11,19 +11,26 @@ import { fetchOneRecipe } from 'redux/recipes/recipesOperations';
 import { selectCurrentRecipe } from 'redux/recipes/recipesSelectors';
 import { selectOneOwnRecipe } from 'redux/recipes/recipesSelectors';
 import { fetchShoppingList } from 'redux/shoppingList/shoppingListOperations';
-import { selectShoppingList } from 'redux/shoppingList/shoppingListSelectors';
+import {
+  selectShoppingList,
+  selectShoppingListError,
+  selectShoppingListIsLoading,
+} from 'redux/shoppingList/shoppingListSelectors';
+import Loader from 'components/Loader/Loader';
+import { ShoppingListLoader } from 'pages/ShoppingListPage/ShoppingListPage.styled';
+import { Notify } from 'notiflix';
 
-// /recipe/640cd5ac2d9fecf12e8898a6 --- to test
-// 640cd5ac2d9fecf12e8898a3 ---- to test time in hours
-// 640cd5ac2d9fecf12e8898ae --- to test no time and no description
 const RecipePage = props => {
   const dispatch = useDispatch();
   const location = useLocation();
   const { recipeId } = useParams();
   const prevPage = location.state && location.state.pathname;
   const products = useSelector(selectShoppingList);
+  const shoppingListIsLoading = useSelector(selectShoppingListIsLoading);
+  const shoppingListError = useSelector(selectShoppingListError);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (prevPage === '/my') {
       dispatch(fetchOneRecipe(recipeId));
     } else {
@@ -35,7 +42,17 @@ const RecipePage = props => {
     if (products === null) {
       dispatch(fetchShoppingList());
     }
-  }, [dispatch, products]);
+
+    if (shoppingListError !== null) {
+      if (shoppingListError === 'Request failed with status code 403') {
+        Notify.failure(
+          'You have reached the maximum length (100) of your shopping list'
+        );
+      } else {
+        Notify.failure(shoppingListError);
+      }
+    }
+  }, [dispatch, products, shoppingListError]);
 
   const currentRecipe = useSelector(
     prevPage === '/my' ? selectOneOwnRecipe : selectCurrentRecipe
@@ -70,6 +87,12 @@ const RecipePage = props => {
               previewImg={previewImg || preview}
               alt={title}
             />
+          )}
+
+          {shoppingListIsLoading && (
+            <ShoppingListLoader>
+              <Loader />
+            </ShoppingListLoader>
           )}
         </Wrapper>
       </>

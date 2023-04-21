@@ -1,10 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import {
-  searchRecipes,
-  searchIngredient,
-  fetchIngredientsList,
-} from './searchOperations';
+import { searchRecipes, searchIngredient } from './searchOperations';
 
 const initialState = {
   results: [],
@@ -21,7 +17,6 @@ export const searchSlice = createSlice({
   initialState,
   reducers: {
     changeSearchType(state, action) {
-      // console.log(action);
       state.searchType = action.payload;
     },
     emptySearchResults(state, action) {
@@ -34,19 +29,16 @@ export const searchSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(searchRecipes.fulfilled, (state, action) => {
-        // console.log(action);
         state.searchResults = action.payload.recipes;
         state.totalResults = action.payload.total;
         state.limit = action.payload.limit;
         state.status = 'resolved';
       })
       .addCase(searchRecipes.rejected, state => {
-        // state.searchResults = 'error';
         state.searchResults = [];
         state.totalResults = 0;
       })
       .addCase(searchIngredient.fulfilled, (state, action) => {
-        // console.log(action);
         state.searchResults = action.payload.recipes;
         state.totalResults = action.payload.total;
         state.limit = action.payload.limit;
@@ -59,17 +51,6 @@ export const searchSlice = createSlice({
         state.status = 'error';
         state.searchResults = [];
         state.totalResults = 0;
-      })
-      .addCase(fetchIngredientsList.fulfilled, (state, action) => {
-        state.results = action.payload;
-        state.totalResults = action.payload.total;
-        state.status = 'resolved';
-      })
-      .addCase(fetchIngredientsList.pending, state => {
-        state.status = 'loading';
-      })
-      .addCase(fetchIngredientsList.rejected, state => {
-        state.status = 'error';
       });
   },
 });

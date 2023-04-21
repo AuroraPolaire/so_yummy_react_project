@@ -29,10 +29,14 @@ export const UserName = styled.span`
   font-weight: 600;
   font-size: 12px;
   line-height: 1.7;
-  color: var(--font-gray);
+  color:${props => props.theme.mode === "light" ? "var(--font-gray)" : "var( --font-white)"};
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
+  }
+
+    @media screen and (min-width: 1440px) {
+    color:var(--font-gray);
   }
 `;
 

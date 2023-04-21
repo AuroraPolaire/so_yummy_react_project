@@ -18,6 +18,7 @@ import { favouriteRecipesReducer } from './favourite/favouriteSlice';
 import { themeReducer } from './theme/themeSlice';
 
 import { myRecipesReducer } from './myRecipes/myRecipesSlice';
+import { ingredientsReducer } from './ingredients/ingredientsSlice';
 
 export const store = configureStore({
   reducer: {
@@ -30,6 +31,7 @@ export const store = configureStore({
     theme: themeReducer,
 
     myRecipes: myRecipesReducer,
+    ingredients: ingredientsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
