@@ -1,10 +1,8 @@
-import { SignInForm } from '../../components/SignInForm/SignInForm';
-// import { NavLink } from 'react-router-dom';
+import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
 
 import {
   BackgroundContainer,
   Section,
-  // PictureContainer,
   SectionContainer,
   StyledLink,
   FormContainer,
@@ -13,17 +11,12 @@ import {
 
 const SignInPage = () => {
   return (
-    // <div>
-    //   <h2>Sign In</h2>
-    //   <SignInForm />
-    //   <NavLink to="/register">Registration</NavLink>
-    // </div>
     <Section>
       <BackgroundContainer>
         <SectionContainer>
           <FormContainer>
             <FormTitle>Sign In</FormTitle>
-            <SignInForm />
+            <RegisterForm type="login" />
           </FormContainer>
           <StyledLink to="/register">Registration</StyledLink>
         </SectionContainer>
