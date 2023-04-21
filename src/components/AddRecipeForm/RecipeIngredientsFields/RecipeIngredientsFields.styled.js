@@ -4,7 +4,7 @@ import { Field } from 'formik';
 import { ReactComponent as Cross } from '../../../images/icons/cross-icon.svg';
 
 export const IngredientsFieldsContainer = styled.div`
-width: 343px;
+  width: 343px;
   @media screen and (min-width: 768px) {
     width: 704px;
   }
@@ -15,11 +15,11 @@ width: 343px;
 
   ul {
     margin-bottom: 44px;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 100px;
+    @media screen and (min-width: 768px) {
+      margin-bottom: 100px;
+    }
   }
-  }
-`
+`;
 
 export const IngredientsFieldsHeader = styled.div`
   display: flex;
@@ -29,7 +29,10 @@ export const IngredientsFieldsHeader = styled.div`
 
   h2 {
     margin-right: 116px;
-    color:${props => props.theme.mode === "light" ? "var( --accent-color-gray)" : "var(--font-white)"};
+    color: ${props =>
+      props.theme.mode === 'light'
+        ? 'var( --accent-color-gray)'
+        : 'var(--font-white)'};
   }
 `;
 
@@ -40,8 +43,14 @@ export const CounterContainer = styled.div`
   justify-content: center;
   gap: 14px;
   border-radius: 18px;
-  color:${props => props.theme.mode === "light" ? "var( --accent-color-gray)" : "var(--font-white)"};
-  border:${props => props.theme.mode === "light" ? "1px solid rgba(51, 51, 51, 0.3)" : "1px solid #FAFAFA"};
+  color: ${props =>
+    props.theme.mode === 'light'
+      ? 'var( --accent-color-gray)'
+      : 'var(--font-white)'};
+  border: ${props =>
+    props.theme.mode === 'light'
+      ? '1px solid rgba(51, 51, 51, 0.3)'
+      : '1px solid #FAFAFA'};
 
   button {
     width: 14px;
@@ -82,9 +91,9 @@ export const MeasureContainer = styled.div`
 `;
 
 export const NumberInput = styled(Field)`
-  padding-left: 10px;
+  padding-left: 6px;
   /* min-width: 32px; */
-  width: 35%; 
+  width: 43%;
   height: 53px;
   cursor: pointer;
   border: 0;
@@ -95,13 +104,13 @@ export const NumberInput = styled(Field)`
   text-align: right;
 
   /* Chrome, Safari, Edge, Opera */
-&::-webkit-outer-spin-button,
-&::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
-/* Firefox */
+  /* Firefox */
   -moz-appearance: textfield;
 
   @media screen and (min-width: 768px) {
@@ -131,25 +140,24 @@ export const StyledSelect = styled(Select)`
 `;
 
 export const DeleteBtn = styled.button`
-border: none;
-outline: none;
-background-color: transparent;
-margin-left: auto;
-cursor: pointer;
-`
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-left: auto;
+  cursor: pointer;
+`;
 
 export const CrossIcon = styled(Cross)`
   width: 18px;
   height: 18px;
   transition: fill 250ms linear;
 
-
   &:hover path,
   &:focus path {
     stroke: red;
   }
 
-    @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 20px;
     height: 20px;
   }
