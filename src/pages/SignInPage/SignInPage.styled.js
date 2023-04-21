@@ -18,20 +18,37 @@ export const Section = styled.section`
   justify-content: center;
   align-items: flex-start;
   text-decoration: none;
+  /* min-height: 100%;
+  max-height: fit-content;
+  width: 100%; */
+  /* background-size: 100% 490px; */
+  /* background-position: bottom center; */
+  /* height: 100vh; */
+  /* padding: 0 35px; */
+  /* background-attachment: fixed; */
   height: 100vh;
   width: 100vw;
 
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.6) 58.58%,
       rgba(0, 0, 0, 0.345172) 78.98%,
       rgba(0, 0, 0, 0) 100%
     ),
+    url(${Picture}), url(${authBgMobile}); */
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 58.58%,
+      rgba(0, 0, 0, 0) 78.98%,
+      rgba(0, 0, 0, 0) 100%
+    ),
     url(${Picture}), url(${authBgMobile});
 
   background-repeat: no-repeat;
-  background-size: 285px, 100% 490px;
-  background-position: center 87px, 100% 100%;
+  /* background-size: 285px, 100% 490px;
+  background-position: center 87px, 100% 100%; */
+  background-size: 375px, 100% 350px;
+  background-position: center bottom, 100% 9%;
   padding-top: 305px;
 
   @media screen and (min-device-pixel-ratio: 2),
@@ -44,7 +61,7 @@ export const Section = styled.section`
     background-image: url(${PictureBlackLegs}), url(${authBgTablet});
     background-size: 409px, 100% 606px;
     background-position: center 98px, 100% 100%;
-    padding-top: 443px;
+    padding-top: 400px;
 
     @media screen and (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -74,14 +91,22 @@ export const SectionContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* justify-content: center; */
   text-align: center;
+  /* width: 335px; */
+  gap: 50px;
   margin: 0 auto;
   width: 315px;
+  /* height: 350px; */
   @media screen and (min-width: 768px) {
     width: 500px;
+    gap: 0px;
+    /* height: 500px; */
   }
   @media screen and (min-width: 1440px) {
     width: 500px;
+    /* height: 484px; */
+    gap: 40px;
   }
 `;
 
@@ -90,7 +115,7 @@ export const FormContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 335px;
-  height: 100%;
+  /* height: 315px; */
   margin-bottom: 18px;
   padding: 32px 28px 40px;
   background: #2a2c36;
@@ -99,6 +124,7 @@ export const FormContainer = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 500px;
+    /* height: 419px; */
     padding: 44px 50px;
   }
 
