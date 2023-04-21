@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkso_yummy_react_project=self.webpackChunkso_yummy_react_project||[]).push([[75],{5075:function(e,r,s){s.r(r);var n=s(4943),c=s(4388),t=s(3329);r.default=function(){return(0,t.jsx)(c.$0,{children:(0,t.jsx)(c.H_,{children:(0,t.jsxs)(c.S$,{children:[(0,t.jsxs)(c.Yb,{children:[(0,t.jsx)(c.vw,{children:"Sign In"}),(0,t.jsx)(n.B,{type:"login"})]}),(0,t.jsx)(c.Fg,{to:"/register",children:"Registration"})]})})})}}}]);
+//# sourceMappingURL=75.7de2b10b.chunk.js.map

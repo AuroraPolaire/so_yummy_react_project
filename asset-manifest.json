@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/so_yummy_react_project/static/js/main.c5a12354.js",
-    "static/js/350.16783418.chunk.js": "/so_yummy_react_project/static/js/350.16783418.chunk.js",
-    "static/js/72.7359a1ac.chunk.js": "/so_yummy_react_project/static/js/72.7359a1ac.chunk.js",
+    "main.js": "/so_yummy_react_project/static/js/main.a1fcc8b3.js",
+    "static/js/75.7de2b10b.chunk.js": "/so_yummy_react_project/static/js/75.7de2b10b.chunk.js",
+    "static/js/589.c3cbb292.chunk.js": "/so_yummy_react_project/static/js/589.c3cbb292.chunk.js",
     "static/js/376.5480283d.chunk.js": "/so_yummy_react_project/static/js/376.5480283d.chunk.js",
     "static/js/373.0b33d193.chunk.js": "/so_yummy_react_project/static/js/373.0b33d193.chunk.js",
     "static/js/722.0130ca53.chunk.js": "/so_yummy_react_project/static/js/722.0130ca53.chunk.js",
@@ -15,7 +15,7 @@
     "static/js/20.17d82abf.chunk.js": "/so_yummy_react_project/static/js/20.17d82abf.chunk.js",
     "static/js/921.299aef87.chunk.js": "/so_yummy_react_project/static/js/921.299aef87.chunk.js",
     "static/js/879.77941403.chunk.js": "/so_yummy_react_project/static/js/879.77941403.chunk.js",
-    "static/js/885.282e2923.chunk.js": "/so_yummy_react_project/static/js/885.282e2923.chunk.js",
+    "static/js/528.0b100209.chunk.js": "/so_yummy_react_project/static/js/528.0b100209.chunk.js",
     "static/js/899.2fcbbf6a.chunk.js": "/so_yummy_react_project/static/js/899.2fcbbf6a.chunk.js",
     "static/js/358.ec4bceb5.chunk.js": "/so_yummy_react_project/static/js/358.ec4bceb5.chunk.js",
     "static/media/recipe_hero_bg1x.webp": "/so_yummy_react_project/static/media/recipe_hero_bg1x.b7b1c44bc5346e70d72a.webp",
@@ -73,12 +73,15 @@
     "static/media/footer-logo.svg": "/so_yummy_react_project/static/media/footer-logo.3a2b0b0eb04e3edbd7f1fa05a4dfa246.svg",
     "static/media/default-avatar.svg": "/so_yummy_react_project/static/media/default-avatar.8882f2c7aaae2994b36f7d1dc715439e.svg",
     "static/media/auth-bg-bottom-mobile@1x.webp": "/so_yummy_react_project/static/media/auth-bg-bottom-mobile@1x.be6f1c1b5345c6e2055b.webp",
-    "static/media/authEmailIcon.svg": "/so_yummy_react_project/static/media/authEmailIcon.b3624b00b1e34c17f3f58e886f69cabe.svg",
-    "static/media/authPasswordIcon.svg": "/so_yummy_react_project/static/media/authPasswordIcon.14efc5243d9d48691076193c45f3addb.svg",
+    "static/media/authEmailIcon.svg": "/so_yummy_react_project/static/media/authEmailIcon.b29d41a5ddd61e98b968a4deadb18af8.svg",
+    "static/media/authErrorIcon.svg": "/so_yummy_react_project/static/media/authErrorIcon.3284dca57b71cb8a007005da15d6647d.svg",
+    "static/media/authPasswordIcon.svg": "/so_yummy_react_project/static/media/authPasswordIcon.d22beeb65735c433a03aa012d3f29633.svg",
     "static/media/main-logo.svg": "/so_yummy_react_project/static/media/main-logo.5b9ddd57fe123674f925f4dacba2f48b.svg",
     "static/media/main--logo.svg": "/so_yummy_react_project/static/media/main--logo.d2174c2ad55a6fd324b43c568b091b3e.svg",
-    "static/media/authNameIcon.svg": "/so_yummy_react_project/static/media/authNameIcon.967af49948afe7b0fc21af337eb5a532.svg",
+    "static/media/authWarningIcon.svg": "/so_yummy_react_project/static/media/authWarningIcon.5ddb0938e765fca8ef5ca9f58244a82f.svg",
     "static/media/checked.svg": "/so_yummy_react_project/static/media/checked.7092cbf0f52d8068f96ab2950a743d71.svg",
+    "static/media/authNameIcon.svg": "/so_yummy_react_project/static/media/authNameIcon.5cf150406ef447667ffc55ce1a7d88f5.svg",
+    "static/media/authSuccessIcon.svg": "/so_yummy_react_project/static/media/authSuccessIcon.816f9b5438122063403d915949c93477.svg",
     "static/media/icon-delete.svg": "/so_yummy_react_project/static/media/icon-delete.8ae49a883741360b9f5bd63235e19157.svg",
     "static/media/cross-icon.svg": "/so_yummy_react_project/static/media/cross-icon.d91d398de3e8be14ab62448c07d2ba10.svg",
     "static/media/search.svg": "/so_yummy_react_project/static/media/search.7bd6033959ab7b144f43818cda85abae.svg",
@@ -87,9 +90,9 @@
     "static/media/burger.svg": "/so_yummy_react_project/static/media/burger.32b3cd4340613c9951a83bc4dd74e4cd.svg",
     "static/media/unchecked.svg": "/so_yummy_react_project/static/media/unchecked.0e78bb0b4e293b9d34605f73a54f6c26.svg",
     "static/media/arrow-down.svg": "/so_yummy_react_project/static/media/arrow-down.4c0759d592b9bf854db97289ce89a574.svg",
-    "main.c5a12354.js.map": "/so_yummy_react_project/static/js/main.c5a12354.js.map",
-    "350.16783418.chunk.js.map": "/so_yummy_react_project/static/js/350.16783418.chunk.js.map",
-    "72.7359a1ac.chunk.js.map": "/so_yummy_react_project/static/js/72.7359a1ac.chunk.js.map",
+    "main.a1fcc8b3.js.map": "/so_yummy_react_project/static/js/main.a1fcc8b3.js.map",
+    "75.7de2b10b.chunk.js.map": "/so_yummy_react_project/static/js/75.7de2b10b.chunk.js.map",
+    "589.c3cbb292.chunk.js.map": "/so_yummy_react_project/static/js/589.c3cbb292.chunk.js.map",
     "376.5480283d.chunk.js.map": "/so_yummy_react_project/static/js/376.5480283d.chunk.js.map",
     "373.0b33d193.chunk.js.map": "/so_yummy_react_project/static/js/373.0b33d193.chunk.js.map",
     "722.0130ca53.chunk.js.map": "/so_yummy_react_project/static/js/722.0130ca53.chunk.js.map",
@@ -102,11 +105,11 @@
     "20.17d82abf.chunk.js.map": "/so_yummy_react_project/static/js/20.17d82abf.chunk.js.map",
     "921.299aef87.chunk.js.map": "/so_yummy_react_project/static/js/921.299aef87.chunk.js.map",
     "879.77941403.chunk.js.map": "/so_yummy_react_project/static/js/879.77941403.chunk.js.map",
-    "885.282e2923.chunk.js.map": "/so_yummy_react_project/static/js/885.282e2923.chunk.js.map",
+    "528.0b100209.chunk.js.map": "/so_yummy_react_project/static/js/528.0b100209.chunk.js.map",
     "899.2fcbbf6a.chunk.js.map": "/so_yummy_react_project/static/js/899.2fcbbf6a.chunk.js.map",
     "358.ec4bceb5.chunk.js.map": "/so_yummy_react_project/static/js/358.ec4bceb5.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.c5a12354.js"
+    "static/js/main.a1fcc8b3.js"
   ]
 }
