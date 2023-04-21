@@ -83,11 +83,6 @@ const UserLogo = () => {
                     width: { xs: 34, sm: 40, md: 44 },
                   }}
                 />
-                {/* <UserAvatar
-                  style={{
-                    backgroundImage: `url(${avatarURL})`,
-                  }}
-                ></UserAvatar> */}
               </UserAvatarWrapper>
 
               <UserNameWrapper>

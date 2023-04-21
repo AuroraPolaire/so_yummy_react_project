@@ -15,15 +15,6 @@ export const UserAvatarWrapper = styled.div`
   align-items: center;
 `;
 
-export const UserAvatar = styled.div`
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-`;
-
 export const UserNameWrapper = styled.div``;
 export const UserName = styled.span`
   font-weight: 600;
@@ -69,7 +60,8 @@ export const EditWrapper = styled.div`
   justify-content: space-between;
   font-size: 14px;
   line-height: 1.6;
-  color:${props => props.theme.mode === "light" ? "var(--font-gray)" : "var(--font-white)"};
+  color: ${props =>
+    props.theme.mode === 'light' ? 'var(--font-gray)' : 'var(--font-white)'};
   font-weight: 500;
   transition: color var(--transition-dur-and-func);
 
