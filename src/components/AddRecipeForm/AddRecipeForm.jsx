@@ -23,8 +23,17 @@ export default function AddRecipeForm() {
     time: Yup.string().required('Required'),
     instructions: Yup.array().required('Required'),
     fullImage: Yup.mixed()
-    .test('fileSize', 'File size is too large', (value) => value && value.size <= 10240) // limit to 10kb
-    .test('fileType', 'Only image files are allowed', (value) => value && ['image/jpeg', 'image/jpg', 'image/png'].includes(value.type))
+      .test(
+        'fileSize',
+        'File size is too large',
+        value => value && value.size <= 10240
+      ) // limit to 10kb
+      .test(
+        'fileType',
+        'Only image files are allowed',
+        value =>
+          value && ['image/jpeg', 'image/jpg', 'image/png'].includes(value.type)
+      ),
   });
 
   const dispatch = useDispatch();
@@ -72,10 +81,8 @@ export default function AddRecipeForm() {
           formData.append(key, recipe[key]);
         });
 
-        dispatch(addRecipe(formData))
-          .unwrap()
-          .then(res => navigate('/my'));
-        window.scrollTo(0, 0);
+        dispatch(addRecipe(formData));
+        navigate('/my');
       }}
     >
       {formik => (

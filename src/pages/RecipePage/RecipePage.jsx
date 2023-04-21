@@ -30,6 +30,7 @@ const RecipePage = props => {
   const shoppingListError = useSelector(selectShoppingListError);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (prevPage === '/my') {
       dispatch(fetchOneRecipe(recipeId));
     } else {

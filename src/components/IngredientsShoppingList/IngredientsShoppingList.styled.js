@@ -32,11 +32,17 @@ export const IngredientsShoppingListHead = styled.div`
   }
 `;
 export const IngredientsShoppingListStyled = styled.ul`
- color:${props => props.theme.mode === "light" ? "var(--body-color-dark)" : "var(--body-color-light)"};
-  li{
+  color: ${props =>
+    props.theme.mode === 'light'
+      ? 'var(--body-color-dark)'
+      : 'var(--body-color-light)'};
+  li {
     /* margin-bottom: 16px; */
     border-bottom: 1px solid #e0e0e0;
-    border-bottom:${props => props.theme.mode === "light" ? "1px solid #e0e0e0" : "1px solid rgba(250, 250, 250, 0.3);"};
+    border-bottom: ${props =>
+      props.theme.mode === 'light'
+        ? '1px solid #e0e0e0'
+        : '1px solid rgba(250, 250, 250, 0.3);'};
     @media screen and (min-width: 768px) {
     }
   }
@@ -136,7 +142,14 @@ export const ShoppingListMeasure = styled.div`
 
 export const IngredientsShoppingListMeasureWrapper = styled.div`
   display: flex;
-  width: 250px;
+  width: 95px;
+  align-content: flex-start;
+  @media screen and (min-width: 768px) {
+    width: 210px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 280px;
+  }
 `;
 
 export const IngredientsShoppingListMeasure = styled.div`
