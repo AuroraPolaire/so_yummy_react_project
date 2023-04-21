@@ -61,19 +61,7 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
           name: newName,
         }}
         validationSchema={editSchema}
-        onSubmit={values => {
-          //   const formData = new FormData();
-          //   values.avatar && formData.append('avatar', values.avatar);
-          //   newName
-          //     ? formData.append('name', newName)
-          //     : formData.append('name', name);
-          //   dispatch(updateUser(formData))
-          //     .unwrap()
-          //     .then(res => closeUserInfoModal)
-          //     .catch(e => {
-          //       notiflix.Notify.failure('Size of image is too large!');
-          //     });
-        }}
+        onSubmit={values => {}}
       >
         {({ errors, handleSubmit, setFieldValue }) => (
           <>
@@ -138,7 +126,6 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
                       setFieldValue('name', e.target.value);
                       setNewName(e.target.value);
                     }}
-                    // helperText={errors.name}
                   />
                   {errors.name ? (
                     <div

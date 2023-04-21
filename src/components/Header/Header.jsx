@@ -28,7 +28,7 @@ const Header = () => {
   const themeIsLight = useSelector(selectThemeIsLight);
   const onToggleTheme = () => {
     dispatch(toggle());
-  }
+  };
 
   const onBurgerOpen = () => {
     setBurgerMenu(true);
@@ -41,7 +41,6 @@ const Header = () => {
   return (
     <header style={{ position: 'absolute', width: '100%' }}>
       <HeaderWrapper>
-        {/* <Wrapper> */}
         <HeaderSection>
           <Logo />
           {!isMobileDevice && <Navigation />}
@@ -51,7 +50,9 @@ const Header = () => {
             <NavBurger onClick={onBurgerOpen}>
               <NavBurgerIcon />
             </NavBurger>
-            {!isMobileDevice && <ThemeToggler value={!themeIsLight} onToggle={onToggleTheme} />}
+            {!isMobileDevice && (
+              <ThemeToggler value={!themeIsLight} onToggle={onToggleTheme} />
+            )}
           </UserWrapper>
           {isMobileDevice && BurgerMenu && (
             <Modal onClose={onBurgerClose}>
@@ -59,7 +60,6 @@ const Header = () => {
             </Modal>
           )}
         </HeaderSection>
-        {/* </Wrapper> */}
       </HeaderWrapper>
     </header>
   );
