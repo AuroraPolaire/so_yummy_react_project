@@ -45,15 +45,15 @@ export default function RecipeDescriptionFields({ categories }) {
     return {
       value: opt.toString(),
       label: `${opt} min`,
-      }}
-  )
+    };
+  });
 
-    const preparedCategories = categories.map(opt => {
+  const preparedCategories = categories.map(opt => {
     return {
       value: opt.title,
       label: opt.title,
-      }}
-  )
+    };
+  });
 
   return (
     <RecipeDescriptionContainer>
@@ -66,9 +66,9 @@ export default function RecipeDescriptionFields({ categories }) {
           onChange={handleFileUpload}
         />
         <DefaultPhotoIcon />
-      {errors.fullImage && (
+        {/* {errors.fullImage && (
         <StyledErrorMessage type="file">{ errors.fullImage}</StyledErrorMessage>
-      )}
+      )} */}
       </FileUploadLabel>
 
       <InputContainers>
@@ -107,9 +107,8 @@ export default function RecipeDescriptionFields({ categories }) {
           <Field
             name="category"
             type="text"
-            component=
-              {({ field, form }) => (
-                <CustomSelect
+            component={({ field, form }) => (
+              <CustomSelect
                 ofType="descInput"
                 options={preparedCategories}
                 value={preparedCategories.find(
@@ -118,20 +117,20 @@ export default function RecipeDescriptionFields({ categories }) {
                 onChange={option => {
                   form.setFieldValue(field.name, option.value);
                 }}
-                onBlur={(event) => {
+                onBlur={event => {
                   field.onBlur(event);
                   form.setFieldTouched(field.name, true);
                 }}
                 menuPosition={'fixed'}
                 isSearchable={false}
-            // func={arr =>
-            //   arr.map(cat => (
-            //     <option id="option" key={cat._id} value={cat.title}>
-            //       {cat.title}
-            //     </option>
-            //   ))
-            // }
-            // options={categories}
+                // func={arr =>
+                //   arr.map(cat => (
+                //     <option id="option" key={cat._id} value={cat.title}>
+                //       {cat.title}
+                //     </option>
+                //   ))
+                // }
+                // options={categories}
               />
             )}
           />
@@ -147,9 +146,8 @@ export default function RecipeDescriptionFields({ categories }) {
           <Field
             name="time"
             type="text"
-            component=
-              {({ field, form }) => (
-                <CustomSelect
+            component={({ field, form }) => (
+              <CustomSelect
                 ofType="descInput"
                 options={preparedTimeOptions}
                 value={preparedTimeOptions.find(
@@ -158,13 +156,13 @@ export default function RecipeDescriptionFields({ categories }) {
                 onChange={option => {
                   form.setFieldValue(field.name, option.value);
                 }}
-                onBlur={(event) => {
+                onBlur={event => {
                   field.onBlur(event);
                   form.setFieldTouched(field.name, true);
                 }}
                 menuPosition={'fixed'}
                 isSearchable={false}
-              /> 
+              />
             )}
             // func={arr =>
             //   arr.map(opt => (
