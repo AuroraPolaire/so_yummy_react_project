@@ -25,7 +25,7 @@ export const RecipeCardBox = styled.div`
   display: flex;
   gap: 40px;
   padding: 40px;
-  background-color: #ffffff;
+  background-color: #fafafa;
 
   @media screen and (max-width: 1440px) {
     gap: 24px;
@@ -188,12 +188,12 @@ export const DefaultPhotoIcon = styled(camera)`
     width: 268px;
     height: 232px;
   }
-      @media screen and (min-width: 1440px) {
-        padding: 100px 120px;
-        width: 353px;
-        height: 318px;
-      }
-    path:nth-child(1) {
-      stroke: #fafafa;
-    }
+  @media screen and (min-width: 1440px) {
+    padding: 100px 120px;
+    width: 353px;
+    height: 318px;
+  }
+  path:nth-child(1) {
+    stroke: #fafafa;
+  }
 `;
