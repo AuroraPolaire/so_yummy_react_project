@@ -38,7 +38,10 @@ ${normalize}
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color:${props => props.theme.mode === "light" ? "var(--body-color-light)" : "var(--body-color-dark)"};
+  background-color:${props =>
+    props.theme.mode === 'light'
+      ? 'var(--body-color-light)'
+      : 'var(--body-color-dark)'};
 }
 
 li {
@@ -74,5 +77,4 @@ html {
 div {
   box-sizing: border-box;
 }
-
 `;

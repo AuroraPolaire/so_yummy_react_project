@@ -18,14 +18,6 @@ export const Section = styled.section`
   justify-content: center;
   align-items: flex-start;
   text-decoration: none;
-  /* min-height: 100%;
-  max-height: fit-content;
-  width: 100%; */
-  /* background-size: 100% 490px; */
-  /* background-position: bottom center; */
-  /* height: 100vh; */
-  /* padding: 0 35px; */
-  /* background-attachment: fixed; */
   height: 100vh;
   width: 100vw;
 
@@ -82,19 +74,14 @@ export const SectionContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   text-align: center;
-  /* width: 335px; */
   margin: 0 auto;
   width: 315px;
-  /* height: 350px; */
   @media screen and (min-width: 768px) {
     width: 500px;
-    /* height: 500px; */
   }
   @media screen and (min-width: 1440px) {
     width: 500px;
-    /* height: 484px; */
   }
 `;
 
@@ -103,7 +90,7 @@ export const FormContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 335px;
-  height: 315px;
+  height: 100%;
   margin-bottom: 18px;
   padding: 32px 28px 40px;
   background: #2a2c36;
@@ -112,7 +99,6 @@ export const FormContainer = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 500px;
-    height: 419px;
     padding: 44px 50px;
   }
 

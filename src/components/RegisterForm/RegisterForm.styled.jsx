@@ -4,9 +4,85 @@ import { Field, Form } from 'formik';
 import { ReactComponent as AuthNameIcon } from '../../images/icons/authNameIcon.svg';
 import { ReactComponent as AuthEmailIcon } from '../../images/icons/authEmailIcon.svg';
 import { ReactComponent as AuthPasswordIcon } from '../../images/icons/authPasswordIcon.svg';
-// import { ReactComponent as AuthWarningIcon } from '../../images/icons/authWarningIcon.svg';
-// import { ReactComponent as AuthErrorIcon } from '../../images/icons/authErrorIcon.svg';
-// import { ReactComponent as AuthSuccessIcon } from '../../images/icons/authSuccessIcon.svg';
+
+import { ReactComponent as AuthWarningIcon } from '../../images/icons/authWarningIcon.svg';
+import { ReactComponent as AuthErrorIcon } from '../../images/icons/authErrorIcon.svg';
+import { ReactComponent as AuthSuccessIcon } from '../../images/icons/authSuccessIcon.svg';
+
+export const AuthErrorIconStyled = styled(AuthErrorIcon)`
+  position: absolute;
+  top: 16px;
+  right: 17px;
+  width: 14px;
+  height: 12px;
+  stroke: none;
+
+  fill: ${props => {
+    switch (props.status) {
+      case 'error':
+        return `var(--error)`;
+      default:
+        return;
+    }
+  }};
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 18px;
+    right: 20px;
+    top: 21px;
+  }
+`;
+
+export const AuthSuccessIconStyled = styled(AuthSuccessIcon)`
+  position: absolute;
+  top: 16px;
+  right: 17px;
+  width: 14px;
+  height: 12px;
+  stroke: none;
+
+  fill: ${props => {
+    switch (props.status) {
+      case 'correct':
+        return `var(--correct)`;
+      default:
+        return;
+    }
+  }};
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 18px;
+    right: 20px;
+    top: 21px;
+  }
+`;
+
+export const AuthWarningIconStyled = styled(AuthWarningIcon)`
+  position: absolute;
+  top: 16px;
+  right: 17px;
+  width: 14px;
+  height: 12px;
+  stroke: none;
+
+  fill: ${props => {
+    switch (props.status) {
+      case 'warning':
+        return `var(--warning)`;
+      default:
+        return;
+    }
+  }};
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 18px;
+    right: 20px;
+    top: 21px;
+  }
+`;
 
 export const AuthNameIconStyled = styled(AuthNameIcon)`
   position: absolute;
@@ -15,11 +91,23 @@ export const AuthNameIconStyled = styled(AuthNameIcon)`
   right: 0px;
   width: 14px;
   height: 12px;
-  /* color: #23262a; */
-  stroke: #FAFAFA;
-  /* path {
-    stroke: ${props => (props.errorformik ? '#E74A3B' : '#3CBC81')};
-  } */
+  stroke: #fafafa;
+
+  stroke: ${props => {
+    switch (props.status) {
+      case 'error':
+        return `var(--error)`;
+
+      case 'warning':
+        return `var(--warning)`;
+      case 'correct':
+        return `var(--correct)`;
+
+      default:
+        return;
+    }
+  }};
+
   @media screen and (min-width: 768px) {
     width: 20px;
     height: 18px;
@@ -35,11 +123,21 @@ export const AuthEmailIconStyled = styled(AuthEmailIcon)`
   right: 0px;
   width: 15px;
   height: 12px;
-  /* color: #23262a; */
-  stroke: #FAFAFA;
-  /* path {
-    stroke: ${props => (props.errorformik ? '#E74A3B' : '#3CBC81')};
-  } */
+  stroke: #fafafa;
+  stroke: ${props => {
+    switch (props.status) {
+      case 'error':
+        return `var(--error)`;
+
+      case 'warning':
+        return `var(--warning)`;
+      case 'correct':
+        return `var(--correct)`;
+
+      default:
+        return;
+    }
+  }};
   @media screen and (min-width: 768px) {
     width: 20px;
     height: 16px;
@@ -55,11 +153,18 @@ export const AuthPasswordIconStyled = styled(AuthPasswordIcon)`
   right: 0px;
   width: 14px;
   height: 14px;
-  /* color: #23262a; */
-  stroke: #FAFAFA;
-  /* path {
-    stroke: ${props => (props.errorformik ? '#E74A3B' : '#3CBC81')};
-  } */
+  stroke: #fafafa;
+  stroke: ${props => {
+    switch (props.status) {
+      case 'error':
+        return `var(--error)`;
+      case 'correct':
+        return `var(--correct)`;
+
+      default:
+        return;
+    }
+  }};
   @media screen and (min-width: 768px) {
     width: 18px;
     height: 18px;
@@ -84,8 +189,8 @@ export const AuthBox = styled(Form)`
 
 export const InputWrapper = styled.div`
   position: relative;
+  margin-bottom: 21px;
   @media screen and (min-width: 320px) and (max-width: 767px) {
-    /* margin: 0 auto; */
   }
 `;
 
@@ -97,32 +202,36 @@ export const StyledInput = styled(Field)`
   outline: none;
   width: 279px;
   height: 45px;
+  margin-bottom: 5px;
 
   border: 1px solid
     ${({ error, touched }) =>
       touched ? (error ? '#E74A3B' : '#3CBC81') : '#afafaf'};
-
-  /* border: 1px solid #afafaf; */
   border-radius: 6px;
   padding-left: 40px;
   padding-right: 40px;
   opacity: 0.8;
-  margin-bottom: 12px;
 
   color: ${({ error, touched }) =>
     touched ? (error ? '#E74A3B' : '#3CBC81') : '#fafafa'};
 
-  /* color: #fafafa; */
   &:hover,
-    &:focus {
-      border: 1px solid #FFFFFF;
-    }
+  &:focus {
+    border: 1px solid #ffffff;
+  }
+
+  &.error {
+    border-color: var(--error);
+  }
+
+  &.correct {
+    border-color: var(--correct);
+  }
   background-color: transparent;
   @media (min-width: 768px) {
     width: 400px;
     height: 59px;
     padding-left: 50px;
-    margin-bottom: 24px;
     font-size: 18px;
     line-height: 1.5;
   }
@@ -138,7 +247,6 @@ export const StyledInput = styled(Field)`
       font-size: 18px;
     }
   }
-
 `;
 
 export const FormBtn = styled.button`
@@ -181,130 +289,7 @@ export const FormBtn = styled.button`
     margin-top: 26px;
   }
   @media screen and (min-width: 1440px) {
-
   }
 `;
 
-// export const AuthForm = styled.form`
-//   display: flex;
-//   justify-content: center;
-//   align-items: flex-start;
-//   flex-direction: column;
-//   margin: 0;
-//   padding: 0;
-// `;
-
-// export const AuthUserNameLabel = styled.label`
-//   position: relative;
-//   svg {
-//     position: absolute;
-//     top: 15px;
-//     left: 15px;
-//     right: 0px;
-//     width: 18px;
-//     height: 18px;
-//     color: #23262a;
-//     @media (min-width: 478px) {
-//       width: 24px;
-//       height: 24px;
-//       left: 19px;
-//       top: 17px;
-//     }
-
-//     &:last-of-type {
-//       left: 251px;
-//       top: 15px;
-//       @media (min-width: 478px) {
-//         top: 20px;
-//         left: 363px;
-//         width: 19px;
-//         height: 19px;
-//       }
-//     }
-//   }
-//   & .error {
-//     position: absolute;
-//     top: -20px;
-//     left: 50px;
-//     font-family: 'Poppins';
-//     color: red;
-//     font-size: 14px;
-//     line-height: 1, 5;
-//   }
-// `;
-
-// export const StyledInput = styled.input`
-//   font-family: 'Poppins';
-//   font-style: normal;
-//   font-weight: 400;
-//   font-size: 14px;
-//   line-height: 21px;
-//   letter-spacing: -0.02em;
-//   outline: none;
-//   width: 282px;
-//   height: 48px;
-//   border: 1px solid #afafaf;
-//   border-radius: 4px;
-//   padding-left: 39px;
-//   padding-right: 42px;
-//   opacity: 0.8;
-//   margin-bottom: 24px;
-//   color: #23262a;
-//   @media (min-width: 478px) {
-//     width: 400px;
-//     height: 58px;
-//     padding-left: 51px;
-//     margin-bottom: 32px;
-//     font-size: 18px;
-//     line-height: 27px;
-//   }
-// `;
-
-// export const AuthSubmitButton = styled.button`
-//   padding-top: 12px;
-//   padding-bottom: 12px;
-//   font-family: 'Poppins';
-//   border: none;
-//   background-color: var(--accent-color-green);
-//   cursor: pointer;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   color: var(--font-white);
-//   border-radius: 6px;
-//   font-weight: 400;
-//   font-size: 16px;
-//   line-height: 1.13px;
-//   width: 279px;
-//   height: 45px;
-//   &:hover {
-//     color: #d3d3d3;
-//   }
-//   @media (min-width: 768px) {
-//     padding-top: 19px;
-//     padding-bottom: 19px;
-//     font-size: 16px;
-//     width: 400px;
-//     height: 56px;
-//   }
-
-//   @media (min-width: 1440px) {
-//     padding-top: 20px;
-//     padding-bottom: 20px;
-//     height: 59px;
-//   }
-// `;
-
-// OLD VARIANT
-
 export const FormWrapper = styled.div``;
-
-// export const AuthBox = styled(Form)`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   width: 279px;
-//   padding: 0;
-//   margin: 0;
-// `;
