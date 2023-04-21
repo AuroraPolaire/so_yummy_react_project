@@ -25,6 +25,7 @@ export const RecipeDescriptionContainer = styled.div`
 export const InputContainers = styled.div`
   display: flex;
   flex-direction: column;
+
 `;
 
 export const StyledInput = styled.input`
@@ -36,6 +37,7 @@ export const StyledInput = styled.input`
   border-bottom: 1px solid;
   border-bottom-color: ${props => (props.isError ? 'red' : 'black')};
   background-color: transparent;
+  color:${props => props.theme.mode === "light" ? "var(--font-gray)" : "var(--font-white)"};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;

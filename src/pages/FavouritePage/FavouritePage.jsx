@@ -12,6 +12,7 @@ import { fetchFavouriteRecipes } from 'redux/favourite/favouriteOperations';
 import PreviewRecipesList from 'components/PreviewRecipesList/PreviewRecipesList';
 import { selectFavouriteRecipes } from 'redux/favourite/favouriteSelectors';
 import Squares from 'components/Squares/Squares';
+import styled from 'styled-components';
 
 const FavouritePage = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ const FavouritePage = () => {
                 recipesList={favoritRecipesList}
               ></PreviewRecipesList>
               <Stack spacing={2}>
-                <Pagination
+                <StyledPagination
                   count={pages}
                   page={currentPage}
                   onChange={handleChangePagination}
@@ -59,5 +60,15 @@ const FavouritePage = () => {
     </ThemeProvider>
   );
 };
+
+const StyledPagination = styled(Pagination)`
+.MuiPagination-ul {
+  background-color:${props => props.theme.mode === "light" ? "var(--body-color-light)" : "#2A2C36;"};
+}
+
+li > button[aria-current=true] {
+  background-color:${props => props.theme.mode === "light" ? "var(--light-green)" : "var(--accent-color-green)"};
+}
+`;
 
 export default FavouritePage;

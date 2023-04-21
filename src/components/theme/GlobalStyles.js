@@ -13,7 +13,7 @@ ${normalize}
   --font-darkblue-p: #3e4462;
   --font-categories: #bdbdbd;
 
- --font-colorsecondary:#7e7e7e;
+  --font-colorsecondary:#7e7e7e;
 	--light-green: #ebf3d4;
 	--header-grey: #23262a;
 

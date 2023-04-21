@@ -7,6 +7,7 @@ export const Title = styled.h3`
   line-height: 1.25;
   letter-spacing: -0.24px;
   color: var(--font-darkblue-p);
+  color:${props => props.theme.mode === "light" ? "var(--font-darkblue-p)" : "var(--font-white)"};
 `;
 export const List = styled.ul`
   :last-child {
@@ -58,7 +59,8 @@ export const StyledLink = styled(NavLink)`
     font-size: 12px;
     line-height: 1.33;
     letter-spacing: -0.24px;
-    color: var(--font-colorsecondary);
+    color:${props => props.theme.mode === "light" ? "var(--font-colorsecondary)" : "var(--font-white)"};
+    opacity:${props => props.theme.mode === "light" ? "1" : "0.6"};
     max-height: 50px;
     overflow: hidden;
   }
