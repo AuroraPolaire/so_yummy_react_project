@@ -26,7 +26,7 @@ export default function AddRecipeForm() {
       .test(
         'fileSize',
         'File size is too large',
-        value => !value || value.size <= 10240
+        value => !value || value.size <= 1000000
       ) // limit to 10kb
       .test(
         'fileType',
