@@ -38,7 +38,6 @@ const favouriteRecipesSlice = createSlice({
         state.error = false;
       })
       .addCase(toggleFavouriteRecipes.fulfilled, (state, action) => {
-        console.log(action.payload);
         const index = state.favouriteRecipes.recipes.findIndex(
           recipe => recipe._id === action.payload._id
         );

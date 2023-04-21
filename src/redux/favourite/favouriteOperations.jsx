@@ -19,9 +19,7 @@ export const toggleFavouriteRecipes = createAsyncThunk(
   'recipes/toggleFavourite',
   async (id, thunkAPI) => {
     try {
-      console.log(id);
       const { data } = await axios.patch(`recipes/favorite/${id}`);
-      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -7,12 +8,10 @@ import { addRecipe, fetchCategoryList } from 'redux/recipes/recipesOperations';
 import { selectCategoryList } from 'redux/recipes/recipesSelectors';
 import { fetchIngredientsList } from 'redux/ingredients/ingredientsOperations';
 import { selectIngredientsList } from 'redux/ingredients/ingredientsSelector';
-
+import { StyledForm, SubmitButton } from './AddRecipeForm.styled';
 import RecipeDescriptionFields from './RecipeDescriptionFields/RecipeDescriptionFields';
 import RecipeIngredientsFields from './RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from './RecipePreparationFields/RecipePreparationFields';
-import { StyledForm, SubmitButton } from './AddRecipeForm.styled';
-import { useNavigate } from 'react-router-dom';
 
 export default function AddRecipeForm() {
   const navigate = useNavigate();
@@ -70,8 +69,9 @@ export default function AddRecipeForm() {
           formData.append(key, recipe[key]);
         });
 
-        dispatch(addRecipe(formData));
-        navigate('/my');
+        dispatch(addRecipe(formData))
+          .unwrap()
+          .then(res => navigate('/my'));
         window.scrollTo(0, 0);
       }}
     >

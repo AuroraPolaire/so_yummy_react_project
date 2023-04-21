@@ -8,7 +8,6 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Content } from './AddRecipesPage.styled';
-// import PropTypes from 'prop-types'
 
 const AddRecipesPage = () => {
   const dispatch = useDispatch();
@@ -31,7 +30,5 @@ const AddRecipesPage = () => {
     </>
   );
 };
-
-// AddRecipesPage.propTypes = {}
 
 export default AddRecipesPage;

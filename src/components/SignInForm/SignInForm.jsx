@@ -37,7 +37,6 @@ export const SignInForm = () => {
         initialValues={{ email: '', password: '' }}
         validationSchema={signInSchema}
         onSubmit={(values, { resetForm }) => {
-          console.log(values);
           dispatch(signIn(values))
             .unwrap()
             .then(rejected => {
@@ -55,7 +54,6 @@ export const SignInForm = () => {
               notiflix.Notify.success('Subscribed Successful');
             })
             .catch(error => {
-              console.log(error);
               notiflix.Notify.failure('Subscription error');
             });
 
@@ -92,7 +90,6 @@ export const SignInForm = () => {
             </InputWrapper>
 
             <FormBtn type="submit">Sign Up</FormBtn>
-
           </AuthBox>
         )}
       </Formik>

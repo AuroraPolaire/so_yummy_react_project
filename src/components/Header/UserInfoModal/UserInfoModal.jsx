@@ -84,15 +84,23 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
                 position: 'absolute',
                 right: 8,
                 top: 8,
-                color: theme.mode === "light" ? "var(--font-gray)" : "var(--font-white)",
+                color:
+                  theme.mode === 'light'
+                    ? 'var(--font-gray)'
+                    : 'var(--font-white)',
               }}
             >
               <CloseIcon />
             </IconButton>
-            <DialogContent sx={{
-              p: '60px',
-              backgroundColor: theme.mode === "light" ? "var(--body-color-light)" : "var(--body-color-dark)",
-            }}>
+            <DialogContent
+              sx={{
+                p: '60px',
+                backgroundColor:
+                  theme.mode === 'light'
+                    ? 'var(--body-color-light)'
+                    : 'var(--body-color-dark)',
+              }}
+            >
               <EditUserForm onSubmit={handleSubmit}>
                 <Avatar
                   sx={{
@@ -115,7 +123,6 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
                         URL.createObjectURL(event.currentTarget.files[0])
                       );
                       setNewFileAvatar(event.currentTarget.files[0]);
-                      // console.log(event.currentTarget.files[0]);
                     }}
                   />
                   <AddIcon sx={{ fontSize: 18, fill: 'white' }} />
@@ -131,7 +138,7 @@ const UserInfoModal = ({ closeUserInfoModal, avatarURL, name }) => {
                       setFieldValue('name', e.target.value);
                       setNewName(e.target.value);
                     }}
-                  // helperText={errors.name}
+                    // helperText={errors.name}
                   />
                   {errors.name ? (
                     <div

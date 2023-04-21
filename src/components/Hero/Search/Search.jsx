@@ -10,21 +10,6 @@ import { useDispatch } from 'react-redux';
 const Search = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const [searchParams] = useSearchParams('');
-  // const searchQuery = searchParams.get('query') ?? '';
-  // console.log(searchQuery);
-
-  // useEffect(() => {
-  //   const currentParams = Object.fromEntries([...searchParams]);
-  //   console.log(currentParams.query); // get new values onchange
-  // }, [searchParams]);
-
-  // const updateQueryString = e => {
-  //   let query = e.target.value;
-  //   console.log(query);
-  //   const nextParams = query !== '' ? { query } : {};
-  //   setSearchParams(nextParams);
-  // };
 
   const validationSchema = Yup.object().shape({
     query: Yup.string()
@@ -38,7 +23,6 @@ const Search = () => {
       initialValues={{ query: '' }}
       validationSchema={validationSchema}
       onSubmit={({ query }) => {
-        // console.log(query);
         dispatch(changeSearchType('title'));
         navigate({
           pathname: '/search',

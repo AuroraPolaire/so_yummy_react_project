@@ -12,9 +12,11 @@ import { fetchMyRecipes } from 'redux/myRecipes/myRecipesOperations';
 import PreviewRecipesList from 'components/PreviewRecipesList/PreviewRecipesList';
 import { selectMyRecipes } from 'redux/myRecipes/myRecipesSelectors';
 import Squares from 'components/Squares/Squares';
+// import { useLocation } from 'react-router-dom';
 
 const MyRecipesPage = () => {
   const dispatch = useDispatch();
+  // const location = useLocation();
   const [show, setShow] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const response = useSelector(selectMyRecipes);

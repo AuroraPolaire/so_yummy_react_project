@@ -17,11 +17,6 @@ const SearchForm = ({ searchType }) => {
   const [searchParams, setSearchParams] = useSearchParams('');
   const searchQuery = searchParams.get('query') ?? '';
 
-  // useEffect(() => {
-  //   const currentParams = Object.fromEntries([...searchParams]);
-  //   // console.log(currentParams.query); // get new values onchange
-  // }, [searchParams]);
-
   const updateQueryString = e => {
     let query = e.target.value;
     const nextParams = query !== '' ? { query } : {};

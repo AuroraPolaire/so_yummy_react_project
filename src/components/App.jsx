@@ -15,7 +15,6 @@ import Loader from './Loader/Loader';
 
 const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
-// const SharedLayout = lazy(() => import('./SharedLayout/SharedLayout'));
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const CategoriesPage = lazy(() =>
   import('pages/CategoriesPage/CategoriesPage')
@@ -31,16 +30,6 @@ const ShoppingListPage = lazy(() =>
 );
 const RecipePage = lazy(() => import('pages/RecipePage/RecipePage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
-
-// import MainPage from 'pages/MainPage/MainPage';
-// import CategoriesPage from 'pages/CategoriesPage/CategoriesPage';
-// import AddRecipesPage from 'pages/AddRecipesPage/AddRecipesPage';
-// import FavouritePage from 'pages/FavouritePage/FavouritePage';
-// import MyRecipesPage from 'pages/MyRecipesPage/MyRecipesPage';
-// import SearchPage from 'pages/SearchPage/SearchPage';
-// import ShoppingListPage from 'ShoppingListPage';
-// import RecipePage from 'pages/RecipePage/RecipePage';
-// import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 
 export const App = () => {
   const dispatch = useDispatch();

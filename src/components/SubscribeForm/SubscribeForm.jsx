@@ -48,7 +48,6 @@ const validationSchema = yup.object().shape({
           }
           notiflix.Notify.success('Subscribed Successful');
     }).catch((error) => {
-      console.log(error);
       notiflix.Notify.failure('Subscription error');
     });
     },

@@ -22,7 +22,6 @@ import {
 import notiflix from 'notiflix';
 // import { useFormik } from 'formik';
 
-
 const registerSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, 'Too Short!')
@@ -69,7 +68,6 @@ export const RegisterForm = () => {
               notiflix.Notify.success('Subscribed Successful');
             })
             .catch(error => {
-              console.log(error);
               notiflix.Notify.failure('Subscription error');
             });
           resetForm({ name: '', number: '', password: '' });

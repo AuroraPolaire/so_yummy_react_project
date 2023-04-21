@@ -35,10 +35,8 @@ const myRecipesSlice = createSlice({
         state.error = false;
       })
       .addCase(deleteMyRecipes.fulfilled, (state, action) => {
-        console.log('action.payload', action.payload.message);
         const message = action.payload.message;
         const responceId = message.split(' ')[1];
-        console.log('responceId', responceId);
 
         state.myRecipes.recipes = state.myRecipes.recipes.filter(
           recipe => recipe._id !== responceId
