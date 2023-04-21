@@ -12,7 +12,7 @@ import { fetchMyRecipes } from 'redux/myRecipes/myRecipesOperations';
 import PreviewRecipesList from 'components/PreviewRecipesList/PreviewRecipesList';
 import { selectMyRecipes } from 'redux/myRecipes/myRecipesSelectors';
 import Squares from 'components/Squares/Squares';
-// import { useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 
 const MyRecipesPage = () => {
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const MyRecipesPage = () => {
               ></PreviewRecipesList>
 
               <Stack spacing={2}>
-                <Pagination
+                <StyledPagination
                   count={pages}
                   onChange={handleChangePagination}
                   page={currentPage}
@@ -64,5 +64,19 @@ const MyRecipesPage = () => {
     </ThemeProvider>
   );
 };
+
+const StyledPagination = styled(Pagination)`
+  .MuiPagination-ul {
+    background-color: ${props =>
+      props.theme.mode === 'light' ? 'var(--body-color-light)' : '#2A2C36;'};
+  }
+
+  li > button[aria-current='true'] {
+    background-color: ${props =>
+      props.theme.mode === 'light'
+        ? 'var(--light-green)'
+        : 'var(--accent-color-green)'};
+  }
+`;
 
 export default MyRecipesPage;

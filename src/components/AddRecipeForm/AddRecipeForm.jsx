@@ -22,6 +22,9 @@ export default function AddRecipeForm() {
     category: Yup.string().required('Required'),
     time: Yup.string().required('Required'),
     instructions: Yup.array().required('Required'),
+    fullImage: Yup.mixed()
+    .test('fileSize', 'File size is too large', (value) => value && value.size <= 10240) // limit to 10kb
+    .test('fileType', 'Only image files are allowed', (value) => value && ['image/jpeg', 'image/jpg', 'image/png'].includes(value.type))
   });
 
   const dispatch = useDispatch();

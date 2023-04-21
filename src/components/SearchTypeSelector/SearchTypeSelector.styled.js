@@ -23,7 +23,7 @@ export const SelectorText = styled.p`
   font-size: 12px;
   line-height: 1.33;
   font-weight: 500;
-  color: #001833;
+  color:${props => props.theme.mode === "light" ? "var(--font-darkblue-heading)" : "var(--font-white)"};
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 1.28;

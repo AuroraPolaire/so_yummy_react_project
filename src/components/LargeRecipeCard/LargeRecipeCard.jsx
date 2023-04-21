@@ -7,7 +7,7 @@ import MuiProviderTheme from 'components/MuiProviderTheme/MuiProviderTheme';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import { RecipeCardBox, StyledLink, DeleteSvg } from './LargeRecipeCard.styled';
+import { RecipeCardBox, StyledLink, DeleteSvg, DefaultPhotoIcon } from './LargeRecipeCard.styled';
 import { toggleFavouriteRecipes } from 'redux/favourite/favouriteOperations';
 import { deleteMyRecipes } from 'redux/myRecipes/myRecipesOperations';
 
@@ -42,7 +42,7 @@ const LargeRecipeCard = ({ recipe, type }) => {
         return (
           <ThemeProvider theme={MuiProviderTheme} key={_id}>
             <RecipeCardBox>
-              {preview && <img src={preview} alt={title} />}
+              {preview ? <img src={preview} alt={title} /> : <DefaultPhotoIcon />}
               <div className="description-conainer">
                 <h3>{truncateTitle(title)}</h3>
                 <IconButton
