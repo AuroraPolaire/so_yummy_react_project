@@ -26,13 +26,14 @@ export default function AddRecipeForm() {
       .test(
         'fileSize',
         'File size is too large',
-        value => value && value.size <= 10240
+        value => !value || value.size <= 10240
       ) // limit to 10kb
       .test(
         'fileType',
         'Only image files are allowed',
-        value =>
-          value && ['image/jpeg', 'image/jpg', 'image/png'].includes(value.type)
+        value => value =>
+          !value ||
+          ['image/jpg', 'image/jpeg', 'image/png'].includes(value.type)
       ),
   });
 
@@ -81,8 +82,10 @@ export default function AddRecipeForm() {
           formData.append(key, recipe[key]);
         });
 
-        dispatch(addRecipe(formData));
-        navigate('/my');
+        dispatch(addRecipe(formData))
+          .unwrap()
+          .then(res => navigate('/my'));
+        // navigate('/my');
       }}
     >
       {formik => (
