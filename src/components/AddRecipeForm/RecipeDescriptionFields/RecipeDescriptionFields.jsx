@@ -66,6 +66,9 @@ export default function RecipeDescriptionFields({ categories }) {
           onChange={handleFileUpload}
         />
         <DefaultPhotoIcon />
+      {errors.fullImage && (
+        <StyledErrorMessage type="file">{ errors.fullImage}</StyledErrorMessage>
+      )}
       </FileUploadLabel>
 
       <InputContainers>

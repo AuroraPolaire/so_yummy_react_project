@@ -27,6 +27,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import Tooltip from '@mui/material/Tooltip';
 
 import { LogoutBtn } from '../UserLogo/UserLogo.styled';
+import { useTheme } from 'styled-components';
 
 const UserLogo = () => {
   const isTablet = useMediaQuery('(min-width: 768px)');
@@ -37,6 +38,7 @@ const UserLogo = () => {
   const [userLogoModalOpen, setUserLogoModalOpen] = useState(false);
   const [userInfoModalOpen, setUserInfoModalOpen] = useState(false);
   const [logoutConfirmationOpen, setLogoutConfirmationOpen] = useState(false);
+  const theme = useTheme();
 
   const popperOpen = Boolean(userLogoModalOpen);
   const anchorEl = document.querySelector('#user-logo-button');
@@ -109,6 +111,7 @@ const UserLogo = () => {
                   border: '1px solid #8BAA36',
                   boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
                   marginTop: isTablet ? 15 : 14,
+                  backgroundColor: theme.mode === "light" ? "var(--body-color-light)" : "var(--body-color-dark)",
                 }}
               >
                 <EditWrapper onClick={onUserInfoOpen}>

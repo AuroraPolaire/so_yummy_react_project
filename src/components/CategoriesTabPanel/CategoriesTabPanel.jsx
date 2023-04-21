@@ -121,6 +121,7 @@ const CategoriesTabPanel = () => {
 const StyledPagination = styled(Pagination)`
 .MuiPagination-ul {
   background-color:${props => props.theme.mode === "light" ? "var(--body-color-light)" : "#2A2C36;"};
+
 }
 
 li > button[aria-current=true] {

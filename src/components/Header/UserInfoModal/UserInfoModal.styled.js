@@ -53,7 +53,7 @@ export const EditUserNameLabel = styled.label`
     right: 0px;
     width: 18px;
     height: 18px;
-    color: #23262a;
+    color:${props => props.theme.mode === "light" ? "var(--body-color-dark)" : "var(--body-color-light)"};
     @media (min-width: 478px) {
       width: 24px;
       height: 24px;
@@ -100,6 +100,8 @@ export const EditUserNameInput = styled.input`
   opacity: 0.8;
   margin-bottom: 24px;
   color: #23262a;
+  color:${props => props.theme.mode === "light" ? "var(--font-gray)" : "var(--font-white)"};
+  background-color:${props => props.theme.mode === "light" ? "var(--body-color-light)" : "var(--body-color-dark)"};
   @media (min-width: 478px) {
     width: 400px;
     height: 58px;

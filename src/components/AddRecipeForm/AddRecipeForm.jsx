@@ -23,6 +23,9 @@ export default function AddRecipeForm() {
     category: Yup.string().required('Required'),
     time: Yup.string().required('Required'),
     instructions: Yup.array().required('Required'),
+    fullImage: Yup.mixed()
+    .test('fileSize', 'File size is too large', (value) => value && value.size <= 10240) // limit to 10kb
+    .test('fileType', 'Only image files are allowed', (value) => value && ['image/jpeg', 'image/jpg', 'image/png'].includes(value.type))
   });
 
   const dispatch = useDispatch();
@@ -72,6 +75,7 @@ export default function AddRecipeForm() {
 
         dispatch(addRecipe(formData));
         navigate('/my');
+        window.scrollTo(0, 0);
       }}
     >
       {formik => (
@@ -79,7 +83,16 @@ export default function AddRecipeForm() {
           <RecipeDescriptionFields categories={categories} />
           <RecipeIngredientsFields ingredients={ingredients} />
           <RecipePreparationFields></RecipePreparationFields>
-          <SubmitButton type="submit" title='Add' background='#22252A' color='#FAFAFA' borderColor> Add </SubmitButton>
+          <SubmitButton
+            type="submit"
+            title="Add"
+            background="#22252A"
+            color="#FAFAFA"
+            borderColor
+          >
+            {' '}
+            Add{' '}
+          </SubmitButton>
         </StyledForm>
       )}
     </Formik>
