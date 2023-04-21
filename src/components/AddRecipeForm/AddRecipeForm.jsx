@@ -85,6 +85,7 @@ export default function AddRecipeForm() {
         dispatch(addRecipe(formData))
           .unwrap()
           .then(res => navigate('/my'));
+        window.scrollTo(0, 0);
         // navigate('/my');
       }}
     >
