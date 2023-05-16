@@ -11,7 +11,7 @@ import { ThemeProvider } from 'styled-components';
 
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import SharedLayout from './SharedLayout/SharedLayout';
-import Loader from './Loader/Loader';
+// import Loader from './Loader/Loader';
 
 const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
@@ -46,7 +46,7 @@ export const App = () => {
         <GlobalStyles />
         <div>
           {isRefreshing ? null : (
-            <Suspense fallback={<Loader />}>
+            <Suspense fallback={<div></div>}>
               <Routes>
                 <Route
                   path="/welcome"
