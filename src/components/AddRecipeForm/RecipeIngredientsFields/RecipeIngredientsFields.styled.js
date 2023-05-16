@@ -84,16 +84,21 @@ export const InputsContainer = styled.li`
 export const MeasureContainer = styled.div`
   display: flex;
   gap: 0;
-  width: 84px;
+  width: ${props => 
+    props.ofLength > 2 ? '108px' : '84px'};
   @media screen and (min-width: 768px) {
-    width: 97px;
+    width: ${props => 
+    props.ofLength > 2 ? '110px' : '97px'};
   }
 `;
 
 export const NumberInput = styled(Field)`
   padding-left: 6px;
   /* min-width: 32px; */
-  width: 43%;
+
+  width: ${props => 
+    props.ofLength > 2 ? '45%' : '35%'}; 
+
   height: 53px;
   cursor: pointer;
   border: 0;

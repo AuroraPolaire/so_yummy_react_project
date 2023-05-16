@@ -166,12 +166,15 @@ export default function RecipeIngredientsFields({ ingredients }) {
             )}
           />
           <ErrorMessage name="ingredients" />
-          <MeasureContainer>
+        <MeasureContainer
+          ofLength={values.ingredients[i]?.quantity?.toString().length}
+        >
             <NumberInput
               name={`ingredients[${i}].quantity`}
               type="number"
               min="0"
               as={NumberInput}
+            ofLength={values.ingredients[i]?.quantity?.toString().length}
             />
             <ErrorMessage name="ingredients" />
             <UnitInput
